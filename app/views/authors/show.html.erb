@@ -1,0 +1,21 @@
+<h1>Author <%= @author.name %></h1>
+
+<%= @author.content %>
+
+<h2>Author books</h2>
+<ul>
+  <% @book.each do |book| %>
+    <li>
+      <%= link_to book.title, book_path(book) %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Author courses</h2>
+<ul>
+  <% @course.each do |course| %>
+    <li>
+      <%= link_to course.title, course_path(course) %>
+    </li>
+  <% end %>
+</ul>

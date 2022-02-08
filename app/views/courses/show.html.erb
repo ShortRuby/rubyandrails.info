@@ -1,0 +1,27 @@
+<h1>Course <%= @course.title %></h1>
+
+<% if current_user.try(:admin?) %>
+  <div>
+    <%= link_to 'Edit', edit_course_path(@course) %>
+    <%= button_to 'Delete', @course, method: :delete, style: 'background: tomato' %>
+  </div>
+<% end %>
+
+<h2>Course Description</h2>
+<%= @course.content %>
+
+<h2>Authors</h2>
+<% @course.authors.each do |author| %>
+  <%= link_to author.name, author %>
+<% end %>
+
+<h2>Tags</h2>
+<% @course.tags.each do |tag| %>
+  <%= link_to tag.title, tag %>
+<% end %>
+
+<h2>Course info</h2>
+Price <%= @course.free %>
+
+<h2>Get this book</h2>
+<%= link_to @course.courseSiteTitle, @course.courseSiteUrl %>

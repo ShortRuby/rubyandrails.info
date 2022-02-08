@@ -1,0 +1,18 @@
+<h1>Edit user</h1>
+
+<%= form_with model: @user do |f| %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :admin %>
+    <%= f.check_box :admin %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<h1>Courses</h1>
+
+<%= link_to 'New Course', new_course_path %>
+
+<h2>Courses</h2>
+<ul>
+  <% @courses.each do |course| %>
+    <li>
+      <%= link_to course.title, course %>
+      <%= link_to 'Edit', edit_book_path(course) %>
+    </li>
+  <% end %>
+</ul>
+
+<aside>
+  <h2>All tags</h2>
+  <ul>
+    <% @tags.each do |tag| %>
+      <li>
+        <%= link_to tag.title, tag %>
+      </li>
+    <% end %>
+  </ul>
+</aside>

@@ -1,0 +1,30 @@
+<%= form_with model: [@authorabble, @author] do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :content %>
+    <%= f.rich_text_area :content %>
+  </div>
+
+  <div>
+    <%= f.label 'Site' %>
+    <%= f.text_field :siteUrl %>
+  </div>
+
+  <div>
+    <%= f.label 'Twitter' %>
+    <%= f.text_field :twitterUrl %>
+  </div>
+
+  <div>
+    <%= f.label 'Github' %>
+    <%= f.text_field :githubUrl %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

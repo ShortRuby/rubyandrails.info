@@ -1,0 +1,53 @@
+<%= form_with(model: @book) do |f| %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content %>
+    <%= f.rich_text_area :content %>
+  </div>
+
+  <div>
+    <%= f.label :free %>
+    <%= f.check_box :free %>
+  </div>
+
+  <div>
+    <%= f.label :page %>
+    <%= f.number_field :page %>
+  </div>
+
+  <div>
+    <%= f.label :isbn %>
+    <%= f.text_field :isbn %>
+  </div>
+
+  <div>
+    <%= f.label 'Get book on Amazon' %>
+    <%= f.text_field :getBookOnAmazonUrl %>
+  </div>
+
+  <div>
+    <%= f.label 'Get book on' %>
+    <%= f.text_field :getBookOnSiteTitle, placeholder: 'Site title' %>
+    <%= f.text_field :getBookOnSiteUrl, placeholder: 'Site url' %>
+  </div>
+
+  <div>
+    <%= f.label :tag %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :title %>
+  </div>
+
+  <div>
+    <%= f.label :author %>
+    <%= f.collection_check_boxes :author_ids, Author.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

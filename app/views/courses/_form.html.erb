@@ -1,0 +1,37 @@
+<%= form_with(model: @course) do |f| %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content %>
+    <%= f.rich_text_area :content %>
+  </div>
+
+  <div>
+    <%= f.label :free %>
+    <%= f.check_box :free %>
+  </div>
+
+  <div>
+    <%= f.label 'Get course' %>
+    <%= f.text_field :courseSiteTitle, placeholder: 'title' %>
+    <%= f.text_field :courseSiteUrl, placeholder: 'url' %>
+  </div>
+
+  <div>
+    <%= f.label :author %>
+    <%= f.collection_check_boxes :author_ids, Author.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.label :tag %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :title %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

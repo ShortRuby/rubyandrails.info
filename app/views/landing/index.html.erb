@@ -1,0 +1,43 @@
+<h1>Main page</h1>
+<p>Find me in app/views/landing/index.html.erb</p>
+
+<h2>Books</h2>
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <% if book.free? %>
+        <%= link_to book.title, book %> 🤑
+      <% else %>
+        <%= link_to book.title, book %>
+      <% end %>
+
+      <%= link_to 'Edit', edit_book_path(book) %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Courses</h2>
+<ul>
+  <% @courses.each do |course| %>
+    <li>
+      <% if course.free? %>
+        <%= link_to course.title, course %> 🤑
+      <% else %>
+        <%= link_to course.title, course %>
+      <% end %>
+
+      <%= link_to 'Edit', edit_course_path(course) %>
+    </li>
+  <% end %>
+</ul>
+
+<aside>
+  <h2>All tags</h2>
+  <ul>
+    <% @tags.each do |tag| %>
+      <li>
+        <%= link_to tag.title, tag %>
+      </li>
+    <% end %>
+  </ul>
+</aside>

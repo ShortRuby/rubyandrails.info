@@ -1,0 +1,9 @@
+<%= form_with model: [@taggable, @tag] do |f| %>
+  <div>
+    <%= f.label :title  %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

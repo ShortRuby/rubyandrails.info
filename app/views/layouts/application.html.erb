@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RubyandrailsInfo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+
+<body>
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+<div>
+  <%= link_to 'Home', landing_index_path %>
+  <%= link_to 'Book', books_path %>
+  <%= link_to 'Course', courses_path %>
+  <%= link_to 'Authors', authors_path %>
+
+  <%= link_to 'Tags', tags_path %>
+  <% if current_user.try(:admin?) %>
+    <%= link_to 'Users', users_path %>
+  <% end %>
+</div>
+
+<div>
+  <% if user_signed_in? %>
+
+    <% if current_user.admin? %>
+      <p>🔥 admin</p>
+    <% end %>
+    <%= link_to current_user.name, user_path(current_user) %>
+    <%= button_to 'Log Out', destroy_user_session_path, method: :delete, style: 'background: tomato' %>
+  <% else %>
+    <%= link_to 'Log In', new_user_session_path %>
+    <%= link_to 'Sign Up', new_user_registration_path %>
+  <% end %>
+</div>
+
+<%= yield %>
+
+<aside>
+  <%= yield :sidebar %>
+</aside>
+
+</body>
+</html>

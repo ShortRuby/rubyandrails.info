@@ -1,0 +1,21 @@
+<h1>All <%= @tag.title %></h1>
+
+<%= button_to 'Delete', @tag, method: :delete, style: 'background: red' %>
+
+<h2>Books</h2>
+<ul>
+  <% @book.each do |book| %>
+    <li>
+      <%= link_to book.title, book_path(book) %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Courses</h2>
+<ul>
+  <% @course.each do |course| %>
+    <li>
+      <%= link_to course.title, course_path(course) %>
+    </li>
+  <% end %>
+</ul>

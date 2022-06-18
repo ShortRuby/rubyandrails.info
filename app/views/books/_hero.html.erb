@@ -1,10 +1,12 @@
-<div class="pt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center gap-10 lg:gap-20">
+<div class="pt-20 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 items-center gap-10 lg:gap-20">
 
-  <div class="lg:col-span-3 order-last md:order-first">
+  <div class="md:col-span-3 lg:col-span-4 order-last md:order-first">
 
-    <% @book.authors.each do |author| %>
-      <span class="mb-5"><%= author.name %></span>
-    <% end %>
+    <div class="mb-8">
+      <% @book.authors.each do |author| %>
+        <span class=""><%= author.name %></span>
+      <% end %>
+    </div>
 
     <h1 class="text-4xl lg:text-5xl font-custom">
       <span class="leading-tight inline-block font-bold"><%= @book.title %></span>
@@ -12,7 +14,26 @@
     </h1>
   </div>
 
-  <div class="book-container lg:col-span-2">
+</div>
+
+
+<div class="hidden pt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center gap-10 lg:gap-20">
+
+  <div class="lg:col-span-3 order-last md:order-first">
+
+    <div class="mb-8">
+      <% @book.authors.each do |author| %>
+        <span class=""><%= author.name %></span>
+      <% end %>
+    </div>
+
+    <h1 class="text-4xl lg:text-5xl font-custom">
+      <span class="leading-tight inline-block font-bold"><%= @book.title %></span>
+      <span class="font-base text-stone-400 text-3xl block"><%= @book.subtitle %></span> 
+    </h1>
+  </div>
+
+  <div class="book-container  lg:col-span-2">
     <div class="book">
       <img alt="Modern Front-End Development for Rails, Second Edition" src="https://pragprog.com/titles/nrclient2/modern-front-end-development-for-rails-second-edition/nrclient2.jpg" class="shrink-0">
     </div>

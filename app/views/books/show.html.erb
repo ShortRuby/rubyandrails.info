@@ -5,13 +5,10 @@
   </div>
 <% end %>
 
-<div class="space-y-20">
+<div class="space-y-20 mb-40">
   <%= render "hero" %>
   <%= render "content" %>
+  <%= render "learn" %>
   <%= render "author" %>
   <%= render "buy" %>
 </div>
-
-<% @book.tags.each do |tag| %>
-  <%= link_to tag.title, tag %>
-<% end %>

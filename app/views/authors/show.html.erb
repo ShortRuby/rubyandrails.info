@@ -1,25 +1,47 @@
-<h1>Author <%= @author.name %></h1>
+<%= link_to edit_author_path(@author), class: "fixed bottom-10 right-10" do %>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /> </svg>
+<% end %>
 
-<%= @author.content %>
 
-<% if current_user.try(:admin?) %>
-      <%= link_to 'Edit', edit_author_path(@author) %>
+<div class="p-20 text-stone-800 rounded-3xl bg-white mb-20">
+  <h1 class="text-4xl font-bold font-custom mb-16"><%= @author.name %></h1>
+
+
+
+    <div class="md:col-span-2">
+      <div class="mb-5 first-line:uppercase first-line:tracking-wide
+                   first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+                   first-letter:mr-3 first-letter:float-left">
+      <%= @author.content %>
+      </div>
+      <div class="flex gap-8 items-center">
+
+        <%= link_to @author.siteUrl, target: "_blank" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-stone-700 hover:stroke-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /> </svg>
+        <% end %>
+
+         <% if @author.twitterUrl.present? %>
+          <%= link_to @author.twitterUrl, target: "_blank" do %>
+            <svg class="stroke-stone-700 hover:stroke-red-500" width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M23 2.00005C22.0424 2.67552 20.9821 3.19216 19.86 3.53005C19.2577 2.83756 18.4573 2.34674 17.567 2.12397C16.6767 1.90121 15.7395 1.95724 14.8821 2.2845C14.0247 2.61176 13.2884 3.19445 12.773 3.95376C12.2575 4.71308 11.9877 5.61238 12 6.53005V7.53005C10.2426 7.57561 8.50127 7.18586 6.93101 6.39549C5.36074 5.60513 4.01032 4.43868 3 3.00005C3 3.00005 -1 12 8 16C5.94053 17.398 3.48716 18.099 1 18C10 23 21 18 21 6.50005C20.9991 6.2215 20.9723 5.94364 20.92 5.67005C21.9406 4.66354 22.6608 3.39276 23 2.00005V2.00005Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </svg> 
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div> 
+
+<div class="grid grid-cols-2 gap-10">
+  <% @books.each do |book| %>
+    <%= link_to book, class: "bg-white flex flex-col gap-5 relative hover:scale-110 hover:transition-all duration-300 p-8 font-bold rounded-2xl text-red-600 font-custom text-2xl" do %>
+      <div class="inline-block text-stone-600 font-normal text-base">
+        <% book.authors.each do |author| %>
+          <%= author.name %>
+        <% end %>
+      </div>
+
+      <div class="">
+        <%=  book.title %>
+      </div>
     <% end %>
-
-<h2>Author books</h2>
-<ul>
-  <% @book.each do |book| %>
-    <li>
-      <%= link_to book.title, book_path(book) %>
-    </li>
   <% end %>
-</ul>
 
-<h2>Author courses</h2>
-<ul>
-  <% @course.each do |course| %>
-    <li>
-      <%= link_to course.title, course_path(course) %>
-    </li>
-  <% end %>
-</ul>
+</div>

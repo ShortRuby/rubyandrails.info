@@ -19,8 +19,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    @book = Book.joins(:authors).where(authors: { id: @author })
-    @course = Course.joins(:authors).where(authors: { id: @author })
+    @books = Book.joins(:authors).where(authors: { id: @author })
   end
 
   def edit

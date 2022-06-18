@@ -1,16 +1,17 @@
-<h1>All authors</h1>
+<h1 class="font-bold font-custom text-5xl max-w-xl mb-20">Authors</h1>
 
 <% if current_user.try(:admin?) %>
-<%= link_to 'Add new', new_author_path %>
+  <%= link_to new_author_path, class: "fixed bottom-10 right-10" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
+  <% end %>
 <% end %>
 
-<ul>
+<div class="grid md:grid-cols-2 gap-10">
   <% @authors.each do |author| %>
-    <li>
-      <%= link_to author.name, author %>
-<% if current_user.try(:admin?) %>
-      <%= link_to 'Edit', edit_author_path(author) %>
+    <%= link_to author, class: "bg-white flex flex-col gap-5 relative hover:scale-110 hover:transition-all hover:duration-300 p-8 font-bold rounded-2xl text-red-600 font-custom text-2xl" do %>
+      <div class="">
+        <%=  author.name %>
+      </div>
     <% end %>
-    </li>
   <% end %>
-</ul>
+</div>

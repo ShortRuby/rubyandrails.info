@@ -1,10 +1,10 @@
-<nav class="flex justify-between py-10">
+<nav class="flex font-custom text-base justify-between pt-10 pb-28">
   <%= link_to 'Ruby & Rails', root_path %>
   <div class="flex gap-5">
     <%= link_to 'Books', books_path %>
     <%= link_to 'Course', courses_path, class: "hidden" %>
     <%= link_to 'Authors', authors_path %>
-    <%= link_to 'Tags', tags_path %>
+    <%= link_to 'Want to Learn', tags_path %>
 
     <% if current_user.try(:admin?) %>
       <%= link_to 'Users', users_path %>

@@ -1,18 +1,20 @@
-<h1>Tags</h1>
+<h1 class="font-bold font-custom text-5xl max-w-xl mb-20">Want to learn</h1>
 
-<div>
-<% if current_user.try(:admin?) %>
-  <%= link_to 'New tag', new_tag_path %>
-<% end %>
+<div class="fixed bottom-10 right-10 flex gap-10">
+  <% if current_user.try(:admin?) %>
+    <%= link_to new_tag_path  do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
+    <% end %> 
+    <%= link_to edit_tag_path(tag)   do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /> </svg>
+    <% end %> 
+  <% end %>
 </div>
 
-<ul>
+<div class="space-y-5">
   <% @tags.each do |tag| %>
-    <li>
-      <%= link_to tag.title, tag %>
-<% if current_user.try(:admin?) %>
-      <%= link_to 'Edit', edit_tag_path(tag) %>
-    <% end %>
-    </li>
+    <p class="text-4xl hover:text-stone-300 font-custom">
+    <%= link_to tag.title, tag %>
+    </p>
   <% end %>
-</ul>
+</div>

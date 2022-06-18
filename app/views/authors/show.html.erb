@@ -2,7 +2,9 @@
 
 <%= @author.content %>
 
+<% if current_user.try(:admin?) %>
       <%= link_to 'Edit', edit_author_path(@author) %>
+    <% end %>
 
 <h2>Author books</h2>
 <ul>

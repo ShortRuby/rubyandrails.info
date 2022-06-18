@@ -1,12 +1,16 @@
 <h1>All authors</h1>
 
+<% if current_user.try(:admin?) %>
 <%= link_to 'Add new', new_author_path %>
+<% end %>
 
 <ul>
   <% @authors.each do |author| %>
     <li>
       <%= link_to author.name, author %>
+<% if current_user.try(:admin?) %>
       <%= link_to 'Edit', edit_author_path(author) %>
+    <% end %>
     </li>
   <% end %>
 </ul>

@@ -1,14 +1,18 @@
 <h1>Tags</h1>
 
 <div>
+<% if current_user.try(:admin?) %>
   <%= link_to 'New tag', new_tag_path %>
+<% end %>
 </div>
 
 <ul>
   <% @tags.each do |tag| %>
     <li>
       <%= link_to tag.title, tag %>
+<% if current_user.try(:admin?) %>
       <%= link_to 'Edit', edit_tag_path(tag) %>
+    <% end %>
     </li>
   <% end %>
 </ul>

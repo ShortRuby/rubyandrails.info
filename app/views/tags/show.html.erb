@@ -1,7 +1,7 @@
 <h1 class="font-bold font-custom text-5xl max-w-xl mb-20">Books About: <%= @tag.title.capitalize() %></h1>
 
 
-<% if current_user.admin? %>
+<% if current_user.try(:admin?) %>
   <%= button_to 'Delete tag', @tag, method: :delete, class: "fixed bottom-10 right-10 bg-red-500 px-4 text-base py-2 rounded-xl" %>
 <% end %>
 

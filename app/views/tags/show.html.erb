@@ -1,21 +1,13 @@
-<h1>All <%= @tag.title %></h1>
+<h1 class="font-bold font-custom text-5xl max-w-xl mb-20">Books About: <%= @tag.title.capitalize() %></h1>
 
-<%= button_to 'Delete', @tag, method: :delete, style: 'background: red' %>
 
-<h2>Books</h2>
-<ul>
+<% if current_user.admin? %>
+  <%= button_to 'Delete tag', @tag, method: :delete, class: "fixed bottom-10 right-10 bg-red-500 px-4 text-base py-2 rounded-xl" %>
+<% end %>
+
+
+<div class="grid grid-cols-2 gap-10">
   <% @book.each do |book| %>
-    <li>
-      <%= link_to book.title, book_path(book) %>
-    </li>
+    <%= link_to book.title, book_path(book), class: "bg-white flex gap-10 relative hover:scale-110 hover:transition-all group hover:duration-300 p-8 font-bold rounded-2xl text-red-600 font-custom text-2xl" %>
   <% end %>
-</ul>
-
-<h2>Courses</h2>
-<ul>
-  <% @course.each do |course| %>
-    <li>
-      <%= link_to course.title, course_path(course) %>
-    </li>
-  <% end %>
-</ul>
+</div>

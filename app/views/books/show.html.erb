@@ -1,35 +1,17 @@
-<h1>Book: <%= @book.title %></h1>
-
 <% if current_user.try(:admin?) %>
-  <div>
+  <div class="fixed bottom-10 right-10 flex gap-10">
     <%= link_to 'Edit', edit_book_path(@book) %>
     <%= button_to 'Delete', @book, method: :delete, style: 'background: tomato' %>
   </div>
 <% end %>
 
-<h2>Book description</h2>
-<%= @book.content %>
+<div class="space-y-20">
+  <%= render "hero" %>
+  <%= render "content" %>
+  <%= render "author" %>
+  <%= render "buy" %>
+</div>
 
 <% @book.tags.each do |tag| %>
   <%= link_to tag.title, tag %>
 <% end %>
-
-<h2>Authors</h2>
-<% @book.authors.each do |author| %>
-  <%= link_to author.name, author %>
-<% end %>
-
-<h2>Book info</h2>
-<ul>
-  <li>Pages: <%= @book.page %></li>
-  <li>ISBN: <%= @book.isbn %></li>
-  <li>Price: <%= @book.free %></li>
-</ul>
-
-<h2>Get this book</h2>
-<ul>
-  <li>
-    <%= link_to 'Amazon', @book.getBookOnAmazonUrl, target: '_blank' %>
-  </li>
-  <li><%= link_to @book.getBookOnSiteTitle, @book.getBookOnSiteUrl, target: '_blank' %></li>
-</ul>

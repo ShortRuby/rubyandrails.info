@@ -49,7 +49,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :content, :free, :page, :getBookOnAmazonUrl, :getBookOnSiteTitle, 
+    params.require(:book).permit(:title, :subtitle, :content, :free, :page, :getBookOnAmazonUrl, :getBookOnSiteTitle, 
 :getBookOnSiteUrl, :isbn, tag_ids: [], author_ids: [])
   end
 

@@ -1,29 +1,25 @@
-<h1>Books</h1>
+<h1 class="font-bold font-custom text-5xl max-w-xl mb-20">Books About Ruby & Ruby on Rails</h1>
 
-<%= link_to 'New book', new_book_path %>
-
-<h2>Books</h2>
-<ul>
-  <% @books.each do |book| %>
-    <li>
-      <% if book.free? %>
-        <%= link_to book.title, book %> 🤑
-      <% else %>
-        <%= link_to book.title, book %>
-      <% end %>
-
-      <%= link_to 'Edit', edit_book_path(book) %>
-    </li>
+<% if current_user.admin? %>
+  <%= link_to new_book_path, class: "fixed bottom-10 right-10" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
   <% end %>
-</ul>
+<% end %>
 
-<aside>
-  <h2>All tags</h2>
-  <ul>
-    <% @tags.each do |tag| %>
-      <li>
-        <%= link_to tag.title, tag %>
-      </li>
+<div class="grid grid-cols-3 gap-10">
+  <div class="col-span-2 grid grid-cols-2 gap-10">
+    <% @books.each do |book| %>
+      <%= link_to book.title, book, class: "bg-white flex gap-10 relative hover:scale-110 hover:transition-all group hover:duration-300 p-8 font-bold rounded-2xl text-red-600 font-custom text-2xl" %>
     <% end %>
-  </ul>
-</aside>
+  </div>
+
+  <aside class="col-span-1">
+    <ul class="flex flex-wrap gap-3">
+      <% @tags.each do |tag| %>
+        <li class="bg-stone-600 rounded-full hover:bg-stone-500 px-5 py-2">
+          <%= link_to tag.title, tag %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+</div>

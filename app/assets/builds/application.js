@@ -5,7 +5,6 @@
   var __getOwnPropNames = Object.getOwnPropertyNames;
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
   var __esm = (fn, res) => function __init() {
     return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
   };
@@ -16,17 +15,15 @@
     for (var name in all)
       __defProp(target, name, { get: all[name], enumerable: true });
   };
-  var __reExport = (target, module, copyDefault, desc) => {
-    if (module && typeof module === "object" || typeof module === "function") {
-      for (let key of __getOwnPropNames(module))
-        if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default"))
-          __defProp(target, key, { get: () => module[key], enumerable: !(desc = __getOwnPropDesc(module, key)) || desc.enumerable });
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
     }
-    return target;
+    return to;
   };
-  var __toESM = (module, isNodeMode) => {
-    return __reExport(__markAsModule(__defProp(module != null ? __create(__getProtoOf(module)) : {}, "default", !isNodeMode && module && module.__esModule ? { get: () => module.default, enumerable: true } : { value: module, enumerable: true })), module);
-  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
 
   // node_modules/@rails/actioncable/src/adapters.js
   var adapters_default;
@@ -56,13 +53,12 @@
   });
 
   // node_modules/@rails/actioncable/src/connection_monitor.js
-  var now, secondsSince, clamp, ConnectionMonitor, connection_monitor_default;
+  var now, secondsSince, ConnectionMonitor, connection_monitor_default;
   var init_connection_monitor = __esm({
     "node_modules/@rails/actioncable/src/connection_monitor.js"() {
       init_logger();
       now = () => new Date().getTime();
       secondsSince = (time) => (now() - time) / 1e3;
-      clamp = (number, min, max) => Math.max(min, Math.min(max, number));
       ConnectionMonitor = class {
         constructor(connection) {
           this.visibilityDidChange = this.visibilityDidChange.bind(this);
@@ -75,7 +71,7 @@
             delete this.stoppedAt;
             this.startPolling();
             addEventListener("visibilitychange", this.visibilityDidChange);
-            logger_default.log(`ConnectionMonitor started. pollInterval = ${this.getPollInterval()} ms`);
+            logger_default.log(`ConnectionMonitor started. stale threshold = ${this.constructor.staleThreshold} s`);
           }
         }
         stop() {
@@ -116,24 +112,29 @@
           }, this.getPollInterval());
         }
         getPollInterval() {
-          const { min, max, multiplier } = this.constructor.pollInterval;
-          const interval = multiplier * Math.log(this.reconnectAttempts + 1);
-          return Math.round(clamp(interval, min, max) * 1e3);
+          const { staleThreshold, reconnectionBackoffRate } = this.constructor;
+          const backoff = Math.pow(1 + reconnectionBackoffRate, Math.min(this.reconnectAttempts, 10));
+          const jitterMax = this.reconnectAttempts === 0 ? 1 : reconnectionBackoffRate;
+          const jitter = jitterMax * Math.random();
+          return staleThreshold * 1e3 * backoff * (1 + jitter);
         }
         reconnectIfStale() {
           if (this.connectionIsStale()) {
-            logger_default.log(`ConnectionMonitor detected stale connection. reconnectAttempts = ${this.reconnectAttempts}, pollInterval = ${this.getPollInterval()} ms, time disconnected = ${secondsSince(this.disconnectedAt)} s, stale threshold = ${this.constructor.staleThreshold} s`);
+            logger_default.log(`ConnectionMonitor detected stale connection. reconnectAttempts = ${this.reconnectAttempts}, time stale = ${secondsSince(this.refreshedAt)} s, stale threshold = ${this.constructor.staleThreshold} s`);
             this.reconnectAttempts++;
             if (this.disconnectedRecently()) {
-              logger_default.log("ConnectionMonitor skipping reopening recent disconnect");
+              logger_default.log(`ConnectionMonitor skipping reopening recent disconnect. time disconnected = ${secondsSince(this.disconnectedAt)} s`);
             } else {
               logger_default.log("ConnectionMonitor reopening");
               this.connection.reopen();
             }
           }
         }
+        get refreshedAt() {
+          return this.pingedAt ? this.pingedAt : this.startedAt;
+        }
         connectionIsStale() {
-          return secondsSince(this.pingedAt ? this.pingedAt : this.startedAt) > this.constructor.staleThreshold;
+          return secondsSince(this.refreshedAt) > this.constructor.staleThreshold;
         }
         disconnectedRecently() {
           return this.disconnectedAt && secondsSince(this.disconnectedAt) < this.constructor.staleThreshold;
@@ -149,12 +150,8 @@
           }
         }
       };
-      ConnectionMonitor.pollInterval = {
-        min: 3,
-        max: 30,
-        multiplier: 5
-      };
       ConnectionMonitor.staleThreshold = 6;
+      ConnectionMonitor.reconnectionBackoffRate = 0.15;
       connection_monitor_default = ConnectionMonitor;
     }
   });
@@ -231,7 +228,7 @@
           if (!allowReconnect) {
             this.monitor.stop();
           }
-          if (this.isActive()) {
+          if (this.isOpen()) {
             return this.webSocket.close();
           }
         }
@@ -307,6 +304,7 @@
             case message_types.ping:
               return this.monitor.recordPing();
             case message_types.confirmation:
+              this.subscriptions.confirmSubscription(identifier);
               return this.subscriptions.notify(identifier, "connected");
             case message_types.rejection:
               return this.subscriptions.reject(identifier);
@@ -372,14 +370,62 @@
     }
   });
 
+  // node_modules/@rails/actioncable/src/subscription_guarantor.js
+  var SubscriptionGuarantor, subscription_guarantor_default;
+  var init_subscription_guarantor = __esm({
+    "node_modules/@rails/actioncable/src/subscription_guarantor.js"() {
+      init_logger();
+      SubscriptionGuarantor = class {
+        constructor(subscriptions) {
+          this.subscriptions = subscriptions;
+          this.pendingSubscriptions = [];
+        }
+        guarantee(subscription) {
+          if (this.pendingSubscriptions.indexOf(subscription) == -1) {
+            logger_default.log(`SubscriptionGuarantor guaranteeing ${subscription.identifier}`);
+            this.pendingSubscriptions.push(subscription);
+          } else {
+            logger_default.log(`SubscriptionGuarantor already guaranteeing ${subscription.identifier}`);
+          }
+          this.startGuaranteeing();
+        }
+        forget(subscription) {
+          logger_default.log(`SubscriptionGuarantor forgetting ${subscription.identifier}`);
+          this.pendingSubscriptions = this.pendingSubscriptions.filter((s) => s !== subscription);
+        }
+        startGuaranteeing() {
+          this.stopGuaranteeing();
+          this.retrySubscribing();
+        }
+        stopGuaranteeing() {
+          clearTimeout(this.retryTimeout);
+        }
+        retrySubscribing() {
+          this.retryTimeout = setTimeout(() => {
+            if (this.subscriptions && typeof this.subscriptions.subscribe === "function") {
+              this.pendingSubscriptions.map((subscription) => {
+                logger_default.log(`SubscriptionGuarantor resubscribing ${subscription.identifier}`);
+                this.subscriptions.subscribe(subscription);
+              });
+            }
+          }, 500);
+        }
+      };
+      subscription_guarantor_default = SubscriptionGuarantor;
+    }
+  });
+
   // node_modules/@rails/actioncable/src/subscriptions.js
   var Subscriptions;
   var init_subscriptions = __esm({
     "node_modules/@rails/actioncable/src/subscriptions.js"() {
       init_subscription();
+      init_subscription_guarantor();
+      init_logger();
       Subscriptions = class {
         constructor(consumer2) {
           this.consumer = consumer2;
+          this.guarantor = new subscription_guarantor_default(this);
           this.subscriptions = [];
         }
         create(channelName, mixin) {
@@ -392,7 +438,7 @@
           this.subscriptions.push(subscription);
           this.consumer.ensureActiveConnection();
           this.notify(subscription, "initialized");
-          this.sendCommand(subscription, "subscribe");
+          this.subscribe(subscription);
           return subscription;
         }
         remove(subscription) {
@@ -410,6 +456,7 @@
           });
         }
         forget(subscription) {
+          this.guarantor.forget(subscription);
           this.subscriptions = this.subscriptions.filter((s) => s !== subscription);
           return subscription;
         }
@@ -417,7 +464,7 @@
           return this.subscriptions.filter((s) => s.identifier === identifier);
         }
         reload() {
-          return this.subscriptions.map((subscription) => this.sendCommand(subscription, "subscribe"));
+          return this.subscriptions.map((subscription) => this.subscribe(subscription));
         }
         notifyAll(callbackName, ...args) {
           return this.subscriptions.map((subscription) => this.notify(subscription, callbackName, ...args));
@@ -430,6 +477,15 @@
             subscriptions = [subscription];
           }
           return subscriptions.map((subscription2) => typeof subscription2[callbackName] === "function" ? subscription2[callbackName](...args) : void 0);
+        }
+        subscribe(subscription) {
+          if (this.sendCommand(subscription, "subscribe")) {
+            this.guarantor.guarantee(subscription);
+          }
+        }
+        confirmSubscription(identifier) {
+          logger_default.log(`Subscription confirmed ${identifier}`);
+          this.findAll(identifier).map((subscription) => this.guarantor.forget(subscription));
         }
         sendCommand(subscription, command) {
           const { identifier } = subscription;
@@ -494,6 +550,7 @@
     Consumer: () => Consumer,
     INTERNAL: () => internal_default,
     Subscription: () => Subscription,
+    SubscriptionGuarantor: () => subscription_guarantor_default,
     Subscriptions: () => Subscriptions,
     adapters: () => adapters_default,
     createConsumer: () => createConsumer,
@@ -518,6 +575,7 @@
       init_internal();
       init_subscription();
       init_subscriptions();
+      init_subscription_guarantor();
       init_adapters();
       init_logger();
     }
@@ -8993,6 +9051,23 @@
     return subscriptions.create(channel, mixin);
   }
 
+  // node_modules/@hotwired/turbo-rails/app/javascript/turbo/snakeize.js
+  function walk(obj) {
+    if (!obj || typeof obj !== "object")
+      return obj;
+    if (obj instanceof Date || obj instanceof RegExp)
+      return obj;
+    if (Array.isArray(obj))
+      return obj.map(walk);
+    return Object.keys(obj).reduce(function(acc, key) {
+      var camel = key[0].toLowerCase() + key.slice(1).replace(/([A-Z]+)/g, function(m, x) {
+        return "_" + x.toLowerCase();
+      });
+      acc[camel] = walk(obj[key]);
+      return acc;
+    }, {});
+  }
+
   // node_modules/@hotwired/turbo-rails/app/javascript/turbo/cable_stream_source_element.js
   var TurboCableStreamSourceElement = class extends HTMLElement {
     async connectedCallback() {
@@ -9011,10 +9086,20 @@
     get channel() {
       const channel = this.getAttribute("channel");
       const signed_stream_name = this.getAttribute("signed-stream-name");
-      return { channel, signed_stream_name };
+      return { channel, signed_stream_name, ...walk({ ...this.dataset }) };
     }
   };
   customElements.define("turbo-cable-stream-source", TurboCableStreamSourceElement);
+
+  // node_modules/@hotwired/turbo-rails/app/javascript/turbo/form_submissions.js
+  function overrideMethodWithFormmethod({ detail: { formSubmission: { fetchRequest, submitter } } }) {
+    if (submitter && submitter.formMethod && fetchRequest.body.has("_method")) {
+      fetchRequest.body.set("_method", submitter.formMethod);
+    }
+  }
+
+  // node_modules/@hotwired/turbo-rails/app/javascript/turbo/index.js
+  addEventListener("turbo:submit-start", overrideMethodWithFormmethod);
 
   // node_modules/@hotwired/stimulus/dist/stimulus.js
   var EventListener = class {
@@ -11132,7 +11217,7 @@
         ;
       if (typeof ArrayBuffer !== "undefined" && !ArrayBuffer.prototype.slice) {
         (function() {
-          function clamp2(val, length) {
+          function clamp(val, length) {
             val = val | 0 || 0;
             if (val < 0) {
               return Math.max(val + length, 0);
@@ -11140,9 +11225,9 @@
             return Math.min(val, length);
           }
           ArrayBuffer.prototype.slice = function(from, to) {
-            var length = this.byteLength, begin = clamp2(from, length), end = length, num, target, targetArray, sourceArray;
+            var length = this.byteLength, begin = clamp(from, length), end = length, num, target, targetArray, sourceArray;
             if (to !== undefined$1) {
-              end = clamp2(to, length);
+              end = clamp(to, length);
             }
             if (begin > end) {
               return new ArrayBuffer(0);
@@ -11402,7 +11487,7 @@
     }
   }
   var BlobRecord = class {
-    constructor(file, checksum, url, directUploadToken, attachmentName) {
+    constructor(file, checksum, url) {
       this.file = file;
       this.attributes = {
         filename: file.name,
@@ -11410,8 +11495,6 @@
         byte_size: file.size,
         checksum
       };
-      this.directUploadToken = directUploadToken;
-      this.attachmentName = attachmentName;
       this.xhr = new XMLHttpRequest();
       this.xhr.open("POST", url, true);
       this.xhr.responseType = "json";
@@ -11439,9 +11522,7 @@
     create(callback) {
       this.callback = callback;
       this.xhr.send(JSON.stringify({
-        blob: this.attributes,
-        direct_upload_token: this.directUploadToken,
-        attachment_name: this.attachmentName
+        blob: this.attributes
       }));
     }
     requestDidLoad(event) {
@@ -11499,12 +11580,10 @@
   };
   var id = 0;
   var DirectUpload = class {
-    constructor(file, url, serviceName, attachmentName, delegate) {
+    constructor(file, url, delegate) {
       this.id = ++id;
       this.file = file;
       this.url = url;
-      this.serviceName = serviceName;
-      this.attachmentName = attachmentName;
       this.delegate = delegate;
     }
     create(callback) {
@@ -11513,7 +11592,7 @@
           callback(error2);
           return;
         }
-        const blob = new BlobRecord(this.file, checksum, this.url, this.serviceName, this.attachmentName);
+        const blob = new BlobRecord(this.file, checksum, this.url);
         notify(this.delegate, "directUploadWillCreateBlobWithXHR", blob.xhr);
         blob.create((error3) => {
           if (error3) {
@@ -11542,7 +11621,7 @@
     constructor(input, file) {
       this.input = input;
       this.file = file;
-      this.directUpload = new DirectUpload(this.file, this.url, this.directUploadToken, this.attachmentName, this);
+      this.directUpload = new DirectUpload(this.file, this.url, this);
       this.dispatch("initialize");
     }
     start(callback) {
@@ -11572,12 +11651,6 @@
     }
     get url() {
       return this.input.getAttribute("data-direct-upload-url");
-    }
-    get directUploadToken() {
-      return this.input.getAttribute("data-direct-upload-token");
-    }
-    get attachmentName() {
-      return this.input.getAttribute("data-direct-upload-attachment-name");
     }
     dispatch(name, detail = {}) {
       detail.file = this.file;
@@ -11732,7 +11805,7 @@
     constructor(attachment, element) {
       this.attachment = attachment;
       this.element = element;
-      this.directUpload = new DirectUpload(attachment.file, this.directUploadUrl, this.directUploadToken, this.attachmentName, this);
+      this.directUpload = new DirectUpload(attachment.file, this.directUploadUrl, this);
     }
     start() {
       this.directUpload.create(this.directUploadDidComplete.bind(this));
@@ -11760,12 +11833,6 @@
     }
     get blobUrlTemplate() {
       return this.element.dataset.blobUrlTemplate;
-    }
-    get directUploadToken() {
-      return this.element.getAttribute("data-direct-upload-token");
-    }
-    get attachmentName() {
-      return this.element.getAttribute("data-direct-upload-attachment-name");
     }
   };
 

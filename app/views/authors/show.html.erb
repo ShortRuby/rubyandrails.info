@@ -2,6 +2,8 @@
 
 <%= @author.content %>
 
+      <%= link_to 'Edit', edit_author_path(@author) %>
+
 <h2>Author books</h2>
 <ul>
   <% @book.each do |book| %>

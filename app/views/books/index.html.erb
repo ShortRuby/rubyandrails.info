@@ -7,7 +7,18 @@
 <% end %>
 
 <div class="grid grid-cols-3 mb-20 gap-20">
-  <div class="col-span-2 grid grid-cols-2 gap-10">
+  <div class="col-span-3">
+    <h3 class="mb-5 font-custom">Want to Learn</h3>
+    <ul class="flex font-custom text-xl flex-wrap gap-3">
+      <% @tags.each do |tag| %>
+        <li class="bg-stone-600 rounded-full hover:bg-stone-500 px-5 py-2">
+          <%= link_to tag.title, tag %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-span-3 grid grid-cols-2 gap-10">
     <% @books.each do |book| %>
       <%= link_to book, class: "bg-white flex flex-col gap-5 relative hover:scale-110 transition-all hover:duration-300 p-8 font-bold rounded-2xl text-red-600 font-custom text-2xl" do %>
           <div class="inline-block text-stone-600 font-normal text-base">
@@ -23,14 +34,4 @@
     <% end %>
   </div>
 
-  <aside class="col-span-1">
-    <h3 class="mb-5 font-custom">Want to Learn</h3>
-    <ul class="flex font-custom text-xl flex-wrap gap-3">
-      <% @tags.each do |tag| %>
-        <li class="bg-stone-600 rounded-full hover:bg-stone-500 px-5 py-2">
-          <%= link_to tag.title, tag %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
 </div>

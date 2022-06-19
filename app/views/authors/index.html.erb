@@ -9,9 +9,10 @@
 <div class="grid md:grid-cols-2 mb-20 gap-10">
   <% @authors.each do |author| %>
     <%= link_to author, class: "bg-white flex flex-col gap-5 relative hover:scale-110 hover:transition-all hover:duration-300 p-8 font-bold rounded-2xl text-red-600 font-custom text-2xl" do %>
-      <div class="">
         <%=  author.name %>
-      </div>
+        <span class="text-stone-700 text-base font-normal">
+          <%= truncate(author.content.to_plain_text, length: 100, separator: ' ') %>
+        </span>
     <% end %>
   <% end %>
 </div>

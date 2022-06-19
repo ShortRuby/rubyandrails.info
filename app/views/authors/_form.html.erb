@@ -1,30 +1,31 @@
-<%= form_with model: [@authorabble, @author] do |f| %>
-  <div>
-    <%= f.label :name %>
+<%= form_with model: [@authorabble, @author], class: "text-stone-800" do |f| %>
+
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label :name, class: "text-base" %>
     <%= f.text_field :name %>
   </div>
 
-  <div>
+  <div class="flex text-base flex-col gap-1">
     <%= f.label :content %>
     <%= f.rich_text_area :content %>
   </div>
 
-  <div>
-    <%= f.label 'Site' %>
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label 'Site', class: "text-base"  %>
     <%= f.text_field :siteUrl %>
   </div>
 
-  <div>
-    <%= f.label 'Twitter' %>
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label 'Twitter', class: "text-base"  %>
     <%= f.text_field :twitterUrl %>
   </div>
 
-  <div>
-    <%= f.label 'Github' %>
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label 'Github', class: "text-base"  %>
     <%= f.text_field :githubUrl %>
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit class: "bg-red-600 text-white px-5 py-3" %>
   </div>
 <% end %>

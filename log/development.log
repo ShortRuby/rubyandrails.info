@@ -21164,3 +21164,547 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 1.0ms | Allocations: 8116)
 
 
+Started GET "/users" for 127.0.0.1 at 2022-06-19 11:25:48 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1482)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 967)
+  Rendered layout layouts/application.html.erb (Duration: 39.0ms | Allocations: 29939)
+Completed 200 OK in 54ms (Views: 40.0ms | ActiveRecord: 2.6ms | Allocations: 43672)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-19 11:25:49 +0300
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:4
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:15
+  Rendered tags/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 3865)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 487)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 6251)
+Completed 200 OK in 19ms (Views: 11.4ms | ActiveRecord: 3.2ms | Allocations: 8207)
+
+
+Started GET "/tags/new" for 127.0.0.1 at 2022-06-19 11:25:51 +0300
+Processing by TagsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/new.html.erb within layouts/application
+  Rendered tags/_form.html.erb (Duration: 9.8ms | Allocations: 3128)
+  Rendered tags/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 3404)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 3.1ms | Allocations: 1444)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 6663)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.3ms | Allocations: 7076)
+
+
+Started GET "/tags/new" for 127.0.0.1 at 2022-06-19 11:26:27 +0300
+Processing by TagsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/new.html.erb within layouts/application
+  Rendered tags/_form.html.erb (Duration: 2.6ms | Allocations: 1204)
+  Rendered tags/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1505)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 2.0ms | Allocations: 1883)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 5606)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.1ms | Allocations: 6504)
+
+
+Started POST "/tags" for 127.0.0.1 at 2022-06-19 11:26:37 +0300
+Processing by TagsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tag"=>{"title"=>"Ruby on Rails 7"}, "commit"=>"Create Tag"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tags_controller.rb:14:in `create'
+  [1m[36mTag Create (0.7ms)[0m  [1m[32mINSERT INTO "tags" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Ruby on Rails 7"], ["created_at", "2022-06-19 08:26:37.774812"], ["updated_at", "2022-06-19 08:26:37.774812"]]
+  ↳ app/controllers/tags_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tags_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/tags
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms | Allocations: 3662)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-19 11:26:37 +0300
+Processing by TagsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:4
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:15
+  Rendered tags/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2226)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 451)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 4522)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.3ms | Allocations: 4956)
+
+
+Started GET "/tags/3" for 127.0.0.1 at 2022-06-19 11:26:47 +0300
+Processing by TagsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:45:in `set_tag'
+  Rendering layout layouts/application.html.erb
+  Rendering tags/show.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "taggings" ON "taggings"."taggable_type" = $1 AND "taggings"."taggable_id" = "books"."id" INNER JOIN "tags" ON "tags"."id" = "taggings"."tag_id" WHERE "tags"."id" = $2[0m  [["taggable_type", "Book"], ["id", 3]]
+  ↳ app/views/tags/show.html.erb:9
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/tags/show.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/show.html.erb:25
+  Rendered tags/show.html.erb within layouts/application (Duration: 27.0ms | Allocations: 21383)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 447)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 23634)
+Completed 200 OK in 68ms (Views: 23.7ms | ActiveRecord: 8.3ms | Allocations: 34405)
+
+
+Started GET "/tags/3" for 127.0.0.1 at 2022-06-19 11:27:14 +0300
+Processing by TagsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:45:in `set_tag'
+  Rendering layout layouts/application.html.erb
+  Rendering tags/show.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "taggings" ON "taggings"."taggable_type" = $1 AND "taggings"."taggable_id" = "books"."id" INNER JOIN "tags" ON "tags"."id" = "taggings"."tag_id" WHERE "tags"."id" = $2[0m  [["taggable_type", "Book"], ["id", 3]]
+  ↳ app/views/tags/show.html.erb:9
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/tags/show.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/show.html.erb:25
+  Rendered tags/show.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3987)
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 879)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 7080)
+Completed 200 OK in 21ms (Views: 16.4ms | ActiveRecord: 1.3ms | Allocations: 8585)
+
+
+Started GET "/tags/3/edit" for 127.0.0.1 at 2022-06-19 11:27:18 +0300
+Processing by TagsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:45:in `set_tag'
+  Rendering layout layouts/application.html.erb
+  Rendering tags/edit.html.erb within layouts/application
+  Rendered tags/_form.html.erb (Duration: 2.6ms | Allocations: 1171)
+  Rendered tags/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1425)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 3.2ms | Allocations: 1242)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4351)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.6ms | Allocations: 5206)
+
+
+Started GET "/tags/3/edit" for 127.0.0.1 at 2022-06-19 11:27:19 +0300
+Processing by TagsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:45:in `set_tag'
+  Rendering layout layouts/application.html.erb
+  Rendering tags/edit.html.erb within layouts/application
+  Rendered tags/_form.html.erb (Duration: 1.9ms | Allocations: 875)
+  Rendered tags/edit.html.erb within layouts/application (Duration: 2.1ms | Allocations: 960)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 4.0ms | Allocations: 1242)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 3883)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.6ms | Allocations: 4648)
+
+
+Started GET "/tags/3/edit" for 127.0.0.1 at 2022-06-19 11:27:50 +0300
+Processing by TagsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:45:in `set_tag'
+  Rendering layout layouts/application.html.erb
+  Rendering tags/edit.html.erb within layouts/application
+  Rendered tags/_form.html.erb (Duration: 3.9ms | Allocations: 1283)
+  Rendered tags/edit.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1583)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 4.4ms | Allocations: 1853)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 5642)
+Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 0.7ms | Allocations: 6978)
+
+
+Started PATCH "/tags/3" for 127.0.0.1 at 2022-06-19 11:30:00 +0300
+Processing by TagsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tag"=>{"title"=>"Ruby on Rails 5"}, "commit"=>"Update Tag", "id"=>"3"}
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:45:in `set_tag'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tags_controller.rb:30:in `update'
+  [1m[36mTag Update (0.7ms)[0m  [1m[33mUPDATE "tags" SET "title" = $1, "updated_at" = $2 WHERE "tags"."id" = $3[0m  [["title", "Ruby on Rails 5"], ["updated_at", "2022-06-19 08:30:00.832514"], ["id", 3]]
+  ↳ app/controllers/tags_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tags_controller.rb:30:in `update'
+Redirected to http://127.0.0.1:3000/tags
+Completed 302 Found in 11ms (ActiveRecord: 2.5ms | Allocations: 3035)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-19 11:30:00 +0300
+Processing by TagsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:4
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:12
+  Rendered tags/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1973)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4158)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 4538)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 11:30:03 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 5162)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 487)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 7545)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 1.3ms | Allocations: 8419)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-19 11:30:09 +0300
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:4
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:12
+  Rendered tags/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1734)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 3873)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.5ms | Allocations: 4157)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-19 11:30:14 +0300
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:3
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:10
+  Rendered authors/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2418)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 488)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4804)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.5ms | Allocations: 5652)
+
+
+Started GET "/authors/new" for 127.0.0.1 at 2022-06-19 11:30:18 +0300
+Processing by AuthorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/new.html.erb within layouts/application
+  Rendered authors/_form.html.erb (Duration: 42.8ms | Allocations: 9508)
+  Rendered authors/new.html.erb within layouts/application (Duration: 43.9ms | Allocations: 9773)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 5.5ms | Allocations: 1417)
+  Rendered layout layouts/application.html.erb (Duration: 53.7ms | Allocations: 13001)
+Completed 200 OK in 55ms (Views: 51.8ms | ActiveRecord: 2.7ms | Allocations: 13391)
+
+
+Started GET "/authors/new" for 127.0.0.1 at 2022-06-19 11:30:55 +0300
+Processing by AuthorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/new.html.erb within layouts/application
+  Rendered authors/_form.html.erb (Duration: 2.7ms | Allocations: 2744)
+  Rendered authors/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 3047)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 1818)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 7082)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.1ms | Allocations: 7970)
+
+
+Started GET "/authors/new" for 127.0.0.1 at 2022-06-19 11:31:45 +0300
+Processing by AuthorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/new.html.erb within layouts/application
+  Rendered authors/_form.html.erb (Duration: 5.3ms | Allocations: 2746)
+  Rendered authors/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3045)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 2.6ms | Allocations: 1818)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 7078)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.1ms | Allocations: 7936)
+
+
+Started GET "/authors/new" for 127.0.0.1 at 2022-06-19 11:32:17 +0300
+Processing by AuthorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/new.html.erb within layouts/application
+  Rendered authors/_form.html.erb (Duration: 2.3ms | Allocations: 2757)
+  Rendered authors/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 3056)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 1818)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 7092)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 7950)
+
+
+Started GET "/authors/new" for 127.0.0.1 at 2022-06-19 11:32:42 +0300
+Processing by AuthorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/new.html.erb within layouts/application
+  Rendered authors/_form.html.erb (Duration: 5.5ms | Allocations: 2808)
+  Rendered authors/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3107)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 3.4ms | Allocations: 1818)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 7140)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 7997)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-19 11:32:46 +0300
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:3
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:10
+  Rendered authors/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2045)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4185)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.6ms | Allocations: 4523)
+
+
+Started GET "/authors/2" for 127.0.0.1 at 2022-06-19 11:32:47 +0300
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:44:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:15
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.1ms | Allocations: 700)
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:33
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:36
+  Rendered authors/show.html.erb within layouts/application (Duration: 30.3ms | Allocations: 9173)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 2.0ms | Allocations: 1280)
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 12479)
+Completed 200 OK in 39ms (Views: 33.5ms | ActiveRecord: 2.0ms | Allocations: 13977)
+
+
+Started GET "/authors/2/edit" for 127.0.0.1 at 2022-06-19 11:32:48 +0300
+Processing by AuthorsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:44:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/_form.html.erb:10
+  Rendered authors/_form.html.erb (Duration: 6.8ms | Allocations: 3301)
+  Rendered authors/edit.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3511)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 2.2ms | Allocations: 1242)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 6435)
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 1.2ms | Allocations: 7296)
+
+
+Started GET "/books" for 127.0.0.1 at 2022-06-19 11:33:49 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 5139)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 484)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 7506)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 1.2ms | Allocations: 8160)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2022-06-19 11:33:50 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:1
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_hero.html.erb:6
+  Rendered books/_hero.html.erb (Duration: 2.9ms | Allocations: 1300)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_content.html.erb:6
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 9.0ms | Allocations: 499)
+  Rendered books/_content.html.erb (Duration: 12.4ms | Allocations: 2586)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/books/_learn.html.erb:7
+  Rendered books/_learn.html.erb (Duration: 3.3ms | Allocations: 2837)
+  [1m[36mAuthor Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_author.html.erb:3
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 296)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 296)
+  Rendered books/_author.html.erb (Duration: 7.2ms | Allocations: 4527)
+  Rendered books/_buy.html.erb (Duration: 0.8ms | Allocations: 340)
+  Rendered books/show.html.erb within layouts/application (Duration: 33.0ms | Allocations: 13674)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 15800)
+Completed 200 OK in 40ms (Views: 34.6ms | ActiveRecord: 1.9ms | Allocations: 17261)
+
+
+Started GET "/books/1/edit" for 127.0.0.1 at 2022-06-19 11:33:51 +0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_form.html.erb:15
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mTag Pluck (0.4ms)[0m  [1m[34mSELECT "tags"."id" FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/books/_form.html.erb:34
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:42
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."id" FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_form.html.erb:44
+  Rendered books/_form.html.erb (Duration: 33.0ms | Allocations: 12055)
+  Rendered books/edit.html.erb within layouts/application (Duration: 34.6ms | Allocations: 12324)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 457)
+  Rendered layout layouts/application.html.erb (Duration: 36.9ms | Allocations: 14578)
+Completed 200 OK in 42ms (Views: 36.0ms | ActiveRecord: 1.8ms | Allocations: 16340)
+
+
+Started GET "/books/1/edit" for 127.0.0.1 at 2022-06-19 11:34:29 +0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_form.html.erb:15
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mTag Pluck (0.3ms)[0m  [1m[34mSELECT "tags"."id" FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/books/_form.html.erb:34
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:42
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."id" FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_form.html.erb:44
+  Rendered books/_form.html.erb (Duration: 13.9ms | Allocations: 8989)
+  Rendered books/edit.html.erb within layouts/application (Duration: 14.7ms | Allocations: 9290)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 12389)
+Completed 200 OK in 27ms (Views: 19.8ms | ActiveRecord: 1.6ms | Allocations: 14793)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-19 11:34:33 +0300
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:3
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:10
+  Rendered authors/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2328)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 485)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4698)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.5ms | Allocations: 5353)
+
+
+Started GET "/authors/new" for 127.0.0.1 at 2022-06-19 11:34:35 +0300
+Processing by AuthorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/new.html.erb within layouts/application
+  Rendered authors/_form.html.erb (Duration: 5.3ms | Allocations: 2633)
+  Rendered authors/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2896)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 2.9ms | Allocations: 1250)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 5838)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.2ms | Allocations: 6203)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-19 11:34:38 +0300
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:4
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:12
+  Rendered tags/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2289)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 484)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4658)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.7ms | Allocations: 5295)
+
+
+Started GET "/tags/new" for 127.0.0.1 at 2022-06-19 11:34:40 +0300
+Processing by TagsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/new.html.erb within layouts/application
+  Rendered tags/_form.html.erb (Duration: 3.2ms | Allocations: 1080)
+  Rendered tags/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1343)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 2.9ms | Allocations: 1254)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4286)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms | Allocations: 4645)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 11:34:43 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 4818)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 6957)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 1.2ms | Allocations: 7290)
+
+

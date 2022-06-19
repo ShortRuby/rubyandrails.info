@@ -1,9 +1,9 @@
-<%= form_with model: [@taggable, @tag] do |f| %>
-  <div>
-    <%= f.label :title  %>
+<%= form_with model: [@taggable, @tag], class: "text-stone-800" do |f| %>
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label :title, class: "text-base" %>
     <%= f.text_field :title %>
   </div>
   <div>
-    <%= f.submit %>
+    <%= f.submit class: "bg-red-600 text-white px-5 py-3" %>
   </div>
 <% end %>

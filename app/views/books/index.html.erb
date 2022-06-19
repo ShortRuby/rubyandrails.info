@@ -6,8 +6,8 @@
   <% end %>
 <% end %>
 
-<div class="grid grid-cols-3 gap-20">
-  <div class="col-span-2 flex flex-col gap-10">
+<div class="grid grid-cols-3 mb-20 gap-20">
+  <div class="col-span-2 grid grid-cols-2 gap-10">
     <% @books.each do |book| %>
       <%= link_to book, class: "bg-white flex flex-col gap-5 relative hover:scale-110 transition-all hover:duration-300 p-8 font-bold rounded-2xl text-red-600 font-custom text-2xl" do %>
           <div class="inline-block text-stone-600 font-normal text-base">

@@ -19003,3 +19003,2164 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 1.2ms | Allocations: 6778)
 
 
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:15:15 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 6781)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 8982)
+Completed 200 OK in 31ms (Views: 30.4ms | ActiveRecord: 5.4ms | Allocations: 9254)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:25:31 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 21.3ms | Allocations: 6646)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 8788)
+Completed 200 OK in 26ms (Views: 25.2ms | ActiveRecord: 7.9ms | Allocations: 9060)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:26:06 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 5070)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 9474)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.6ms | Allocations: 10332)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:26:18 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 5089)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 8226)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 1.1ms | Allocations: 9091)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:26:26 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 5083)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 9485)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 1.4ms | Allocations: 10350)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:26:36 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 5092)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 8227)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 1.2ms | Allocations: 9092)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:26:37 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 4322)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 7722)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 1.6ms | Allocations: 8016)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:27:33 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 5062)
+  Rendered shared/_navbar.html.erb (Duration: 1.5ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 8197)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.9ms | Allocations: 9041)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:27:34 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 4307)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 7713)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 1.4ms | Allocations: 8007)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:27:39 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 5083)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 8224)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 1.1ms | Allocations: 9069)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:27:48 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 5101)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 8240)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.7ms | Allocations: 9106)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:27:49 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 4337)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 6478)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 1.4ms | Allocations: 6772)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:27:57 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 5088)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 9494)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 1.0ms | Allocations: 10338)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:27:58 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 4307)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 6446)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 1.4ms | Allocations: 6740)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:27:59 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 4343)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 6482)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 1.2ms | Allocations: 6755)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:28:17 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 5084)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 8219)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.4ms | Allocations: 9063)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:28:18 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 4331)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 6470)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 1.2ms | Allocations: 6764)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:28:19 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 4346)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 6485)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 1.4ms | Allocations: 6758)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:28:28 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 5089)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 8223)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.9ms | Allocations: 9067)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-18 23:28:31 +0300
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:3
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:10
+  Rendered authors/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2352)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 485)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 4724)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.5ms | Allocations: 5380)
+
+
+Started GET "/books" for 127.0.0.1 at 2022-06-18 23:28:32 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 4351)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 6492)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 1.3ms | Allocations: 6791)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-18 23:28:33 +0300
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:4
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:15
+  Rendered tags/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2341)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 484)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4713)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.6ms | Allocations: 5367)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-06-18 23:28:33 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1142)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 493)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3521)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 5515)
+
+
+Started GET "/books" for 127.0.0.1 at 2022-06-18 23:28:34 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 4479)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 6619)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 1.1ms | Allocations: 6919)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:30:13 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 4322)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 6461)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 1.2ms | Allocations: 6737)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2022-06-18 23:30:14 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:1
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_hero.html.erb:6
+  Rendered books/_hero.html.erb (Duration: 2.6ms | Allocations: 1290)
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_content.html.erb:6
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.8ms | Allocations: 708)
+  Rendered books/_content.html.erb (Duration: 6.4ms | Allocations: 2380)
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/books/_learn.html.erb:7
+  Rendered books/_learn.html.erb (Duration: 2.6ms | Allocations: 1157)
+  [1m[36mAuthor Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_author.html.erb:3
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 296)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 296)
+  Rendered books/_author.html.erb (Duration: 7.9ms | Allocations: 4426)
+  Rendered books/_buy.html.erb (Duration: 0.7ms | Allocations: 332)
+  Rendered books/show.html.erb within layouts/application (Duration: 25.7ms | Allocations: 11653)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 13779)
+Completed 200 OK in 31ms (Views: 26.1ms | ActiveRecord: 2.8ms | Allocations: 14647)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-18 23:30:34 +0300
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:3
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:10
+  Rendered authors/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1746)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3885)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.8ms | Allocations: 4152)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-18 23:30:36 +0300
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:4
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:15
+  Rendered tags/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1738)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3877)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.4ms | Allocations: 4144)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:35:02 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 4346)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 6485)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.8ms | Allocations: 6761)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:38:05 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 5107)
+  Rendered shared/_navbar.html.erb (Duration: 2.1ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 8241)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.8ms | Allocations: 9081)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:38:07 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 10.5ms | Allocations: 1683)
+  Rendered books/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 1935)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 2024)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.2ms | Allocations: 3293)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: @book, class: "text-stone-800 space-y-5") do |f| %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle%>
+  </div>
+  
+  <div>
+    <%= f.label :content %>
+    <%= f.rich_text_area :content %>
+  </div>
+
+  <div>
+    <%= f.label :free %>
+    <%= f.check_box :free %>
+  </div>
+
+  <div>
+    <%= f.label :page %>
+    <%= f.number_field :page %>
+  </div>
+
+  <div>
+    <%= f.label :isbn %>
+    <%= f.text_field :isbn %>
+  </div>
+
+  <div>
+    <%= f.label 'Get book on Amazon' %>
+    <%= f.text_field :getBookOnAmazonUrl %>
+  </div>
+
+  <div>
+    <%= f.label 'Get book on' %>
+    <%= f.text_field :getBookOnSiteTitle, placeholder: 'Site title' %>
+    <%= f.text_field :getBookOnSiteUrl, placeholder: 'Site url' %>
+  </div>
+
+  <div>
+    <%= f.label :tag %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :title %>
+  </div>
+
+  <div>
+    <%= f.label :author %>
+    <%= f.collection_check_boxes :author_ids, Author.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.submit, class: "bg-red-600 text-white px-5 py-3" %>
+  </div>
+
+<% end %>
+
+):
+1:    <%= form_with(model: @book, class: "text-stone-800 space-y-5") do |f| %>
+2:    
+3:      <div>
+4:        <%= f.label :title %>
+5:        <%= f.text_field :title %>
+6:      </div>
+7:    
+8:      <div>
+9:        <%= f.label :subtitle %>
+10:        <%= f.text_field :subtitle%>
+11:      </div>
+12:      
+13:      <div>
+14:        <%= f.label :content %>
+15:        <%= f.rich_text_area :content %>
+16:      </div>
+17:    
+18:      <div>
+19:        <%= f.label :free %>
+20:        <%= f.check_box :free %>
+21:      </div>
+22:    
+23:      <div>
+24:        <%= f.label :page %>
+25:        <%= f.number_field :page %>
+26:      </div>
+27:    
+28:      <div>
+29:        <%= f.label :isbn %>
+30:        <%= f.text_field :isbn %>
+31:      </div>
+32:    
+33:      <div>
+34:        <%= f.label 'Get book on Amazon' %>
+35:        <%= f.text_field :getBookOnAmazonUrl %>
+36:      </div>
+37:    
+38:      <div>
+39:        <%= f.label 'Get book on' %>
+40:        <%= f.text_field :getBookOnSiteTitle, placeholder: 'Site title' %>
+41:        <%= f.text_field :getBookOnSiteUrl, placeholder: 'Site url' %>
+42:      </div>
+43:    
+44:      <div>
+45:        <%= f.label :tag %>
+46:        <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :title %>
+47:      </div>
+48:    
+49:      <div>
+50:        <%= f.label :author %>
+51:        <%= f.collection_check_boxes :author_ids, Author.all, :id, :name %>
+52:      </div>
+53:    
+54:      <div>
+55:        <%= f.submit, class: "bg-red-600 text-white px-5 py-3" %>
+56:      </div>
+57:    
+58:    <% end %>
+  
+app/views/books/_form.html.erb:55: syntax error, unexpected label, expecting '='
+app/views/books/_form.html.erb:55: syntax error, unexpected label, expecting '='
+app/views/books/_form.html.erb:55: syntax error, unexpected label, expecting '='
+app/views/books/_form.html.erb:55: syntax error, unexpected label, expecting '='
+app/views/books/_form.html.erb:55: syntax error, unexpected label, expecting '='
+app/views/books/_form.html.erb:55: syntax error, unexpected label, expecting '='
+app/views/books/new.html.erb:3
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:38:25 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 10.3ms | Allocations: 6611)
+  Rendered books/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 6895)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 10010)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 0.5ms | Allocations: 11774)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:38:34 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 11.2ms | Allocations: 6604)
+  Rendered books/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 6888)
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 9997)
+Completed 200 OK in 25ms (Views: 19.6ms | ActiveRecord: 0.8ms | Allocations: 11882)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:38:56 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 13.2ms | Allocations: 6604)
+  Rendered books/new.html.erb within layouts/application (Duration: 14.1ms | Allocations: 6888)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 9997)
+Completed 200 OK in 25ms (Views: 20.4ms | ActiveRecord: 0.8ms | Allocations: 11885)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:39:04 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 12.8ms | Allocations: 6604)
+  Rendered books/new.html.erb within layouts/application (Duration: 14.3ms | Allocations: 6888)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 11267)
+Completed 200 OK in 34ms (Views: 28.9ms | ActiveRecord: 0.9ms | Allocations: 13161)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:39:09 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 9.0ms | Allocations: 6604)
+  Rendered books/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 6888)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 11264)
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 0.4ms | Allocations: 13149)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:39:53 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 6.6ms | Allocations: 6603)
+  Rendered books/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 6896)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 10005)
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 0.5ms | Allocations: 11914)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:40:18 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 5.8ms | Allocations: 6603)
+  Rendered books/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 6900)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 10009)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.3ms | Allocations: 11879)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:40:43 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 5.9ms | Allocations: 6604)
+  Rendered books/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 6900)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 10009)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.4ms | Allocations: 11906)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-18 23:42:12 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 31.0ms | Allocations: 31510)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 948)
+  Rendered layout layouts/application.html.erb (Duration: 70.1ms | Allocations: 59681)
+Completed 200 OK in 83ms (Views: 64.3ms | ActiveRecord: 7.2ms | Allocations: 68178)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:42:14 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 37.2ms | Allocations: 20751)
+  Rendered books/new.html.erb within layouts/application (Duration: 38.3ms | Allocations: 21045)
+  Rendered shared/_navbar.html.erb (Duration: 10.9ms | Allocations: 458)
+  Rendered layout layouts/application.html.erb (Duration: 50.8ms | Allocations: 23311)
+Completed 200 OK in 56ms (Views: 46.7ms | ActiveRecord: 5.1ms | Allocations: 24884)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:42:53 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 11.2ms | Allocations: 5772)
+  Rendered books/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 5853)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 7992)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 1.0ms | Allocations: 9344)
+
+
+Started POST "/books" for 127.0.0.1 at 2022-06-18 23:43:02 +0300
+Processing by BooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"title"=>"", "subtitle"=>"", "content"=>"", "free"=>"0", "page"=>"", "isbn"=>"", "getBookOnAmazonUrl"=>"", "getBookOnSiteTitle"=>"", "getBookOnSiteUrl"=>"", "tag_ids"=>[""], "author_ids"=>[""]}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 6.6ms | Allocations: 6174)
+  Rendered books/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 6307)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 450)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 8548)
+Completed 200 OK in 21ms (Views: 8.9ms | ActiveRecord: 0.6ms | Allocations: 13762)
+
+
+Started POST "/books" for 127.0.0.1 at 2022-06-18 23:43:05 +0300
+Processing by BooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"title"=>"asdf", "subtitle"=>"", "content"=>"", "free"=>"0", "page"=>"", "isbn"=>"", "getBookOnAmazonUrl"=>"", "getBookOnSiteTitle"=>"", "getBookOnSiteUrl"=>"", "tag_ids"=>[""], "author_ids"=>[""]}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 9.0ms | Allocations: 5232)
+  Rendered books/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 5316)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 7442)
+Completed 200 OK in 23ms (Views: 12.5ms | ActiveRecord: 1.1ms | Allocations: 10297)
+
+
+Started POST "/books" for 127.0.0.1 at 2022-06-18 23:43:05 +0300
+Processing by BooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"title"=>"asdf", "subtitle"=>"", "content"=>"", "free"=>"0", "page"=>"", "isbn"=>"", "getBookOnAmazonUrl"=>"", "getBookOnSiteTitle"=>"", "getBookOnSiteUrl"=>"", "tag_ids"=>[""], "author_ids"=>[""]}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 8.8ms | Allocations: 5232)
+  Rendered books/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 5316)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 7442)
+Completed 200 OK in 20ms (Views: 12.3ms | ActiveRecord: 0.9ms | Allocations: 10069)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:43:21 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 11.6ms | Allocations: 6606)
+  Rendered books/new.html.erb within layouts/application (Duration: 13.6ms | Allocations: 6907)
+  Rendered shared/_navbar.html.erb (Duration: 1.5ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 10020)
+Completed 200 OK in 25ms (Views: 20.1ms | ActiveRecord: 0.8ms | Allocations: 11835)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:43:28 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 8.3ms | Allocations: 6605)
+  Rendered books/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 6901)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 11285)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.6ms | Allocations: 13168)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:43:34 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 5.7ms | Allocations: 6605)
+  Rendered books/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 6901)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 11277)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.4ms | Allocations: 13153)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:43:54 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 12.5ms | Allocations: 6624)
+  Rendered books/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 6920)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 10036)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.5ms | Allocations: 11898)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:44:12 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 6.9ms | Allocations: 6636)
+  Rendered books/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 6932)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 10044)
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.6ms | Allocations: 11926)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:44:20 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 6.2ms | Allocations: 6636)
+  Rendered books/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 6932)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 11312)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.4ms | Allocations: 13203)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:44:21 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 12.1ms | Allocations: 5732)
+  Rendered books/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 5813)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 7947)
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 1.1ms | Allocations: 9258)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:44:25 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 10.5ms | Allocations: 6636)
+  Rendered books/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 6932)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 10042)
+Completed 200 OK in 21ms (Views: 16.8ms | ActiveRecord: 0.7ms | Allocations: 11815)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:44:31 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 9.7ms | Allocations: 6635)
+  Rendered books/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 6931)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 10043)
+Completed 200 OK in 20ms (Views: 16.3ms | ActiveRecord: 0.7ms | Allocations: 11935)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:44:32 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 12.2ms | Allocations: 5732)
+  Rendered books/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 5813)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 7947)
+Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 1.2ms | Allocations: 9249)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:44:45 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 9.6ms | Allocations: 5732)
+  Rendered books/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 5813)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 7947)
+Completed 200 OK in 20ms (Views: 12.3ms | ActiveRecord: 0.8ms | Allocations: 9143)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:45:08 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (1.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 16.7ms | Allocations: 6644)
+  Rendered books/new.html.erb within layouts/application (Duration: 17.7ms | Allocations: 6940)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 10059)
+Completed 200 OK in 28ms (Views: 22.6ms | ActiveRecord: 1.6ms | Allocations: 11825)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:45:17 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 3.9ms | Allocations: 6636)
+  Rendered books/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 6932)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 10044)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 11929)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:45:33 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 9.8ms | Allocations: 6637)
+  Rendered books/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 6933)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 10042)
+Completed 200 OK in 20ms (Views: 15.8ms | ActiveRecord: 0.7ms | Allocations: 11915)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:45:41 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 5.2ms | Allocations: 6636)
+  Rendered books/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 6932)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 11308)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.6ms | Allocations: 13169)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:45:45 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 5.0ms | Allocations: 6636)
+  Rendered books/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 6933)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 10042)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.4ms | Allocations: 11915)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:46:04 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 8.6ms | Allocations: 6638)
+  Rendered books/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 6934)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 11317)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.6ms | Allocations: 13199)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:46:22 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 3.9ms | Allocations: 6637)
+  Rendered books/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 6933)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 10042)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 11919)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:46:30 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 6.5ms | Allocations: 6645)
+  Rendered books/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 6944)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 10057)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.5ms | Allocations: 11931)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:46:41 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:46
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:51
+  Rendered books/_form.html.erb (Duration: 5.6ms | Allocations: 6636)
+  Rendered books/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 6932)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 10044)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.4ms | Allocations: 11926)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:47:03 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 7.2ms | Allocations: 6136)
+  Rendered books/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 6432)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 9541)
+Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 0.6ms | Allocations: 11426)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:47:40 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 5.0ms | Allocations: 6157)
+  Rendered books/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 6453)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 896)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 9563)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.4ms | Allocations: 11451)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:48:04 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 12.9ms | Allocations: 6139)
+  Rendered books/new.html.erb within layouts/application (Duration: 14.1ms | Allocations: 6435)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 9544)
+Completed 200 OK in 25ms (Views: 20.3ms | ActiveRecord: 0.9ms | Allocations: 11438)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:48:22 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 6.3ms | Allocations: 6184)
+  Rendered books/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 6480)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 9592)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.4ms | Allocations: 11478)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:48:55 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 6.0ms | Allocations: 6186)
+  Rendered books/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 6482)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 898)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 9595)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.5ms | Allocations: 11475)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:49:20 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 12.4ms | Allocations: 6210)
+  Rendered books/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 6507)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 10894)
+Completed 200 OK in 34ms (Views: 29.0ms | ActiveRecord: 1.0ms | Allocations: 12761)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:49:42 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:37
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:43
+  Rendered books/_form.html.erb (Duration: 3.8ms | Allocations: 6206)
+  Rendered books/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 6502)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 10878)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.3ms | Allocations: 12748)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:49:52 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 7.1ms | Allocations: 6200)
+  Rendered books/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 6496)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 9605)
+Completed 200 OK in 18ms (Views: 13.4ms | ActiveRecord: 0.6ms | Allocations: 11490)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:50:07 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 9.0ms | Allocations: 6206)
+  Rendered books/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 6503)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 9612)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.6ms | Allocations: 11485)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:50:09 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 11.4ms | Allocations: 5343)
+  Rendered books/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 5424)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 7558)
+Completed 200 OK in 19ms (Views: 14.3ms | ActiveRecord: 1.1ms | Allocations: 8884)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:50:16 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 6.8ms | Allocations: 6207)
+  Rendered books/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 6503)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 10881)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.5ms | Allocations: 12642)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:50:39 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 7.0ms | Allocations: 6222)
+  Rendered books/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 6523)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 896)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 9637)
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 0.6ms | Allocations: 11511)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:51:12 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 4.9ms | Allocations: 6217)
+  Rendered books/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 6513)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 9622)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.3ms | Allocations: 11492)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:51:22 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 5.4ms | Allocations: 6217)
+  Rendered books/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 6513)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 9625)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.5ms | Allocations: 11513)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:51:32 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 7.0ms | Allocations: 6217)
+  Rendered books/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 6513)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 896)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 9623)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.5ms | Allocations: 11511)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:51:52 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 11.8ms | Allocations: 6216)
+  Rendered books/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 6513)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 9622)
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 0.9ms | Allocations: 11516)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:52:01 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 5.5ms | Allocations: 6216)
+  Rendered books/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 6512)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 9624)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.4ms | Allocations: 11507)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:52:11 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 5.1ms | Allocations: 6221)
+  Rendered books/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 6520)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 896)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 9634)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 11523)
+
+
+Started GET "/books" for 127.0.0.1 at 2022-06-18 23:52:16 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 4853)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 6995)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 1.7ms | Allocations: 7346)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:52:18 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:36
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:41
+  Rendered books/_form.html.erb (Duration: 10.6ms | Allocations: 5351)
+  Rendered books/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 5432)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 7566)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 1.1ms | Allocations: 8777)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:52:44 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 8.2ms | Allocations: 6218)
+  Rendered books/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 6514)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 9626)
+Completed 200 OK in 17ms (Views: 13.1ms | ActiveRecord: 0.9ms | Allocations: 11402)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:52:56 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 8.0ms | Allocations: 6218)
+  Rendered books/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 6514)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 9624)
+Completed 200 OK in 20ms (Views: 15.0ms | ActiveRecord: 0.7ms | Allocations: 11509)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:55:59 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 10.4ms | Allocations: 5680)
+  Rendered books/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 5976)
+  Rendered shared/_navbar.html.erb (Duration: 1.5ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 9083)
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 0.8ms | Allocations: 10971)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:57:41 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 13.5ms | Allocations: 6290)
+  Rendered books/new.html.erb within layouts/application (Duration: 14.7ms | Allocations: 6586)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 9701)
+Completed 200 OK in 29ms (Views: 21.6ms | ActiveRecord: 1.3ms | Allocations: 11587)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:57:52 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 12.0ms | Allocations: 6286)
+  Rendered books/new.html.erb within layouts/application (Duration: 13.5ms | Allocations: 6583)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 9695)
+Completed 200 OK in 24ms (Views: 19.3ms | ActiveRecord: 0.8ms | Allocations: 11578)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:58:01 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 13.2ms | Allocations: 6284)
+  Rendered books/new.html.erb within layouts/application (Duration: 15.7ms | Allocations: 6580)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 9689)
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 0.9ms | Allocations: 11548)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:58:23 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 7.0ms | Allocations: 6287)
+  Rendered books/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 6583)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 9694)
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 0.5ms | Allocations: 11579)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:58:32 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 11.3ms | Allocations: 6286)
+  Rendered books/new.html.erb within layouts/application (Duration: 12.5ms | Allocations: 6582)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 9691)
+Completed 200 OK in 23ms (Views: 19.0ms | ActiveRecord: 0.7ms | Allocations: 11558)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:58:34 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 12.0ms | Allocations: 5360)
+  Rendered books/new.html.erb within layouts/application (Duration: 12.2ms | Allocations: 5441)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 7575)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.8ms | Allocations: 8877)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:58:48 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 9.4ms | Allocations: 6297)
+  Rendered books/new.html.erb within layouts/application (Duration: 16.3ms | Allocations: 6593)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 9705)
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 0.8ms | Allocations: 11461)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:59:01 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 11.8ms | Allocations: 6286)
+  Rendered books/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 6583)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 9695)
+Completed 200 OK in 24ms (Views: 18.8ms | ActiveRecord: 0.8ms | Allocations: 11572)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:59:29 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 9.2ms | Allocations: 6325)
+  Rendered books/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 6621)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 10998)
+Completed 200 OK in 29ms (Views: 24.1ms | ActiveRecord: 0.7ms | Allocations: 12892)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-18 23:59:40 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 10.1ms | Allocations: 6292)
+  Rendered books/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 6588)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 9697)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.9ms | Allocations: 11570)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-19 09:20:36 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 7.0ms | Allocations: 5393)
+  Rendered books/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 5474)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 7611)
+Completed 200 OK in 25ms (Views: 9.2ms | ActiveRecord: 8.5ms | Allocations: 11358)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-19 09:21:27 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 12.3ms | Allocations: 6292)
+  Rendered books/new.html.erb within layouts/application (Duration: 13.7ms | Allocations: 6593)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 10966)
+Completed 200 OK in 37ms (Views: 31.3ms | ActiveRecord: 1.1ms | Allocations: 12715)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-19 09:21:40 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:37
+  Rendered books/_form.html.erb (Duration: 10.1ms | Allocations: 6292)
+  Rendered books/new.html.erb within layouts/application (Duration: 11.2ms | Allocations: 6588)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 10966)
+Completed 200 OK in 33ms (Views: 27.4ms | ActiveRecord: 1.0ms | Allocations: 12848)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-19 09:22:15 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:42
+  Rendered books/_form.html.erb (Duration: 4.7ms | Allocations: 6361)
+  Rendered books/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 6660)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 9771)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.4ms | Allocations: 11664)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-19 09:22:32 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:57:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:32
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:42
+  Rendered books/_form.html.erb (Duration: 5.9ms | Allocations: 6356)
+  Rendered books/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 6653)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 9761)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 11640)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 09:25:36 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 4873)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 7012)
+Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 2.3ms | Allocations: 7362)
+
+
+Started GET "/books" for 127.0.0.1 at 2022-06-19 09:25:38 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4326)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 6465)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 1.6ms | Allocations: 6741)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-19 09:25:38 +0300
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:3
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:10
+  Rendered authors/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2371)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 488)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4760)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.4ms | Allocations: 5608)
+
+
+Started GET "/books" for 127.0.0.1 at 2022-06-19 09:25:39 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 4358)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 6497)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 1.3ms | Allocations: 6794)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-19 09:25:40 +0300
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:4
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:15
+  Rendered tags/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2364)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 487)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4749)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.5ms | Allocations: 5595)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-06-19 09:25:41 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1162)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 495)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3555)
+Completed 200 OK in 15ms (Views: 8.8ms | ActiveRecord: 0.6ms | Allocations: 5945)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-06-19 09:25:46 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 762)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2904)
+Completed 200 OK in 20ms (Views: 5.1ms | ActiveRecord: 0.7ms | Allocations: 4634)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 09:25:54 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 3581)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 265)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 5567)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 1.0ms | Allocations: 5844)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 09:26:07 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 4318)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 689)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 7248)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.9ms | Allocations: 8108)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 09:26:40 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 4296)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 688)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 7225)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.8ms | Allocations: 8090)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 09:26:51 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4302)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 688)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 8498)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 1.1ms | Allocations: 9363)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 09:27:00 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:11
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:14
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:29
+  Rendered books/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 4320)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 688)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 7249)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 1.0ms | Allocations: 8116)
+
+

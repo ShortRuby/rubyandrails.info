@@ -1,58 +1,59 @@
-<%= form_with(model: @book, class: "text-stone-800 space-y-5") do |f| %>
+<%= form_with(model: @book, class: "text-stone-800") do |f| %>
 
-  <div>
-    <%= f.label :title %>
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label :title, class: "text-base" %>
     <%= f.text_field :title %>
   </div>
 
-  <div>
-    <%= f.label :subtitle %>
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label :subtitle, class: "text-base" %>
     <%= f.text_field :subtitle%>
   </div>
   
-  <div>
-    <%= f.label :content %>
+  <div class="flex text-base flex-col gap-1">
+    <%= f.label :content, class: "text-base"  %>
     <%= f.rich_text_area :content %>
   </div>
 
-  <div>
-    <%= f.label :free %>
-    <%= f.check_box :free %>
-  </div>
 
-  <div>
-    <%= f.label :page %>
-    <%= f.number_field :page %>
-  </div>
-
-  <div>
-    <%= f.label :isbn %>
-    <%= f.text_field :isbn %>
-  </div>
-
-  <div>
-    <%= f.label 'Get book on Amazon' %>
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label 'Amazon', class: "text-base"  %>
     <%= f.text_field :getBookOnAmazonUrl %>
   </div>
 
-  <div>
-    <%= f.label 'Get book on' %>
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label 'Get book on', class: "text-base"  %>
     <%= f.text_field :getBookOnSiteTitle, placeholder: 'Site title' %>
     <%= f.text_field :getBookOnSiteUrl, placeholder: 'Site url' %>
   </div>
 
-  <div>
-    <%= f.label :tag %>
-    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :title %>
+  <div class="text-base grid grid-flow-col auto-cols-fr mb-5 gap-1">
+    <%= f.label :tag, class: "mr-10" %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :title do |c| %>
+      <div class="flex items-center gap-2">
+        <%= c.check_box %>
+        <%= c.label %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="text-base grid grid-flow-col auto-cols-fr mb-5 gap-1">
+    <%= f.label :author, class: "mr-10" %>
+    <%= f.collection_check_boxes :author_ids, Author.all, :id, :name do |c| %>
+      <div class="flex items-center gap-2">
+        <%= c.check_box %>
+        <%= c.label %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="flex items-center mb-5 gap-2 mb-4">
+    <%= f.check_box :free %>
+    <%= f.label "Free book", class: "text-base"  %>
   </div>
 
   <div>
-    <%= f.label :author %>
-    <%= f.collection_check_boxes :author_ids, Author.all, :id, :name %>
-  </div>
-
-  <div>
-    <%= f.submit %>
+    <%= f.submit class: "bg-red-600 text-white px-5 py-3" %>
   </div>
 
 <% end %>

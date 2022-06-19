@@ -23471,3 +23471,27 @@ Migrating to AddSlugToAuthors (20220619201808)
   [1m[36mAuthor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."id" != 2 AND "authors"."slug" = $1 LIMIT $2[0m  [["slug", "another-author"], ["LIMIT", 1]]
   [1m[36mAuthor Update (0.1ms)[0m  [1m[33mUPDATE "authors" SET "updated_at" = $1, "slug" = $2 WHERE "authors"."id" = $3[0m  [["updated_at", "2022-06-19 20:20:02.724969"], ["slug", "another-author"], ["id", 2]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(777744397343480385)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSlugToTags (20220619202542)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "tags" ADD "slug" character varying[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tags_on_slug" ON "tags" ("slug")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220619202542"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(777744397343480385)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tags" WHERE "tags"."id" != 1 AND "tags"."slug" = $1 LIMIT $2[0m  [["slug", "rails"], ["LIMIT", 1]]
+  [1m[36mTag Update (0.4ms)[0m  [1m[33mUPDATE "tags" SET "updated_at" = $1, "slug" = $2 WHERE "tags"."id" = $3[0m  [["updated_at", "2022-06-19 20:27:09.425571"], ["slug", "rails"], ["id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tags" WHERE "tags"."id" != 3 AND "tags"."slug" = $1 LIMIT $2[0m  [["slug", "ruby-on-rails-5"], ["LIMIT", 1]]
+  [1m[36mTag Update (0.1ms)[0m  [1m[33mUPDATE "tags" SET "updated_at" = $1, "slug" = $2 WHERE "tags"."id" = $3[0m  [["updated_at", "2022-06-19 20:27:09.431174"], ["slug", "ruby-on-rails-5"], ["id", 3]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tags" WHERE "tags"."id" != 4 AND "tags"."slug" = $1 LIMIT $2[0m  [["slug", "ruby-on-rails-7"], ["LIMIT", 1]]
+  [1m[36mTag Update (0.1ms)[0m  [1m[33mUPDATE "tags" SET "updated_at" = $1, "slug" = $2 WHERE "tags"."id" = $3[0m  [["updated_at", "2022-06-19 20:27:09.432241"], ["slug", "ruby-on-rails-7"], ["id", 4]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m

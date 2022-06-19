@@ -22994,3 +22994,460 @@ Processing by BooksController#show as HTML
 Completed 200 OK in 19ms (Views: 14.6ms | ActiveRecord: 1.2ms | Allocations: 12202)
 
 
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(777744397343480385)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSlugToBooks (20220619192853)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "books" ADD "slug" character varying[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_books_on_slug" ON "books" ("slug")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220619192853"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFriendlyIdSlugs (20220619192904)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" bigserial primary key, "slug" character varying NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" character varying(50), "scope" character varying, "created_at" timestamp(6))[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220619192904"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(777744397343480385)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/books/1" for 127.0.0.1 at 2022-06-19 22:32:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 5858)
+
+
+  
+NameError (uninitialized constant Book::FriendlyId
+
+  extend FriendlyId
+         ^^^^^^^^^^):
+  
+app/models/book.rb:12:in `<class:Book>'
+app/models/book.rb:1:in `<main>'
+app/controllers/books_controller.rb:48:in `set_book'
+Started GET "/books/1" for 127.0.0.1 at 2022-06-19 22:32:48 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 2151)
+
+
+  
+NameError (uninitialized constant Book::FriendlyId
+
+  extend FriendlyId 
+         ^^^^^^^^^^):
+  
+app/models/book.rb:2:in `<class:Book>'
+app/models/book.rb:1:in `<main>'
+app/controllers/books_controller.rb:48:in `set_book'
+Started GET "/books/1" for 127.0.0.1 at 2022-06-19 22:33:55 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 2151)
+
+
+  
+NameError (uninitialized constant Book::FriendlyId
+
+  extend FriendlyId 
+         ^^^^^^^^^^):
+  
+app/models/book.rb:2:in `<class:Book>'
+app/models/book.rb:1:in `<main>'
+app/controllers/books_controller.rb:48:in `set_book'
+Started GET "/books/1" for 127.0.0.1 at 2022-06-19 22:34:25 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1074)
+
+
+  
+NameError (uninitialized constant Book::FriendlyId
+
+  extend FriendlyId 
+         ^^^^^^^^^^):
+  
+app/models/book.rb:2:in `<class:Book>'
+app/models/book.rb:1:in `<main>'
+app/controllers/books_controller.rb:48:in `set_book'
+Started GET "/books/1" for 127.0.0.1 at 2022-06-19 22:36:41 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."slug" = $1 LIMIT $2[0m  [["slug", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:1
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_hero.html.erb:6
+  Rendered books/_hero.html.erb (Duration: 12.8ms | Allocations: 13161)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_content.html.erb:6
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.7ms | Allocations: 852)
+  Rendered books/_content.html.erb (Duration: 10.9ms | Allocations: 10890)
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/books/_learn.html.erb:7
+  Rendered books/_learn.html.erb (Duration: 5.9ms | Allocations: 8046)
+  [1m[36mAuthor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_author.html.erb:3
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 335)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.1ms | Allocations: 296)
+  Rendered books/_author.html.erb (Duration: 3.3ms | Allocations: 5284)
+  Rendered books/_buy.html.erb (Duration: 0.2ms | Allocations: 341)
+  Rendered books/show.html.erb within layouts/application (Duration: 41.1ms | Allocations: 45503)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 916)
+  Rendered layout layouts/application.html.erb (Duration: 79.0ms | Allocations: 73871)
+Completed 200 OK in 100ms (Views: 73.2ms | ActiveRecord: 9.5ms | Allocations: 93952)
+
+
+Started GET "/books" for 127.0.0.1 at 2022-06-19 22:36:45 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:13
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:20
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 3], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  Rendered books/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 6196)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 456)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 8382)
+Completed 200 OK in 18ms (Views: 15.2ms | ActiveRecord: 1.9ms | Allocations: 8813)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2022-06-19 22:36:47 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:56:in `authenticate_admin!'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/_form.html.erb:37
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:49
+  Rendered books/_form.html.erb (Duration: 35.2ms | Allocations: 10506)
+  Rendered books/new.html.erb within layouts/application (Duration: 36.1ms | Allocations: 10771)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 457)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 13037)
+Completed 200 OK in 43ms (Views: 38.5ms | ActiveRecord: 0.8ms | Allocations: 14367)
+
+
+Started POST "/books" for 127.0.0.1 at 2022-06-19 22:36:55 +0300
+Processing by BooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"title"=>"test book new", "subtitle"=>"", "content"=>"<div>test book new</div>", "year"=>"", "getBookOnAmazonUrl"=>"", "getBookOnSiteTitle"=>"", "getBookOnSiteUrl"=>"", "tag_ids"=>[""], "author_ids"=>[""], "free"=>"0"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:56:in `authenticate_admin!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:17:in `create'
+  [1m[36mBook Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "books" WHERE "books"."id" IS NOT NULL AND "books"."slug" = $1 LIMIT $2[0m  [["slug", "test-book-new"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:17:in `create'
+  [1m[36mBook Create (0.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "content", "free", "page", "isbn", "getBookOnAmazonUrl", "getBookOnSiteTitle", "getBookOnSiteUrl", "created_at", "updated_at", "subtitle", "year", "slug") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["title", "test book new"], ["content", nil], ["free", false], ["page", nil], ["isbn", nil], ["getBookOnAmazonUrl", ""], ["getBookOnSiteTitle", ""], ["getBookOnSiteUrl", ""], ["created_at", "2022-06-19 19:36:55.573493"], ["updated_at", "2022-06-19 19:36:55.573493"], ["subtitle", ""], ["year", nil], ["slug", "test-book-new"]]
+  ↳ app/controllers/books_controller.rb:17:in `create'
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "content"], ["body", "<div>test book new</div>"], ["record_type", "Book"], ["record_id", 4], ["created_at", "2022-06-19 19:36:55.581719"], ["updated_at", "2022-06-19 19:36:55.581719"]]
+  ↳ app/controllers/books_controller.rb:17:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 6], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/books_controller.rb:17:in `create'
+  [1m[36mBook Update (0.1ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = $1 WHERE "books"."id" = $2[0m  [["updated_at", "2022-06-19 19:36:55.582858"], ["id", 4]]
+  ↳ app/controllers/books_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/books/test-book-new
+Completed 302 Found in 56ms (ActiveRecord: 2.8ms | Allocations: 71399)
+
+
+Started GET "/books/test-book-new" for 127.0.0.1 at 2022-06-19 22:36:55 +0300
+Processing by BooksController#show as TURBO_STREAM
+  Parameters: {"id"=>"test-book-new"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."slug" = $1 LIMIT $2[0m  [["slug", "test-book-new"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:1
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 4], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_hero.html.erb:6
+  Rendered books/_hero.html.erb (Duration: 0.9ms | Allocations: 976)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_content.html.erb:6
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 335)
+  Rendered books/_content.html.erb (Duration: 1.3ms | Allocations: 1643)
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/books/_learn.html.erb:7
+  Rendered books/_learn.html.erb (Duration: 0.6ms | Allocations: 947)
+  [1m[36mAuthor Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 4], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_author.html.erb:3
+  Rendered books/_author.html.erb (Duration: 0.6ms | Allocations: 761)
+  Rendered books/_buy.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered books/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 6070)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 449)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 8299)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.6ms | Allocations: 9424)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 22:36:58 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:13
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:20
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 3], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 4], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  Rendered books/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 6422)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 8562)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 1.7ms | Allocations: 8850)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2022-06-19 22:37:00 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."slug" = $1 LIMIT $2[0m  [["slug", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:1
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_hero.html.erb:6
+  Rendered books/_hero.html.erb (Duration: 6.1ms | Allocations: 995)
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_content.html.erb:6
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.8ms | Allocations: 432)
+  Rendered books/_content.html.erb (Duration: 9.0ms | Allocations: 1702)
+  [1m[36mTag Load (2.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/books/_learn.html.erb:7
+  Rendered books/_learn.html.erb (Duration: 3.7ms | Allocations: 991)
+  [1m[36mAuthor Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_author.html.erb:3
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 296)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.7ms | Allocations: 296)
+  Rendered books/_author.html.erb (Duration: 16.3ms | Allocations: 3989)
+  Rendered books/_buy.html.erb (Duration: 1.3ms | Allocations: 65)
+  Rendered books/show.html.erb within layouts/application (Duration: 43.1ms | Allocations: 9295)
+  Rendered shared/_navbar.html.erb (Duration: 1.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 48.8ms | Allocations: 11421)
+Completed 200 OK in 53ms (Views: 45.5ms | ActiveRecord: 4.3ms | Allocations: 13140)
+
+
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "books" WHERE "books"."id" != 1 AND "books"."slug" = $1 LIMIT $2[0m  [["slug", "modern-front-end-development-for-rails-second-edition"], ["LIMIT", 1]]
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  [1m[36mBook Update (0.2ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = $1, "slug" = $2 WHERE "books"."id" = $3[0m  [["updated_at", "2022-06-19 19:40:23.399883"], ["slug", "modern-front-end-development-for-rails-second-edition"], ["id", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "books" WHERE "books"."id" != 2 AND "books"."slug" = $1 LIMIT $2[0m  [["slug", "ruby"], ["LIMIT", 1]]
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  [1m[36mBook Update (0.1ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = $1, "slug" = $2 WHERE "books"."id" = $3[0m  [["updated_at", "2022-06-19 19:40:23.402299"], ["slug", "ruby"], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "books" WHERE "books"."id" != 3 AND "books"."slug" = $1 LIMIT $2[0m  [["slug", "asfd"], ["LIMIT", 1]]
+  [1m[36mActionText::RichText Load (0.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  [1m[36mBook Update (0.1ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = $1, "slug" = $2 WHERE "books"."id" = $3[0m  [["updated_at", "2022-06-19 19:40:23.403513"], ["slug", "asfd"], ["id", 3]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActionText::RichText Load (0.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/books" for 127.0.0.1 at 2022-06-19 22:40:26 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:13
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:20
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 4], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 3], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  Rendered books/index.html.erb within layouts/application (Duration: 32.6ms | Allocations: 6443)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 35.4ms | Allocations: 8585)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 1.1ms | Allocations: 8862)
+
+
+Started GET "/books/modern-front-end-development-for-rails-second-edition" for 127.0.0.1 at 2022-06-19 22:40:27 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"modern-front-end-development-for-rails-second-edition"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."slug" = $1 LIMIT $2[0m  [["slug", "modern-front-end-development-for-rails-second-edition"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:1
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_hero.html.erb:6
+  Rendered books/_hero.html.erb (Duration: 2.1ms | Allocations: 995)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_content.html.erb:6
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.3ms | Allocations: 432)
+  Rendered books/_content.html.erb (Duration: 4.2ms | Allocations: 1702)
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/books/_learn.html.erb:7
+  Rendered books/_learn.html.erb (Duration: 2.8ms | Allocations: 991)
+  [1m[36mAuthor Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_author.html.erb:3
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 296)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 296)
+  Rendered books/_author.html.erb (Duration: 7.0ms | Allocations: 3990)
+  Rendered books/_buy.html.erb (Duration: 0.1ms | Allocations: 65)
+  Rendered books/show.html.erb within layouts/application (Duration: 19.6ms | Allocations: 9312)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 11438)
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 2.0ms | Allocations: 12455)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 22:41:02 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:13
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:20
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 4], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 3], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  Rendered books/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 6406)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 8545)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 1.3ms | Allocations: 8821)
+
+
+Started GET "/books/ruby" for 127.0.0.1 at 2022-06-19 22:41:09 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"ruby"}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."slug" = $1 LIMIT $2[0m  [["slug", "ruby"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:1
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_hero.html.erb:6
+  Rendered books/_hero.html.erb (Duration: 2.3ms | Allocations: 977)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_content.html.erb:6
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 293)
+  Rendered books/_content.html.erb (Duration: 2.8ms | Allocations: 1546)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 2], ["taggable_type", "Book"]]
+  ↳ app/views/books/_learn.html.erb:7
+  Rendered books/_learn.html.erb (Duration: 1.4ms | Allocations: 944)
+  [1m[36mAuthor Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_author.html.erb:3
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_author.html.erb:20
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 296)
+  Rendered books/_author.html.erb (Duration: 3.3ms | Allocations: 2361)
+  Rendered books/_buy.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered books/show.html.erb within layouts/application (Duration: 13.6ms | Allocations: 7379)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 9505)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 1.8ms | Allocations: 10522)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-19 22:41:12 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:3
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/books/index.html.erb:13
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:20
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 4], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 1], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 2], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 3], ["authorabble_type", "Book"]]
+  ↳ app/views/books/index.html.erb:23
+  Rendered books/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 6412)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 8551)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 1.3ms | Allocations: 8827)
+
+
+Started GET "/books/test-book-new" for 127.0.0.1 at 2022-06-19 22:41:13 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"test-book-new"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."slug" = $1 LIMIT $2[0m  [["slug", "test-book-new"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:48:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:1
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 4], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_hero.html.erb:6
+  Rendered books/_hero.html.erb (Duration: 1.7ms | Allocations: 960)
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Book"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/books/_content.html.erb:6
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 296)
+  Rendered books/_content.html.erb (Duration: 4.8ms | Allocations: 1549)
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/books/_learn.html.erb:7
+  Rendered books/_learn.html.erb (Duration: 2.2ms | Allocations: 944)
+  [1m[36mAuthor Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "authors" INNER JOIN "authorings" ON "authors"."id" = "authorings"."author_id" WHERE "authorings"."authorabble_id" = $1 AND "authorings"."authorabble_type" = $2[0m  [["authorabble_id", 4], ["authorabble_type", "Book"]]
+  ↳ app/views/books/_author.html.erb:3
+  Rendered books/_author.html.erb (Duration: 1.5ms | Allocations: 741)
+  Rendered books/_buy.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered books/show.html.erb within layouts/application (Duration: 13.4ms | Allocations: 5749)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 7875)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 1.8ms | Allocations: 8892)
+
+

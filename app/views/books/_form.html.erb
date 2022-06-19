@@ -15,6 +15,10 @@
     <%= f.rich_text_area :content %>
   </div>
 
+  <div class="flex flex-col gap-1 mb-4">
+    <%= f.label 'Year', class: "text-base"  %>
+    <%= f.number_field :year %>
+  </div>
 
   <div class="flex flex-col gap-1 mb-4">
     <%= f.label 'Amazon', class: "text-base"  %>

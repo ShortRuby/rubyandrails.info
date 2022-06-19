@@ -41,7 +41,7 @@ class AuthorsController < ApplicationController
   private
 
   def set_author
-    @author = Author.find(params[:id])
+    @author = Author.friendly.find(params[:id])
   end
 
   def author_params

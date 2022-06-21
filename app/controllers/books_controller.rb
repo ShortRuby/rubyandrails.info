@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.all.order(:title)
     @books = Book.all
   end
 

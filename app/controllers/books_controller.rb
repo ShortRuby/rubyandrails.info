@@ -4,8 +4,10 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   def index
+    #@tags = Tag.where(title: "ha")
     @tags = Tag.all.order(:title)
     @books = Book.all
+    #@books = Book.joins(:tags).where(tags: { title: "ha" })
   end
 
   def new

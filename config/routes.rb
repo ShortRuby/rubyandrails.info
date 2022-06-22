@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :tags
   resources :users
 
- # root "landing#index"
-  root "books#index" 
+  root "landing#index"
+ # root "books#index" 
 end

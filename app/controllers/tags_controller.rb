@@ -19,7 +19,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    @book = Book.joins(:tags).where(tags: { id: @tag })
+    @books = Book.joins(:tags).where(tags: { id: @tag })
     @course = Course.joins(:tags).where(tags: { id: @tag })
   end
 

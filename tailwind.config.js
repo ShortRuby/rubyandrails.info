@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
 	  fontFamily: {
-		'custom': ['Libre Baskerville', 'serif']
+		'custom': ['Syne', 'sans-serif']
 	  }
 	},
   },

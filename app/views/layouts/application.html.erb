@@ -11,10 +11,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-stone-700 text-white text-2xl">
+<body class="text-slate-800 font-custom text-2xl">
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -23,10 +23,11 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<main class="max-w-6xl mx-auto px-10">
+<main>
   <%= render "shared/navbar" %>
 
   <%= yield %>
+
 </main>
 
 </body>

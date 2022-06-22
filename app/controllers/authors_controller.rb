@@ -20,6 +20,8 @@ class AuthorsController < ApplicationController
 
   def show
     @books = Book.joins(:authors).where(authors: { id: @author })
+    # show all tags from books current author
+    #@writes = Book.includes(:authors).all 
   end
 
   def edit

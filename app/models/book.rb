@@ -18,10 +18,10 @@ class Book < ApplicationRecord
   end
 
   def next
-    self.class.where("id > ?", id).first
+    self.class.where("id > ?", id).order("id ASC").first || Book.first
   end
   
   def previous 
-    self.class.where("id < ?", id).last
+    self.class.where("id < ?", id).order("id DESC").first || Book.last
   end
 end

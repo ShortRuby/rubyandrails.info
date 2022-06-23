@@ -16,9 +16,6 @@
           <%=  author.name %>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 -translate-x-8 opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-300 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /> </svg>
         </h2>
-        <span class="font-normal ml-8 text-slate-600">
-          <%= truncate(author.content.to_plain_text, length: 100, separator: ' ') %>
-        </span>
       <% end %>
     <% end %>
   </div>

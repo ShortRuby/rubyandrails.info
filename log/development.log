@@ -40771,3 +40771,73 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 37ms (Views: 35.4ms | ActiveRecord: 0.7ms | Allocations: 16722)
 
 
+Started GET "/authors" for 127.0.0.1 at 2022-06-23 10:28:14 +0500
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:1
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:13
+  Rendered authors/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2412)
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 897)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 5565)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.4ms | Allocations: 6611)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-23 10:28:14 +0500
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:1
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:13
+  Rendered authors/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1758)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3900)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 4180)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-23 10:28:17 +0500
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:23
+  Rendered tags/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2689)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 488)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 5078)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.4ms | Allocations: 5923)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-23 10:28:19 +0500
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:1
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:13
+  Rendered authors/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1755)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3894)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.7ms | Allocations: 4178)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-23 10:28:20 +0500
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:23
+  Rendered tags/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2066)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4205)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 4471)
+
+

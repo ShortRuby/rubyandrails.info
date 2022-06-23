@@ -4,19 +4,20 @@
   <% end %>
 <% end %>
 
-<div class="px-10 grid lg:grid-cols-5 gap-20 ">
-  <div class="col-span-2 sticky top-5">
-    <h1 class="font-bold font-custom text-8xl max-w-xl mb-20">People</h1>
+<div class="grid px-10 grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-20">
+  <div class="lg:col-span-2">
+    <h1 class="font-bold font-custom text-3xl lg:text-8xl max-w-xl lg:mb-20">People</h1>
   </div>
 
-  <div class="col-span-3 flex flex-col gap-20">
+  <div class="lg:col-start-3 lg:col-span-3 text-red-500 divide-y divide-slate-300  flex flex-col">
     <% @authors.each do |author| %>
-      <%= link_to author, class: "text-red-500 flex gap-4 group flex-col" do %>
-        <h2 class="font-bold group-hover:text-red-600 text-5xl flex gap-5 items-center">
-          <%=  author.name %>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 -translate-x-8 opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-300 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /> </svg>
+      <%= link_to author, class: "text-red-500 py-8 lg:py-10 flex gap-4 group flex-col" do %>
+        <h2 class="font-bold group-hover:text-red-600 lg:text-5xl flex-inline gap-5 items-center">
+          <%= author.name %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-8 lg:w-8 inline-block -translate-x-8 opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-300 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /> </svg>
         </h2>
       <% end %>
     <% end %>
   </div>
 </div>
+

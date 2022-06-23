@@ -1,8 +1,8 @@
-<nav class="flex font-custom text-xl justify-between px-10 pt-10 pb-28">
+<nav class="flex flex-col md:flex-row font-custom text-xl justify-between px-10 pt-10 pb-12 md:pb-28">
 
-  <%= link_to 'Ruby & Rails', root_path, class: "font-bold" %>
+  <%= link_to 'Ruby & Rails', root_path, class: "font-bold mb-4" %>
 
-  <div class="flex gap-5">
+  <div class="flex flex-wrap gap-5">
     <%= link_to 'Books', books_path, class: "hover:text-red-500" %>
     <%= link_to 'Course', courses_path, class: "hidden" %>
     <%= link_to 'Authors', authors_path, class: "hover:text-red-500" %>
@@ -13,7 +13,7 @@
     <% end %>
   </div>
 
-  <div class="flex hidden items-center gap-5">
+  <div class="flex hidden items-center md:gap-5">
     <% if user_signed_in? %>
 
       <div>

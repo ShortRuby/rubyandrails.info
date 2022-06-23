@@ -5,8 +5,8 @@
 
     <div class="sticky top-5">
       <p class="font-bold mb-4">I want to learn</p>
-      <span class="flex flex-wrap gap-1">
-        <%= @tags.map { |t| link_to(t.title, t, class: "text-red-500 mix-blend-multiply bg-slate-700/5 hover:bg-red-200/50 px-3 py-1 hover:text-red-600") }.join(" ").html_safe %>
+      <span class="flex flex-wrap gap-2">
+        <%= @tags.map { |t| link_to(t.title, t, class: "text-red-500 border border-red-100 hover:bg-red-200/30 px-3 py-1 hover:text-red-600") }.join(" ").html_safe %>
       </span>
     </div>
   </div>

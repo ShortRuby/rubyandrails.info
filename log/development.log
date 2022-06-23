@@ -41728,3 +41728,785 @@ Processing by AuthorsController#show as HTML
 Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 1.1ms | Allocations: 12291)
 
 
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:53:22 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 10.0ms | Allocations: 7500)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 11922)
+Completed 200 OK in 27ms (Views: 22.2ms | ActiveRecord: 0.9ms | Allocations: 13562)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:54:08 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.9ms | Allocations: 577)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 14.9ms | Allocations: 7492)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 10664)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.7ms | Allocations: 12304)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:54:36 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 12.6ms | Allocations: 7515)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 10684)
+Completed 200 OK in 23ms (Views: 18.2ms | ActiveRecord: 1.0ms | Allocations: 12324)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:54:57 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.0ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 13.3ms | Allocations: 7491)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 11924)
+Completed 200 OK in 36ms (Views: 31.1ms | ActiveRecord: 0.9ms | Allocations: 13564)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:56:58 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.7ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 16.2ms | Allocations: 7518)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 11951)
+Completed 200 OK in 43ms (Views: 32.5ms | ActiveRecord: 1.2ms | Allocations: 13591)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:57:04 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.7ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 13.8ms | Allocations: 7500)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 11930)
+Completed 200 OK in 37ms (Views: 31.7ms | ActiveRecord: 1.1ms | Allocations: 13570)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:57:13 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 574)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 7.2ms | Allocations: 7524)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 10693)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.6ms | Allocations: 12333)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:57:14 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 296)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 12.0ms | Allocations: 5850)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 490)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 9285)
+Completed 200 OK in 32ms (Views: 25.6ms | ActiveRecord: 1.3ms | Allocations: 10359)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:57:15 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 296)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 13.3ms | Allocations: 5865)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 490)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 8036)
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 1.2ms | Allocations: 9096)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:57:25 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.0ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 13.8ms | Allocations: 7510)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 11946)
+Completed 200 OK in 35ms (Views: 29.3ms | ActiveRecord: 1.1ms | Allocations: 13571)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:57:37 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 574)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 7.2ms | Allocations: 7485)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 11918)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.5ms | Allocations: 13558)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:57:41 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 10.1ms | Allocations: 7504)
+  Rendered shared/_navbar.html.erb (Duration: 6.1ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 47.4ms | Allocations: 11937)
+Completed 200 OK in 53ms (Views: 50.1ms | ActiveRecord: 0.7ms | Allocations: 13577)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:57:53 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | Allocations: 577)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 15.3ms | Allocations: 7530)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 10703)
+Completed 200 OK in 32ms (Views: 22.7ms | ActiveRecord: 0.5ms | Allocations: 12344)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:58:02 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.8ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 15.8ms | Allocations: 7485)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 11915)
+Completed 200 OK in 39ms (Views: 33.5ms | ActiveRecord: 1.1ms | Allocations: 13555)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:58:18 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | Allocations: 574)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 9.7ms | Allocations: 7512)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 10681)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.6ms | Allocations: 12321)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:58:35 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 574)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 7504)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 11934)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 0.6ms | Allocations: 13574)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:58:41 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.5ms | Allocations: 574)
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 18.3ms | Allocations: 7518)
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | Allocations: 11951)
+Completed 200 OK in 41ms (Views: 34.8ms | ActiveRecord: 1.4ms | Allocations: 13591)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 10:59:11 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:28
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 574)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:54
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  [1m[36mTag Load (0.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:83
+  Rendered authors/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 7509)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 10678)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.5ms | Allocations: 12318)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:01:38 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:29
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.8ms | Allocations: 574)
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:55
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  Rendered authors/show.html.erb within layouts/application (Duration: 20.4ms | Allocations: 7507)
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 39.6ms | Allocations: 11940)
+Completed 200 OK in 52ms (Views: 42.4ms | ActiveRecord: 1.4ms | Allocations: 13580)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:01:47 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:29
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.0ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:55
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  Rendered authors/show.html.erb within layouts/application (Duration: 11.3ms | Allocations: 7492)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 10661)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.9ms | Allocations: 12301)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:01:52 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:29
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.3ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:55
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  Rendered authors/show.html.erb within layouts/application (Duration: 15.5ms | Allocations: 7501)
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 11928)
+Completed 200 OK in 41ms (Views: 35.0ms | ActiveRecord: 1.1ms | Allocations: 13568)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:02:03 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:29
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.6ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:55
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  Rendered authors/show.html.erb within layouts/application (Duration: 16.1ms | Allocations: 7498)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 10667)
+Completed 200 OK in 29ms (Views: 23.8ms | ActiveRecord: 1.2ms | Allocations: 12307)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:02:08 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:29
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.3ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:55
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:84
+  Rendered authors/show.html.erb within layouts/application (Duration: 18.1ms | Allocations: 7516)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 10685)
+Completed 200 OK in 33ms (Views: 25.9ms | ActiveRecord: 1.4ms | Allocations: 12325)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:02:25 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:32
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.9ms | Allocations: 574)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:58
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:87
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:87
+  Rendered authors/show.html.erb within layouts/application (Duration: 12.7ms | Allocations: 7516)
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 10685)
+Completed 200 OK in 24ms (Views: 18.9ms | ActiveRecord: 0.9ms | Allocations: 12325)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:02:47 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:34
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 574)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:60
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  [1m[36mTag Load (0.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  Rendered authors/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 7510)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 11949)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.4ms | Allocations: 13589)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:02:48 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:34
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 296)
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:60
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  Rendered authors/show.html.erb within layouts/application (Duration: 14.9ms | Allocations: 5841)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 490)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 8012)
+Completed 200 OK in 23ms (Views: 18.1ms | ActiveRecord: 1.2ms | Allocations: 9086)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:02:56 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:34
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.0ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:60
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  Rendered authors/show.html.erb within layouts/application (Duration: 18.0ms | Allocations: 7497)
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | Allocations: 11927)
+Completed 200 OK in 42ms (Views: 35.3ms | ActiveRecord: 1.6ms | Allocations: 13553)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-06-23 11:02:58 +0500
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/index.html.erb:1
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:13
+  Rendered authors/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2031)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 490)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4215)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.7ms | Allocations: 4544)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:02:59 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:34
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.2ms | Allocations: 296)
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:60
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  Rendered authors/show.html.erb within layouts/application (Duration: 18.2ms | Allocations: 5844)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 490)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 8015)
+Completed 200 OK in 24ms (Views: 20.2ms | ActiveRecord: 1.7ms | Allocations: 9079)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:03:18 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:34
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.2ms | Allocations: 574)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:60
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  Rendered authors/show.html.erb within layouts/application (Duration: 8.6ms | Allocations: 7513)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 10685)
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 0.7ms | Allocations: 12310)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:03:18 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:34
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 296)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:60
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  Rendered authors/show.html.erb within layouts/application (Duration: 16.1ms | Allocations: 5826)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 490)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 9261)
+Completed 200 OK in 35ms (Views: 29.9ms | ActiveRecord: 1.5ms | Allocations: 10335)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:03:40 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:34
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.0ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:60
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  Rendered authors/show.html.erb within layouts/application (Duration: 17.7ms | Allocations: 7526)
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 10695)
+Completed 200 OK in 31ms (Views: 25.3ms | ActiveRecord: 1.2ms | Allocations: 12320)
+
+
+Started GET "/authors/john-smeet" for 127.0.0.1 at 2022-06-23 11:03:48 +0500
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"john-smeet"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."slug" = $1 LIMIT $2[0m  [["slug", "john-smeet"], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:46:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:1
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Author"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/authors/show.html.erb:34
+  Rendered /Users/leonix/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.4ms | Allocations: 574)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authorings" ON "authorings"."authorabble_type" = $1 AND "authorings"."authorabble_id" = "books"."id" INNER JOIN "authors" ON "authors"."id" = "authorings"."author_id" WHERE "authors"."id" = $2[0m  [["authorabble_type", "Book"], ["id", 2]]
+  ↳ app/views/authors/show.html.erb:60
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 4], ["taggable_type", "Book"]]
+  ↳ app/views/authors/show.html.erb:89
+  Rendered authors/show.html.erb within layouts/application (Duration: 11.3ms | Allocations: 7505)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 10674)
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 0.9ms | Allocations: 12314)
+
+

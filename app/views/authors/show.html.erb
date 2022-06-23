@@ -6,15 +6,21 @@
 
 
 
-<div class="mb-40 px-10 space-y-40">
-  <div>
+<div class="mb-40 px-10 divide-y divide-slate-300">
+  <div class="pb-40">
     <!-- breadcrumbs -->
-    <div class="flex mb-10 gap-2 text-base items-center">
+    <div class="flex mb-10 gap-2 text-base text-slate-400 items-center">
       <%= link_to "Home", root_path, class: "hover:text-red-600" %>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-slate-300" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /> </svg>
+
+      <svg width="7" height="12" class="stroke-slate-400" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.682617 1.0571L5.78418 6.15863L0.682617 11.2602" /> </svg>
+
       <%= link_to "Peoples", authors_path, class: "hover:text-red-600"  %>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-slate-300" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /> </svg>
-      <%= @author.name %>
+
+      <svg width="7" height="12" class="stroke-slate-400" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.682617 1.0571L5.78418 6.15863L0.682617 11.2602" /> </svg>
+
+      <span class="text-slate-300">
+        <%= @author.name %>
+      </span>
     </div>
 
     <!-- author & about book -->
@@ -44,7 +50,7 @@
   </div>
 
   <!-- books from author -->
-  <section>
+  <section class="pt-40">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-10 lg:gap-20">
       <div class="md:col-span-2">
         <h2 class="text-5xl max-w-sm font-bold">Books written by <%= @author.name %></h2>
@@ -72,7 +78,7 @@
   </section>
 
   <!-- author writes about -->
-  <section class="">
+  <section class="hidden">
     <div class="grid grid-cols-5 gap-10 lg:gap-20">
       <div class="col-span-2">
         <h2 class="text-4xl font-bold"><%= @author.name %> writes about</h2>

@@ -40841,3 +40841,87 @@ Processing by TagsController#index as HTML
 Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 4471)
 
 
+Started GET "/tags" for 127.0.0.1 at 2022-06-23 10:28:56 +0500
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:11
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:23
+  Rendered tags/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 2072)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 4211)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.9ms | Allocations: 4475)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-23 10:28:57 +0500
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:23
+  Rendered tags/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2057)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4196)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.6ms | Allocations: 4460)
+
+
+Started GET "/tags/new" for 127.0.0.1 at 2022-06-23 10:29:01 +0500
+Processing by TagsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/new.html.erb within layouts/application
+  Rendered tags/_form.html.erb (Duration: 3.5ms | Allocations: 1091)
+  Rendered tags/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1354)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:9
+  Rendered shared/_navbar.html.erb (Duration: 2.9ms | Allocations: 1254)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 4297)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.2ms | Allocations: 4649)
+
+
+Started POST "/tags" for 127.0.0.1 at 2022-06-23 10:29:04 +0500
+Processing by TagsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tag"=>{"title"=>"kdlsaf;;ksdf"}, "commit"=>"Create Tag"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tags_controller.rb:14:in `create'
+  [1m[36mTag Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "tags" WHERE "tags"."id" IS NOT NULL AND "tags"."slug" = $1 LIMIT $2[0m  [["slug", "kdlsaf-ksdf"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14:in `create'
+  [1m[36mTag Create (2.1ms)[0m  [1m[32mINSERT INTO "tags" ("title", "created_at", "updated_at", "slug") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "kdlsaf;;ksdf"], ["created_at", "2022-06-23 05:29:04.740305"], ["updated_at", "2022-06-23 05:29:04.740305"], ["slug", "kdlsaf-ksdf"]]
+  ↳ app/controllers/tags_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tags_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/tags
+Completed 302 Found in 18ms (ActiveRecord: 4.6ms | Allocations: 3740)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-23 10:29:04 +0500
+Processing by TagsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:23
+  Rendered tags/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2117)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4302)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.4ms | Allocations: 4613)
+
+
+Started GET "/tags" for 127.0.0.1 at 2022-06-23 10:29:19 +0500
+Processing by TagsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tags/index.html.erb:23
+  Rendered tags/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2757)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 5894)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.5ms | Allocations: 6725)
+
+

@@ -20,6 +20,7 @@
     <section class="mb-20">
       <div class="mb-20">
         <h1 class="text-7xl mb-5 max-w-4xl font-bold"><%= @book.title %></h1>
+        <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
       </div>
       <div class="grid grid-cols-5 gap-10 lg:gap-20">
         <article class="col-start-3 col-span-3">
@@ -64,21 +65,39 @@
   </section>
   </div>
 
-  <section>
-    <div class="grid grid-cols-5 gap-10 lg:gap-20">
-      <div class="col-span-2">
-        <h1 class="text-5xl mb-5 max-w-4xl font-bold">What'll learn</h1>
-      </div>
-      <div class="col-start-3 text-red-500 col-span-3 flex flex-col gap-10">
-        <% @book.tags.each do |tag| %>
-          <%= link_to tag, class: "group" do %>
-            <h2 class="font-bold group-hover:text-red-600 text-5xl flex gap-5 items-center">
-              <%= tag.title %>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 -translate-x-8 opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-300 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /> </svg>
-            </h2>
-          <% end %>
+  <!-- what you'll learn -->
+  <section class="grid grid-cols-5 gap-10 lg:gap-20">
+    <div class="col-span-2">
+      <h1 class="text-5xl mb-5 max-w-4xl font-bold">What you'll learn</h1>
+    </div>
+    <div class="col-start-3 text-red-500 col-span-3 flex flex-col gap-10">
+      <% @book.tags.each do |tag| %>
+        <%= link_to tag, class: "group" do %>
+          <h2 class="font-bold group-hover:text-red-600 text-5xl flex gap-5 items-center">
+            <%= tag.title %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 -translate-x-8 opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-300 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /> </svg>
+          </h2>
         <% end %>
-      </div>
+      <% end %>
+    </div>
+  </section>
+
+  <!-- books from author -->
+  <section class="grid grid-cols-5 gap-10 lg:gap-20">
+    <div class="col-span-2">
+      <h1 class="text-5xl mb-5 max-w-4xl font-bold">
+        <%= "Author".pluralize(@book.authors.count) %> 
+      </h1>
+    </div>
+    <div class="col-start-3 text-red-500 col-span-3 flex flex-col gap-10">
+      <% @book.authors.each do |author| %>
+        <%= link_to author, class: "group" do %>
+          <h2 class="font-bold group-hover:text-red-600 text-5xl flex gap-5 items-center">
+            <%= author.name %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 -translate-x-8 opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-300 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /> </svg>
+          </h2>
+        <% end %>
+      <% end %>
     </div>
   </section>
 </div>

@@ -24,7 +24,9 @@ class BooksController < ApplicationController
   end
 
   def show
-
+    @book = Book.friendly.find(params[:id])
+    @next_book = @book.previous
+    @previous_book = @book.next
   end
 
   def edit

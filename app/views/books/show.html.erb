@@ -36,7 +36,7 @@
       <div class="lg:col-span-2 lg:col-start-3 flex flex-col max-w-md gap-5">
 
         <% if @book.getBookOnAmazonUrl.present? %>
-          <%= link_to @book, class: "p-8 flex justify-center items-center flex-col font-bold group bg-slate-700 hover:bg-red-600 text-white" do %>
+          <%= link_to @book, target: "_blank", class: "p-8 flex justify-center items-center flex-col font-bold group bg-slate-700 hover:bg-red-600 text-white" do %>
             <span class="block self-start font-normal text-base">
               Get it on
             </span>
@@ -50,7 +50,7 @@
         <% end %>
 
         <% if @book.getBookOnSiteUrl.present? %>
-          <%= link_to @book.getBookOnSiteUrl, class: "p-8 flex justify-center items-center flex-col font-bold group bg-slate-700 hover:bg-red-600 text-white" do %>
+          <%= link_to @book.getBookOnSiteUrl, target: "_blank", class: "p-8 flex justify-center items-center flex-col font-bold group bg-slate-700 hover:bg-red-600 text-white" do %>
             <span class="block self-start font-normal text-base">
               Get it on
             </span>

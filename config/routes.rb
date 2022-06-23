@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :authors
+  resources :authors, path: 'people' 
   resources :courses
   resources :books
-  resources :tags
+  resources :tags, path: 'learn'
   resources :users
 
 #  root "landing#index"

@@ -5,34 +5,28 @@
   </div>
 <% end %>
 
-<div class="px-10 space-y-40">
-  <div>
-    <!-- breadcrumbs -->
-    <div class="flex mb-10 gap-2 text-base items-center">
-      <%= link_to "Home", root_path, class: "hover:text-red-600" %>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-slate-300" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /> </svg>
-      <%= link_to "Books", books_path, class: "hover:text-red-600"  %>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-slate-300" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /> </svg>
-      <%= @book.title %>
-    </div>
+<div class="mb-40 px-10 divide-y divide-slate-300">
+  <div class="pb-16 lg:pb-40">
+
+    <%= render "shared/breadcrumbs", title: "Books", path: books_path, current_title: @book.title %>
 
     <!-- author & about book -->
-    <section class="mb-20">
-      <div class="mb-20">
-        <h1 class="text-7xl mb-5 max-w-4xl font-bold"><%= @book.title %></h1>
+    <section>
+      <div class="mb-4 lg:mb-20">
+        <h1 class="text-4xl lg:text-7xl mb-5 max-w-4xl font-bold"><%= @book.title %></h1>
         <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
       </div>
-      <div class="grid grid-cols-5 gap-10 lg:gap-20">
-        <article class="col-start-3 col-span-3">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-20">
+        <article class="mb-10 lg:col-start-3 lg:col-span-3">
           <%= @book.content %>
         </article>
       </div>
     </section>
 
-  <!-- books from author -->
+  <!-- get book on -->
   <section>
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-10 lg:gap-20">
-      <div class="md:col-span-3 md:col-start-3 grid lg:grid-cols-2 gap-8 md:gap-10">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-20">
+      <div class="lg:col-span-3 lg:col-start-3 grid md:grid-cols-2 gap-8 md:gap-10">
         <% if @book.getBookOnAmazonUrl.present? %>
           <%= link_to @book, class: "p-8 flex justify-center items-center flex-col font-bold group bg-slate-700 hover:bg-red-600 text-white" do %>
             <span class="block self-start font-normal text-base">

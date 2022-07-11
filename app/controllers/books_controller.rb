@@ -46,6 +46,12 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def by_year
+    #@books = Book.joins(:tags).where(tags: { title: "ha" })
+    #@book = Book.friendly.where(year: params[:year])
+    @books = Book.friendly.find_by(year: params[:year])
+  end
+  
   private
 
   def set_book

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :authors, path: 'people' 
   resources :courses
   resources :books
+  get 'books/:year', to: 'books#by_year', as: 'by_years'
   resources :tags, path: 'learn'
   resources :users
 

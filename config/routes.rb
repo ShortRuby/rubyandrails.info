@@ -14,4 +14,10 @@ Rails.application.routes.draw do
 
 #  root "landing#index"
    root "books#index" 
+
+  constraints(host: /^(?!www\.)/i) do
+    get '(*any)' => redirect { |_params, request|
+      URI.parse(request.url).tap { |uri| uri.host = "www.#{uri.host}" }.to_s
+    }
+  end
 end

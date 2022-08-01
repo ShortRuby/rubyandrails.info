@@ -4,7 +4,6 @@ class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
 
   def index
-    set_meta_tags noindex
     @tags = Tag.all
     @courses = Course.all
   end

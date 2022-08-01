@@ -3,6 +3,8 @@ class AuthorsController < ApplicationController
 
   def index
     @authors = Author.all
+
+    set_meta_tags title: "#{Author.count} authors writing about Ruby & Ruby on Rails", description: "People who write books about Ruby and Ruby on Rails. For each author you can see all the books they have written about the topic and their contacts: twitter, website, or github.", keywords: "Ruby book authors, Ruby on Rails book authors"
   end
 
   def new
@@ -20,6 +22,7 @@ class AuthorsController < ApplicationController
 
   def show
     @books = Book.joins(:authors).where(authors: { id: @author })
+    set_meta_tags title: "Author: #{@author.name}", description: "#{@author.name} author of #{@books.map { |book| book.title }.join(", ").html_safe}.", keywords: "#{@author.name}, #{@books.map { |book| book.title }.join(", ").html_safe}"
     # show all tags from books current author
     #@writes = Book.includes(:authors).all 
   end

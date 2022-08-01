@@ -164,6 +164,9 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3.1)
+    rack-canonical-host (1.1.0)
+      addressable (> 0, < 3)
+      rack (>= 1.0.0, < 3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (7.0.3)
@@ -266,6 +269,7 @@ DEPENDENCIES
   meta-tags
   pg (~> 1.1)
   puma (~> 5.0)
+  rack-canonical-host
   rails (~> 7.0.0)
   selenium-webdriver
   sprockets-rails

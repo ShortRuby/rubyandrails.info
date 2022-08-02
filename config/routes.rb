@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
 #  root "landing#index"
    root "books#index" 
+
+   resources :sitemap, only: %i[index], constraints: ->(req) { req.format == :xml }
 end

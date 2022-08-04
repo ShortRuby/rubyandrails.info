@@ -22,7 +22,7 @@
       <%= link_to 'Want to Learn', tags_path, class: "hover:text-red-500" %>
     </div>
 
-    <%= link_to 'About project', tags_path, class: "md:fixed md:bottom-10 hover:text-red-500" %>
+    <%= link_to 'About project', tags_path, class: "hidden md:fixed md:bottom-10 hover:text-red-500" %>
 
     <% if current_user.try(:admin?) %>
       <%= link_to 'Users', users_path %>

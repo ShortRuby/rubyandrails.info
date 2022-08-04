@@ -29,10 +29,10 @@
           <%= @book.content %>
         </article>
 
-        <div class="lg:col-span-2 text-base">
+        <div class="lg:col-span-2 text-lg">
           <div class="w-72 p-4 border border-red-100 rounded-sm">
             <div class="space-y-6">
-              <div class="flex flex-col gap-1">
+              <div class="flex flex-col font-custom font-bold gap-1">
               <h4 class="font-custom font-bold">Get it on</h4>
                 <% if @book.getBookOnAmazonUrl.present? %>
                   <%= link_to @book, target: "_blank", class: "text-red-500 hover:text-red-600" do %>
@@ -47,14 +47,36 @@
                 <% end %>
               </div>
 
-            <%= render "shared/list", obj: @book.tags, link: tags_path do %>
-              What you'll learn 
-            <% end %>
+            
+              <section>
+                <h2 class="mb-2 font-custom font-bold">What you'll learn</h2>
 
-            <!-- books from author -->
-            <%= render "shared/list", obj: @book.authors, people: true, link: authors_path do %>
-              <%= "Author".pluralize(@book.authors.count) %> 
-            <% end %>
+                <ul class="space-y-1">
+                  <% @book.tags.each do |item| %>
+                    <li>
+                      <%= link_to item, class: "text-fuchsia-500 hover:text-fuchsia-600" do %>
+                        <%= item.title %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </section>
+
+            <section>
+              <h2 class="mb-2 font-custom font-bold">
+                <%= "Author".pluralize(@book.authors.count) %>
+              </h2>
+
+              <ul class="space-y-1">
+                <% @book.authors.each do |item| %>
+                  <li>
+                    <%= link_to item, class: "text-orange-500 hover:text-orange-600" do %>
+                      <%= item.name %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </section>
 
             </div>
           </div>

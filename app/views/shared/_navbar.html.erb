@@ -1,12 +1,28 @@
-<nav class="flex flex-col md:flex-row font-custom text-xl justify-between px-10 pt-10 pb-12 md:pb-28">
+<nav class="text-xl">
 
-  <%= link_to 'Ruby & Rails', root_path, class: "text-red-500 font-bold mb-4" %>
+  <%= link_to 'Ruby & Rails', root_path, class: "text-red-500 inline-block mb-10 font-black font-custom " %>
 
-  <div class="flex flex-wrap gap-5">
-    <%= link_to 'Books', books_path, class: "hover:text-red-500" %>
-    <%#= link_to 'Course', courses_path, class: "hidden" %>
-    <%= link_to 'People', authors_path, class: "hover:text-red-500" %>
-    <%= link_to 'Want to Learn', tags_path, class: "hover:text-red-500" %>
+  <div class="flex flex-wrap flex-col justify-between gap-3">
+
+    <div class="flex gap-3 items-center">
+      <svg width="20" height="20" viewBox="0 0 20 20" class="text-slate-500" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1.66699 2.5H6.66699C7.55105 2.5 8.39889 2.85119 9.02401 3.47631C9.64914 4.10143 10.0003 4.94928 10.0003 5.83333V17.5C10.0003 16.837 9.73693 16.2011 9.26809 15.7322C8.79925 15.2634 8.16337 15 7.50033 15H1.66699V2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M18.3333 2.5H13.3333C12.4493 2.5 11.6014 2.85119 10.9763 3.47631C10.3512 4.10143 10 4.94928 10 5.83333V17.5C10 16.837 10.2634 16.2011 10.7322 15.7322C11.2011 15.2634 11.837 15 12.5 15H18.3333V2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+
+      <%= link_to 'Books', books_path, class: "hover:text-red-500" %>
+    </div>
+
+    <div class="flex gap-3 items-center">
+        <svg width="20" height="20" viewBox="0 0 20 20" class="text-slate-500" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.6663 17.5V15.8333C16.6663 14.9493 16.3152 14.1014 15.69 13.4763C15.0649 12.8512 14.2171 12.5 13.333 12.5H6.66634C5.78229 12.5 4.93444 12.8512 4.30932 13.4763C3.6842 14.1014 3.33301 14.9493 3.33301 15.8333V17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M10.0003 9.16667C11.8413 9.16667 13.3337 7.67428 13.3337 5.83333C13.3337 3.99238 11.8413 2.5 10.0003 2.5C8.15938 2.5 6.66699 3.99238 6.66699 5.83333C6.66699 7.67428 8.15938 9.16667 10.0003 9.16667Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+
+      <%= link_to 'People', authors_path, class: "hover:text-red-500" %>
+    </div>
+
+    <div class="flex gap-3 items-center">
+      <svg width="20" height="20" viewBox="0 0 20 20" class="text-slate-500" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M17.1587 11.175L11.1837 17.15C11.0289 17.305 10.8451 17.4279 10.6427 17.5118C10.4404 17.5956 10.2235 17.6388 10.0045 17.6388C9.78547 17.6388 9.56859 17.5956 9.36626 17.5118C9.16393 17.4279 8.98011 17.305 8.82533 17.15L1.66699 10V1.66667H10.0003L17.1587 8.82501C17.4691 9.13728 17.6433 9.5597 17.6433 10C17.6433 10.4403 17.4691 10.8627 17.1587 11.175V11.175Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M5.83301 5.83333H5.84134" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+
+      <%= link_to 'Want to Learn', tags_path, class: "hover:text-red-500" %>
+    </div>
+
+    <%= link_to 'About project', tags_path, class: "md:fixed md:bottom-10 hover:text-red-500" %>
 
     <% if current_user.try(:admin?) %>
       <%= link_to 'Users', users_path %>

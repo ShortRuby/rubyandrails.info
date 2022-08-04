@@ -26,12 +26,15 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<main class="bg-bg bg-no-repeat bg-contain bg-top bg-fixed">
-  <%= render "shared/navbar" %>
+<div class="flex flex-col sm:flex-row">  
+  <aside class="top-0 border-r border-slate-500/20 shrink-0 p-10 disable-scrollbar sm:h-screen sm:sticky sm:w-68">  
+    <%= render "shared/navbar" %>
+  </aside>  
+  <main class="p-10 w-full">  
+    <%= yield %>
+  </main>  
+</div>
 
-  <%= yield %>
-
-</main>
 
 </body>
 </html>

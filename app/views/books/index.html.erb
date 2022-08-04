@@ -1,17 +1,21 @@
-<div class="grid px-10 grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-20">
+<div class="grid  grid-cols-1 lg:grid-cols-5 gap-4 md:gap-10 xl:gap-16">
 
-  <div class="lg:col-span-2">
-    <h1 class="font-bold font-custom text-3xl lg:text-8xl max-w-xl lg:mb-20">Books about Ruby & Ruby on Rails</h1>
-
-    <div class="sticky top-5">
-      <p class="font-bold mb-4">I want to learn</p>
-      <span class="flex flex-wrap gap-2">
-        <%= @tags.map { |t| link_to(t.title, t, class: "text-red-500 border border-red-100 hover:bg-red-200/30 px-3 py-1 hover:text-red-600") }.join(" ").html_safe %>
-      </span>
-    </div>
+  <div class="lg:col-span-5 lg:mb-20">
+    <h1 class="font-bold mb-5 font-custom text-5xl">Books about Ruby & Ruby on Rails</h1>
+    <p class="max-w-2xl">The most complete collection of books about Ruby, Ruby on Rails, and all the technologies related to them.</p>
   </div>
 
-  <%= render "shared/book_list" %>
+  <div class="lg:col-span-4 order-last lg:order-none">
+    <%= render "shared/book_list" %>
+  </div>
+
+  <div class="lg:col-span-1 text-lg lg:text-base">
+    <p class="font-bold mb-4">I want to learn</p>
+    <span class="flex lg:flex-col flex-wrap gap-x-4 lg:gap-2">
+      <%= @tags.map { |t| link_to(t.title, t, class: "text-red-500 hover:text-red-600") }.join(" ").html_safe %>
+    </span>
+  </div>
+
 </div>
 
 <% if current_user.try(:admin?) %>

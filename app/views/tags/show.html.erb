@@ -6,7 +6,7 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-10 xl:gap-16">
 
-  <div class="col-span-4 order-2 lg:order-first grid md:grid-cols-2 xl:grid-cols-4 place-items-stretch gap-4 lg:gap-6">
+  <div class="col-span-3 order-2 lg:order-first grid md:grid-cols-2 xl:grid-cols-4 place-items-stretch gap-4 lg:gap-6">
 
     <% @books.each do |book| %>
       <%= link_to book, class: "border bg-red-50 rounded-sm lg:aspect-video hover:bg-red-100/70 border-red-200 p-5" do %>
@@ -19,6 +19,13 @@
       <% end %>
     <% end %>
 
+  </div>
+
+  <div class="text-lg lg:text-base">
+    <h3 class="font-bold mb-2 font-custom">I want to learn</h3>
+    <span class="flex lg:flex-col flex-wrap gap-x-6 lg:gap-2">
+      <%= @tags.map { |t| link_to(t.title, t, class: "text-fuchsia-500 hover:text-fuchsia-600") }.join(" ").html_safe %>
+    </span>
   </div>
 </div>
 

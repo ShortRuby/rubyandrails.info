@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :set_tag, only: %i[show edit update destroy]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.all.order(:title)
 
     set_meta_tags title: "#{@tags.count} topics about Ruby & Ruby on Rails", description: "Choose one of the #{@tags.count} topics about Ruby, Ruby on Rails, OOP and more and find out in which books you can learn more about it.", keywords: "books, Ruby, Ruby on Rails, how to learn ruby, how to learn Ruby on Rails"
   end
@@ -22,6 +22,7 @@ class TagsController < ApplicationController
 
   def show
 
+    @tags = Tag.all.order(:title)
     @books = Book.joins(:tags).where(tags: { id: @tag })
     @course = Course.joins(:tags).where(tags: { id: @tag })
 

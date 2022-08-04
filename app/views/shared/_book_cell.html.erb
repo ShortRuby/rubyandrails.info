@@ -1,7 +1,6 @@
-<div class="grid md:grid-cols-2 2xl:grid-cols-3 place-items-stretch gap-6 xl:gap-8">
 
   <% @books.each do |book| %>
-    <%= link_to book, class: "border rounded-sm aspect-video hover:bg-red-50 border-red-200 p-5 flex gap-2 group flex-col" do %>
+    <%= link_to book, class: "border rounded-sm lg:aspect-video hover:bg-red-50 border-red-200 p-5 flex gap-2 group flex-col" do %>
       <h3 class="font-bold text-red-500 hover:text-red-600 text-2xl flex-inline">
         <%= book.title %>
       </h3>
@@ -12,4 +11,3 @@
     <% end %>
   <% end %>
 
-</div>

@@ -4,8 +4,8 @@
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-10 xl:gap-16">
   <div class="col-span-4 order-2 lg:order-first grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-stretch gap-4 lg:gap-6">
       <% @tags.each do |tag| %>
-        <%= link_to tag, class: "border rounded-sm lg:aspect-video hover:bg-red-50 border-red-200 p-5" do %>
-          <h2 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
+        <%= link_to tag, class: "border rounded-sm lg:aspect-video bg-fuchsia-50 hover:bg-fuchsia-100/70 border-fuchsia-200 p-5" do %>
+          <h2 class="font-bold font-custom text-fuchsia-500 hover:text-fuchsia-600 text-xl leading-tight">
             <%= tag.title %>
           </h2>
         <% end %>

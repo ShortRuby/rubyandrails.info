@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://rubyandrails.info"
+SitemapGenerator::Sitemap.default_host = "https://rubyandrails.info"
 SitemapGenerator::Sitemap.public_path = File.join(Rails.root, 'tmp').to_s
 SitemapGenerator::Sitemap.compress = false
 

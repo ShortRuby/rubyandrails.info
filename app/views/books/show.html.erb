@@ -5,13 +5,12 @@
   </div>
 <% end %>
 
-<div class="mb-40 px-10 divide-y divide-red-700/10">
+<div class="mb-40 ">
   <div class="pb-16 lg:pb-32">
 
-
     <div class="flex justify-between">
-      <%= render "shared/breadcrumbs", title: "Books", path: books_path, current_title: @book.title %>
-      <div class="flex gap-5">
+      <%= render "shared/breadcrumbs", title: "All Books", path: books_path %>
+      <div class="flex hidden gap-5">
         <%= link_to "Previous", @previous_book, class: "text-red-500 text-xl hover:text-red-600" %>
         <%= link_to "Next", @next_book, class: "text-red-500 text-xl hover:text-red-600" %>
       </div>
@@ -20,62 +19,47 @@
     <!-- author & about book -->
     <section>
       <div class="mb-10 lg:mb-20">
-        <h1 class="text-5xl lg:text-8xl mb-5 max-w-5xl font-bold"><%= @book.title %></h1>
-        by <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500 text-3xl") }.join(", ").html_safe %>
+        <h1 class="font-bold mb-5 font-custom text-5xl max-w-4xl"><%= @book.title %></h1>
+        <div class="text-xl">
+          by <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
+        </div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-20">
-        <article class="mb-10 max-w-2xl lg:col-start-3 lg:col-span-3">
+      <div class="grid lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-10 xl:gap-20">
+        <article class="lg:col-span-2 xl:col-span-3 text-lg md:text-xl max-w-3xl">
           <%= @book.content %>
         </article>
+
+        <div class="lg:col-span-2 text-base">
+          <div class="w-72 p-4 border border-red-100 rounded-sm">
+            <div class="space-y-6">
+              <div class="flex flex-col gap-1">
+              <h4 class="font-custom font-bold">Get it on</h4>
+                <% if @book.getBookOnAmazonUrl.present? %>
+                  <%= link_to @book, target: "_blank", class: "text-red-500 hover:text-red-600" do %>
+                    Amazon
+                  <% end %>
+                <% end %>
+
+                <% if @book.getBookOnSiteUrl.present? %>
+                  <%= link_to @book.getBookOnSiteUrl, target: "_blank", class: "text-red-500 hover:text-red-600" do %>
+                    <%= @book.getBookOnSiteTitle %>
+                  <% end %>
+                <% end %>
+              </div>
+
+            <%= render "shared/list", obj: @book.tags, link: tags_path do %>
+              What you'll learn 
+            <% end %>
+
+            <!-- books from author -->
+            <%= render "shared/list", obj: @book.authors, people: true, link: authors_path do %>
+              <%= "Author".pluralize(@book.authors.count) %> 
+            <% end %>
+
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
-  <!-- get book on -->
-  <section>
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-20">
-      <div class="lg:col-span-2 lg:col-start-3 flex flex-col max-w-md gap-5">
-
-        <% if @book.getBookOnAmazonUrl.present? %>
-          <%= link_to @book, target: "_blank", class: "p-8 flex justify-center items-center flex-col font-bold group bg-slate-700 hover:bg-red-600 text-white" do %>
-            <span class="block self-start font-normal text-base">
-              Get it on
-            </span>
-            <div class="text-2xl self-start items-center flex-inline gap-1">
-              <span class="group-hover:translate-x-8 transition-all duration-300">
-                Amazon
-              </span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 shrink-0 inline-block w-6 opacity-0 group-hover:opacity-100 -translate-x-20 group-hover:translate-x-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /> </svg>
-            </div>
-          <% end %>
-        <% end %>
-
-        <% if @book.getBookOnSiteUrl.present? %>
-          <%= link_to @book.getBookOnSiteUrl, target: "_blank", class: "p-8 flex justify-center items-center flex-col font-bold group bg-slate-700 hover:bg-red-600 text-white" do %>
-            <span class="block self-start font-normal text-base">
-              Get it on
-            </span>
-            <div class="flex-inline text-2xl self-start gap-1 items-center">
-              <span class="group-hover:translate-x-8 transition-all duration-300">
-                <%= @book.getBookOnSiteTitle %>
-              </span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 shrink-0 inline-block w-6 opacity-0 group-hover:opacity-100 -translate-x-20 group-hover:translate-x-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /> </svg>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </section>
-  </div>
-
-  <!-- what you'll learn -->
-  <%= render "shared/list", obj: @book.tags, link: tags_path, title: "Explore all themes" do %>
-    What you'll learn 
-  <% end %>
-
-  <!-- books from author -->
-  <%= render "shared/list", obj: @book.authors, people: true, link: authors_path, title: "Explore all authors" do %>
-    <%= "Author".pluralize(@book.authors.count) %> 
-  <% end %>
-
 </div>
 

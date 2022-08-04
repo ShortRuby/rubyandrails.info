@@ -1,25 +1,20 @@
-<% if current_user.try(:admin?) %>
-  <%= link_to edit_author_path(@author), class: "fixed bottom-10 right-10" do %>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /> </svg>
-  <% end %>
-<% end %>
-
-<div class="mb-40 px-10 divide-y divide-slate-300">
+<div class="mb-40">
   <div class="pb-16 lg:pb-40">
 
-    <%= render "shared/breadcrumbs", title: "People", path: authors_path, current_title: @author.name %>
+    <%= render "shared/breadcrumbs", title: "People", path: authors_path %>
 
     <!-- author & about book -->
     <section>
       <div class="mb-4 lg:mb-20">
-        <h1 class="text-4xl lg:text-7xl mb-5 max-w-4xl font-bold"><%= @author.name %></h1>
+        <h1 class="text-4xl lg:text-7xl mb-5 max-w-4xl font-custom font-bold"><%= @author.name %></h1>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-20">
-        <article class="lg:col-start-3 lg:col-span-3">
+      <div class="grid grid-cols-1 xl:grid-cols-5 gap-10 lg:gap-20">
+        <div class="xl:col-start-3 xl:col-span-3">
           <div class="mb-10">
             <%= @author.content %>
           </div>
-          <div class="text-red-500 flex gap-8">
+
+          <div class="text-red-500 mb-10 lg:mb-20 flex flex-col sm:flex-row gap-2 sm:gap-8">
             <% if @author.siteUrl.present? %>
               <%= link_to "Website", @author.siteUrl, target: "_blank" %>
             <% end %>
@@ -30,14 +25,37 @@
               <%= link_to "Github", @author.githubUrl, target: "_blank" %>
             <% end %>
           </div>
-        </article>
+
+          <div>
+            <h2 class="mb-4 flex items-center gap-2 font-custom font-bold"> 
+              <svg width="20" height="20" viewBox="0 0 20 20" class="hidden lg:block text-slate-500" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1.66699 2.5H6.66699C7.55105 2.5 8.39889 2.85119 9.02401 3.47631C9.64914 4.10143 10.0003 4.94928 10.0003 5.83333V17.5C10.0003 16.837 9.73693 16.2011 9.26809 15.7322C8.79925 15.2634 8.16337 15 7.50033 15H1.66699V2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M18.3333 2.5H13.3333C12.4493 2.5 11.6014 2.85119 10.9763 3.47631C10.3512 4.10143 10 4.94928 10 5.83333V17.5C10 16.837 10.2634 16.2011 10.7322 15.7322C11.2011 15.2634 11.837 15 12.5 15H18.3333V2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+
+              Books written by <%= @author.name %> 
+            </h2>
+
+            <ul class="grid md:grid-cols-2 gap-6">
+              <% @books.each do |item| %>
+                <li class="border rounded-sm lg:aspect-video hover:bg-red-50 border-red-200 p-5">
+                  <%= link_to item, class: "text-red-500 hover:text-red-600" do %>
+                    <%= item.title %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
       </div>
     </section>
   </div>
 
-  <!-- what you'll learn -->
-  <%= render "shared/list", obj: @books, link: books_path, title: "Explore all books" do %>
-    Books written by <%= @author.name %>
-  <% end %>
+
 
 </div>
+
+<% if current_user.try(:admin?) %>
+  <%= link_to edit_author_path(@author), class: "fixed bottom-10 right-10" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /> </svg>
+  <% end %>
+<% end %>
+

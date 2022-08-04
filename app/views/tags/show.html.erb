@@ -1,11 +1,24 @@
-<div class="grid px-10 grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-20">
-  <div class="lg:col-span-2">
-    <%= render "shared/breadcrumbs", title: "All Themes", path: tags_path, current_title: @tag.title %>
+<%= render "shared/breadcrumbs", title: "All Themes", path: tags_path, current_title: @tag.title %>
 
-    <h1 class="font-bold font-custom text-3xl lg:text-8xl lg:max-w-xl text-slate-500 lg:mb-20">Books about <span class="text-slate-700"><%= @tag.title.capitalize() %></span></h1>
+  <h1 class="font-bold mb-20 font-custom text-5xl">
+    Books about <%= @tag.title.capitalize() %>
+  </h1>
+
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-10 xl:gap-16">
+
+  <div class="col-span-4 order-2 lg:order-first grid md:grid-cols-2 xl:grid-cols-4 place-items-stretch gap-4 lg:gap-6">
+
+    <% @books.each do |book| %>
+      <%= link_to book, class: "border rounded-sm lg:aspect-video hover:bg-red-50 border-red-200 p-5" do %>
+        <h3 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
+          <%= book.title %>
+        </h3>
+        <span class="font-normal text-lg text-slate-700">
+          by <%= book.authors.map(&:name).join(", ") %>
+        </span>
+      <% end %>
+    <% end %>
+
   </div>
-  
-  <%= render "shared/book_list" %>
-
 </div>
 

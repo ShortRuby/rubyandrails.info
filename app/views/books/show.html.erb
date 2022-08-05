@@ -30,18 +30,19 @@
         </article>
 
         <div class="lg:col-span-2 text-lg">
-          <div class="w-72 p-4 border border-red-100 rounded-sm">
+
+          <div class="w-72 p-5 border border-slate-200 rounded-sm">
             <div class="space-y-6">
-              <div class="flex flex-col font-custom font-bold gap-1">
+              <div class="flex flex-col space-y-2 leading-tight font-bold gap-1">
               <h4 class="font-custom font-bold">Get it on</h4>
                 <% if @book.getBookOnAmazonUrl.present? %>
-                  <%= link_to @book, target: "_blank", class: "text-red-500 hover:text-red-600" do %>
+                  <%= link_to @book, target: "_blank", class: "hover:text-red-500" do %>
                     Amazon
                   <% end %>
                 <% end %>
 
                 <% if @book.getBookOnSiteUrl.present? %>
-                  <%= link_to @book.getBookOnSiteUrl, target: "_blank", class: "text-red-500 hover:text-red-600" do %>
+                  <%= link_to @book.getBookOnSiteUrl, target: "_blank", class: "hover:text-red-600" do %>
                     <%= @book.getBookOnSiteTitle %>
                   <% end %>
                 <% end %>
@@ -49,12 +50,12 @@
 
             
               <section>
-                <h2 class="mb-2 font-custom font-bold">What you'll learn</h2>
+                <%= link_to "What you'll learn", tags_path, class: "mb-2 font-custom text-purple-500 font-bold" %>
 
                 <ul class="space-y-1">
                   <% @book.tags.each do |item| %>
                     <li>
-                      <%= link_to item, class: "text-fuchsia-500 hover:text-fuchsia-600" do %>
+                      <%= link_to item, class: "hover:text-purple-500" do %>
                         <%= item.title %>
                       <% end %>
                     </li>
@@ -63,14 +64,12 @@
               </section>
 
             <section>
-              <h2 class="mb-2 font-custom font-bold">
-                <%= "Author".pluralize(@book.authors.count) %>
-              </h2>
+              <%= link_to "#{'Author'.pluralize(@book.authors.count)}", tags_path, class: "mb-2 font-custom text-orange-500 font-bold" %>
 
               <ul class="space-y-1">
                 <% @book.authors.each do |item| %>
                   <li>
-                    <%= link_to item, class: "text-orange-500 hover:text-orange-600" do %>
+                    <%= link_to item, class: "hover:text-orange-500" do %>
                       <%= item.name %>
                     <% end %>
                   </li>

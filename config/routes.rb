@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  get "/pages/*page", to: "pages#show"
+
   resources :authors, path: 'people' 
   # resources :courses
   resources :books

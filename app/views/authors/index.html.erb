@@ -4,7 +4,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-10 xl:gap-16">
   <div class="col-span-4 grid md:grid-cols-2 xl:grid-cols-4 place-items-stretch gap-4 lg:gap-6">
       <% @authors.each do |author| %>
-        <%= link_to author, class: "font-custom border rounded-sm sm:aspect-video bg-orange-50 hover:bg-orange-100/70 border-orange-200 p-5 flex gap-2 font-bold text-orange-500 hover:text-orange-600 text-xl" do %>
+        <%= link_to author, class: "font-custom border rounded-sm bg-orange-50/30 hover:bg-orange-50 border-orange-100 p-5 flex gap-2 font-bold text-orange-500 hover:text-orange-600 text-xl" do %>
           <%= author.name %>
         <% end %>
       <% end %>

@@ -4,6 +4,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
 
   <div class="lg:col-span-2 xl:col-span-2 order-2 lg:order-first grid lg:grid-cols-2 2xl:grid-cols-3 gap-4">
+
     <% @books.each do |book| %>
       <%= link_to book, class: "border bg-red-50/30 rounded-sm hover:bg-red-50 border-red-100 p-5 flex justify-between gap-4 group" do %>
         <div>
@@ -31,6 +32,7 @@
       <%= @tags.map { |t| link_to(t.title, t, class: "hover:text-purple-600") }.join(" ").html_safe %>
     </span>
   </div>
+
 </div>
 
 <% if current_user.try(:admin?) %>

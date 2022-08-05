@@ -4,6 +4,8 @@ class TagsController < ApplicationController
   def index
     @tags = Tag.all.order(:title)
 
+    @books = Book.all
+
     set_meta_tags title: "#{@tags.count} topics about Ruby & Ruby on Rails", description: "Choose one of the #{@tags.count} topics about Ruby, Ruby on Rails, OOP and more and find out in which books you can learn more about it.", keywords: "books, Ruby, Ruby on Rails, how to learn ruby, how to learn Ruby on Rails"
   end
 
@@ -21,10 +23,8 @@ class TagsController < ApplicationController
   end
 
   def show
-
     @tags = Tag.all.order(:title)
     @books = Book.joins(:tags).where(tags: { id: @tag })
-    @course = Course.joins(:tags).where(tags: { id: @tag })
 
     set_meta_tags title: "#{@books.count} books about #{@tag.title}", description: "#{@books.count} books about #{@tag.title}"
   end

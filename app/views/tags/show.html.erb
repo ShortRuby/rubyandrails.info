@@ -1,30 +1,38 @@
 <%= render "shared/breadcrumbs", title: "All Themes", path: tags_path, current_title: @tag.title %>
 
-  <h1 class="font-bold mb-20 font-custom text-5xl">
-    <%= @books.count %> books about <%= @tag.title.capitalize() %>
-  </h1>
+<h1 class="font-bold mb-20 font-custom text-5xl">
+  <%= @books.count %> books about <%= @tag.title.capitalize() %>
+</h1>
 
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-10 xl:gap-16">
+<div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
 
-  <div class="col-span-3 order-2 lg:order-first grid md:grid-cols-2 xl:grid-cols-4 lg:place-items-stretch gap-4 lg:gap-6">
+  <div class="lg:col-span-2 xl:col-span-2 order-2 lg:order-first grid lg:grid-cols-2 2xl:grid-cols-3 gap-4 auto-rows-min">
 
     <% @books.each do |book| %>
-      <%= link_to book, class: "border bg-red-50/40 rounded-sm lg:aspect-video hover:bg-red-50 border-red-100 p-5" do %>
-        <h3 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
-          <%= book.title %>
-        </h3>
-        <span class="font-normal text-lg text-slate-700">
-          by <%= book.authors.map(&:name).join(", ") %>
-        </span>
+      <%= link_to book, class: "border bg-red-50/30 rounded-sm hover:bg-red-50 border-red-100 p-5 flex justify-between gap-4 group" do %>
+        <div>
+          <h3 class="font-medium font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
+            <%= book.title %>
+          </h3>
+          <span class="font-normal text-lg text-slate-700">
+            by <%= book.authors.map(&:name).join(", ") %>
+          </span>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 20 20" class="group-hover:text-red-500 text-red-300 shrink-0"  fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M14 3H19V15H13.9051C13.0148 15 12.1704 15.3955 11.6005 16.0794L10 18V6C10 3.84153 12.037 3 14 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M6 3H1V15H6.09488C6.98521 15 7.82956 15.3955 8.39954 16.0794L10 18V6C10 3.84153 7.963 3 6 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
       <% end %>
     <% end %>
 
   </div>
 
-  <div class="text-lg lg:text-base">
-    <h3 class="font-bold mb-2 font-custom">I want to learn</h3>
-    <span class="flex lg:flex-col flex-wrap gap-x-6 lg:gap-2">
-      <%= @tags.map { |t| link_to(t.title, t, class: "text-fuchsia-500 hover:text-fuchsia-600") }.join(" ").html_safe %>
+  <div class="text-lg xl:w-72 border border-slate-200 self-start p-5">
+    <%= link_to tags_path do %>
+      <h2 class="font-bold mb-2 flex leading-tight flex-row gap-4 lg:gap-2 items-center text-purple-500 font-custom">
+        <svg width="20" height="20" viewBox="0 0 20 20" class="text-purple-300" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M17.1587 11.175L11.1837 17.15C11.0289 17.305 10.8451 17.4279 10.6427 17.5118C10.4404 17.5956 10.2235 17.6388 10.0045 17.6388C9.78547 17.6388 9.56859 17.5956 9.36626 17.5118C9.16393 17.4279 8.98011 17.305 8.82533 17.15L1.66699 10V1.66667H10.0003L17.1587 8.82501C17.4691 9.13728 17.6433 9.5597 17.6433 10C17.6433 10.4403 17.4691 10.8627 17.1587 11.175V11.175Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M5.83301 5.83333H5.84134" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+        I want to learn
+      </h2>
+      <% end %>
+    <span class="flex xl:ml-8 lg:flex-col flex-wrap gap-x-6 lg:gap-2">
+      <%= @tags.map { |t| link_to(t.title, t, class: "hover:text-purple-600") }.join(" ").html_safe %>
     </span>
   </div>
 </div>

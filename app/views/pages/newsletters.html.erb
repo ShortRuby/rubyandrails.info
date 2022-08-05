@@ -1,0 +1,75 @@
+<% title 'Newsletters about Ruby and Ruby on Rails' %>
+<% description 'Newsletters you should be following. Learn about all the most interesting things in the Ruby and Ruby on Rails ecosystem: articles, news, gems, tutorials and more.' %>
+
+<h1 class="font-bold mb-5 font-custom text-5xl">Newsletters about Ruby & Ruby on Rails</h1>
+<p class="max-w-xl mb-10 md:mb-20">Newsletters you should be following. Learn about all the most interesting things in the Ruby and Ruby on Rails ecosystem: articles, news, gems, tutorials and more.</p>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
+
+  <div class="md:col-span-2 lg:col-span-3 grid lg:grid-cols-2 2xl:grid-cols-3 gap-10">
+
+    <%= render "newsletter_card", title: "Short Ruby Learnings", author: "Lucian Ghinda", description: "Weekly Newsletter with Short Tips and Tricks from Twitter", link: "https://shortruby.substack.com/" %>
+
+    <%= render "newsletter_card", title: "⚡️ Hotwire dev newsletter", author: "Joe Masilotti", description: "Turbo (Native), Stimulus, and Strada articles, code, courses, and more. Plus, exclusive insights into how I build Turbo Native apps.", link: "https://masilotti.com/hotwire/" %>
+
+    <%= render "newsletter_card", title: "Ruby Weekly", author: "Cooperpress", description: "A free, once–weekly e-mail round-up of Ruby news and articles.", link: "https://rubyweekly.com/" %>
+
+    <%= render "newsletter_card", title: "Awesome Ruby Newsletter", author: "ruby.libhunt.com", description: "A weekly overview of the most popular Ruby news, articles and projects", link: "https://ruby.libhunt.com/newsletter" %>
+
+    <%= render "newsletter_card", title: "Ruby Radar", author: "Andrew Mason, Collin Jilbert", description: "A weekly, hand-curated Ruby newsletter showcasing articles, videos, gems, and more", link: "https://ruby.libhunt.com/newsletter" %>
+
+    <%= render "newsletter_card", title: "One Ruby Thing", author: "Andrew Mason, Collin Jilbert", description: "An email newsletter, with one Ruby/Rails technique delivered with a ‘why?’ and a ‘how?’ every two weeks.", link: "https://andycroll.com/ruby/" %>
+
+    <%= render "newsletter_card", title: "This Week in Rails", author: "This Week in Rails", description: "The official Ruby on Rails newsletter", link: "https://world.hey.com/this.week.in.rails" %>
+
+    <%= render "newsletter_card", title: "BootRails", author: "bootrails.com", description: "We offer a free, weekly, hands-on tutorial every week", link: "https://www.bootrails.com/blog/" %>
+
+    <%= render "newsletter_card", title: "Boring Rails", author: "bootrails.com", description: "Learn about the boring tools and practices used by Basecamp, GitHub, and Shopify to keep you as happy and productive as the day you typed rails new", link: "https://boringrails.com" %>
+
+    <%= render "newsletter_card", title: "Code with Jason", author: "Jason Swett", description: "Lessons on Rails testing and other relevant programming topics", link: "https://www.codewithjason.com/" %>
+
+    <%= render "newsletter_card", title: "Speedshopblog", author: "Nate Berkopec", description: "The #1 Rails performance blog on the web", link: "https://www.speedshop.co/blog/" %>
+
+    <%= render "newsletter_card", title: "Ruby Articles", author: "thoughtbot", description: "Written by thoughtbot, experienced designers and developers who turn your idea into the right product", link: "https://thoughtbot.com/blog/tags/ruby" %>
+
+    <%= render "newsletter_card", title: "arkency", author: "arkency", description: "Share your email so Arkency can send you stories about everyday struggles and solutions for building maintainable Rails apps.", link: "https://blog.arkency.com/" %>
+
+    <%= render "newsletter_card", title: "BigBinary", author: "BigBinary", description: "We write about Ruby on Rails, React.js, React Native, remote work, open source, engineering & design.", link: "https://www.bigbinary.com/blog" %>
+
+    <%= render "newsletter_card", title: "Hotwiring Rails", author: "David Colby", description: "Hotwiring Rails is a once-monthly newsletter curating the latest content on Rails, Hotwire, and other things you might find interesting.", link: "https://www.getrevue.co/profile/hotwiringrails" %>
+
+    <%= render "newsletter_card", title: "Ana Nunes da Silva", author: "Ana Nunes da Silva", description: "A once-per-month email with the latest blog posts, code tips and current readings and projects. ", link: "https://www.ananunesdasilva.com/" %>
+
+    <%= render "newsletter_card", title: "rossta.net", author: "Ross Kaffenberger", description: "Programming for the web", link: "https://rossta.net/blog/" %>
+
+    <%= render "newsletter_card", title: "Moncef Belyamani’s Newsletter", author: "Ross Kaffenberger", description: "Every Sunday evening, I send out an automation tutorial that will make you more productive. You’ll save hours with each issue. I also write about being a solopreneur, and building helpful things with Ruby.", link: "https://rossta.net/blog/" %>
+
+    <%= render "newsletter_card", title: "Richard Schneema’s Newsletter", author: "Richard Schneeman", description: "Join thousands of developers who get new code, writing, and programming links from me delivered to their inboxes.", link: "https://www.schneems.com/mailinglist" %>
+
+    <%= render "newsletter_card", title: "Jemma’s Newsletter", author: "Jemma Issroff", description: "", link: "https://jemma.dev/" %>
+
+    <%= render "newsletter_card", title: "Emmanuel Hayford’s Newsletter", author: "Emmanuel Hayford", description: "I share Ruby, Rails and web development tips", link: "https://manny.codes/" %>
+
+    <%= render "newsletter_card", title: "Noah Gibbs's Newsletter", author: "Emmanuel Hayford", description: "Subscribe to get free ebook chapters and an emailed coding class now, plus videos and articles a few times a month.", link: "https://codefol.io/posts/" %>
+
+    <%= render "newsletter_card", title: "Jonathan Rochkind's Newsletter", author: "Jonathan Rochkind", description: "About digital library services, ruby, and web development.", link: "https://bibwild.wordpress.com/" %>
+
+    <%= render "newsletter_card", title: "Nikola Đuza's Newsletter", author: "Nikola Đuza", description: "Helps developers improve their productivity by sharing pragmatic advice & applicable knowledge on JavaScript and Ruby.", link: "https://pragmaticpineapple.com/" %>
+  </div>
+
+  <div class="md:col-span-2 lg:col-span-3 ">
+    <h2 class="font-custom font-medium mb-5">In archive</h2>
+    <div class="grid lg:grid-cols-2 2xl:grid-cols-3 gap-10">
+      <%= render "newsletter_card", title: "Ruby Yagi", author: "Axel Kee", description: "I write articles or tutorial related to web development (usually using Ruby/Rails)", link: "https://rubyyagi.com/newsletter/" %>
+
+      <%= render "newsletter_card", title: "EXPLORING RUBY", author: "exploringruby.com", description: " new email full of useful tidbits each week, written specifically for Ruby and Rails developers.", link: "https://rubyyagi.com/newsletter/" %>
+
+      <%= render "newsletter_card", title: "Everyday Rails", author: "exploringruby.com", description: "Everyday Rails is about getting stuff done as a software developer. It’s usually about using Ruby on Rails, but often times, it’s not. It’s about finding the best tools, libraries, and practices to help you get your apps to production.", link: "https://everydayrails.com/" %>
+
+      <%= render "newsletter_card", title: "Hummus on Rails", author: "Ben Greenberg", description: "Ruby, Ruby on Rails, and Hummus all together", link: "https://www.getrevue.co/profile/hummusonrails" %>
+
+      <%= render "newsletter_card", title: "Sandi Metz", author: "Sandi Metz", description: "", link: "https://sandimetz.com/blog" %>
+    </div>
+  </div>
+
+</div>

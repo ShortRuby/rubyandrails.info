@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     # user_path(resource)
   end
 
-
+ # protect_from_forgery with: :null_session
 
   protected
 

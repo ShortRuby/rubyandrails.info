@@ -2,29 +2,29 @@
 
   <%= link_to 'Ruby & Rails', root_path, class: "text-red-500 inline-block mb-10 font-black font-custom " %>
 
-  <div class="flex flex-wrap flex-col justify-between gap-5">
+  <div class="flex flex-wrap flex-col justify-between">
 
-    <%= link_to books_path, class: "hover:text-red-500 group flex gap-3 items-center" do %>
+    <%= link_to books_path, class: "hover:text-red-500 px-4 py-2 -mx-4 hover:bg-red-50 rounded-xl group flex gap-3 items-center" do %>
       <svg width="20" height="20" viewBox="0 0 20 20" class="group-hover:text-red-500 text-slate-400"  fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M14 3H19V15H13.9051C13.0148 15 12.1704 15.3955 11.6005 16.0794L10 18V6C10 3.84153 12.037 3 14 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M6 3H1V15H6.09488C6.98521 15 7.82956 15.3955 8.39954 16.0794L10 18V6C10 3.84153 7.963 3 6 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
       Books 
     <% end %>
 
-    <%= link_to "/pages/newsletters", class: "hover:text-green-500 group flex gap-3 items-center" do %>
+    <%= link_to "/pages/newsletters", class: "hover:text-green-500  px-4 py-2 -mx-4  rounded-xl hover:bg-green-50 group flex gap-3 items-center" do %>
       <svg width="20" height="20" class="text-slate-400 group-hover:text-green-500" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M2.8 3H17.2C18.19 3 19 3.7875 19 4.75V15.25C19 16.2125 18.19 17 17.2 17H2.8C1.81 17 1 16.2125 1 15.25V4.75C1 3.7875 1.81 3 2.8 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M18 4L11.2 9.1C10.4889 9.63333 9.51111 9.63333 8.8 9.1L2 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
       Newsletters 
     <% end %>
 
-    <%= link_to "/pages/podcasts", class: "hover:text-sky-500 group flex gap-3 items-center" do %>
+    <%= link_to "/pages/podcasts", class: "hover:text-sky-500 px-4 py-2 -mx-4  rounded-xl hover:bg-sky-50  group flex gap-3 items-center" do %>
       <svg width="20" height="20" viewBox="0 0 20 20" class="group-hover:text-sky-500 text-slate-400" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.04125 5.00057C6.35217 3.72242 8.13543 3 10 3C11.8646 3 13.6478 3.72242 14.9588 5.00057C16.2688 6.27788 17 8.00482 17 9.8V10H15.3333C14.5561 10 13.8382 10.3484 13.3288 10.9214C12.8229 11.4906 12.5556 12.2399 12.5556 13V16C12.5556 16.7601 12.8229 17.5094 13.3288 18.0786C13.8382 18.6516 14.5561 19 15.3333 19H16.2222C16.9995 19 17.7173 18.6516 18.2267 18.0786C18.7327 17.5094 19 16.7601 19 16V15V11V9.8C19 7.45781 18.0455 5.21682 16.355 3.56857C14.6653 1.92115 12.3789 1 10 1C7.62111 1 5.33471 1.92115 3.64505 3.56857C1.95453 5.21682 1 7.45781 1 9.8V11V15V16C1 16.7601 1.26733 17.5094 1.77329 18.0786C2.28265 18.6516 3.00051 19 3.77778 19H4.66667C5.44394 19 6.16179 18.6516 6.67115 18.0786C7.17711 17.5094 7.44444 16.7601 7.44444 16V13C7.44444 12.2399 7.17711 11.4906 6.67115 10.9214C6.16179 10.3484 5.44394 10 4.66667 10H3V9.8C3 8.00482 3.73118 6.27788 5.04125 5.00057ZM3 12V15V16C3 16.3008 3.10727 16.5689 3.26811 16.7498C3.42554 16.927 3.61206 17 3.77778 17H4.66667C4.83239 17 5.0189 16.927 5.17634 16.7498C5.33718 16.5689 5.44444 16.3008 5.44444 16V13C5.44444 12.6992 5.33718 12.4311 5.17634 12.2502C5.0189 12.073 4.83239 12 4.66667 12H3ZM17 12H15.3333C15.1676 12 14.9811 12.073 14.8237 12.2502C14.6628 12.4311 14.5556 12.6992 14.5556 13V16C14.5556 16.3008 14.6628 16.5689 14.8237 16.7498C14.9811 16.927 15.1676 17 15.3333 17H16.2222C16.3879 17 16.5745 16.927 16.7319 16.7498C16.8927 16.5689 17 16.3008 17 16V15V12Z" fill="currentColor"/> </svg>
       Podcats 
     <% end %>
 
-    <%= link_to authors_path, class: "hover:text-orange-500 group flex gap-3 items-center" do %>
+    <%= link_to authors_path, class: "hover:text-orange-500  px-4 py-2 -mx-4  rounded-xl hover:bg-orange-50 group flex gap-3 items-center" do %>
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="group-hover:text-orange-500 text-slate-400" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 6C8 4.89543 8.89543 4 10 4C11.1046 4 12 4.89543 12 6C12 7.10457 11.1046 8 10 8C8.89543 8 8 7.10457 8 6ZM10 2C7.79086 2 6 3.79086 6 6C6 8.20914 7.79086 10 10 10C12.2091 10 14 8.20914 14 6C14 3.79086 12.2091 2 10 2ZM7 12C5.97467 12 4.97105 12.361 4.21432 13.0336C3.45374 13.7097 3 14.6536 3 15.6667V17C3 17.5523 3.44772 18 4 18C4.55228 18 5 17.5523 5 17V15.6667C5 15.2652 5.1784 14.8526 5.54304 14.5285C5.91153 14.2009 6.43403 14 7 14H13C13.566 14 14.0885 14.2009 14.457 14.5285C14.8216 14.8526 15 15.2652 15 15.6667V17C15 17.5523 15.4477 18 16 18C16.5523 18 17 17.5523 17 17V15.6667C17 14.6536 16.5463 13.7097 15.7857 13.0336C15.0289 12.361 14.0253 12 13 12H7Z" fill="currentColor"/> </svg>
       People 
     <% end %>
 
-    <%= link_to tags_path, class: "hover:text-purple-500 group flex gap-3 items-center" do %>
+    <%= link_to tags_path, class: "hover:text-purple-500  px-4 py-2 -mx-4  rounded-xl hover:bg-purple-50 group flex gap-3 items-center" do %>
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="group-hover:text-purple-500 text-slate-400" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99935 1.16669C1.53911 1.16669 1.16602 1.53978 1.16602 2.00002V9.82615C1.16602 10.0473 1.25392 10.2594 1.41036 10.4157L8.13063 17.1299C8.35333 17.3529 8.6178 17.5298 8.90892 17.6505C9.20007 17.7712 9.51216 17.8334 9.82734 17.8334C10.1425 17.8334 10.4546 17.7712 10.7458 17.6505C11.0369 17.5298 11.3014 17.3528 11.5241 17.1298L17.1336 11.5188L16.5444 10.9297L17.1354 11.5171C17.582 11.0676 17.8327 10.4597 17.8327 9.82615C17.8327 9.19255 17.582 8.58466 17.1354 8.13524L10.4128 1.41084C10.2565 1.25451 10.0445 1.16669 9.82343 1.16669H1.99935ZM15.9541 10.3414L15.9532 10.3422L10.3448 15.9521C10.2768 16.0201 10.1962 16.0741 10.1074 16.1109C10.0186 16.1477 9.92344 16.1667 9.82734 16.1667C9.73124 16.1667 9.63608 16.1477 9.5473 16.1109C9.45851 16.0741 9.37717 16.0195 9.30922 15.9514L2.83268 9.48075V2.83335H9.47819L15.9532 9.31009L15.9539 9.31081C16.0898 9.44785 16.166 9.63306 16.166 9.82615C16.166 10.0192 16.0898 10.2043 15.9541 10.3414ZM6 7C6.55228 7 7 6.55228 7 6C7 5.44772 6.55228 5 6 5C5.44772 5 5 5.44772 5 6C5 6.55228 5.44772 7 6 7Z" fill="currentColor"/> </svg>
       Topics for learning
     <% end %>

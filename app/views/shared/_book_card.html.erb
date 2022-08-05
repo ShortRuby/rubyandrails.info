@@ -1,7 +1,7 @@
 <% @books.each do |book| %>
   <%= link_to book, class: "border bg-red-50/30 rounded-sm hover:bg-red-50 border-red-100 p-5 flex justify-between gap-4 group" do %>
     <div>
-      <h3 class="font-medium font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
+      <h3 class="font-medium font-custom text-red-500 hover:text-red-600 text-2xl leading-tight">
         <%= book.title %>
       </h3>
       <span class="font-normal text-lg text-slate-700">

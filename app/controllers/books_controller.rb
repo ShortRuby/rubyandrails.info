@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 
     #@tags = Tag.where(title: "ha")
     @tags = Tag.all.order(:title)
-    @books = Book.all
+    @books = Book.all.order created_at: :asc
     #@books = Book.joins(:tags).where(tags: { title: "ha" })
   end
 

@@ -1,5 +1,12 @@
+<h1 class="font-bold mb-5 font-custom text-5xl"><%= @books.count %> free books about Ruby & Ruby on Rails</h1>
+<p class="max-w-xl mb-10 md:mb-20">There are a lot of good books about Ruby and Ruby on Rails. And many books you can read for free</p>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
+
+  <div class="lg:col-span-2 xl:col-span-2 order-2 lg:order-first grid lg:grid-cols-2 2xl:grid-cols-3 gap-4">
+
 <% @books.each do |book| %>
-  <%= link_to book, class: "border bg-red-50/30 rounded-sm hover:bg-red-50 border-red-100 p-5 flex justify-between gap-4 group relative" do %>
+  <%= link_to books_free_path(book), class: "border bg-red-50/30 rounded-sm hover:bg-red-50 border-red-100 p-5 flex justify-between gap-4 group relative" do %>
     <div>
       <h3 class="font-medium font-custom text-red-500 hover:text-red-600 text-2xl leading-tight">
         <%= book.title %>
@@ -15,4 +22,9 @@
     <% end %>
   <% end %>
 <% end %>
+
+  </div>
+
+
+</div>
 

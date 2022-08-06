@@ -12,6 +12,9 @@ class Book < ApplicationRecord
 
   validates :title, :content, presence: true
 
+  def self.free_books
+    where("free = ?", true)
+  end
 
   def free?
     free.trust

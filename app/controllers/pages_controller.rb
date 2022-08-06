@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
   def show
+    @books = Book.order(created_at: :desc).limit(6)
+    @tags = Tag.all
+
     if valid_page?
       render template: "pages/#{params[:page]}"
     else

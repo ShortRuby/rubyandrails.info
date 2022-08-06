@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   resources :tags, path: 'learn'
   resources :users
 
-#  root "landing#index"
-   root "books#index" 
+  root "pages#show", page: "index"
+#   root "books#index" 
 
    resources :sitemap, only: %i[index], constraints: ->(req) { req.format == :xml }
 end

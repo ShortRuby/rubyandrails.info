@@ -6,13 +6,10 @@
 
 
 <div class="mb-28">
-  <%= link_to tags_path, class: "flex gap-2 mb-4 items-center" do %>
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-purple-500" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99935 1.16669C1.53911 1.16669 1.16602 1.53978 1.16602 2.00002V9.82615C1.16602 10.0473 1.25392 10.2594 1.41036 10.4157L8.13063 17.1299C8.35333 17.3529 8.6178 17.5298 8.90892 17.6505C9.20007 17.7712 9.51216 17.8334 9.82734 17.8334C10.1425 17.8334 10.4546 17.7712 10.7458 17.6505C11.0369 17.5298 11.3014 17.3528 11.5241 17.1298L17.1336 11.5188L16.5444 10.9297L17.1354 11.5171C17.582 11.0676 17.8327 10.4597 17.8327 9.82615C17.8327 9.19255 17.582 8.58466 17.1354 8.13524L10.4128 1.41084C10.2565 1.25451 10.0445 1.16669 9.82343 1.16669H1.99935ZM15.9541 10.3414L15.9532 10.3422L10.3448 15.9521C10.2768 16.0201 10.1962 16.0741 10.1074 16.1109C10.0186 16.1477 9.92344 16.1667 9.82734 16.1667C9.73124 16.1667 9.63608 16.1477 9.5473 16.1109C9.45851 16.0741 9.37717 16.0195 9.30922 15.9514L2.83268 9.48075V2.83335H9.47819L15.9532 9.31009L15.9539 9.31081C16.0898 9.44785 16.166 9.63306 16.166 9.82615C16.166 10.0192 16.0898 10.2043 15.9541 10.3414ZM6 7C6.55228 7 7 6.55228 7 6C7 5.44772 6.55228 5 6 5C5.44772 5 5 5.44772 5 6C5 6.55228 5.44772 7 6 7Z" fill="currentColor"/> </svg>
-    <h2 class="font-bold lg:text-3xl text-purple-500 font-custom">
-      I want to learn
-    </h2>
-    <% end %>
-  <span class="flex flex-wrap gap-x-4 gap-y-4">
+  <h2 class="font-bold mb-4 lg:text-3xl font-custom">
+    I want to learn
+  </h2>
+  <span class="flex flex-wrap gap-x-4 gap-y-2">
     <%= @tags.map { |t| link_to(t.title, t, class: "font-custom bg-purple-50/40 hover:bg-purple-50 px-8 py-2 rounded-md font-bold text-2xl hover:text-purple-600 border border-purple-200") }.join(" ").html_safe %>
   </span>
 </div>

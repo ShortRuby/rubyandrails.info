@@ -33,7 +33,7 @@
       Topics for learning
     <% end %>
 
-    <%= link_to 'About', 'pages/about', class: "md:fixed md:bottom-10 hover:text-red-500" %>
+    <%= link_to 'About', '/pages/about', class: "md:fixed md:bottom-10 hover:text-red-500" %>
 
     <% if current_user.try(:admin?) %>
       <%= link_to 'Users', users_path %>

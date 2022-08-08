@@ -8,6 +8,12 @@
 <div class="mb-40 ">
   <div class="">
 
+    <% if @book.cover.nil? %>
+
+    <% else %>
+      <%= image_tag("books/#{@book.cover}") %>
+    <% end %>
+
     <div class="flex justify-between">
       <%= render "shared/breadcrumbs", title: "All Books", path: books_path %>
     </div>

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def show
-    @books = Book.order(created_at: :desc).limit(6)
+    @books = Book.order(created_at: :desc)
     @podcasts = Podcast.all
     @newsletters = Newsletter.all
     @tags = Tag.all

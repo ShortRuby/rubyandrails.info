@@ -1,6 +1,6 @@
 class Books::FreeController < ApplicationController
   def index
-    set_meta_tags title: "#{Book.count} free books about Ruby & Ruby on Rails", description: "Find books that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Book, free, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'
+    set_meta_tags title: "#{Book.free_books.count} free books about Ruby & Ruby on Rails", description: "Find books that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Book, free, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'
 
     @books = Book.free_books
     @free_featured = Book.where(featured: true).where(free: true)

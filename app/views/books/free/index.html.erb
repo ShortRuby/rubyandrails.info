@@ -12,7 +12,7 @@
 
         <%= c.with_link do %>
           <div class="lg:self-end">
-            <%= link_to books_free_path(book), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
+            <%= link_to book, class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
               <%= book.title %>
             <% end %>
             <div class="mb-8 xl:text-3xl">
@@ -20,7 +20,7 @@
             </div>
 
             <div class="flex flex-wrap gap-2 mb-8 lg:mb-0 items-start justify-start ">
-              <%= render ButtonComponent.new(title: "Details", path: books_free_path(book)) do %>
+              <%= render ButtonComponent.new(title: "Details", path: book) do %>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 mt-1 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" /> </svg>
               <% end %>
             </div>

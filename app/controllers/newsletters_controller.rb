@@ -4,7 +4,7 @@ class NewslettersController < ApplicationController
   before_action :set_newsletter, only: %i[show edit update destroy]
 
   def index
-    set_meta_tags title: "Newsletters about Ruby & Ruby on Rails", description: "#{Newsletter.count} newsletters about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Newsletter, Ruby, Ruby on Rails, best newsletters about programming"
+    set_meta_tags title: "#{Newsletter.count} newsletters about Ruby & Ruby on Rails", description: "#{Newsletter.count} newsletters about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Newsletter, Ruby, Ruby on Rails, best newsletters about programming"
  
     @newsletters = Newsletter.all.order created_at: :desc
     @featured = Newsletter.where(featured: true)

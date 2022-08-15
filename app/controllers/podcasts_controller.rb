@@ -4,7 +4,7 @@ class PodcastsController < ApplicationController
   before_action :set_podcast, only: %i[show edit update destroy]
 
   def index
-    set_meta_tags title: "Podcasts about Ruby & Ruby on Rails", description: "#{Podcast.count} podcasts about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Podcast, Ruby, Ruby on Rails, best podcasts about programming"
+    set_meta_tags title: "#{Podcast.count} podcasts about Ruby & Ruby on Rails", description: "#{Podcast.count} podcasts about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Podcast, Ruby, Ruby on Rails, best podcasts about programming"
 
     @podcasts = Podcast.all.order created_at: :desc
     @featured = Podcast.where(featured: true)

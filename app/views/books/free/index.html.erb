@@ -12,7 +12,7 @@
 
         <%= c.with_link do %>
           <div class="lg:self-end">
-            <%= link_to book, class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
+            <%= link_to books_free_path(book), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
               <%= book.title %>
             <% end %>
             <div class="mb-8 xl:text-3xl">
@@ -20,7 +20,7 @@
             </div>
 
             <div class="flex flex-wrap gap-2 mb-8 lg:mb-0 items-start justify-start ">
-              <%= render ButtonComponent.new(title: "Details", path: book) do %>
+              <%= render ButtonComponent.new(title: "Details", path: books_free_path(book)) do %>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 mt-1 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" /> </svg>
               <% end %>
             </div>
@@ -37,7 +37,27 @@
   <% end %>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 items-start xl:grid-cols-4 gap-4 md:gap-10 px-5 md:px-10 lg:px-16 xl:gap-16">
-    <%= render (BookCardComponent.with_collection(@books)) %>
+    <% @books.each do |book| %>
+      <%= link_to books_free_path(book), class: "group relative" do %>
+        <% if book.free %>
+          <span class="text-base bg-green-500/80 font-bold text-white px-2 w-full inline-block py-1">Free </span>
+        <% end %>
+
+        <% unless book.cover.nil? || book.cover.empty? %>
+          <div class="mb-4 w-1/2 lg:w-full">
+            <%= render BookCoverComponent.new(book: book) %> 
+          </div>
+        <% end %>
+
+        <h3 class="text-red-500 hover:text-red-600 text-2xl leading-tight">
+          <%= book.title %>
+        </h3>
+
+        <span class="font-normal text-lg text-slate-700">
+          by <%= book.authors.map(&:name).join(", ") %>
+        </span>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

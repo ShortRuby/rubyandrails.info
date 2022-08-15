@@ -1,7 +1,9 @@
 <%= render(Layout::HeroComponent.new(title: "free books", bg_color: "bg-red-700", bg: "book", second: true, path: books_free_index_path)) do |c| %>
 
   <%= c.with_image do %>
-   <%= render BookCoverComponent.new(book: @book) %> 
+    <div class="w-1/2 sm:w-1/3 md:w-1/3 lg:w-2/3 xl:w-1/2">
+       <%= render BookCoverComponent.new(book: @book) %> 
+     <% end %>
   <% end %>
 
   <%= c.with_link do %>

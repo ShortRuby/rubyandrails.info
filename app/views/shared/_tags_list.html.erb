@@ -1,8 +1,0 @@
-<div class="p-5 md:p-10 lg:p-12 bg-slate-100 mb-8 md:mb-16">
-  <h2 class="md:mb-8 font-bold text-3xl">
-    I want to learn:
-  </h2>
-  <div class="grid md:grid-cols-2 lg:grid-cols-1 gap-4">
-    <%= @tags.map { |t| link_to(t.title, t, class: "hover:text-purple-500 inline-block") }.join(" ").html_safe %>
-  </div>
-</div>

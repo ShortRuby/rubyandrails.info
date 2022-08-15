@@ -1,0 +1,9 @@
+<%= link_to @newsletter, class: "border bg-green-50/30 rounded-sm hover:bg-emerald-50 border-emerald-100 p-5 flex justify-between gap-4 group" do %>
+  <div>
+    <h3 class="font-medium font-custom text-emerald-500 hover:text-emerald-600 text-2xl xl:text-3xl leading-tight">
+      <%= @newsletter.title %>
+    </h3>
+    <p class="font-normal mb-4 text-lg"> by <%= @newsletter.author %></p>
+    <p class="text-base"><%= @newsletter.content %></p>
+  </div>
+<% end %>

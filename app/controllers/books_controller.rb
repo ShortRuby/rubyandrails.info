@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     #@tags = Tag.where(title: "ha")
     @tags = Tag.all.order(:title)
     @books = Book.all.order created_at: :desc
+    @featured = Book.where(featured: true).where(free: false)
     #@books = Book.joins(:tags).where(tags: { title: "ha" })
   end
 
@@ -29,6 +30,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.friendly.find(params[:id])
+    @more_books = Book.where(id: Book.pluck(:id).sample(3)) 
 
     @next_book = @book.next
     @previous_book = @book.previous
@@ -66,7 +68,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :subtitle, :cover, :content, :free, :year, :page, :getBookOnAmazonUrl, :getBookOnSiteTitle, :getBookOnSiteUrl, :isbn, tag_ids: [], author_ids: [])
+    params.require(:book).permit(:title, :subtitle, :cover, :content, :free, :year, :page, :getBookOnAmazonUrl, :getBookOnSiteTitle, :getBookOnSiteUrl, :featured, :isbn, tag_ids: [], author_ids: [])
   end
 
   def authenticate_admin!

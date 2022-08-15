@@ -1,7 +1,13 @@
 class PagesController < ApplicationController
   def show
     @books = Book.order(created_at: :desc).limit(6)
+    @podcasts = Podcast.all
+    @newsletters = Newsletter.all
     @tags = Tag.all
+
+    @featured_book = Book.where(featured: true).where(free: false)
+    @featured_newsletter = Newsletter.where(featured: true)
+    @featured_podcast = Podcast.where(featured: true)
 
     if valid_page?
       render template: "pages/#{params[:page]}"

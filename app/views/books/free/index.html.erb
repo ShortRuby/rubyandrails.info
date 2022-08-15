@@ -1,30 +1,43 @@
-<h1 class="font-bold mb-5 font-custom text-5xl"><%= @books.count %> free books about Ruby & Ruby on Rails</h1>
-<p class="max-w-xl mb-10 md:mb-20">There are a lot of good books about Ruby and Ruby on Rails. And many books you can read for free</p>
+<div class="space-y-12 md:space-y-28">
 
-<div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
+  <% unless @free_featured.empty? %>
+    <%= render(Layout::HeroComponent.new(title: "free book", bg_color: "bg-red-700", bg: "book")) do |c| %>
+      
+      <% @free_featured.each do |book| %>
+        <%= c.with_image do %>
+          <div class="lg:w-2/3">
+            <%= render BookCoverComponent.new(book: book) %> 
+          </div>
+        <% end %>
 
-  <div class="lg:col-span-3 order-2 lg:order-first grid lg:grid-cols-2 2xl:grid-cols-4 gap-4">
+        <%= c.with_link do %>
+          <div class="lg:self-end">
+            <%= link_to books_free_path(book), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
+              <%= book.title %>
+            <% end %>
+            <div class="mb-8 xl:text-3xl">
+              by <%= book.authors.map { |author| link_to(author.name, author, class: "hover:opacity-90") }.join(", ").html_safe %>
+            </div>
 
-<% @books.each do |book| %>
-  <%= link_to books_free_path(book), class: "border bg-red-50/30 rounded-sm hover:bg-red-50 border-red-100 p-5 flex justify-between gap-4 group relative" do %>
-    <div>
-      <h3 class="font-medium font-custom text-red-500 hover:text-red-600 text-2xl leading-tight">
-        <%= book.title %>
-      </h3>
-      <span class="font-normal text-lg text-slate-700">
-        by <%= book.authors.map(&:name).join(", ") %>
-      </span>
-    </div>
-    <% if book.free %>
-      <span class="text-sm bg-green-500 font-bold absolute -top-1 -right-1 self-start text-white px-2 w-auto inlin-block py-1">Free </span>
-    <% else %>
-    <svg width="20" height="20" viewBox="0 0 20 20" class="group-hover:text-red-500 text-red-300 shrink-0"  fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M14 3H19V15H13.9051C13.0148 15 12.1704 15.3955 11.6005 16.0794L10 18V6C10 3.84153 12.037 3 14 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M6 3H1V15H6.09488C6.98521 15 7.82956 15.3955 8.39954 16.0794L10 18V6C10 3.84153 7.963 3 6 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+            <div class="flex flex-wrap gap-2 mb-8 md:mb-0 items-start justify-start ">
+              <%= render ButtonComponent.new(title: "Details", path: books_free_path(book)) do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 mt-1 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" /> </svg>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
+  <%= render Layout::TwoColumnsComponent.new(title: "#{ @books.count } free books about Ruby & Ruby on Rails") do |c| %>
+    <%= c.with_data do %>
+      <p>There are a lot of good books about Ruby and Ruby on Rails. And many books you can read for free</p>
+    <% end %>
+  <% end %>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 items-start xl:grid-cols-4 gap-4 md:gap-10 px-5 md:px-10 lg:px-16 xl:gap-16">
+    <%= render (BookCardComponent.with_collection(@books)) %>
   </div>
-
-
 </div>
 

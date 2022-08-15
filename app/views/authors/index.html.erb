@@ -1,14 +1,13 @@
-<h1 class="font-bold mb-5 font-custom text-5xl">People</h1>
-<p class="max-w-xl mb-10 md:mb-20">Book authors. Learn more about those who share knowledge in their books. </p>
+<div class="space-y-12 md:space-y-28">
+  <%= render Layout::TwoColumnsComponent.new(title: "#{@authors.count} authors writing about Ruby & Ruby on Rails") do |c| %>
+    <%= c.with_data do %>
+      <p>Learn more about those who share knowledge in their books.</p>
+    <% end %>
+  <% end %>
 
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-10 xl:gap-16">
-  <div class="col-span-4 grid md:grid-cols-2 xl:grid-cols-4 place-items-stretch gap-4 lg:gap-6">
-      <% @authors.each do |author| %>
-        <%= link_to author, class: "font-custom border rounded-sm bg-orange-50/30 hover:bg-orange-50 border-orange-100 p-5 flex gap-2 font-bold text-orange-500 hover:text-orange-600 text-xl" do %>
-          <%= author.name %>
-        <% end %>
-      <% end %>
-    </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 md:px-10 lg:px-16  gap-10">
+    <%= render (AuthorCardComponent.with_collection(@authors)) %>
+  </div>
 </div>
 
 <% if current_user.try(:admin?) %>

@@ -1,59 +1,46 @@
-<div class="mb-40">
-  <div class="pb-16 lg:pb-40">
+<div class="space-y-12 md:space-y-28">
+  <%= render(Layout::HeroComponent.new(title: "authors", bg_color: "bg-amber-600", bg: "podcast", second: true, path: authors_path)) do |c| %>
 
-    <%= render "shared/breadcrumbs", title: "People", path: authors_path %>
-
-    <!-- author & about book -->
-    <section>
-      <div class="mb-4 lg:mb-20">
-        <h1 class="text-4xl lg:text-7xl mb-5 max-w-4xl font-custom font-bold"><%= @author.name %></h1>
+    <%= c.with_image do %>
+      <div class="mb-8 xl:text-2xl">
+        <%= @author.content %>
       </div>
-      <div class="grid grid-cols-1 xl:grid-cols-5 gap-10 lg:gap-20">
-        <div class="xl:col-start-3 xl:col-span-3">
-          <div class="mb-10">
-            <%= @author.content %>
-          </div>
-
-          <div class="text-red-500 mb-10 lg:mb-20 flex flex-col sm:flex-row gap-2 sm:gap-8">
-            <% if @author.siteUrl.present? %>
-              <%= link_to "Website", @author.siteUrl, target: "_blank" %>
-            <% end %>
-            <% if @author.twitterUrl.present? %>
-              <%= link_to "Twitter", @author.twitterUrl, target: "_blank" %>
-            <% end %>
-            <% if @author.githubUrl.present? %>
-              <%= link_to "Github", @author.githubUrl, target: "_blank" %>
-            <% end %>
-          </div>
-
-          <div>
-            <h2 class="mb-4 flex items-center gap-2 font-custom font-bold"> 
-              <svg width="20" height="20" viewBox="0 0 20 20" class="hidden lg:block text-slate-500" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1.66699 2.5H6.66699C7.55105 2.5 8.39889 2.85119 9.02401 3.47631C9.64914 4.10143 10.0003 4.94928 10.0003 5.83333V17.5C10.0003 16.837 9.73693 16.2011 9.26809 15.7322C8.79925 15.2634 8.16337 15 7.50033 15H1.66699V2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M18.3333 2.5H13.3333C12.4493 2.5 11.6014 2.85119 10.9763 3.47631C10.3512 4.10143 10 4.94928 10 5.83333V17.5C10 16.837 10.2634 16.2011 10.7322 15.7322C11.2011 15.2634 11.837 15 12.5 15H18.3333V2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
-
-              Books written by <%= @author.name %> 
-            </h2>
-
-            <div class="grid md:grid-cols-2 gap-6">
-              <% @books.each do |item| %>
-                <%= link_to item, class: "border rounded-sm lg:aspect-video bg-red-50 hover:bg-red-100/70 border-red-200 p-5 text-red-500 hover:text-red-600" do %>
-                  <%= item.title %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-
-        </div>
+      <div class="flex flex-col font-bold sm:flex-row gap-2 sm:gap-8">
+        <% if @author.siteUrl.present? %>
+          <%= link_to "Website", @author.siteUrl, target: "_blank" %>
+        <% end %>
+        <% if @author.twitterUrl.present? %>
+          <%= link_to "Twitter", @author.twitterUrl, target: "_blank" %>
+        <% end %>
+        <% if @author.githubUrl.present? %>
+          <%= link_to "Github", @author.githubUrl, target: "_blank" %>
+        <% end %>
       </div>
-    </section>
+    <% end %>
+
+    <%= c.with_link do %>
+      <div class="lg:self-start">
+        <h1 class="text-3xl md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4">
+          <%= @author.name %>
+        </h1> 
+      </div>
+    <% end %>
+
+  <% end %>
+
+  <div class="px-5 md:px-10 lg:px-16">
+    <h2 class="font-bold text-3xl mb-8 md:text-5xl">Books written by <%= @author.name %></h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+      <%= render (BookCardComponent.with_collection(@books)) %>
+    </div>
   </div>
-
-
 
 </div>
 
 <% if current_user.try(:admin?) %>
-  <%= link_to edit_author_path(@author), class: "fixed bottom-10 right-10" do %>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /> </svg>
-  <% end %>
+  <div class="fixed bottom-10 right-10 flex gap-10">
+    <%= link_to "Edit", edit_author_path(@author), class: "" %>
+    <%= button_to 'Delete', @author, method: :delete, style: 'background: tomato' %>
+  </div>
 <% end %>
 

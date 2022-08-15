@@ -1,0 +1,49 @@
+<div class="space-y-12 md:space-y-28">
+
+  <% unless @featured.empty? %>
+    <%= render(Layout::HeroComponent.new(title: "podcast", bg_color: "from-blue-800 via-blue-600 to-yellow-500", bg: "podcast")) do |c| %>
+
+    <% @featured.each do |podcast| %>
+      <%= c.with_image do %>
+        <%= link_to podcast_path(podcast), class: "group" do %>
+          <% unless podcast.cover.nil? || podcast.cover.empty? %>
+            <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shrink md:w-full xl:w-2/3 ml-auto shadow-xl z-50 group-hover:-translate-y-4 transition-transform duration-300 shadow-amber-800/30 ") %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= c.with_link do %>
+        <div class="lg:self-end">
+          <%= link_to podcast_path(podcast), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
+            <%= podcast.title %>
+          <% end %>
+
+          <div class="flex flex-wrap gap-2 mb-8 md:mb-0 items-start justify-start ">
+            <%= render ButtonComponent.new(title: "Details", path: podcast_path(podcast)) do %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /> <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /> </svg>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= render Layout::TwoColumnsComponent.new(title: "#{@podcasts.count} podcasts about Ruby & Ruby on Rails") do |c| %>
+    <%= c.with_data do %>
+      <p>Find your perfect podcast about Ruby and the Ruby on Rails community. Discussions about development and life.</p>
+    <% end %>
+  <% end %>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 md:px-10 lg:px-16  gap-10">
+    <%= render (PodcastCardComponent.with_collection(@podcasts)) %>
+  </div>
+</div>
+
+
+<% if current_user.try(:admin?) %>
+  <%= link_to new_podcast_path, class: "fixed bottom-10 right-10" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
+  <% end %>
+<% end %>

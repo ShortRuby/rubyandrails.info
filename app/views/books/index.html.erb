@@ -1,16 +1,53 @@
-<h1 class="font-bold mb-5 font-custom text-5xl"><%= @books.count %> books about Ruby & Ruby on Rails</h1>
-<p class="max-w-xl mb-10 md:mb-20">Books about Ruby, Ruby on Rails, and all the technologies related to them.</p>
+<div class="space-y-12 md:space-y-28">
 
-<div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
+  <% unless @featured.empty? %>
+    <%= render(Layout::HeroComponent.new(title: "book", bg_color: "from-red-800 via-red-700 to-yellow-500", bg: "book")) do |c| %>
 
-  <div class="lg:col-span-2 xl:col-span-2 order-2 lg:order-first grid lg:grid-cols-2 2xl:grid-cols-3 gap-4">
+      <% @featured.each do |book| %>
+        <%= c.with_image do %>
+          <div class="lg:w-2/3">
+            <%= render BookCoverComponent.new(book: book) %> 
+          </div>
+        <% end %>
 
-    <%= render "shared/book_card" %>
+        <%= c.with_link do %>
+          <div class="lg:self-end">
+            <%= link_to book_path(book), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold lg:mb-4 hover:opacity-90" do %> 
+              <%= book.title %>
+            <% end %>
+            <div class="mb-8 xl:text-3xl">
+              by <%= book.authors.map { |author| link_to(author.name, author, class: "hover:opacity-90") }.join(", ").html_safe %>
+            </div>
 
+            <div class="flex flex-wrap gap-2 mb-8 lg:mb-0 items-start justify-start ">
+              <%= render ButtonComponent.new(title: "Details", path: book_path(book)) do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 mt-1 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" /> </svg>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <%= render Layout::TwoColumnsComponent.new(title: "#{ @books.count} books about Ruby & Ruby on Rails") do |c| %>
+    <%= c.with_data do %>
+      <p>Books about Ruby, Ruby on Rails, and all the technologies related to them.</p>
+    <% end %>
+  <% end %>
+
+  <%= render Layout::TwoColumnsComponent.new(title: "I want to learn", attr: "bg-slate-100 py-5 md:py-10 xl:py-20") do |c| %>
+    <%= c.with_data do %>
+      <div class="grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3 gap-4">
+        <%= @tags.map { |t| link_to(t.title, t, class: "hover:text-purple-500 inline-block") }.join(" ").html_safe %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 items-start xl:grid-cols-4 gap-4 md:gap-10 px-5 md:px-10 lg:px-16 xl:gap-16">
+    <%= render (BookCardComponent.with_collection(@books)) %>
   </div>
-
-  <%= render "shared/tags_list" %>
-
 </div>
 
 <% if current_user.try(:admin?) %>

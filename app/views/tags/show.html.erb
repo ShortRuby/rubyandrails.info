@@ -1,18 +1,37 @@
-<%= render "shared/breadcrumbs", title: "All Themes", path: tags_path, current_title: @tag.title %>
+<div class="space-y-12 md:space-y-28">
 
-<h1 class="font-bold mb-20 font-custom text-5xl">
-  <%= @books.count %> books about <%= @tag.title.capitalize() %>
-</h1>
+  <%= render(Layout::HeroComponent.new(title: "topics", bg_color: "bg-purple-600", bg: "podcast", second: true, path: tags_path)) do |c| %>
 
-<div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
+    <%= c.with_image do %>
+    <% end %>
 
-  <div class="lg:col-span-2 xl:col-span-2 order-2 lg:order-first grid lg:grid-cols-2 2xl:grid-cols-3 gap-4 auto-rows-min">
+    <%= c.with_link do %>
+      <div class="lg:self-start">
+        <h1 class="text-3xl md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4">
+          <%= @books.count %> books about <%= @tag.title.capitalize() %>
+        </h1> 
+      </div>
+    <% end %>
 
-    <%= render "shared/book_card" %>
+  <% end %>
 
+  <div class="grid lg:grid-cols-4 gap-8 lg:gap-16 px-5 md:px-10 lg:px-16 ">
+    <%= render (BookCardComponent.with_collection(@books)) %>
   </div>
 
-  <%= render "shared/tags_list" %>
+  <%= render Layout::TwoColumnsComponent.new(title: "I want to learn", attr: "bg-slate-100 py-5 md:py-10 xl:py-20") do |c| %>
+    <%= c.with_data do %>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <%= @tags.map { |t| link_to(t.title, t, class: "hover:text-purple-500 inline-block") }.join(" ").html_safe %>
+      </div>
+    <% end %>
+  <% end %>
 
 </div>
 
+<% if current_user.try(:admin?) %>
+  <div class="fixed bottom-10 right-10 flex gap-10">
+    <%= link_to 'Edit', edit_tag_path(@tag) %>
+    <%= button_to 'Delete', @tag, method: :delete, style: 'background: tomato' %>
+  </div>
+<% end %>

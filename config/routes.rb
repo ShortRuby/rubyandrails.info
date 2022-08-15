@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :newsletters
+  resources :podcasts
   # get 'landing/index'
 
   devise_for :users, controllers: {

@@ -65,6 +65,10 @@
     <%= f.label "Free book", class: "text-base"  %>
   </div>
 
+  <div class="flex items-center mb-5 gap-2 mb-4">
+    <%= f.check_box :featured %>
+    <%= f.label "Featured", class: "text-base"  %>
+  </div>
   <div>
     <%= f.submit class: "bg-red-600 text-white px-5 py-3" %>
   </div>

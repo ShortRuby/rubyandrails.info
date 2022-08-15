@@ -1,89 +1,80 @@
-<div class="mb-40 ">
-  <div class="">
+<%= render(Layout::HeroComponent.new(title: "free books", bg_color: "bg-red-700", bg: "book", second: true, path: books_free_index_path)) do |c| %>
 
-    <div class="flex justify-between">
-      <%= render "shared/breadcrumbs", title: "All free Books", path: books_free_index_path %>
+  <%= c.with_image do %>
+   <%= render BookCoverComponent.new(book: @book) %> 
+  <% end %>
+
+  <%= c.with_link do %>
+    <div class="lg:self-end">
+      <h1 class="text-3xl md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4">
+        <%= @book.title %>
+      </h1> 
+      <div class="mb-8 xl:text-3xl">
+        by <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:opacity-90") }.join(", ").html_safe %>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 mb-8 lg:mb-0 items-start justify-start ">
+        <% if @book.getBookOnAmazonUrl.present? %>
+          <%= render ButtonComponent.new(title: "Amazon", path: @book.getBookOnAmazonUrl, shop: true) %>
+        <% end %>
+
+        <% if @book.getBookOnSiteUrl.present? %>
+          <%= render ButtonComponent.new(title: @book.getBookOnSiteTitle, path: @book.getBookOnSiteUrl, shop: true) %>
+        <% end %>
+      </div>
     </div>
 
-    <!-- author & about book -->
+  <% end %>
+<% end %>
+
+<div class="grid lg:grid-cols-2 p-5 md:p-10 lg:p-16 lg:gap-20 items-start relative">
+  <div class="mb-8">
+    <%= @book.content %>
+  </div>
+
+  <div class="p-5 md:p-10 lg:p-12 xl:ml-auto 2xl:w-2/3 bg-slate-100 grid grid-cols-2 lg:grid-cols-1 gap-4 xl:gap-10 md:mb-12">
     <section>
-      <div class="mb-10 lg:mb-20">
-        <h1 class="font-bold mb-5 relative font-custom text-5xl max-w-4xl">
-          <%= @book.title %>
-        </h1>
-        <div class="text-xl">
-          by <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
-        </div>
-      </div>
-      <div class="grid lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-10 xl:gap-20">
-        <article class="lg:col-span-2 xl:col-span-3 text-lg md:text-xl max-w-3xl">
-          <%= @book.content %>
-        </article>
+      <%= link_to tags_path, class: "mb-4 font-bold inline-block" do %>
+        What you'll learn
+      <% end %>
 
-        <div class="lg:col-span-2 text-lg">
-
-          <div class="w-72 p-5 border ml-auto bg-slate-50/40 border-slate-200 rounded-sm">
-            <div class="space-y-6">
-              <div class="flex flex-col space-y-2 leading-tight font-bold gap-1">
-              <h4 class="font-custom text-sm text-center bg-green-500 font-bold text-white px-2 mx-2 w-auto inline-block py-1">Read it for Free on</h4>
-                <% if @book.getBookOnAmazonUrl.present? %>
-                  <%= link_to @book, target: "_blank", class: "hover:text-red-500 flex items-center gap-2" do %>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /> </svg>
-                    Amazon
-                  <% end %>
-                <% end %>
-
-                <% if @book.getBookOnSiteUrl.present? %>
-                  <%= link_to @book.getBookOnSiteUrl, target: "_blank", class: "hover:text-red-600 flex items-center gap-2" do %>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /> </svg>
-                    <%= @book.getBookOnSiteTitle %>
-                  <% end %>
-                <% end %>
-              </div>
-
-              <span class="h-[1px] w-full block bg-slate-200"></span>
-            
-              <section>
-                <%= link_to tags_path, class: "mb-2 flex items-center gap-2 font-custom text-purple-500 font-bold" do %>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-purple-500" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99935 1.16669C1.53911 1.16669 1.16602 1.53978 1.16602 2.00002V9.82615C1.16602 10.0473 1.25392 10.2594 1.41036 10.4157L8.13063 17.1299C8.35333 17.3529 8.6178 17.5298 8.90892 17.6505C9.20007 17.7712 9.51216 17.8334 9.82734 17.8334C10.1425 17.8334 10.4546 17.7712 10.7458 17.6505C11.0369 17.5298 11.3014 17.3528 11.5241 17.1298L17.1336 11.5188L16.5444 10.9297L17.1354 11.5171C17.582 11.0676 17.8327 10.4597 17.8327 9.82615C17.8327 9.19255 17.582 8.58466 17.1354 8.13524L10.4128 1.41084C10.2565 1.25451 10.0445 1.16669 9.82343 1.16669H1.99935ZM15.9541 10.3414L15.9532 10.3422L10.3448 15.9521C10.2768 16.0201 10.1962 16.0741 10.1074 16.1109C10.0186 16.1477 9.92344 16.1667 9.82734 16.1667C9.73124 16.1667 9.63608 16.1477 9.5473 16.1109C9.45851 16.0741 9.37717 16.0195 9.30922 15.9514L2.83268 9.48075V2.83335H9.47819L15.9532 9.31009L15.9539 9.31081C16.0898 9.44785 16.166 9.63306 16.166 9.82615C16.166 10.0192 16.0898 10.2043 15.9541 10.3414ZM6 7C6.55228 7 7 6.55228 7 6C7 5.44772 6.55228 5 6 5C5.44772 5 5 5.44772 5 6C5 6.55228 5.44772 7 6 7Z" fill="currentColor"/> </svg>
-                  What you'll learn
-                <% end %>
-
-                <ul class="space-y-1">
-                  <% @book.tags.each do |item| %>
-                    <li>
-                      <%= link_to item, class: "hover:text-purple-500" do %>
-                        <%= item.title %>
-                      <% end %>
-                    </li>
-                  <% end %>
-                </ul>
-              </section>
-
-              <span class="h-[1px] w-full block bg-slate-200"></span>
-
-            <section>
-              <%= link_to tags_path, class: "mb-2 flex items-center gap-2 font-custom text-orange-500 font-bold" do %>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 6C8 4.89543 8.89543 4 10 4C11.1046 4 12 4.89543 12 6C12 7.10457 11.1046 8 10 8C8.89543 8 8 7.10457 8 6ZM10 2C7.79086 2 6 3.79086 6 6C6 8.20914 7.79086 10 10 10C12.2091 10 14 8.20914 14 6C14 3.79086 12.2091 2 10 2ZM7 12C5.97467 12 4.97105 12.361 4.21432 13.0336C3.45374 13.7097 3 14.6536 3 15.6667V17C3 17.5523 3.44772 18 4 18C4.55228 18 5 17.5523 5 17V15.6667C5 15.2652 5.1784 14.8526 5.54304 14.5285C5.91153 14.2009 6.43403 14 7 14H13C13.566 14 14.0885 14.2009 14.457 14.5285C14.8216 14.8526 15 15.2652 15 15.6667V17C15 17.5523 15.4477 18 16 18C16.5523 18 17 17.5523 17 17V15.6667C17 14.6536 16.5463 13.7097 15.7857 13.0336C15.0289 12.361 14.0253 12 13 12H7Z" fill="currentColor"/> </svg>
-                <%= 'Author'.pluralize(@book.authors.count) %>
-              <% end %>
-
-              <ul class="space-y-1">
-                <% @book.authors.each do |item| %>
-                  <li>
-                    <%= link_to item, class: "hover:text-orange-500" do %>
-                      <%= item.name %>
-                    <% end %>
-                  </li>
-                <% end %>
-              </ul>
-            </section>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <ul class="space-y-1">
+        <% @book.tags.each do |item| %>
+          <li>
+            <%= link_to item, class: "hover:text-purple-500" do %>
+              <%= item.title %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </section>
+
+    <section>
+      <%= link_to tags_path, class: "mb-4 font-bold inline-block" do %>
+        <%= 'Author'.pluralize(@book.authors.count) %>
+      <% end %>
+
+      <ul class="space-y-1">
+        <% @book.authors.each do |item| %>
+          <li>
+            <%= link_to item, class: "hover:text-orange-500" do %>
+              <%= item.name %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+  </div>
 </div>
+
+
+<div class="px-5 md:px-10 lg:px-16 ">
+  <h2 class="font-bold text-2xl mb-8 md:text-4xl xl:text-5xl">More books</h2>
+  <div class="grid lg:grid-cols-4 gap-4 lg:gap-16">
+    <%= render (BookCardComponent.with_collection(@more_books)) %>
+  </div>
+</div>
+
+
 

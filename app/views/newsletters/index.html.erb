@@ -1,0 +1,46 @@
+<div class="space-y-12 md:space-y-28">
+  
+  <% unless @featured.empty? %>
+
+    <%= render(Layout::HeroComponent.new(title: "newsletter", bg_color: "from-emerald-700 via-emerald-600 to-yellow-500", bg: "newsletter")) do |c| %>
+
+      <% @featured.each do |newsletter| %>
+        <%= c.with_image do %>
+          <%= image_tag("newsletter.png", srcset: { "newsletter@2x.png" => "2x"}, class: "lg:mx-auto self-center hover:rotate-12 transition-transform duration-300") %>
+        <% end %>
+
+        <%= c.with_link do %>
+          <div class="lg:self-end">
+            <%= link_to newsletter_path(newsletter), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
+              <%= newsletter.title %>
+            <% end %>
+
+            <div class="flex flex-wrap gap-2 mb-8 md:mb-0 items-start justify-start ">
+              <%= render ButtonComponent.new(title: "Details", path: newsletter_path(newsletter)) do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /> <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /> </svg>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <%= render Layout::TwoColumnsComponent.new(title: "#{@newsletters.count} newsletters about Ruby & Ruby on Rails") do |c| %>
+    <%= c.with_data do %>
+      <p>Learn about all the most interesting things in the Ruby and Ruby on Rails ecosystem: articles, news, gems, tutorials and more.</p>
+    <% end %>
+  <% end %>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 px-5 md:px-10 lg:px-16  gap-10">
+    <%= render (NewsletterCardComponent.with_collection(@newsletters)) %>
+  </div>
+</div>
+
+
+<% if current_user.try(:admin?) %>
+  <%= link_to new_newsletter_path, class: "fixed bottom-10 right-10" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
+  <% end %>
+<% end %>

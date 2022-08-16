@@ -77,9 +77,6 @@
   <div class="grid lg:grid-cols-4 gap-4 lg:gap-16">
     <% @more_books.each do |book| %>
       <%= link_to books_free_path(book), class: "group relative" do %>
-        <% if book.free %>
-          <span class="text-base bg-green-500/80 font-bold text-white px-2 w-full inline-block py-1">Free </span>
-        <% end %>
 
         <% unless book.cover.nil? || book.cover.empty? %>
           <div class="mb-4 w-1/2 lg:w-full">

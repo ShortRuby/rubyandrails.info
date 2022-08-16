@@ -39,9 +39,6 @@
   <div class="grid grid-cols-1 lg:grid-cols-3 items-start xl:grid-cols-4 gap-4 md:gap-10 px-5 md:px-10 lg:px-16 xl:gap-16">
     <% @books.each do |book| %>
       <%= link_to books_free_path(book), class: "group relative" do %>
-        <% if book.free %>
-          <span class="text-base bg-green-500/80 font-bold text-white px-2 w-full inline-block py-1">Free </span>
-        <% end %>
 
         <% unless book.cover.nil? || book.cover.empty? %>
           <div class="mb-4 w-1/2 lg:w-full">

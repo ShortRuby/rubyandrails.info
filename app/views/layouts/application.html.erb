@@ -11,7 +11,9 @@
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
   <script data-goatcounter="https://leonix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  <%= display_meta_tags %>
+
+  <%#= display_meta_tags %>
+  <%= display_meta_tags(default_meta_tags) %>
 </head>
 
 <body class="text-slate-800 text-2xl">

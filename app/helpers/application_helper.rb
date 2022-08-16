@@ -10,6 +10,14 @@ module ApplicationHelper
         type: 'website',
         url: request.original_url,
         image: image_url('og_cover.jpg')
+      },
+      twitter: {
+        card: "photo",
+        image: {
+          _: image_url('og_cover.jpg'),
+          width: 1200,
+          height: 628,
+        }
       }
     }
   end

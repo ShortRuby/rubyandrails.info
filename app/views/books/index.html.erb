@@ -37,11 +37,9 @@
     <% end %>
   <% end %>
 
-  <%= render Layout::TwoColumnsComponent.new(title: "I want to learn", attr: "bg-slate-100 py-5 md:py-10 xl:py-20") do |c| %>
-    <%= c.with_data do %>
-      <div class="grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
+  <%= render TagsSectionComponent.new() do |c| %>
+    <%= c.with_tags_list do %>
         <%= @tags.map { |t| link_to(t.title, t, class: "hover:text-purple-500 inline-block") }.join(" ").html_safe %>
-      </div>
     <% end %>
   <% end %>
 

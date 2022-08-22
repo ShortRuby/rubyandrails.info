@@ -35,6 +35,28 @@
       <% end %>
     <% end %>
 
+    <div class="grid md:grid-cols-2 gap-2 lg:gap-4 mb-20">
+      <%= link_to podcasts_path, class: "group border bg-gradient-to-b from-orange-100 border-orange-500/20  p-5 lg:p-10" do %>
+        <h3 class="font-bold group-hover:text-red-500">Podcasts</h3>
+        <p>Podcasts about Ruby and Ruby on Rails</p>
+      <% end %>
+
+      <%= link_to newsletters_path, class: "group border bg-gradient-to-b from-purple-100 border-purple-500/20 p-5 lg:p-10" do %>
+        <h3 class="font-bold group-hover:text-red-500">Newsletters</h3>
+        <p>Read about all the most interesting things</p>
+      <% end %>
+
+      <%= link_to "https://rubyandrails.info/learn/hotwire", class: "group border bg-gradient-to-b from-slate-100 border-slate-500/20 p-5 lg:p-10" do %>
+        <h3 class="font-bold group-hover:text-red-500">Books about Hotwire</h3>
+        <p>Learn about Testing and everything</p>
+      <% end %>
+
+      <%= link_to "https://rubyandrails.info/learn/ruby", class: "group border bg-gradient-to-b from-red-100 border-red-500/20 p-5 lg:p-10" do %>
+        <h3 class="font-bold group-hover:text-red-500">Books about Ruby</h3>
+        <p>Learn about Testing and everything</p>
+      <% end %>
+    </div>
+
     <div class="md:hidden  md:w-1/3 mb-20">
       <h2 class="text-3xl mb-8">Topics</h2>
       <div class="flex flex-wrap gap-2">

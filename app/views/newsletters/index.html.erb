@@ -1,60 +1,85 @@
-<div class="flex 2xl:gap-20">
-
-  <div class="mx-auto space-y-20 xl:w-4/5 px-5 sm:p-10">
+<div class="flex flex-col md:flex-row md:gap-10">
+  <div class="md:w-2/3">
 
     <% unless @featured.empty? %>
-      <%= render(Layout::HeroComponent.new(title: "newsletter", bg_color: "from-emerald-700 via-emerald-600 to-yellow-500", bg: "newsletter")) do |c| %>
+      <% @featured.each do |newsletter| %>
 
-        <% @featured.each do |newsletter| %>
-          <%= c.with_image do %>
+        <section class="bg-gradient-to-b from-amber-100">
+          <div class="flex flex-col lg:flex-row p-5 md:p-10 gap-10">
+
+            <div class="">
             <%= image_tag("newsletter.png", srcset: { "newsletter@2x.png" => "2x"}, class: "lg:mx-auto self-center hover:rotate-12 transition-transform duration-300") %>
-          <% end %>
+            </div>
 
-          <%= c.with_link do %>
-            <div class="lg:self-end">
-              <%= link_to newsletter_path(newsletter), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
-                <%= newsletter.title %>
-              <% end %>
+            <div class="w-full self-start">
+              <p class="font-medium text-sm text-red-500"> This week recomendation </p>
 
-              <div class="flex flex-wrap gap-2 mb-8 lg:mb-0 items-start justify-start ">
-                <%= render ButtonComponent.new(title: "Details", path: newsletter_path(newsletter)) do %>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 mt-1 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" /> </svg>
+              <div class="mt-auto">
+                <%= link_to newsletter_path(newsletter), class: "hover:text-red-500 text-3xl mb-2 inline-block md:leading-tight" do %> 
+                  <%= newsletter.title %>
                 <% end %>
+
+                <div class="flex flex-wrap gap-2 items-start justify-start ">
+                  <%= link_to "Learn more", newsletter_path(newsletter), class: "bg-white px-4 py-2 hover:text-red-500"  %>
+                </div>
               </div>
             </div>
-          <% end %>
-        <% end %>
+
+          </div>
+        </section>
       <% end %>
     <% end %>
 
-    <%= render Layout::TwoColumnsComponent.new(title: "#{ @newsletters.count} newsletters about Ruby & Ruby on Rails") do |c| %>
-      <%= c.with_data do %>
-        <p>Learn about all the most interesting things in the Ruby and Ruby on Rails ecosystem: articles, news, gems, tutorials and more.</p>
+    <div class="grid md:grid-cols-2 gap-2 lg:gap-4 mb-20">
+      <%= link_to podcasts_path, class: "group border bg-gradient-to-b from-orange-100 border-orange-500/20  p-5 lg:p-10" do %>
+        <h3 class="font-bold group-hover:text-red-500">Podcasts</h3>
+        <p>Podcasts about Ruby and Ruby on Rails</p>
       <% end %>
-    <% end %>
 
-    <div class="xl:hidden lg:w-2/3"> 
-      <h2 class="text-3xl mb-4">Topics</h2>
-      <div class="flex flex-wrap gap-2">
-        <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
-      </div>
+      <%= link_to books_path, class: "group border bg-gradient-to-b from-purple-100 border-purple-500/20 p-5 lg:p-10" do %>
+        <h3 class="font-bold group-hover:text-red-500">Books</h3>
+        <p>Books about Ruby and Ruby on Rails</p>
+      <% end %>
+
+      <%= link_to "https://rubyandrails.info/learn/hotwire", class: "group border bg-gradient-to-b from-slate-100 border-slate-500/20 p-5 lg:p-10" do %>
+        <h3 class="font-bold group-hover:text-red-500">Books about Hotwire</h3>
+        <p>Learn about Testing and everything</p>
+      <% end %>
+
+      <%= link_to "https://rubyandrails.info/learn/ruby", class: "group border bg-gradient-to-b from-red-100 border-red-500/20 p-5 lg:p-10" do %>
+        <h3 class="font-bold group-hover:text-red-500">Books about Ruby</h3>
+        <p>Learn about Testing and everything</p>
+      <% end %>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 items-start xl:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
-      <%= render (NewsletterCardComponent.with_collection(@newsletters)) %>
-    </div>
-
-    </div>
-
-    <div class="hidden xl:block w-1/5 py-10 px-8">
+    <div class="md:hidden  md:w-1/3 mb-20">
       <h2 class="text-3xl mb-8">Topics</h2>
       <div class="flex flex-wrap gap-2">
         <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
       </div>
     </div>
 
+  </div>
+
+  <div class="hidden md:block md:w-1/3 mb-20">
+    <h2 class="text-3xl mb-8">Topics</h2>
+    <div class="flex flex-wrap gap-2">
+      <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
+    </div>
+  </div>
 </div>
 
+<div class="mb-10 max-w-2xl">
+  <h1 class="mb-2 text-3xl md:text-4xl">
+    <%= @newsletters.count %> books about Ruby & Ruby on Rails
+  </h1>
+  <div class="leading-relaxed">
+    <p>There are a lot of good books about Ruby and Ruby on Rails. And many books you can read for free</p>
+  </div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 md:gap-8 xl:gap-16 mb-20">
+      <%= render (NewsletterCardComponent.with_collection(@newsletters)) %>
+</div>
 
 <% if current_user.try(:admin?) %>
   <%= link_to new_newsletter_path, class: "fixed bottom-10 right-10" do %>

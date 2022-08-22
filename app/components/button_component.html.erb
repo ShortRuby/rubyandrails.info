@@ -1,13 +1,13 @@
 <% unless @shop %>
 
-  <%= link_to @path, class: "inline-flex gap-2 items-center text-xl font-medium bg-amber-100 hover:bg-amber-200 text-red-800 px-4 py-3" do %>
-    <%= content %>
-    <%= @title %> 
+  <%= link_to @path, class: "inline-flex whitespace-nowrap gap-1 items-center font-medium bg-amber-100 hover:bg-amber-100 text-red-700 hover:text-red-500 px-4 py-3 md:px-8  " do %>
+    <%= @title %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 shrink-0 w-5" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /> </svg>
   <% end %>
 
 <% else %>
 
-  <%= link_to @path, target: "_blank", class: "inline-flex whitespace-nowrap gap-1 items-center font-medium bg-amber-100 hover:bg-amber-100/60 text-red-700 hover:text-red-500 px-4 py-3 md:px-8  " do %>
+  <%= link_to @path, target: "_blank", class: "inline-flex whitespace-nowrap gap-1 items-center font-medium bg-amber-100 hover:bg-amber-100 text-red-700 hover:text-red-500 px-4 py-3 md:px-8  " do %>
     <%= @title %>
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 shrink-0 w-5" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /> </svg>
   <% end %>

@@ -1,16 +1,19 @@
-<%= link_to @book, class: "group relative" do %>
-
+<div>
   <% unless @book.cover.nil? || @book.cover.empty? %>
     <div class="mb-4 w-1/2 lg:w-full">
+<%= link_to @book  do %>
       <%= render BookCoverComponent.new(book: @book) %> 
+    <% end %>
     </div>
   <% end %>
 
+<%= link_to @book do %>
   <h3 class="hover:text-red-500 leading-tight">
     <%= @book.title %>
   </h3>
 
-  <span class="font-normal text-lg text-slate-700">
+  <span class="font-normal text-lg hover:text-red-500 text-slate-700">
     by <%= @book.authors.map(&:name).join(", ") %>
   </span>
 <% end %>
+</div>

@@ -1,4 +1,4 @@
-<div>
+<div class="group">
   <% unless @book.cover.nil? || @book.cover.empty? %>
     <div class="mb-4 w-1/2 lg:w-full">
 <%= link_to @book  do %>
@@ -8,11 +8,11 @@
   <% end %>
 
 <%= link_to @book do %>
-  <h3 class="hover:text-red-500 leading-tight">
+  <h3 class="group-hover:text-red-500 leading-tight">
     <%= @book.title %>
   </h3>
 
-  <span class="font-normal text-lg hover:text-red-500 text-slate-700">
+  <span class="font-normal text-lg text-slate-700">
     by <%= @book.authors.map(&:name).join(", ") %>
   </span>
 <% end %>

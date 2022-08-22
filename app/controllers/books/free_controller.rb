@@ -4,6 +4,7 @@ class Books::FreeController < ApplicationController
 
     @books = Book.free_books
     @free_featured = Book.where(featured: true).where(free: true)
+    @tags = Tag.all.order(:title)
   end
 
   def show

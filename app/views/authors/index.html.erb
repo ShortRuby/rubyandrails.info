@@ -1,13 +1,23 @@
-<div class="space-y-12 md:space-y-28">
-  <%= render Layout::TwoColumnsComponent.new(title: "#{@authors.count} authors writing about Ruby & Ruby on Rails") do |c| %>
-    <%= c.with_data do %>
-      <p>Learn more about those who share knowledge in their books.</p>
-    <% end %>
-  <% end %>
+<div class="flex 2xl:gap-20">
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 md:px-10 lg:px-16  gap-10">
-    <%= render (AuthorCardComponent.with_collection(@authors)) %>
+  <div class="mx-auto space-y-20 xl:w-4/5 px-5 sm:p-10">
+    <%= render Layout::TwoColumnsComponent.new(title: "#{@authors.count} authors writing about Ruby & Ruby on Rails") do |c| %>
+      <%= c.with_data do %>
+        <p>Learn more about those who share knowledge in their books.</p>
+      <% end %>
+    <% end %>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+      <%= render (AuthorCardComponent.with_collection(@authors)) %>
+    </div>
+
   </div>
+    <div class="hidden xl:block w-1/5 py-10 px-8">
+      <h2 class="text-3xl mb-8">Topics</h2>
+      <div class="flex flex-wrap gap-2">
+        <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
+      </div>
+    </div>
 </div>
 
 <% if current_user.try(:admin?) %>

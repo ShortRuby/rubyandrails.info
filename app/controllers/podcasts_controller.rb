@@ -8,6 +8,7 @@ class PodcastsController < ApplicationController
 
     @podcasts = Podcast.all.order created_at: :desc
     @featured = Podcast.where(featured: true)
+    @tags = Tag.all.order(:title)
   end
 
   def new
@@ -26,6 +27,7 @@ class PodcastsController < ApplicationController
   def show
     @podcast = Podcast.friendly.find(params[:id])
     @more_podcasts = Podcast.where(id: Podcast.pluck(:id).sample(3)) 
+    @tags = Tag.all.order(:title)
 
     set_meta_tags title: "Podcast #{@podcast.title}", description: "#{@podcast.title}. #{@podcast.content}", keywords: "#{@podcast.title}, podcast, Ruby, Ruby on Rails"
   end

@@ -3,6 +3,7 @@ class AuthorsController < ApplicationController
 
   def index
     @authors = Author.all
+    @tags = Tag.all.order(:title)
 
     set_meta_tags title: "#{Author.count} authors writing about Ruby & Ruby on Rails", description: "People who write books about Ruby and Ruby on Rails. For each author you can see all the books they have written about the topic and their contacts: twitter, website, or github.", keywords: "Ruby book authors, Ruby on Rails book authors"
   end

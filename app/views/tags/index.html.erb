@@ -1,12 +1,15 @@
-<div class="space-y-12 md:space-y-28">
+<div class="flex 2xl:gap-20">
+
+  <div class="space-y-20 px-5 sm:p-10">
   <%= render Layout::TwoColumnsComponent.new(title: "#{@tags.count} topics for learning") do |c| %>
     <%= c.with_data do %>
       <p>Choose a topic, and we'll suggest books where you can learn more about it</p>
     <% end %>
   <% end %>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 md:px-10 lg:px-16 gap-8">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
     <%= render (TagsCardComponent.with_collection(@tags)) %>
+  </div>
   </div>
 
 </div>

@@ -1,45 +1,64 @@
-<div class="space-y-12 md:space-y-28">
+<div class="flex 2xl:gap-20">
 
-  <% unless @featured.empty? %>
-    <%= render(Layout::HeroComponent.new(title: "podcast", bg_color: "from-blue-800 via-blue-600 to-yellow-500", bg: "podcast")) do |c| %>
+  <div class="mx-auto space-y-20 xl:w-4/5 px-5 sm:p-10">
 
-    <% @featured.each do |podcast| %>
-      <%= c.with_image do %>
+    <% unless @featured.empty? %>
+      <%= render(Layout::HeroComponent.new(title: "newsletter", bg_color: "from-emerald-700 via-emerald-600 to-yellow-500", bg: "newsletter")) do |c| %>
+
+        <% @featured.each do |podcast| %>
+          <%= c.with_image do %>
         <%= link_to podcast_path(podcast), class: "group" do %>
           <% unless podcast.cover.nil? || podcast.cover.empty? %>
             <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shrink md:w-full xl:w-2/3 ml-auto shadow-xl z-50 group-hover:-translate-y-4 transition-transform duration-300 shadow-amber-800/30 ") %>
           <% end %>
         <% end %>
-      <% end %>
-
-      <%= c.with_link do %>
-        <div class="lg:self-end">
-          <%= link_to podcast_path(podcast), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
-            <%= podcast.title %>
           <% end %>
 
-          <div class="flex flex-wrap gap-2 mb-8 md:mb-0 items-start justify-start ">
-            <%= render ButtonComponent.new(title: "Details", path: podcast_path(podcast)) do %>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /> <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /> </svg>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+          <%= c.with_link do %>
+            <div class="lg:self-end">
+              <%= link_to podcast_path(podcast), class: "text-3xl inline-block md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4 hover:opacity-90" do %> 
+            <%= podcast.title %>
+              <% end %>
 
+              <div class="flex flex-wrap gap-2 mb-8 lg:mb-0 items-start justify-start ">
+                <%= render ButtonComponent.new(title: "Details", path: podcast_path(podcast)) do %>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 mt-1 w-7" viewBox="0 0 20 20" fill="currentColor"> <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" /> </svg>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
 
-  <%= render Layout::TwoColumnsComponent.new(title: "#{@podcasts.count} podcasts about Ruby & Ruby on Rails") do |c| %>
-    <%= c.with_data do %>
-      <p>Find your perfect podcast about Ruby and the Ruby on Rails community. Discussions about development and life.</p>
+    <%= render Layout::TwoColumnsComponent.new(title: "#{@podcasts.count} podcasts about Ruby & Ruby on Rails") do |c| %>
+      <%= c.with_data do %>
+        <p>Find your perfect podcast about Ruby and the Ruby on Rails community. Discussions about development and life.</p>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 md:px-10 lg:px-16  gap-10">
-    <%= render (PodcastCardComponent.with_collection(@podcasts)) %>
-  </div>
+    <div class="xl:hidden lg:w-2/3"> 
+      <h2 class="text-3xl mb-4">Topics</h2>
+      <div class="flex flex-wrap gap-2">
+        <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 items-start xl:grid-cols-3 gap-4 md:gap-10 xl:gap-16">
+      <%= render (PodcastCardComponent.with_collection(@podcasts)) %>
+    </div>
+
+    </div>
+
+    <div class="hidden xl:block w-1/5 py-10 px-8">
+      <h2 class="text-3xl mb-8">Topics</h2>
+      <div class="flex flex-wrap gap-2">
+        <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
+      </div>
+    </div>
+
 </div>
+
 
 
 <% if current_user.try(:admin?) %>

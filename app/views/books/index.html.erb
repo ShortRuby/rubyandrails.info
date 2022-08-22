@@ -71,9 +71,6 @@
     <h2 class="text-3xl mb-8">Topics</h2>
     <div class="flex flex-wrap gap-2">
       <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
-      <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
-      <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
-      <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
     </div>
   </div>
 </div>

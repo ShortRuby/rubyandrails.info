@@ -7,14 +7,14 @@
       <p>Podcasts about Ruby & Ruby on Rails</p>
     </div>
   </div>
-  <div class="grid sm:grid-cols-2 gap-8 md:gap-8 mb-20">
+  <div class="grid sm:grid-cols-2 gap-8 md:gap-x-8 md:gap-y-12 mb-20">
 
     <% @podcasts.each do |podcast| %>
       <div class="group bg-white p-6 flex flex-col shadow-xl shadow-slate-200/30 justify-between gap-4 md:gap-2">
 
         <% unless podcast.cover.empty? %>
           <%= link_to podcast.url, target: "_blank" do %>
-            <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "md:mb-4 shadow-xl shadow-slate-800/20 block w-1/2 xl:w-1/3") %>
+            <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "md:mb-2 shadow-lg md:-mt-12 shadow-slate-800/10 block w-1/2 xl:w-1/3") %>
           <% end %>
         <% end %>
 
@@ -24,7 +24,7 @@
               <%= podcast.title %>
             </h3>
           <% end %>
-          <p class="mb-4"><%= podcast.content %></p>
+          <p class="mb-8"><%= podcast.content %></p>
         </div>
         <%= link_to "Listen", podcast.url, target: "_blank", class: "font-custom self-start border border-slate-800 px-4 py-2 hover:bg-slate-800 hover:text-white" %>
       </div>

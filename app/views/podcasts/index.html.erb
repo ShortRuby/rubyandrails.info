@@ -1,91 +1,37 @@
-<div class="flex flex-col md:flex-row md:gap-10">
-  <div class="md:w-2/3">
+<div class="mb-20">
+  <div class="mb-10 max-w-2xl">
+    <h1 class="mb-2 font-custom text-3xl md:text-4xl">
+      <%= Podcast.count %> podcasts <br/>about Ruby & Ruby on Rails
+    </h1>
+    <div class="leading-relaxed">
+      <p>Podcasts about Ruby & Ruby on Rails</p>
+    </div>
+  </div>
+  <div class="grid sm:grid-cols-2 gap-8 md:gap-8 mb-20">
 
-    <% unless @featured.empty? %>
-      <% @featured.each do |podcast| %>
+    <% @podcasts.each do |podcast| %>
+      <div class="group bg-white p-6 flex flex-col shadow-xl shadow-slate-200/30 justify-between gap-4 md:gap-2">
 
-        <section class="bg-gradient-to-b from-amber-100">
-          <div class="flex flex-col lg:flex-row p-5 md:p-10 gap-10">
+        <% unless podcast.cover.empty? %>
+          <%= link_to podcast.url, target: "_blank" do %>
+            <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "md:mb-4 shadow-xl shadow-slate-800/20 block w-1/2 xl:w-1/3") %>
+          <% end %>
+        <% end %>
 
-            <div class="">
-              <%= link_to podcast_path(podcast), class: "group" do %>
-                <% unless podcast.cover.nil? || podcast.cover.empty? %>
-                  <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shrink md:w-full xl:w-2/3 ml-auto shadow-xl z-50 group-hover:-translate-y-4 transition-transform duration-300 shadow-amber-800/30 ") %>
-                <% end %>
-              <% end %>
-            </div>
-
-            <div class="w-full self-start">
-              <p class="font-medium text-sm text-red-500"> This week recomendation </p>
-
-              <div class="mt-auto">
-                <%= link_to podcast_path(podcast), class: "hover:text-red-500 text-3xl mb-2 inline-block md:leading-tight" do %> 
-                  <%= podcast.title %>
-                <% end %>
-
-                <div class="flex flex-wrap gap-2 items-start justify-start ">
-                  <%= link_to "Learn more", podcast_path(podcast), class: "bg-white px-4 py-2 hover:text-red-500"  %>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-      <% end %>
+        <div>
+          <%= link_to podcast, class: "flex-1" do %>
+            <h3 class="font-custom font-bold hover:text-red-500 xl:leading-tight">
+              <%= podcast.title %>
+            </h3>
+          <% end %>
+          <p class="mb-4"><%= podcast.content %></p>
+        </div>
+        <%= link_to "Listen", podcast.url, target: "_blank", class: "font-custom self-start border border-slate-800 px-4 py-2 hover:bg-slate-800 hover:text-white" %>
+      </div>
     <% end %>
 
-    <div class="grid md:grid-cols-2 gap-2 lg:gap-4 mb-20">
-      <%= link_to newsletters_path, class: "group border bg-gradient-to-b from-orange-100 border-orange-500/20  p-5 lg:p-10" do %>
-        <h3 class="font-bold group-hover:text-red-500">Newsletters</h3>
-        <p>Newsletters about Ruby and Ruby on Rails</p>
-      <% end %>
-
-      <%= link_to books_path, class: "group border bg-gradient-to-b from-purple-100 border-purple-500/20 p-5 lg:p-10" do %>
-        <h3 class="font-bold group-hover:text-red-500">Books</h3>
-        <p>Books about Ruby and Ruby on Rails</p>
-      <% end %>
-
-      <%= link_to "https://rubyandrails.info/learn/hotwire", class: "group border bg-gradient-to-b from-slate-100 border-slate-500/20 p-5 lg:p-10" do %>
-        <h3 class="font-bold group-hover:text-red-500">Books about Hotwire</h3>
-        <p>Learn about Testing and everything</p>
-      <% end %>
-
-      <%= link_to "https://rubyandrails.info/learn/ruby", class: "group border bg-gradient-to-b from-red-100 border-red-500/20 p-5 lg:p-10" do %>
-        <h3 class="font-bold group-hover:text-red-500">Books about Ruby</h3>
-        <p>Learn about Testing and everything</p>
-      <% end %>
-    </div>
-
-    <div class="md:hidden  md:w-1/3 mb-20">
-      <h2 class="text-3xl mb-8">Topics</h2>
-      <div class="flex flex-wrap gap-2">
-        <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="hidden md:block md:w-1/3 mb-20">
-    <h2 class="text-3xl mb-8">Topics</h2>
-    <div class="flex flex-wrap gap-2">
-      <%= @tags.map { |t| link_to(t.title, t, class: "bg-slate-100 px-3 py-1 hover:bg-slate-50 inline-block hover:text-red-500") }.join(" ").html_safe %>
-    </div>
   </div>
 </div>
-
-<div class="mb-10 max-w-2xl">
-  <h1 class="mb-2 text-3xl md:text-4xl">
-    <%= @podcasts.count %> newsletters about Ruby & Ruby on Rails
-  </h1>
-  <div class="leading-relaxed">
-    <p>Podcasts about Ruby & Ruby on Rails</p>
-  </div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 md:gap-8 xl:gap-16 mb-20">
-      <%= render (PodcastCardComponent.with_collection(@podcasts)) %>
-</div>
-
-
 
 
 <% if current_user.try(:admin?) %>

@@ -18,6 +18,7 @@ end
   Book.create!(title: Faker::Book.title[0..40], 
                subtitle: Faker::Book.title[0..20], 
                content: Faker::Lorem::paragraph, 
+               cover: "rails-novice-to-ninja.jpg", 
                year: Faker::Number.between(from: 2000, to: 2022),
                tag_ids: [] )
 end

@@ -1,4 +1,7 @@
 module ApplicationHelper
+
+  include Pagy::Frontend
+
   def default_meta_tags
     {
       site: 'rubyandrails.info',

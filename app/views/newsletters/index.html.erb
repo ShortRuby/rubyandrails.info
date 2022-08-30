@@ -1,5 +1,5 @@
 <div class="flex flex-col md:flex-row gap-4 lg:gap-10">
-  <div class="md:w-2/3 md:border-r md:border-slate-300 md:pb-16 md:pr-10 ">
+  <div class="md:w-2/3 md:border-r md:border-slate-300 md:pb-16 md:pr-10">
     <h1 class="mb-8 font-custom text-3xl md:text-5xl">
       <%= Newsletter.count %> newsletters <br/>about Ruby & Ruby on Rails
     </h1>
@@ -19,8 +19,8 @@
       <p class="text-base text-slate-600">Learn Testing, and TDD, RSpec, Minitest</p>
     <% end %>
 
-    <%= link_to "https://briefcake.com", target: "_blank", class: "block relative bg-white p-6" do %>
-      <span data-splitbee-event="Click Banner" class="text-amber-500 text-sm absolute top-2 right-2">Sponsor</span>
+    <%= link_to "https://briefcake.com", target: "_blank", data: {:"splitbee-event" => "Click Banner"},  class: "block relative bg-white p-6" do %>
+      <span class="text-amber-500 text-sm absolute top-2 right-2">Sponsor</span>
       <h3 class="font-bold font-custom text-purple-500 mt-4">🍰 Briefcake</h3>
       <p class="text-base text-slate-600">All your favourite feeds in one daily email</p>
     <% end %>

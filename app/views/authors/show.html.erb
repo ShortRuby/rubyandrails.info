@@ -43,13 +43,6 @@
   </div>
 </div>
 
-  <div class="px-5 md:px-10 lg:px-16">
-    <h2 class="font-bold text-3xl mb-8 md:text-5xl">Books written by <%= @author.name %></h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-      <%= render (BookCardComponent.with_collection(@books)) %>
-    </div>
-  </div>
-
 
 <% if current_user.try(:admin?) %>
   <div class="fixed bottom-10 right-10 flex gap-10">

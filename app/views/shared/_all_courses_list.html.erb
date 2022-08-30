@@ -1,10 +1,10 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 xl:gap-16 mb-20">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-16 md:gap-8 xl:gap-16 mb-20">
   <% @courses.each do |course| %>
     <div class="group flex flex-col justify-between">
       <% unless course.cover.nil? || course.cover.empty? %>
         <div class="mb-8 w-full">
           <% unless course.cover.nil? || course.cover.empty? %>
-            <div class="group-hover:-translate-y-4 duration-300 transition-all relative isolate overflow-hidden rounded-lg shadow-xl shadow-slate-800/10">
+            <div class="md:group-hover:-translate-y-4 duration-300 transition-all relative isolate overflow-hidden rounded-lg shadow-xl shadow-slate-800/10">
               <% if course.free %>
                 <span class="text-base bg-green-500/80 absolute font-bold text-white px-2 inline-block py-1">Free </span>
               <% end %>
@@ -17,7 +17,16 @@
           <h3 class="font-custom mb-2 text-2xl font-bold leading-tight">
             <%= course.title %>
           </h3>
-          <div class="mb-4"><%= course.content %></div>
+          <div class="mb-2"><%= course.content %></div>
+    <div class="flex gap-1 text-base mb-4">
+      <% course.tags.each do |item| %>
+        <div class="">
+          <%= link_to item, class: "text-red-500 bg-slate-100 px-2 py-1 hover:text-red-600" do %>
+            <%= item.title %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
         </div>
         <%= link_to "Go to the course", course.courseSiteUrl, target: "_blank", class: "font-custom self-start border inline-block border-slate-800 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white" %>

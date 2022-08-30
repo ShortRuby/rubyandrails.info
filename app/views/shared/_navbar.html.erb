@@ -8,13 +8,9 @@
       Books 
     <% end %>
 
-    <% if user_signed_in? %>
-    <% if current_user.admin? %>
     <%= link_to courses_path, class: "hover:text-red-500" do %>
       Courses 
     <% end %>
-  <% end %>
-  <% end %>
     
     <%= link_to books_free_index_path, class: "hover:text-red-500" do %>
       Free books

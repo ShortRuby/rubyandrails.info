@@ -1,0 +1,19 @@
+<div>
+  <h2 class="text-3xl font-custom mb-8">All newsletters</h2>
+  <div class="grid md:grid-cols-2 gap-8 md:gap-x-8 sm:gap-y-12">
+    <% @newsletters.each do |newsletter| %>
+      <div class="group bg-white p-6 flex flex-col shadow-xl shadow-slate-200/30 gap-4 md:gap-2">
+        <div class="mb-8">
+          <%= link_to newsletter do %>
+            <h3 class="font-custom font-bold text-3xl xl:leading-tight">
+              <%= newsletter.title %>
+            </h3>
+          <% end %>
+          <span class="text-slate-500">by <%= newsletter.author %></span>
+        </div>
+        <div class="mb-4"><%= newsletter.content %></div>
+        <%= link_to "Subscribe", newsletter.url, target: "_blank", class: "font-custom self-start border border-slate-800 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white" %>
+      </div>
+    <% end %>
+  </div>
+</div>

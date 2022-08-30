@@ -1,0 +1,24 @@
+<% unless @featured.empty? %>
+  <% @featured.each do |book| %>
+    <section class="flex flex-col items-center h-full xl:flex-row gap-10 px-6 xl:p-0">
+      <%= link_to book_path(book), class: "w-1/3 xl:w-2/5 mx-auto block" do %> 
+        <%= render BookCoverComponent.new(book: book) %> 
+      <% end %>
+
+      <div class="xl:w-3/5 flex flex-col justify-center items-center">
+        <%= link_to book_path(book), class: "hover:text-red-600 text-3xl lg:text-4xl mb-2 inline-block md:leading-tight text-red-500 font-custom text-center" do %> 
+          <h1>
+            <%= book.title %>
+          </h1>
+        <% end %>
+        <div class="mb-4">
+          by <%= book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
+        </div>
+
+        <div class="flex flex-wrap gap-2 items-start justify-start ">
+          <%= link_to "Learn more", book_path(book), class: "font-custom self-start border border-slate-800 px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white"  %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+<% end %>

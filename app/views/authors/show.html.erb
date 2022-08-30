@@ -1,32 +1,47 @@
-<div class="space-y-12 md:space-y-28">
-  <%= render(Layout::HeroComponent.new(title: "authors", bg_color: "bg-amber-600", bg: "podcast", second: true, path: authors_path)) do |c| %>
-
-    <%= c.with_image do %>
-      <div class="mb-8 xl:text-2xl">
-        <%= @author.content %>
-      </div>
-      <div class="flex flex-col font-bold sm:flex-row gap-2 sm:gap-8">
-        <% if @author.siteUrl.present? %>
-          <%= link_to "Website", @author.siteUrl, target: "_blank" %>
-        <% end %>
-        <% if @author.twitterUrl.present? %>
-          <%= link_to "Twitter", @author.twitterUrl, target: "_blank" %>
-        <% end %>
-        <% if @author.githubUrl.present? %>
-          <%= link_to "Github", @author.githubUrl, target: "_blank" %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <%= c.with_link do %>
-      <div class="lg:self-start">
-        <h1 class="text-3xl md:leading-tight md:text-4xl 2xl:text-5xl font-bold md:mb-4">
+<div class="flex flex-col md:flex-row md:gap-10">
+  <div class="md:w-3/4 md:border-r md:border-slate-300 md:pr-10 ">
+    <section class="flex flex-col md:flex-row gap-8 md:gap-20 mb-8 lg:mb-20">
+      <div class="md:w-1/2 xl:w-1/3">
+        <h1 class="text-3xl mb-8 lg:mb-0 md:text-5xl max-w-2xl font-custom lg:leading-tight">
           <%= @author.name %>
         </h1> 
       </div>
-    <% end %>
 
-  <% end %>
+      <div class="flex flex-1 justify-between flex-col">
+        <%= link_to "All Authors", authors_path, class: "mb-8 md:inline-block text-red-500" %>
+
+        <div class="text-2xl">
+          <%= @author.content %>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="md:px-6 md:ml-auto md:w-1/4 md:mb-20">
+      <h2 class="font-custom mb-4">Links</h2>
+    <div class="flex md:flex-col gap-2 mb-8">
+        <% if @author.siteUrl.present? %>
+          <%= link_to "Website", @author.siteUrl, target: "_blank", class: "text-red-500" %>
+        <% end %>
+        <% if @author.twitterUrl.present? %>
+          <%= link_to "Twitter", @author.twitterUrl, target: "_blank", class: "text-red-500"  %>
+        <% end %>
+        <% if @author.githubUrl.present? %>
+          <%= link_to "Github", @author.githubUrl, target: "_blank", class: "text-red-500"  %>
+        <% end %>
+    </div>
+  </div>
+
+</div>
+
+<div class="mb-20 pt-6 md:pt-12 border-t border-slate-300 ">
+
+  <h3 class="font-custom font-bold mb-8">Books written by <%= @author.name %></h3>
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 xl:gap-20 ">
+      <%= render (BookCardComponent.with_collection(@books)) %>
+  </div>
+</div>
 
   <div class="px-5 md:px-10 lg:px-16">
     <h2 class="font-bold text-3xl mb-8 md:text-5xl">Books written by <%= @author.name %></h2>
@@ -35,7 +50,6 @@
     </div>
   </div>
 
-</div>
 
 <% if current_user.try(:admin?) %>
   <div class="fixed bottom-10 right-10 flex gap-10">

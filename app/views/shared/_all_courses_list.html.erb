@@ -14,9 +14,11 @@
         </div>
 
         <div class="grow">
+          <%= link_to course_path(course) do %>
           <h3 class="font-custom mb-2 text-2xl font-bold leading-tight">
             <%= course.title %>
           </h3>
+        <% end %>
           <div class="mb-2"><%= course.content %></div>
     <div class="flex gap-1 text-base mb-4">
       <% course.tags.each do |item| %>

@@ -1,15 +1,14 @@
-<div class="mb-20">
-
+<div class="flex flex-col md:flex-row md:gap-10">
+  <div class="md:w-2/3">
   <section class="flex flex-col md:flex-row gap-8 md:gap-20 mb-8 lg:mb-20">
-
     <div class="w-1/2 md:w-1/2 xl:w-1/3 mx-auto">
       <%= render BookCoverComponent.new(book: @book) %> 
     </div>
 
     <div class="flex flex-1 justify-between flex-col items-center text-center">
-      <%= link_to "All Books", books_path, class: "mb-4 md:inline-block text-red-500 hidden" %>
+      <%= link_to "All Books", books_path, class: "mb-4 md:inline-block text-red-500" %>
 
-      <h1 class="text-2xl mb-8 lg:mb-0 md:text-4xl max-w-2xl font-custom lg:leading-tight lg:text-5xl">
+      <h1 class="text-2xl mb-8 lg:mb-0 md:text-4xl max-w-2xl font-custom lg:leading-tight">
         <%= @book.title %>
       </h1> 
       <div>
@@ -26,25 +25,32 @@
     </div>
   </section>
 
+  </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 xl:gap-20">
-    <section class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 md:place-items-end pt-6 md:pt-12 border-t border-slate-200 md:gap-y-10 md:gap-x-20 lg:gap-x-28">
+  <div class="hidden md:block border-l border-slate-300 pl-10 p-6 ml-auto md:w-1/4 mb-20">
+    <div class="mb-8">
+      <h2 class="font-custom hover:text-red-500 mb-2">Author</h2>
+      <%= @book.authors.map { |author| link_to(author.name, author, class: "text-red-500 hover:text-red-500") }.join(", ").html_safe %>
+    </div>
 
-      <h2 class="md:col-span-1 mb-2 font-custom">Author</h2>
-      <div class="place-self-start md:col-span-2 mb-8 md:mb-0">
-        <%= @book.authors.map { |author| link_to(author.name, author, class: "text-red-500 hover:text-red-500") }.join(", ").html_safe %>
-      </div>
-
-      <h2 class="md:col-span-1 mb-2 font-custom">You'll learn</h2>
-      <div class="place-self-start md:col-span-2  mb-8 md:mb-0 flex flex-wrap gap-2">
+      <h2 class="font-custom hover:text-red-500 mb-2">You'll learn</h2>
+      <div class="flex flex-col">
         <% @book.tags.each do |item| %>
-          <div class="bg-slate-100 px-4 py-2 hover:bg-slate-50">
-            <%= link_to item, class: "text-red-500 hover:text-red-500" do %>
+          <div class="">
+            <%= link_to item, class: "text-red-500 hover:text-red-600" do %>
               <%= item.title %>
             <% end %>
           </div>
         <% end %>
       </div>
+  </div>
+
+</div>
+
+<div class="mb-20">
+
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 xl:gap-20 pt-6 md:pt-12 border-t border-slate-300 ">
+    <section class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 md:place-items-end md:gap-y-10 md:gap-x-20 lg:gap-x-28">
 
       <h2 class="md:col-span-1 mb-2 font-custom self-start">About book</h2>
       <div class="place-self-start pr-8 xl:pr-0 max-w-2xl md:col-span-2 mb-8 md:mb-0">

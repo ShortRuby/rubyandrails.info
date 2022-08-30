@@ -5,14 +5,16 @@
       <% @featured.each do |book| %>
 
         <section class="flex mb-20 flex-col lg:flex-row gap-10">
-          <%= link_to book_path(book), class: "w-1/2 md:w-1/2 mx-auto lg:w-full block" do %> 
+          <%= link_to book_path(book), class: "w-1/2 md:w-1/2 mx-auto  block" do %> 
             <%= render BookCoverComponent.new(book: book) %> 
           <% end %>
 
           <div class="w-full flex flex-col justify-center items-center">
-            <%= link_to book_path(book), class: "hover:text-red-500 text-3xl lg:text-4xl mb-2 inline-block md:leading-tight font-bold font-custom text-center" do %> 
-              <%= book.title %>
-            <% end %>
+              <%= link_to book_path(book), class: "hover:text-red-500 text-3xl lg:text-5xl mb-2 inline-block md:leading-tight font-custom text-center" do %> 
+            <h1>
+                <%= book.title %>
+            </h1>
+              <% end %>
             <div class="mb-8">
               by <%= book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
             </div>
@@ -45,7 +47,7 @@
 
 </div>
 
-<div class="mb-20">
+<div class="mb-20 border-t border-slate-300 pt-20">
   <h1 class="mb-8 font-custom text-3xl md:text-5xl">
     <%= Book.count %> books<br/>about Ruby & Ruby on Rails
   </h1>

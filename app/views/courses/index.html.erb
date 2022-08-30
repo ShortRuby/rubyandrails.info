@@ -1,26 +1,16 @@
-<% noindex %>
+<div class="space-y-16 md:space-y-24 mb-20">
+  <%= render "shared/page_text_intro", model: Course.count, title: "courses", description: "Whether you want to learn Ruby for fun, to build your own web apps, or to get a job, we have the perfect course for you. Our collection of Ruby and Ruby on Rails courses cover everything from the basics to advanced topics like metaprogramming and web scraping. Courses will show you how to build powerful, production-ready web applications with this popular framework. Best of all, you can find courses for free. Ready to get started?", bg: false %>
 
-<h1>Courses</h1>
+  <div>
+    <h2 class="text-3xl font-custom mb-8">All Courses</h2>
+    <%= render "shared/all_courses_list" %>
+  </div>
 
-<%= link_to 'New Course', new_course_path %>
+  <%== pagy_nav(@pagy) %>
+</div>
 
-<h2>Courses</h2>
-<ul>
-  <% @courses.each do |course| %>
-    <li>
-      <%= link_to course.title, course %>
-      <%= link_to 'Edit', edit_book_path(course) %>
-    </li>
+<% if current_user.try(:admin?) %>
+  <%= link_to new_course_path, class: "fixed bottom-10 right-10" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
   <% end %>
-</ul>
-
-<aside>
-  <h2>All tags</h2>
-  <ul>
-    <% @tags.each do |tag| %>
-      <li>
-        <%= link_to tag.title, tag %>
-      </li>
-    <% end %>
-  </ul>
-</aside>
+<% end %>

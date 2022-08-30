@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get "/pages/*page", to: "pages#show"
 
   resources :authors, path: 'people' 
-  # resources :courses
+
+  resources :courses
 
   namespace :books do
     resources :free, only: [:index, :show]

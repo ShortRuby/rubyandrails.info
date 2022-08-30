@@ -1,0 +1,33 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8 xl:gap-16 mb-20">
+  <% @courses.each do |course| %>
+    <div class="group">
+      <%= link_to course do %>
+        <% unless course.cover.nil? || course.cover.empty? %>
+          <div class="mb-4 w-1/2 lg:w-full">
+            <%= link_to course  do %>
+              <% unless course.cover.nil? || course.cover.empty? %>
+
+                <div class="relative isolate overflow-hidden rounded-xl shadow-xl shadow-slate-800/10">
+                  <% if course.free %>
+                    <span class="text-base bg-green-500/80 absolute font-bold text-white px-2 inline-block py-1">Free </span>
+                  <% end %>
+                  <%= image_tag("courses/#{course.cover}", alt: "#{course.title}", class: "shrink-0 lg:mr-auto block") %>
+                </div>
+
+              <% end %>
+
+            <% end %>
+          </div>
+        <% end %>
+
+        <h3 class="group-hover:text-red-500 leading-tight">
+          <%= course.title %>
+        </h3>
+
+        <span class="font-normal hidden text-lg text-slate-700">
+          by <%= course.authors.map(&:name).join(", ") %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

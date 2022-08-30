@@ -25,6 +25,7 @@ class TagsController < ApplicationController
   def show
     @tags = Tag.all.order(:title)
     @books = Book.joins(:tags).where(tags: { id: @tag })
+    @courses = Course.joins(:tags).where(tags: { id: @tag })
 
     set_meta_tags title: "#{@books.count} books about #{@tag.title}", description: "#{@books.count} books about #{@tag.title}"
   end

@@ -1,60 +1,35 @@
 <%= link_to "All topics for learning", tags_path, class: "inline-block text-red-500 mb-4" %>
 
-<div class="space-y-16 md:space-y-24 mb-20">
-  <div>
-    <h1 class="text-3xl lg:text-4xl mb-8 md:leading-tight font-custom">
-      <%= @books.count %> books about <%= @tag.title.capitalize() %>
+    <h1 class="text-3xl lg:text-4xl mb-20 md:leading-tight font-custom">
+      Learn <%= @tag.title.capitalize() %>
     </h1>
+
+<div class="space-y-16 md:space-y-24 mb-20">
+  <% unless @books.count.zero? %>
+  <div>
+    <h2 class="text-3xl lg:text-4xl mb-8 md:leading-tight font-custom">
+      <%= @books.count %> books about <%= @tag.title.capitalize() %>
+    </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-8 xl:gap-16 mb-20">
       <%= render (BookCardComponent.with_collection(@books)) %>
     </div>
   </div>
+<% end %>
 
+  <% unless @courses.count.zero? %>
   <div>
-    <h1 class="text-3xl lg:text-4xl mb-8 md:leading-tight font-custom">
+    <h2 class="text-3xl lg:text-4xl mb-8 md:leading-tight font-custom">
       <%= @courses.count %> courses about <%= @tag.title.capitalize() %>
-    </h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 xl:gap-16 mb-20">
-      
-      <% @courses.each do |course| %>
-        <div class="group">
-
-          <% unless course.cover.nil? || course.cover.empty? %>
-            <div class="mb-4 w-1/2 sm:w-full">
-              <%= link_to course  do %>
-                <% unless course.cover.nil? || course.cover.empty? %>
-
-                  <div class="relative">
-                    <% if course.free %>
-                      <span class="text-base bg-green-500/80 absolute font-bold text-white px-2 inline-block py-1">Free </span>
-                    <% end %>
-                    <%= image_tag("courses/#{course.cover}", alt: "#{course.title}", class: "shrink-0 lg:mr-auto  block shadow-xl shadow-slate-800/20 ") %>
-                  </div>
-
-                <% end %>
-
-              <% end %>
-            </div>
-          <% end %>
-
-          <%= link_to course do %>
-            <h3 class="group-hover:text-red-500 leading-tight">
-              <%= course.title %>
-            </h3>
-
-            <span class="font-normal hidden text-lg text-slate-700">
-              by <%= course.authors.map(&:name).join(", ") %>
-            </span>
-          <% end %>
-        <% end %>
-    </div>
+    </h2>
+    <%= render "shared/all_courses_list" %>
   </div>
+<% end %>
 </div>
 
 
-  <% if current_user.try(:admin?) %>
-    <div class="fixed bottom-10 right-10 flex gap-10">
-      <%= link_to 'Edit', edit_tag_path(@tag) %>
-      <%= button_to 'Delete', @tag, method: :delete, style: 'background: tomato' %>
-    </div>
-  <% end %>
+<% if current_user.try(:admin?) %>
+  <div class="fixed bottom-10 right-10 flex gap-10">
+    <%= link_to 'Edit', edit_tag_path(@tag) %>
+    <%= button_to 'Delete', @tag, method: :delete, style: 'background: tomato' %>
+  </div>
+<% end %>

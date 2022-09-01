@@ -9,7 +9,8 @@ class BooksController < ApplicationController
     set_meta_tags title: "#{Book.count} books about Ruby & Ruby on Rails", description: "The largest collection of books about Ruby & Ruby on Rails. Find books that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Book, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'
 
     @tags = Tag.all.order(:title)
-    @pagy, @books = pagy(Book.all.order(created_at: :desc))
+    #@pagy, @books = pagy(Book.all.order(created_at: :desc))
+    @pagy, @books = pagy(Book.all.order(created_at: :asc))
     @featured = Book.where(featured: true).where(free: false)
   end
 

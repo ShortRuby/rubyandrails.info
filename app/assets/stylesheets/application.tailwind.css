@@ -12,3 +12,22 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE 10+ */
 }
+
+.modal {
+  @apply flex items-center justify-center;
+  @apply fixed z-40 inset-0 h-full p-6;
+}
+  
+.modal-window {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  @apply w-full max-w-lg overflow-hidden relative;
+  @apply bg-white bg-opacity-75 shadow-lg rounded-xl;
+  @apply border border-gray-400;
+}
+
+.modal-backdrop {
+  @apply cursor-default;
+  @apply w-full h-full fixed inset-0;
+  @apply bg-gray-700 bg-opacity-25;
+}

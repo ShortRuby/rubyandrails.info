@@ -21,6 +21,7 @@
 </head>
 
 <body class="text-slate-800 px-5 bg-slate-50 text-xl">
+<%= turbo_frame_tag "modal" %>
 
 <div class="absolute hidden bottom-0 z-50 text-white p-1 text-xs font-bold bg-red-400">
     <span class="sm:hidden">mobile</span>
@@ -40,16 +41,16 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<div class="max-w-7xl mx-auto">  
+<div class="flex flex-col lg:gap-20 sm:flex-row">  
   <aside>  
     <%= render "shared/navbar" %>
   </aside>  
 
-  <%= link_to "/pages/heroku-alternatives", class:"bg-slate-100 px-4 py-2 mb-20 text-red-500 hover:bg-amber-100 text-base font-custom block" do %>
+
+    <main class="max-w-3xl xl:max-w-4xl overflow-hidden mx-auto">  
+  <%= link_to "/pages/heroku-alternatives", class:"mt-10 py-2 mb-10 text-red-500 text-base font-custom inline-block" do %>
     🔥 Heroku alternatives for Ruby on Rails apps in 2022 →
   <% end %>
-
-    <main>  
       <%= yield %>
     </main>  
 </div>

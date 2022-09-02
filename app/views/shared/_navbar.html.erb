@@ -1,42 +1,52 @@
-<nav class="top-0 flex-shrink-0 sm:p-5 overflow-x-scroll disable-scrollbars sm:h-screen sm:sticky sm:w-56">
+<nav class="top-0 flex-shrink-0 sm:p-5 pt-8 sm:pb-8 disable-scrollbars sm:h-screen sm:sticky sm:w-56">
 
-  <%= link_to 'Ruby & Rails', root_path, class: "inline-block sm:mb-8 my-4 text-base text-red-500 uppercase font-black" %>
+  <%= link_to 'Ruby & Rails', root_path, class: "mb-4 inline-block sm:mb-8 text-base text-red-500 uppercase font-black" %>
 
-  <div class="flex sm:flex-col flex-wrap gap-x-8 gap-y-4 border-b border-slate-50 text-lg text-slate-700">
-
-    <%= link_to books_path, class: "hover:text-red-500" do %>
-      Books 
-    <% end %>
-
-    <%= link_to courses_path, class: "hover:text-red-500" do %>
-      Courses 
-    <% end %>
+  <div class="flex sm:justify-between sm:flex-col sm:h-full sm:pb-12 flex-wrap text-lg ">
     
-    <%= link_to books_free_index_path, class: "hover:text-red-500" do %>
-      Free books
-    <% end %>
+    <div class="flex flex-wrap sm:flex-col sm:gap-2 gap-x-8 sm:gap-y-2  font-medium">
+      <%= link_to tags_path, class: "hover:text-red-500" do %>
+        <span>
+          <%= Tag.count %> Topics for learning
+        </span>
+      <% end %>
 
-    <%= link_to newsletters_path, class: "hover:text-red-500" do %>
-      Newsletters
-    <% end %>
+      <%= link_to books_path, class: "hover:text-red-500" do %>
+        Books 
+      <% end %>
 
-    <%= link_to podcasts_path, class: "hover:text-red-500" do %>
-      Podcasts
-    <% end %>
+      <%= link_to courses_path, class: "hover:text-red-500" do %>
+        Courses 
+      <% end %>
 
-    <%= link_to authors_path, class: "hover:text-red-500" do %>
-      People 
-    <% end %>
+      <%= link_to books_free_index_path, class: "hidden hover:text-red-500" do %>
+        Free books
+      <% end %>
 
-    <%= link_to tags_path, class: "hover:text-red-500" do %>
-      Topics for learning
-    <% end %>
+      <%= link_to newsletters_path, class: "hover:text-red-500" do %>
+        Newsletters
+      <% end %>
 
-    <%= link_to 'About', '/pages/about', class: "hover:text-red-500" %>
+      <%= link_to podcasts_path, class: "hover:text-red-500" do %>
+        Podcasts
+      <% end %>
 
-    <% if current_user.try(:admin?) %>
-      <%= link_to 'Users', users_path %>
-    <% end %>
+      <%= link_to authors_path, class: "hover:text-red-500" do %>
+        People 
+      <% end %>
+
+
+      <%= link_to 'About', '/pages/about', class: "hover:text-red-500" %>
+
+      <% if current_user.try(:admin?) %>
+        <%= link_to 'Users', users_path %>
+      <% end %>
+    </div>
+
+    <div class="hidden sm:block">
+      <%= render "shared/adv" %>
+    </div>
+
   </div>
 
   <div class="flex hidden items-center md:gap-5">

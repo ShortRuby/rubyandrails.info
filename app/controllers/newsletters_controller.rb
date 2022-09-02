@@ -9,6 +9,7 @@ class NewslettersController < ApplicationController
     @newsletters = Newsletter.all.order created_at: :desc
     @featured = Newsletter.where(featured: true)
     @tags = Tag.all.order(:title)
+    @random = Newsletter.where(id: Newsletter.pluck(:id).sample) 
   end
 
   def new
@@ -28,6 +29,7 @@ class NewslettersController < ApplicationController
     @newsletter = Newsletter.friendly.find(params[:id])
     @tags = Tag.all.order(:title)
     @more_newsletters = Newsletter.where(id: Newsletter.pluck(:id).sample(3)) 
+    @random = Newsletter.where(id: Newsletter.pluck(:id).sample) 
 
     set_meta_tags title: "Newsletter #{@newsletter.title}", description: "#{@newsletter.title}. #{@newsletter.content}", keywords: "#{@newsletter.title}, newsletter, Ruby, Ruby on Rails"
   end

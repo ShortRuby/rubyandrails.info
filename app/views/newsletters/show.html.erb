@@ -1,56 +1,29 @@
-<div class="grid grid-cols-3 gap-y-16 md:gap-y-24 mb-20">
+<%= render "shared/btn_random", title: "Newsletter" %>
 
-  <div class="col-span-3 md:col-span-2">
-      <div class="group bg-white p-6 md:p-10 flex flex-col justify-between h-full shadow-xl shadow-slate-200/30 gap-4 md:gap-2">
-        <div class="mb-8">
-            <h3 class="font-custom font-bold text-3xl xl:text-5xl xl:leading-tight">
-              <%= @newsletter.title %>
-            </h3>
-          <span class="inline-block mb-8 text-slate-500">by <%= @newsletter.author %></span>
-          <div class="mb-4"><%= @newsletter.content %></div>
-        </div>
-        <%= link_to "Subscribe", @newsletter.url, target: "_blank", class: "font-custom self-start border border-slate-800 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white" %>
-      </div>
-  </div>
+<div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
 
-  <div class="col-span-3 md:col-span-1 md:ml-4 lg:ml-10 xl:ml-12">
-
-    <div class="grid grid-cols-2 md:grid-cols-1">
-      <%= render "shared/adv" %>
-
-      <%= link_to books_free_index_path, class: "bg-white block mb-1 hover:bg-white/40 p-5" do %>
-        <h3 class="font-bold text-base font-custom">Free Books</h3>
-        <p class="text-base text-slate-500">Learn Testing, and TDD, RSpec, Minitest</p>
-      <% end %>
-
-      <%= link_to "https://rubyandrails.info/learn/testing", class: "hidden md:block bg-white hover:bg-white/40 p-5" do %>
-        <h3 class="font-bold text-base font-custom">Books about Testing</h3>
-        <span class="text-base text-slate-500">Learn Testing, and TDD, RSpec, Minitest</span>
-      <% end %>
+  <div class="flex flex-col justify-between  bg-teal-600 text-white lg:aspect-video rounded-xl p-10 gap-4 md:gap-2">
+    <div class="">
+      <%= link_to "All Newsletters", newsletters_path, class: "inline-block mb-4" %>
+      <h3 class="font-custom hover:opacity-90 font-bold text-3xl xl:text-4xl xl:leading-tight">
+        <%= @newsletter.title %>
+      </h3>
+      <div class="opacity-60 mb-8">by <%= @newsletter.author %></div>
+      <div class="mb-4"><%= @newsletter.content %></div>
     </div>
 
+    <div>
+      <%= link_to "Subscribe",  @newsletter.url, data: {:"splitbee-event" => "go to newsletter"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+    </div>
   </div>
+
 </div>
 
+<%= render "shared/suggestions_books" %>
 
-<div class="mb-20">
-  <h2 class="text-3xl font-custom mb-8">More newsletters</h2>
-  <div class="grid md:grid-cols-2 gap-8 md:gap-x-8 sm:gap-y-12">
-    <% @more_newsletters.each do |newsletter| %>
-      <div class="group bg-white p-6 flex flex-col shadow-xl shadow-slate-200/30 gap-4 md:gap-2">
-        <div class="mb-8">
-          <%= link_to newsletter do %>
-            <h3 class="font-custom font-bold text-3xl xl:leading-tight">
-              <%= newsletter.title %>
-            </h3>
-          <% end %>
-          <span class="text-slate-500">by <%= newsletter.author %></span>
-        </div>
-        <div class="mb-4"><%= newsletter.content %></div>
-        <%= link_to "Subscribe", newsletter.url, target: "_blank", class: "font-custom self-start border border-slate-800 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white" %>
-      </div>
-    <% end %>
-  </div>
+<h2 class="font-custom mb-8 font-bold">More newsletters</h2>
+<div class="flex flex-col sm:p-10 mb-20 gap-8 sm:gap-12">
+  <%= render partial: "shared/newsletter_card", collection: @more_newsletters, as: :newsletter %>
 </div>
 
 

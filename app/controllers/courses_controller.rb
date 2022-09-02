@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
     set_meta_tags title: "#{Course.count} courses about Ruby & Ruby on Rails", description: "The largest collection of courses about Ruby & Ruby on Rails. Find course that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Course, free cours,  Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Tailwind with Rails, learn ruby, learn ruby on rails'
     @tags = Tag.all.order(:title)
     @pagy, @courses = pagy(Course.all.order(created_at: :desc))
+    @random = Course.where(id: Course.pluck(:id).sample) 
   end
 
   def new
@@ -24,6 +25,8 @@ class CoursesController < ApplicationController
 
   def show
   @course = Course.friendly.find(params[:id])
+    @more_courses = Course.where(id: Course.pluck(:id).sample(3)) 
+    @random = Course.where(id: Course.pluck(:id).sample) 
   end
 
   def edit; end

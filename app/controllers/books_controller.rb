@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     #@pagy, @books = pagy(Book.all.order(created_at: :desc))
     @pagy, @books = pagy(Book.all.order(created_at: :asc))
     @featured = Book.where(featured: true).where(free: false)
+    @random = Book.where(id: Book.pluck(:id).sample) 
   end
 
   def new
@@ -30,6 +31,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.friendly.find(params[:id])
     @more_books = Book.where(id: Book.pluck(:id).sample(3)) 
+    @random = Book.where(id: Book.pluck(:id).sample) 
 
     @next_book = @book.next
     @previous_book = @book.previous

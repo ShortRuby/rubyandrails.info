@@ -1,0 +1,31 @@
+<div class="sticky top-4">
+
+    <div class="flex justify-between gap-4 px-5 xl:px-0 flex-wrap items-baseline">
+      <h2 class="font-custom font-bold">Suggestions</h2>
+      <%= link_to "All topics", tags_path, class: "hover:text-red-500" %>
+    </div>
+
+    <div class="pl-5 sm:px-0 overflow-x-auto font-bold font-custom mb-8 rounded-xl py-6 disable-scrollbars flex gap-4">
+      <%= link_to "/learn/hotwire", class:"bg-slate-800 shrink-0 hover:bg-slate-900 shadow-lg shadow-slate-500/20 w-48 block p-6 flex justify-between flex-col rounded-xl text-white" do %> 
+        <span class="text-3xl block">⚡️</span>
+        <span class="text-xl">Hotwire</span>
+      <% end %>
+      <%= link_to books_free_index_path, class:"bg-lime-600 shrink-0 hover:bg-lime-700 shadow-lg shadow-slate-500/20 w-48 block p-6  flex justify-between flex-col rounded-xl text-white" do %> 
+        <span class="text-3xl mb-4 block">🤑</span>
+        <span class="text-xl">Free Books</span>
+      <% end %>
+      <%= link_to "/learn/testing", class:"bg-sky-500 shrink-0 hover:bg-sky-600 shadow-lg shadow-slate-500/20 w-48 block p-6  flex justify-between flex-col rounded-xl text-white" do %> 
+        <span class="text-3xl mb-4 block">🚦</span>
+        <span class="text-xl">Testing</span>
+      <% end %>
+      <%= link_to "/learn/ruby", class:"bg-red-600 shrink-0 hover:bg-red-700 shadow-lg shadow-slate-500/20 w-48 block p-6  flex justify-between flex-col  rounded-xl text-white" do %> 
+        <span class="text-3xl mb-4 block">♦️</span>
+        <span class="text-xl">Ruby</span>
+      <% end %>
+      <%= link_to "/learn/perfomance", class:"bg-amber-500 shrink-0 hover:bg-amber-600 shadow-lg shadow-slate-500/20 w-48 block p-6  flex justify-between flex-col  rounded-xl text-white" do %> 
+        <span class="text-3xl mb-4 block">🚀</span>
+        <span class="text-xl">Perfomance</span>
+      <% end %>
+    </div>
+
+</div>

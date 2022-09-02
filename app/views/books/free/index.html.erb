@@ -1,46 +1,24 @@
-<div class="grid grid-cols-3 gap-y-16 md:gap-y-24 mb-20">
-
-  <div class="col-span-3 md:col-span-2">
-    <%= render "shared/featured_book" %>
-  </div>
-
-  <div class="col-span-3 md:col-span-1 md:ml-4 lg:ml-10 xl:ml-12">
-
-    <div class="grid grid-cols-2 md:grid-cols-1">
-      <%= render "shared/adv" %>
-
-      <%= link_to books_free_index_path, class: "bg-white block mb-1 hover:bg-white/40 p-5" do %>
-        <h3 class="font-bold text-base font-custom">Free Books</h3>
-        <p class="text-base text-slate-500">Learn Testing, and TDD, RSpec, Minitest</p>
-      <% end %>
-
-      <%= link_to "https://rubyandrails.info/learn/testing", class: "hidden md:block bg-white hover:bg-white/40 p-5" do %>
-        <h3 class="font-bold text-base font-custom">Books about Testing</h3>
-        <span class="text-base text-slate-500">Learn Testing, and TDD, RSpec, Minitest</span>
-      <% end %>
-    </div>
-
-  </div>
-</div>
-
-<div class="space-y-16 md:space-y-24 mb-20">
-  <%= render "shared/page_text_intro", model: Book.free_books.count, title: "free books", description: "If you're looking for some free books to help you learn Ruby or Ruby on Rails, we've got a great list for you. Ruby is a great programming language for beginners, and Ruby on Rails is a popular web development framework. Whether you're just getting started or you're looking to brush up on your skills, these books will help you learn everything you need to know.", bg: true %>
-
-  <%= render "shared/all_tags" %>
-
-  <div>
-    <h2 class="text-3xl font-custom mb-8">All Books</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-8 xl:gap-16 mb-20">
-      <%= render (BookCardComponent.with_collection(@books)) %>
-    </div>
-  </div>
-</div>
-
 <div class="mb-20">
-  <h2 class="text-3xl font-custom mb-8">Choose a topic you want to learn more about</h2>
-  <div class="flex flex-wrap gap-2">
-    <%= @tags.map { |t| link_to(t.title, t, class: "text-red-500 hover:text-red-500 bg-slate-100 px-4 py-2 hover:bg-slate-50") }.join(" ").html_safe %>
+
+  <%= render "shared/random_book" %>
+  
+  <%= render "shared/suggestions_books" %>
+
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+    <div class="mb-16">
+      <h2 class="font-custom mb-2 sm:text-3xl font-bold"><%= Book.free_books.count %> Books about Ruby and Ruby on Rails</h2>
+      <p class="mb-6 sm:mb-12 text-slate-600 text-base">If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you.</p>
+    </div>
+
+    <div class="flex flex-col gap-16 sm:gap-28">
+      <%= render partial: "shared/book_card", collection: @books, as: :book %>
+    </div>
   </div>
+
 </div>
 
-
+<% if current_user.try(:admin?) %>
+  <%= link_to new_book_path, class: "fixed bottom-10 right-10" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
+  <% end %>
+<% end %>

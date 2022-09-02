@@ -1,0 +1,30 @@
+<div class="flex flex-col md:flex-row gap-5 lg:gap-8">
+  <% unless book.cover.nil? || book.cover.empty? %>
+    <%= link_to book, class: "shrink-0 rounded-sm overflow-hidden hover:-translate-y-4 duration-300 transition-all self-start relative shadow-md hover:shadow-xl shadow-slate-800/20 " do %>
+      <%= image_tag("books/overlay.png", class: "absolute mix-blend-multiply inset-0") %>
+      <%= image_tag("books/#{book.cover}", alt: "#{book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
+    <% end %>
+  <% end %>
+
+  <div>
+    <%= link_to book do %>
+      <h3 class="hover:text-red-500 flex gap-2 items-center mb-4 text-xl font-bold lg:text-3xl font-custom leading-tight">
+        <%= book.title %>
+        <% if book.free %>
+          <span class="text-sm bg-green-500 rounded-full font-bold text-white px-4 py-2">Free </span>
+        <% end %>
+      </h3>
+    <% end %>
+
+    <span class="font-normal mb-2 inline-block text-lg text-slate-700">
+      by <%= book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
+    </span>
+
+    <%= render "shared/tag_in_card", tags: book %>
+
+    <div class="mb-4 text-slate-600 text-base"><%= truncate(book.content.to_plain_text, length: 232, omisson: '...', separator: ' ') %></div>
+
+    <%= link_to "Details", book, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+  </div>
+
+</div>

@@ -1,72 +1,52 @@
-<% noindex %>
+<%= render "shared/btn_random", title: "Course" %>
 
+<div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
 
-<div class="flex flex-col md:flex-row md:gap-10">
-  <div class="md:w-3/4 md:border-r md:border-slate-300 md:pr-10">
-    <section class="flex flex-col md:flex-row gap-8 md:gap-20 mb-8 lg:mb-20">
-      <div class="w-1/2 md:w-1/2 xl:w-1/3 mx-auto">
-<% unless @course.cover.nil? || @course.cover.empty? %>
-
-  <div class="relative">
-    <% if @course.free %>
-      <span class="text-base bg-green-500/80 absolute font-bold text-white px-2 inline-block py-1">Free </span>
-    <% end %>
-    <%= image_tag("courses/#{@course.cover}", alt: "#{@course.title}", class: "shrink-0 lg:mr-auto  block shadow-xl shadow-slate-800/20 ") %>
-  </div>
-
-<% end %>
-
+  <div class="flex flex-col lg:flex-row gap-5 lg:gap-8">
+    <% unless @course.cover.nil? || @course.cover.empty? %>
+      <div class="mb-4 w-full">
+        <div class="md:hover:-translate-y-4 duration-300 transition-all relative isolate overflow-hidden rounded-lg shadow-md hover:shadow-xl shadow-slate-800/20">
+          <%= image_tag("courses/#{@course.cover}", alt: "#{@course.title}", class: "shrink-0 lg:mr-auto block") %>
+        </div>
       </div>
+    <% end %>
 
-      <div class="flex flex-1 justify-between flex-col items-center text-center">
+    <div>
+
         <%= link_to "All Courses", courses_path, class: "mb-4 md:inline-block text-red-500" %>
 
-        <h1 class="text-2xl mb-8 lg:mb-8 md:text-4xl max-w-2xl font-custom lg:leading-tight">
+        <h1 class="flex gap-2 items-start mb-2 text-xl font-bold lg:text-3xl font-custom leading-tight">
           <%= @course.title %>
-        </h1> 
-          <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-            <% if @course.courseSiteUrl.present? %>
-              <%= render ButtonComponent.new(title: "Get Course", path: @course.courseSiteUrl, shop: true) %>
-            <% end %>
-          </div>
-      </div>
-    </section>
-
-  </div>
-
-  <div class="hidden md:block px-6 ml-auto md:w-1/4 mb-20">
-    <div class="mb-8 hidden">
-      <h2 class="font-custom hover:text-red-500 mb-2">Author</h2>
-      <%= @course.authors.map { |author| link_to(author.name, author, class: "text-red-500 hover:text-red-500") }.join(", ").html_safe %>
-    </div>
-
-    <h2 class="font-custom hover:text-red-500 mb-2">You'll learn</h2>
-    <div class="flex flex-col">
-      <% @course.tags.each do |item| %>
-        <div class="">
-          <%= link_to item, class: "text-red-500 hover:text-red-600" do %>
-            <%= item.title %>
+          <% if @course.free %>
+            <span class="text-sm bg-green-500 rounded-full font-bold text-white px-4 py-2">Free </span>
           <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+        </h1>
 
-</div>
+      <%= render "shared/tag_in_card", tags: @course %>
 
-<div class="mb-20">
+      <div class="flex flex-wrap gap-2 mb-8 justify-center md:justify-start">
+            <% if @course.courseSiteUrl.present? %>
+          <%= link_to @course.courseSiteUrl, target: "_blank", data: {:"splitbee-event" => "get course"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" do %>
+            Get Course
+          <% end %>
+        <% end %>
+      </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 xl:gap-20 pt-6 md:pt-12 border-t border-slate-300 ">
-    <section class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 md:place-items-end md:gap-y-10 md:gap-x-20 lg:gap-x-28">
-
-      <h2 class="md:col-span-1 mb-2 font-custom self-start">About course</h2>
-      <div class="place-self-start pr-8 xl:pr-0 max-w-2xl md:col-span-2 mb-8 md:mb-0">
+      <div class="text-lg">
         <%= @course.content %>
       </div>
-    </section>
-  </div>
+    </div>
 
+  </div>
 </div>
+
+<%= render "shared/suggestions_books" %>
+
+<h2 class="font-custom mb-8 font-bold">More courses</h2>
+<div class="flex flex-col mb-20 gap-16 sm:gap-28">
+  <%= render partial: "shared/course_card", collection: @more_courses, as: :course %>
+</div>
+
 
 
 <% if current_user.try(:admin?) %>

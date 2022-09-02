@@ -1,81 +1,17 @@
-<div class="space-y-16 md:space-y-16 mb-20">
+<div class="mb-20">
 
-  <%= render "shared/page_text_intro", model: Book.count, title: "books", description: "If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you.", bg: false %>
+  <%= render "shared/btn_random", title: "Book" %>
+  
+  <%= render "shared/suggestions_books" %>
 
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
 
-  <div>
-    <div class="flex justify-between gap-4 flex-wrap items-baseline">
-      <h2 class="font-custom text-3xl">Suggestions</h2>
-      <%= link_to "All topics for learning", tags_path, class: "font-bold hover:text-red-500" %>
+    <%= render "shared/page_title", title: "#{ Book.count } Books about Ruby and Ruby on Rails", description: "If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you." %>
+
+    <div class="flex flex-col gap-16 sm:gap-28">
+      <%= render partial: "shared/book_card", collection: @books, as: :book %>
     </div>
-    <div class="overflow-x-scroll py-8 disable-scrollbars flex gap-4">
-      <a href="#" class="bg-slate-800 shrink-0 hover:bg-slate-700 shadow-xl shadow-slate-500/40 w-48 block p-5 hover:-translate-y-2 transition-all duration-300 flex justify-between flex-col rounded-xl text-white"> 
-        <span class="text-3xl block">⚡️</span>
-        <span class="text-xl">Hotwire</span>
-      </a>
-      <a href="#" class="bg-green-700 shrink-0 hover:bg-green-600 shadow-xl shadow-slate-500/40 w-48 block  p-5 hover:-translate-y-2 transition-all duration-300 flex justify-between flex-col rounded-xl text-white"> 
-        <span class="text-3xl mb-4 block">🤑</span>
-        <span class="text-xl">Free Books</span>
-      </a>
-      <a href="#" class="bg-sky-600 shrink-0 hover:bg-sky-500 shadow-xl shadow-slate-500/40 w-48 block p-5 hover:-translate-y-2 transition-all duration-300 flex justify-between flex-col  rounded-xl text-white"> 
-        <span class="text-3xl mb-4 block">🚦</span>
-        <span class="text-xl">Testing</span>
-      </a>
-      <a href="#" class="bg-red-700 shrink-0 hover:bg-red-600 shadow-xl shadow-slate-500/40 w-48 block p-5 hover:-translate-y-2 transition-all duration-300 flex justify-between flex-col  rounded-xl text-white"> 
-        <span class="text-3xl mb-4 block">♦️</span>
-        <span class="text-xl">Ruby</span>
-      </a>
-      <a href="#" class="bg-amber-600 shrink-0 hover:bg-amber-500 shadow-xl shadow-slate-500/40 w-48 block p-5 hover:-translate-y-2 transition-all duration-300 flex justify-between flex-col  rounded-xl text-white"> 
-        <span class="text-3xl mb-4 block">🚀</span>
-        <span class="text-xl">Perfomance</span>
-      </a>
-    </div>
-
   </div>
-
-  <div class="flex flex-col gap-16">
-    <% @books.each do |book| %>
-      <div class="flex flex-col md:flex-row gap-5 lg:gap-8 ">
-        <% unless book.cover.nil? || book.cover.empty? %>
-            <%= link_to book, class: "shrink-0" do %>
-              <% unless book.cover.nil? || book.cover.empty? %>
-                  <%= image_tag("books/#{book.cover}", alt: "#{book.title}", class: "block shadow-xl w-32 sm:w-40 md:w-44 rounded-sm hover:-translate-y-4 duration-300 transition-all lg:w-64 shadow-slate-800/20 ") %>
-              <% end %>
-            <% end %>
-        <% end %>
-
-        <div>
-          <%= link_to book do %>
-            <div class="relative">
-              <% if book.free %>
-                <span class="text-base bg-green-500 mb-2 font-bold text-white px-4 inline-block">Free </span>
-              <% end %>
-            </div>
-            <h3 class="hover:text-red-500 text-2xl mb-1 font-bold lg:text-3xl font-custom leading-tight">
-              <%= book.title %>
-            </h3>
-          <% end %>
-
-          <span class="font-normal mb-2 inline-block text-lg text-slate-700">
-            by <%= book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
-          </span>
-
-          <div class="flex flex-wrap gap-1 mb-6">
-            <% book.tags.each do |item| %>
-                <%= link_to item, class: "bg-slate-100 border border-slate-100 hover:border-slate-200/70 whitespace-nowrap hover:bg-slate-50 px-3 py-1 text-red-500 text-sm hover:text-red-600" do %>
-                  <%= item.title %>
-                <% end %>
-            <% end %>
-          </div>
-
-        <%= link_to "Details", book, class: "hidden px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
-
-        </div>
-
-      </div>
-    <% end %>
-  </div>
-
 
   <%== pagy_nav(@pagy) %>
 </div>

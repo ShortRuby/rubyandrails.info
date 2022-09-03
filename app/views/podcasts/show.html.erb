@@ -36,12 +36,4 @@
 
 
 
-<% if current_user.try(:admin?) %>
-  <div class="fixed bottom-10 right-10 flex gap-10">
-  <%= link_to new_podcast_path, class: "fixed bottom-10 right-10" do %>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
-  <% end %>
-    <%= link_to 'Edit', edit_podcast_path(@podcast) %>
-    <%= button_to 'Delete', @podcast, method: :delete, style: 'background: tomato' %>
-  </div>
-<% end %>
+<%= render "shared/btns_add", item: @podcast, path: edit_podcast_path(@podcast) %>

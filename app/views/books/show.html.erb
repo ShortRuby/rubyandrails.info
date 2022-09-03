@@ -59,11 +59,4 @@
 </div>
 
 
-
-<% if current_user.try(:admin?) %>
-  <div class="fixed bottom-10 z-50 right-10 flex gap-10">
-    <%= link_to 'Edit', edit_book_path(@book) %>
-    <%= button_to 'Delete', @book, method: :delete, style: 'background: tomato' %>
-  </div>
-<% end %>
-
+<%= render "shared/btns_add", item: @book, path: edit_book_path(@book) %>

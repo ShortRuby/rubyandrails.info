@@ -29,9 +29,4 @@
 </div>
 
 
-<% if current_user.try(:admin?) %>
-  <div class="fixed bottom-10 right-10 flex gap-10">
-    <%= link_to 'Edit', edit_newsletter_path(@newsletter) %>
-    <%= button_to 'Delete', @newsletter, method: :delete, style: 'background: tomato' %>
-  </div>
-<% end %>
+<%= render "shared/btns_add", item: @newsletter, path: edit_newsletter_path(@newsletter) %>

@@ -25,9 +25,4 @@
     </div>
   <% end %>
 
-<% if current_user.try(:admin?) %>
-  <div class="fixed bottom-10 right-10 flex gap-10">
-    <%= link_to 'Edit', edit_tag_path(@tag) %>
-    <%= button_to 'Delete', @tag, method: :delete, style: 'background: tomato' %>
-  </div>
-<% end %>
+<%= render "shared/btns_add", item: @tag, path: edit_tag_path(@tag) %>

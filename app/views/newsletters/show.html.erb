@@ -2,9 +2,9 @@
 
 <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
 
-  <div class="flex flex-col justify-between  bg-teal-600 text-white lg:aspect-video rounded-xl p-10 gap-4 md:gap-2">
+  <div class="flex flex-col justify-between lg:aspect-video rounded-xl gap-4 md:gap-2">
     <div class="">
-      <%= link_to "All Newsletters", newsletters_path, class: "inline-block mb-4" %>
+      <%= link_to "All Newsletters", newsletters_path, class: "hover:text-red-600 text-red-500 inline-block mb-4" %>
       <h3 class="font-custom hover:opacity-90 font-bold text-3xl xl:text-4xl xl:leading-tight">
         <%= @newsletter.title %>
       </h3>

@@ -1,0 +1,18 @@
+<div class="mb-20">
+
+  <%= render "shared/btn_random", title: "Screencast" %>
+  
+  <%= render "shared/suggestions_books" %>
+
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+
+    <%= render "shared/page_title", title: "#{ Screencast.count } screencasts about Ruby and Ruby on Rails", description: "If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you." %>
+
+    <div class="flex flex-col gap-16 sm:gap-28">
+      <%= render partial: "shared/screencast_card", collection: @screencasts, as: :screencast %>
+    </div>
+  </div>
+
+</div>
+
+<%= render "shared/btns_add" %>

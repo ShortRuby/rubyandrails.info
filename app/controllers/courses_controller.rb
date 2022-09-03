@@ -27,6 +27,8 @@ class CoursesController < ApplicationController
   @course = Course.friendly.find(params[:id])
     @more_courses = Course.where(id: Course.pluck(:id).sample(3)) 
     @random = Course.where(id: Course.pluck(:id).sample) 
+
+    set_meta_tags title: "Course #{@course.title}", description: "#{@course.title} by #{@course.authors.map { |author| author.name}.join(", ").html_safe}. #{@course.content}", keywords: "#{@course.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@course.title}"
   end
 
   def edit; end

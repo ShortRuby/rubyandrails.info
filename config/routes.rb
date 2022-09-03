@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :screencasts
   resources :newsletters
   resources :podcasts
   # get 'landing/index'

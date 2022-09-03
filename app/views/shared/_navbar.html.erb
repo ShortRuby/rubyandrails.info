@@ -5,33 +5,122 @@
   <div class="flex sm:justify-between sm:flex-col sm:h-full sm:pb-12 flex-wrap text-lg ">
     
     <div class="flex flex-wrap sm:flex-col sm:gap-2 gap-x-8 sm:gap-y-2  font-medium">
-      <%= link_to tags_path, class: "hover:text-red-500" do %>
-        <span>
-          <%= Tag.count %> Topics for learning
-        </span>
+
+      <%= link_to tags_path, class: "hover:text-red-500 flex gap-2 items-center" do %>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 21.5L1 8.5L7 2H17L23 8.5L12 21.5Z" fill="url(#paint0_linear_267_5)"/>
+<path d="M1 8.5L12 21.5M1 8.5L7 2M1 8.5H6.5M12 21.5L23 8.5M12 21.5V8.5M12 21.5L17.5 8.5M12 21.5L6.5 8.5M23 8.5L17 2M23 8.5H17.5M17 2H7M17 2L12 8.5M7 2L12 8.5M12 8.5H17.5M12 8.5H6.5" stroke="#334155"/>
+<defs>
+<linearGradient id="paint0_linear_267_5" x1="12" y1="3" x2="12" y2="22.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.4"/>
+<stop offset="0.614583" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+          Topics for learning
+
       <% end %>
 
-      <%= link_to books_path, class: "hover:text-red-500" do %>
+      <%= link_to books_path, class: "hover:text-red-500 flex gap-2 items-center" do %>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3.5" y="5.5" width="5" height="16" fill="url(#paint0_linear_267_6)" stroke="#334155"/>
+<rect x="8.5" y="2.5" width="6" height="19" fill="url(#paint1_linear_267_6)" stroke="#334155"/>
+<rect x="15.4757" y="3.96398" width="2" height="18" transform="rotate(-13.1593 15.4757 3.96398)" fill="url(#paint2_linear_267_6)" stroke="#334155"/>
+<rect opacity="0.5" x="10" y="5" width="3" height="4" fill="#334155"/>
+<rect opacity="0.5" x="10" y="11" width="3" height="8" fill="#334155"/>
+<rect opacity="0.4" x="5" y="7" width="2" height="13" fill="#334155"/>
+<defs>
+<linearGradient id="paint0_linear_267_6" x1="6.5625" y1="5.87179" x2="6.5625" y2="22.8718" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_267_6" x1="12.1563" y1="3.02564" x2="12.1563" y2="23.0256" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear_267_6" x1="16.6562" y1="4.5653" x2="16.6562" y2="23.5653" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
         Books 
       <% end %>
 
-      <%= link_to courses_path, class: "hover:text-red-500" do %>
+      <%= link_to courses_path, class: "hover:text-red-500 flex gap-2 items-center" do %>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.5" y="2.5" width="19" height="19" rx="4.5" fill="url(#paint0_linear_267_7)" stroke="#334155"/>
+<path d="M15.5 11.134C16.1667 11.5189 16.1667 12.4811 15.5 12.866L11 15.4641C10.3333 15.849 9.5 15.3679 9.5 14.5981L9.5 9.40192C9.5 8.63212 10.3333 8.151 11 8.5359L15.5 11.134Z" fill="#334155"/>
+<defs>
+<linearGradient id="paint0_linear_267_7" x1="13.875" y1="3.02564" x2="13.875" y2="23.0256" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
         Courses 
       <% end %>
 
       <%= link_to books_free_index_path, class: "hidden hover:text-red-500" do %>
+
         Free books
       <% end %>
 
-      <%= link_to newsletters_path, class: "hover:text-red-500" do %>
+      <%= link_to newsletters_path, class: "hover:text-red-500 flex gap-2 items-center" do %>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 5.5H20C20.8284 5.5 21.5 6.17157 21.5 7V19C21.5 19.8284 20.8284 20.5 20 20.5H4C3.17157 20.5 2.5 19.8284 2.5 19V7C2.5 6.17157 3.17157 5.5 4 5.5Z" fill="url(#paint0_linear_267_8)" stroke="#334155"/>
+<path d="M2.5 9L11.044 13.9465C11.639 14.291 12.3692 14.3057 12.9775 13.9855L21.5 9.5" stroke="#334155"/>
+<circle cx="21" cy="5" r="2.5" fill="#334155" stroke="#F0F5F9"/>
+<defs>
+<linearGradient id="paint0_linear_267_8" x1="13.875" y1="5.82051" x2="13.875" y2="21.8205" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
         Newsletters
       <% end %>
 
-      <%= link_to podcasts_path, class: "hover:text-red-500" do %>
+      <%= link_to podcasts_path, class: "hover:text-red-500 flex gap-2 items-center" do %>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 13.5H22.5V20C22.5 20.8284 21.8284 21.5 21 21.5H20C18.067 21.5 16.5 19.933 16.5 18V15C16.5 14.1716 17.1716 13.5 18 13.5Z" fill="url(#paint0_linear_267_9)" stroke="#334155"/>
+<path d="M6 13.5H1.5V20C1.5 20.8284 2.17157 21.5 3 21.5H4C5.933 21.5 7.5 19.933 7.5 18V15C7.5 14.1716 6.82843 13.5 6 13.5Z" fill="url(#paint1_linear_267_9)" stroke="#334155"/>
+<path d="M1.5 14V13C1.5 7.20101 6.20101 2.5 12 2.5V2.5C17.799 2.5 22.5 7.20101 22.5 13V14" stroke="#334155"/>
+<defs>
+<linearGradient id="paint0_linear_267_9" x1="20.1563" y1="13.4615" x2="20.1563" y2="22.4615" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_267_9" x1="3.84375" y1="13.4615" x2="3.84375" y2="22.4615" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
         Podcasts
       <% end %>
 
-      <%= link_to authors_path, class: "hover:text-red-500" do %>
+      <%= link_to authors_path, class: "hover:text-red-500 flex gap-2 items-center" do %>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12.5" cy="12.5" r="10" fill="url(#paint0_linear_267_10)" stroke="#334155"/>
+<path d="M19 20V20C19 17.2386 16.7614 15 14 15H11.5C8.73858 15 6.5 17.2386 6.5 20V20" stroke="#334155"/>
+<circle cx="12.5" cy="10.5" r="4" fill="url(#paint1_linear_267_10)" stroke="#334155"/>
+<defs>
+<linearGradient id="paint0_linear_267_10" x1="14.4688" y1="3.07692" x2="14.4688" y2="24.0769" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_267_10" x1="13.3438" y1="6.46154" x2="13.3438" y2="15.4615" gradientUnits="userSpaceOnUse">
+<stop stop-color="#334155" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#334155" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
         People 
       <% end %>
 

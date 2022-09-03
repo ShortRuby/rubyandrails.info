@@ -4,7 +4,6 @@ module ApplicationHelper
 
   def default_meta_tags
     {
-      site: 'rubyandrails.info',
       keywords: 'ruby, books, podcasts, newsleters, free books, testing, hotwire, for juniors',
       og: {
         site_name: 'rubyandrails.info',

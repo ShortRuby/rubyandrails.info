@@ -19,12 +19,15 @@
       <div class="mb-20 text-lg">
         <%= @author.content %>
       </div>
+  <% unless @books.count.zero? %>
 <div class="px-5 sm:px-0">
+
   <h2 class="font-custom mb-8 font-bold">Books by <%= @author.name %></h2>
   <div class="flex flex-col gap-16 sm:gap-28">
     <%= render partial: "shared/book_card", collection: @books, as: :book %>
   </div>
 </div>
 </div>
+<% end %>
 
 <%= render "shared/btns_add", item: @author, path: edit_author_path(@author) %>

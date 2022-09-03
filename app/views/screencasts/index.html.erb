@@ -6,7 +6,7 @@
 
   <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
 
-    <%= render "shared/page_title", title: "#{ Screencast.count } screencasts about Ruby and Ruby on Rails", description: "If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you." %>
+    <%= render "shared/page_title", title: "#{ Screencast.count } screencasts about Ruby and Ruby on Rails", description: "If you're looking for some helpful resources on learning Ruby and Ruby on Rails development, I recommend checking out some screencast tutorials. There's a lot of great information out there that can help you get started and become a better developer. Happy learning!" %>
 
     <div class="flex flex-col gap-16 sm:gap-28">
       <%= render partial: "shared/screencast_card", collection: @screencasts, as: :screencast %>

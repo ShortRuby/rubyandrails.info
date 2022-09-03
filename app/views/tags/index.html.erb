@@ -1,18 +1,26 @@
-<div class="flex 2xl:gap-20">
+<div class="mb-20">
 
-  <div class="space-y-20 px-5 sm:p-10">
-  <%= render Layout::TwoColumnsComponent.new(title: "#{@tags.count} topics for learning") do |c| %>
-    <%= c.with_data do %>
-      <p>Choose a topic, and we'll suggest books where you can learn more about it</p>
-    <% end %>
-  <% end %>
+  <%= render "shared/btn_random", title: "Topic" %>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-    <%= render (TagsCardComponent.with_collection(@tags)) %>
-  </div>
+  <%= render "shared/suggestions_books" %>
+
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+    <%= render "shared/page_title", title: "#{ Tag.count } Topics for learning", description: "Choose a topic, and we'll suggest books where you can learn more about it" %>
+
+    <div class="grid lg:grid-cols-2 gap-6 sm:gap-6">
+
+      <% @tags.each do |tag| %>
+        <%= link_to tag, class: "" do %>
+          <h2 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
+            <%= tag.title %>
+          </h2>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
 </div>
+
 
 <div class="fixed bottom-10 right-10 flex gap-10">
   <% if current_user.try(:admin?) %>

@@ -3,6 +3,7 @@ class TagsController < ApplicationController
 
   def index
     @tags = Tag.all.order(:title)
+    @random = Tag.where(id: Tag.pluck(:id).sample) 
 
     @books = Book.all
 
@@ -26,6 +27,8 @@ class TagsController < ApplicationController
     @tags = Tag.all.order(:title)
     @books = Book.joins(:tags).where(tags: { id: @tag })
     @courses = Course.joins(:tags).where(tags: { id: @tag })
+
+    @random = Tag.where(id: Tag.pluck(:id).sample) 
 
     set_meta_tags title: "#{@books.count} books about #{@tag.title}", description: "#{@books.count} books about #{@tag.title}"
   end

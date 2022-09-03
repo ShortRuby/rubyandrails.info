@@ -1,44 +1,25 @@
-<div class="flex flex-col md:flex-row gap-4 lg:gap-10">
-  <div class="md:w-2/3 md:border-r md:border-slate-300 md:pr-10 ">
-    <h1 class="mb-8 font-custom text-3xl md:text-5xl">
-      Authors writing <br/>about Ruby & Ruby on Rails
-    </h1>
-    <div class="md:ml-40 lg:ml-64 leading-relaxed">
-      <p class="mb-4">There are many people writing about Ruby, Ruby on Rails. Some of them are very experienced developers who have been using Ruby for years, and some are new developers who are just starting to learn the language. We've compiled a list of some of the best and brightest minds in the industry.</p>
+<div class="mb-20">
+
+  <%= render "shared/suggestions_books" %>
+
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+
+    <%= render "shared/page_title", title: "Authors writing about Ruby & Ruby on Rails", description: "There are many people writing about Ruby, Ruby on Rails. Some of them are very experienced developers who have been using Ruby for years, and some are new developers who are just starting to learn the language. We've compiled a list of some of the best and brightest minds in the industry." %>
+
+    <div class="grid lg:grid-cols-2 gap-6 sm:gap-6">
+
+      <% @authors.each do |author| %>
+        <%= link_to author, class: "" do %>
+          <h2 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
+          <%= author.name %>
+          </h2>
+        <% end %>
+      <% end %>
+
     </div>
   </div>
 
-  <div class="hidden md:block px-6 ml-auto md:w-1/3 mb-20">
-    <%= link_to "https://rubyandrails.info/learn/testing", class: "block mb-8" do %>
-      <h3 class="font-bold font-custom hover:text-red-500">Books about Testing</h3>
-      <p class="text-base text-slate-600">Learn Testing, and TDD, RSpec, Minitest</p>
-    <% end %>
-
-    <%= link_to "https://rubyandrails.info/learn/ruby", class: "mb-8 block" do %>
-      <h3 class="font-bold font-custom hover:text-red-500">Podcasts about Ruby & Ruby on Rails</h3>
-      <p class="text-base text-slate-600">Best podcasts to listen to on your commute</p>
-    <% end %>
-
-    <%= link_to "https://briefcake.com", target: "_blank", data: {:"splitbee-event" => "Click Banner"}, class: "block relative bg-white p-6" do %>
-      <span class="text-amber-500 text-sm absolute top-2 right-2">Sponsor</span>
-      <h3 class="font-bold font-custom text-purple-500 mt-4">🍰 Briefcake</h3>
-      <p class="text-base text-slate-600">All your favourite feeds in one daily email</p>
-    <% end %>
-
-  </div>
-
 </div>
-
-
-<div class="grid border-t border-slate-300 pt-20 md:grid-cols-2 gap-8 md:gap-x-8 sm:gap-y-12 mb-20">
-  <% @authors.each do |author| %>
-  <%= link_to author, class: "font-custom border p-5 hover:text-red-500 flex gap-2 font-bold font-custom" do %>
-    <%= author.name %>
-  <% end %>
-<% end %>
-</div>
-
-
 
 <% if current_user.try(:admin?) %>
   <%= link_to new_author_path, class: "fixed bottom-10 right-10" do %>

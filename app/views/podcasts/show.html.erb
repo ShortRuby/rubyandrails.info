@@ -27,9 +27,11 @@
 
 <%= render "shared/suggestions_books" %>
 
-<h2 class="font-custom mb-8 font-bold">More podcasts</h2>
-<div class="flex flex-col mb-20 gap-8 sm:gap-16">
-  <%= render partial: "shared/podcast_card", collection: @more_podcasts, as: :podcast %>
+<div class="px-5 sm:px-0">
+  <h2 class="font-custom mb-8 font-bold">More podcasts</h2>
+  <div class="flex flex-col mb-20 gap-8 sm:gap-16">
+    <%= render partial: "shared/podcast_card", collection: @more_podcasts, as: :podcast %>
+  </div>
 </div>
 
 

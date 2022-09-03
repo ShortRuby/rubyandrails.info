@@ -1,31 +1,29 @@
-<%= link_to "All topics for learning", tags_path, class: "inline-block text-red-500 mb-4" %>
+<%= render "shared/btn_random", title: "Topic" %>
 
-    <h1 class="text-3xl lg:text-4xl mb-20 md:leading-tight font-custom">
-      Learn <%= @tag.title.capitalize() %>
-    </h1>
+<div class="px-5 sm:px-0">
+  <%= link_to "All topics for learning", tags_path, class: "inline-block text-red-500 mb-4" %>
+  <h1 class="text-3xl lg:text-4xl mb-10 md:leading-tight font-custom">
+    Learn <%= @tag.title.capitalize() %> with books and courses
+  </h1>
+</div>
 
-<div class="space-y-16 md:space-y-24 mb-20">
   <% unless @books.count.zero? %>
-  <div>
-    <h2 class="text-3xl lg:text-4xl mb-8 md:leading-tight font-custom">
-      <%= @books.count %> books about <%= @tag.title.capitalize() %>
-    </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-8 xl:gap-16 mb-20">
-      <%= render (BookCardComponent.with_collection(@books)) %>
+  <div class="bg-white rounded-2xl  mb-20 sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+    <h2 class="font-custom mb-8 font-bold">Books about <%= @tag.title.capitalize() %></h2>
+    <div class="flex flex-col gap-16 sm:gap-20">
+      <%= render partial: "shared/book_card", collection: @books, as: :book %>
     </div>
   </div>
 <% end %>
 
   <% unless @courses.count.zero? %>
-  <div>
-    <h2 class="text-3xl lg:text-4xl mb-8 md:leading-tight font-custom">
-      <%= @courses.count %> courses about <%= @tag.title.capitalize() %>
-    </h2>
-    <%= render "shared/all_courses_list" %>
-  </div>
-<% end %>
-</div>
-
+    <div class="bg-white rounded-2xl  mb-20 sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+      <h2 class="font-custom mb-8 font-bold">Courses about <%= @tag.title.capitalize() %></h2>
+      <div class="flex flex-col gap-16 sm:gap-20">
+        <%= render partial: "shared/course_card", collection: @courses, as: :course %>
+      </div>
+    </div>
+  <% end %>
 
 <% if current_user.try(:admin?) %>
   <div class="fixed bottom-10 right-10 flex gap-10">

@@ -2,8 +2,11 @@
 <% description 'Choose the best service to migrate your app from Heroku. In addition to the links, you will find a list of official migration guides. ' %>
 <% keywords 'heroku alternative, how to deploy ruby on rails app, migrate from heroku, heroku ruby on rails' %>
 
-<div class="flex flex-col md:flex-row gap-4 lg:gap-10 mb-20">
-  <div class="md:w-2/3">
+<div class="mb-20">
+  <%= render "shared/suggestions_books" %>
+
+  <div class="bg-white rounded-2xl sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+  <div class="">
     <h1 class="font-bold text-4xl mb-8">Heroku alternatives in 2022 for Ruby and Rails application</h1>
 
     <h2 class="font-bold mb-4">What happened?</h2>
@@ -13,13 +16,13 @@
 
     <div class="space-y-10">
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="sm:col-span-2"><a href="https://fly.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Fly.io</a></h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://fly.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Fly.io</a></h3>
         <div class="space-y-4">
           <p>Fly is a platform for running full stack apps and databases close to your users. We’ve been hammering on this thing since 2017, and we think it’s pretty great.</p>
           <p>Free with limits, <a href="https://fly.io/docs/about/pricing/" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
         </div>
-        <div class="sm:col-start-2">
+        <div class="lg:col-start-2">
           <ul class="space-y-2">
             <li class="font-bold"> How to's</li>
             <li> 
@@ -35,32 +38,32 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="sm:col-span-2"><a href="https://railway.app" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Railway</a></h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://railway.app" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Railway</a></h3>
         <div class="space-y-4">
           <p>Railway is the cloud that takes the complexity out of shipping software.</p>
           <p>Paid with trial, <a href="https://railway.app/pricing" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
         </div>
-        <div class="sm:col-start-2">
+        <div class="lg:col-start-2">
           <ul class="space-y-2">
             <li class="font-bold"> How to's</li>
             <li> 
               <a href="https://railway.app/pricing" target="_blank" class="text-red-500 hover:text-red-600">How to run a Rails app on Railway</a>
             </li>
-            <li>
+            <li>didmdmdmdi
               <a href="https://railway.app/changelog/2022-08-26" target="_blank" class="text-red-500 hover:text-red-600">Everything you need to migrate from Heroku to Railway</a>
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="sm:col-span-2"><a href="https://render.com/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Render</a></h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://render.com/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Render</a></h3>
         <div class="space-y-4">
           <p>Render is a unified cloud to build and run all your apps and websites with free TLS certificates, a global CDN, DDoS protection, private networks, and auto deploys from Git.</p>
           <p>Free with limits <a href="https://render.com/pricing" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
         </div>
-        <div class="sm:col-start-2">
+        <div class="lg:col-start-2">
           <ul class="space-y-2">
             <li class="font-bold"> How to's</li>
             <li> 
@@ -73,13 +76,13 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="sm:col-span-2"><a href="https://m.do.co/c/da57cf7c40a7" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Digital Ocean App Platform</a></h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://m.do.co/c/da57cf7c40a7" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Digital Ocean App Platform</a></h3>
         <div class="space-y-4">
           <p>Build, deploy, and scale apps quickly using a simple, fully-managed solution. We’ll handle the infrastructure, app runtimes, and dependencies so you can focus on your code and launch your app efficiently.</p>
           <p>Start from $5. With $100 from this link to new users &rarr; <a href="https://m.do.co/c/da57cf7c40a7" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
         </div>
-        <div class="sm:col-start-2">
+        <div class="lg:col-start-2">
           <ul class="space-y-2">
             <li class="font-bold"> How to's</li>
             <li> 
@@ -89,13 +92,13 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="sm:col-span-2"><a href="https://hatchbox.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Hatchbox</a></h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://hatchbox.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Hatchbox</a></h3>
         <div class="space-y-4">
           <p>Deploy apps to servers that you own and control. We'll take care of the configuration while you focus on building great apps.</p>
           <p>You need a hosting provider. Trial, <a href="https://hatchbox.io/pricing" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
         </div>
-        <div class="sm:col-start-2">
+        <div class="lg:col-start-2">
           <ul class="space-y-2">
             <li class="font-bold">How to's</li>
             <li> 
@@ -105,13 +108,13 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="sm:col-span-2"><a href="https://dokku.com/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Dokku</a></h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://dokku.com/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Dokku</a></h3>
         <div class="space-y-4">
           <p>Dokku is an extensible, open source Platform as a Service that runs on a single server of your choice. Dokku supports building apps on the fly from a git push via either Dockerfile or by auto-detecting the language with Buildpacks, and then starts containers based on your built image.</p>
           <p>Free to use on your own server. Paid option <a href="https://pro.dokku.com/" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
         </div>
-        <div class="sm:col-start-2">
+        <div class="lg:col-start-2">
           <ul class="space-y-2">
             <li class="font-bold"> How to's</li>
             <li> 
@@ -121,13 +124,13 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="sm:col-span-2"><a href="https://getkuby.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Kuby</a></h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://getkuby.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Kuby</a></h3>
         <div class="space-y-4">
           <p>Kuby is a convention-over-configuration approach to deploying Rails apps. It makes the power of Docker and Kubernetes accessible to the average Rails developer without requiring a devops black belt.</p>
           <p>Free, but you need a hosting provider: <a href="https://github.com/getkuby/kuby-digitalocean" target="_blank" class="text-red-500 hover:text-red-600">Digital Ocean</a>, <a href="https://github.com/getkuby/kuby-linode" target="_blank" class="text-red-500 hover:text-red-600">Linode</a>, <a href="https://github.com/getkuby/kuby-azure" target="_blank" class="text-red-500 hover:text-red-600">Azure</a>, <a href="https://github.com/getkuby/kuby-eks" target="_blank" class="text-red-500 hover:text-red-600">Amazon's EKS</a></p>
         </div>
-        <div class="sm:col-start-2">
+        <div class="lg:col-start-2">
           <ul class="space-y-2">
             <li class="font-bold"> How to's</li>
             <li> 
@@ -137,13 +140,13 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="sm:col-span-2"><a href="https://blog.cloud66.com/how-to-move-from-heroku-to-cloud-66" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Cloud66</a></h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://blog.cloud66.com/how-to-move-from-heroku-to-cloud-66" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Cloud66</a></h3>
         <div class="space-y-4">
           <p>Cloud 66 offers Heroku-like functionality with the flexibility of running on any cloud provider or your own servers.</p>
           <p>You need a hosting provider</p>
         </div>
-        <div class="sm:col-start-2">
+        <div class="lg:col-start-2">
           <ul class="space-y-2">
             <li class="font-bold"> How to's</li>
             <li> 
@@ -154,8 +157,8 @@
       </div>
 
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="font-bold sm:col-span-2">More</h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="font-bold lg:col-span-2">More</h3>
         <p>You may find these articles helpful</p>
         <div class="space-y-4 flex flex-col">
           <a href="https://nixsanctuary.com/best-paas-backend-hosting-heroku-vs-render-vs-flyio-vs-railwayapp/" target="_blank" class="text-red-500 hover:text-red-600">Best PaaS backend hosting: Heroku vs Render.com vs Fly.io vs Railway.app</a>
@@ -163,33 +166,16 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 bg-white p-5 shadow-xl shadow-slate-100/90 sm:p-10 ">
-        <h3 class="font-bold sm:col-span-2">Did I miss something?</h3>
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="font-bold lg:col-span-2">Did I miss something?</h3>
         <p>Feel free to suggest a new article or service by contacting me</p>
         <div class="flex gap-8">
-          <a href="mailto:work.leonid@gmail.com" target="_blank" class="flex-1 bg-orange-50 flex items-center justify-center rounded-md text-orange-500 hover:text-orange-600">Email</a>
+          <a href="mailto:work.leonid@gmail.com" target="_blank" class="flex-1 bg-orange-50 flex items-center justify-center rounded-md text-orange-500 py-3 hover:text-orange-600">Email</a>
           <a href="https://twitter.com/nleonid" target="_blank" class="flex-1 bg-sky-50 flex items-center justify-center rounded-md text-sky-500 hover:text-sky-600">Twitter</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="hidden md:block px-6 ml-auto md:w-1/3 mb-20">
-    <%= link_to "https://rubyandrails.info/learn/testing", class: "block mb-8" do %>
-      <h3 class="font-bold font-custom hover:text-red-500">Books about Testing</h3>
-      <p class="text-base text-slate-600">Learn Testing, and TDD, RSpec, Minitest</p>
-    <% end %>
-
-    <%= link_to "https://rubyandrails.info/learn/ruby", class: "mb-8 block" do %>
-      <h3 class="font-bold font-custom hover:text-red-500">Podcasts about Ruby & Ruby on Rails</h3>
-      <p class="text-base text-slate-600">Best podcasts to listen to on your commute</p>
-    <% end %>
-
-    <%= link_to "https://briefcake.com", target: "_blank", data: {:"splitbee-event" => "Click Banner"}, class: "block relative bg-white p-6" do %>
-      <span class="text-amber-500 text-sm absolute top-2 right-2">Sponsor</span>
-      <h3 class="font-bold font-custom text-purple-500 mt-4">🍰 Briefcake</h3>
-      <p class="text-base text-slate-600">All your favourite feeds in one daily email</p>
-    <% end %>
-
-  </div>
+</div>
 </div>

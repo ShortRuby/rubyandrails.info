@@ -23,6 +23,8 @@ class AuthorsController < ApplicationController
 
   def show
     @books = Book.joins(:authors).where(authors: { id: @author })
+    @courses = Course.joins(:authors).where(authors: { id: @author })
+    @screencasts = Screencast.joins(:authors).where(authors: { id: @author })
 
     set_meta_tags title: "Author: #{@author.name}", description: "#{@author.name} author of #{@books.map { |book| book.title }.join(", ").html_safe}.", keywords: "#{@author.name}, #{@books.map { |book| book.title }.join(", ").html_safe}"
     # show all tags from books current author

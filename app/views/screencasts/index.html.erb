@@ -8,7 +8,7 @@
 
     <%= render "shared/page_title", title: "#{ Screencast.count } screencasts about Ruby and Ruby on Rails", description: "If you're looking for some helpful resources on learning Ruby and Ruby on Rails development, I recommend checking out some screencast tutorials. There's a lot of great information out there that can help you get started and become a better developer. Happy learning!" %>
 
-    <div class="flex flex-col gap-16 sm:gap-28">
+    <div class="flex flex-col gap-16 sm:gap-16">
       <%= render partial: "shared/screencast_card", collection: @screencasts, as: :screencast %>
     </div>
   </div>

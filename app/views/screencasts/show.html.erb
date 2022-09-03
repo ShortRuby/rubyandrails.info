@@ -23,12 +23,4 @@
 
 <%= render "shared/suggestions_books" %>
 
-<div class="px-5 sm:px-0">
-  <h2 class="font-custom mb-8 font-bold">More screencasts</h2>
-  <div class="flex flex-col mb-20 gap-8">
-    <%= render partial: "shared/screencast_card", collection: @more_screencasts, as: :screencast %>
-  </div>
-</div>
-
-
 <%= render "shared/btns_add", item: @screencast, path: edit_screencast_path(@screencast) %>

@@ -1,33 +1,47 @@
+<div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-12  border border-slate-200">
+  <%= link_to "All Authors", authors_path, class: "mb-4 md:inline-block text-red-500" %>
 
-<div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
-      <%= link_to "All Authors", authors_path, class: "mb-4 md:inline-block text-red-500" %>
-
-      <h1 class="flex gap-2 items-center mb-2 text-2xl font-bold sm:text-3xl font-custom leading-tight">
-        <%= @author.name %>
-      </h1>
-    <div class="flex gap-4 mb-8">
-        <% if @author.siteUrl.present? %>
-          <%= link_to "Website", @author.siteUrl, target: "_blank", class: "text-red-500" %>
-        <% end %>
-        <% if @author.twitterUrl.present? %>
-          <%= link_to "Twitter", @author.twitterUrl, target: "_blank", class: "text-red-500"  %>
-        <% end %>
-        <% if @author.githubUrl.present? %>
-          <%= link_to "Github", @author.githubUrl, target: "_blank", class: "text-red-500"  %>
-        <% end %>
-    </div>
-      <div class="mb-20 text-lg">
-        <%= @author.content %>
-      </div>
-  <% unless @books.count.zero? %>
-<div class="px-5 sm:px-0">
-
-  <h2 class="font-custom mb-8 font-bold">Books by <%= @author.name %></h2>
-  <div class="flex flex-col gap-16 sm:gap-28">
-    <%= render partial: "shared/book_card", collection: @books, as: :book %>
+  <h1 class="flex gap-2 items-center mb-2 text-2xl font-bold sm:text-3xl font-custom leading-tight">
+    <%= @author.name %>
+  </h1>
+  <div class="flex gap-4 mb-8">
+    <% if @author.siteUrl.present? %>
+      <%= link_to "Website", @author.siteUrl, target: "_blank", class: "text-red-500" %>
+    <% end %>
+    <% if @author.twitterUrl.present? %>
+      <%= link_to "Twitter", @author.twitterUrl, target: "_blank", class: "text-red-500"  %>
+    <% end %>
+    <% if @author.githubUrl.present? %>
+      <%= link_to "Github", @author.githubUrl, target: "_blank", class: "text-red-500"  %>
+    <% end %>
   </div>
+  <div class="text-lg">
+    <%= @author.content %>
+  </div>
+
 </div>
-</div>
+
+
+<% unless @books.count.zero? %>
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-12  border border-slate-200">
+    <div class="px-5 sm:px-0">
+      <h2 class="font-custom mb-8 font-bold">Books by <%= @author.name %></h2>
+      <div class="flex flex-col gap-16 sm:gap-28">
+        <%= render partial: "shared/book_card", collection: @books, as: :book %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @courses.count.zero? %>
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-12  border border-slate-200">
+    <div class="px-5 sm:px-0">
+      <h2 class="font-custom mb-8 font-bold">Courses by <%= @author.name %></h2>
+      <div class="flex flex-col gap-16 sm:gap-28">
+        <%= render partial: "shared/course_card", collection: @courses, as: :course %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%= render "shared/btns_add", item: @author, path: edit_author_path(@author) %>

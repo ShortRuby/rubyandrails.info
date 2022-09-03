@@ -21,12 +21,6 @@
 
 <%= render "shared/suggestions_books" %>
 
-<div class="px-5 sm:px-0">
-  <h2 class="font-custom mb-8 font-bold">More newsletters</h2>
-  <div class="flex flex-col sm:p-10 mb-20 gap-8 sm:gap-12">
-    <%= render partial: "shared/newsletter_card", collection: @more_newsletters, as: :newsletter %>
-  </div>
-</div>
 
 
 <%= render "shared/btns_add", item: @newsletter, path: edit_newsletter_path(@newsletter) %>

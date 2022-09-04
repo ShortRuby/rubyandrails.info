@@ -8,8 +8,8 @@
       <h3 class="font-custom hover:opacity-90 font-bold text-3xl xl:text-4xl xl:leading-tight">
         <%= @screencast.title %>
       </h3>
-      <div class="opacity-60 mb-8">
-        by <%= @screencast.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
+      <div class="mb-8">
+        by <%= @screencast.authors.map { |author| link_to(author.name, author, class: "text-red-500 hover:text-red-600") }.join(", ").html_safe %>
 </div>
       <div class="mb-4"><%= @screencast.content %></div>
     </div>

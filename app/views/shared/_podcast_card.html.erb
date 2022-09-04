@@ -1,4 +1,4 @@
-<div class="grid md:grid-cols-2 gap-5 lg:gap-8">
+<div class="grid md:grid-cols-2 bg-slate-100 rounded-xl p-10 gap-5 lg:gap-8">
   <% unless podcast.cover.empty? %>
     <%= link_to podcast, class: "shrink-0 rounded-sm relative " do %>
       <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shadow-lg shadow-slate-800/10 block") %>
@@ -14,7 +14,7 @@
 
     <div class="mb-4 text-slate-600 text-base"><%= podcast.content %></div>
 
-    <%= link_to "Details", podcast, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+    <%= link_to "Listen Podcast", podcast.url, data: {:"splitbee-event" => "go to podcast"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
   </div>
 
 </div>

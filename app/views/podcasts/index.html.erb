@@ -10,7 +10,7 @@
 
     <%= render "shared/page_title", title: "#{ Podcast.count } Podcast about Ruby and Ruby on Rails", description: "If you're looking for some interesting podcasts to listen to on your commute or while you're working out, check out our list of the best Ruby, Ruby on Rails, and programming podcasts. From fun discussions about life as a programmer to in-depth interviews with Ruby on Rails experts, these podcasts have something for everyone." %>
 
-    <div class="flex flex-col gap-16 sm:gap-28">
+    <div class="flex flex-col gap-12">
       <%= render partial: "shared/podcast_card", collection: @podcasts, as: :podcast %>
     </div>
   </div>

@@ -32,7 +32,7 @@ SitemapGenerator::Sitemap.create do
     add tag_path(tag), :lastmod => tag.updated_at
   end
 
-  Screencast.free_books.find_each do |tag|
+  Screencast.find_each do |tag|
     add tag_path(tag), :lastmod => tag.updated_at
   end
 

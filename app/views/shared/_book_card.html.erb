@@ -1,7 +1,7 @@
 <div class="flex flex-col md:flex-row gap-5 lg:gap-8">
   <% unless book.cover.nil? || book.cover.empty? %>
     <%= link_to book, class: "shrink-0 rounded-sm overflow-hidden hover:-translate-y-4 duration-300 transition-all self-start relative shadow-md hover:shadow-xl shadow-slate-800/20 " do %>
-      <%= image_tag("books/overlay.png", class: "absolute mix-blend-multiply inset-0") %>
+      <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
       <%= image_tag("books/#{book.cover}", alt: "#{book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
     <% end %>
   <% end %>

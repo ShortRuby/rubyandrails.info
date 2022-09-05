@@ -81,6 +81,9 @@ group :development, :test do
   # https://github.com/faker-ruby/faker
   gem 'faker'
 
+  # https://github.com/railsjazz/rails_live_reload
+  gem "rails_live_reload"
+
 end
 
 group :development do

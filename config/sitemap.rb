@@ -16,6 +16,26 @@ SitemapGenerator::Sitemap.create do
     add tag_path(tag), :lastmod => tag.updated_at
   end
 
+  Podcast.find_each do |tag|
+    add tag_path(tag), :lastmod => tag.updated_at
+  end
+
+  Newsletter.find_each do |tag|
+    add tag_path(tag), :lastmod => tag.updated_at
+  end
+
+  Course.find_each do |tag|
+    add tag_path(tag), :lastmod => tag.updated_at
+  end
+
+  Book.free_books.find_each do |tag|
+    add tag_path(tag), :lastmod => tag.updated_at
+  end
+
+  Screencast.free_books.find_each do |tag|
+    add tag_path(tag), :lastmod => tag.updated_at
+  end
+
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.

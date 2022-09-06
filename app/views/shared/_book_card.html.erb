@@ -5,7 +5,7 @@
       <%= image_tag("books/#{book.cover}", alt: "#{book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
     <% end %>
     <% else %>
-      <%= link_to book, class:"bg-red-700 text-base sm:text-xl hover:-translate-y-4 duration-300 transition-all shadow-md hover:shadow-xl font-custom shadow-slate-800/20 rounded-md text-center relative overflow-hidden mb-2 pt-10 p-4 text-white w-40 h-60 block md:h-72 md:w-60" do %>
+      <%= link_to book, class:"bg-red-700 text-base lg:text-xl hover:-translate-y-4 duration-300 transition-all shadow-md hover:shadow-xl font-custom shadow-slate-800/20 rounded-md text-center relative overflow-hidden mb-2 pt-10 p-4 text-white w-44 sm:w-64 aspect-[3/4] xl:w-64" do %>
         <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
         <%= book.title %>
       <% end %> 

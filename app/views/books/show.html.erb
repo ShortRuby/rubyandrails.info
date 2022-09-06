@@ -9,7 +9,7 @@
         <%= image_tag("books/#{@book.cover}", alt: "#{@book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
       </div>
     <% else %>
-      <div class="bg-red-700 shadow-md font-custom shadow-slate-800/20 rounded-md text-center relative overflow-hidden mb-2 pt-10 p-4 text-white w-64 lg:w-3/4 aspect-[3/4] self-start">
+      <div class="bg-red-700 shadow-md font-custom shadow-slate-800/20 rounded-md text-center relative overflow-hidden shrink-0 mb-2 pt-10 p-4 text-white w-44 lg:w-64 aspect-[3/4] self-start">
         <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
         <%= @book.title %>
       </div>

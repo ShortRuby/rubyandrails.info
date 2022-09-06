@@ -27,13 +27,17 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.friendly.find(params[:id])
-    @more_books = Book.where(id: Book.pluck(:id).sample(3)) 
     @random = Book.where(id: Book.pluck(:id).sample) 
 
-    @next_book = @book.next
-    @previous_book = @book.previous
+    tag_ids = @book.tags.pluck(:id)
+    @similar = Book.all.joins(:tags).where.not(books: {id: @book.id}).where(tags: { id: tag_ids})
 
     set_meta_tags title: "Book #{@book.title}", description: "#{@book.title} by #{@book.authors.map { |author| author.name}.join(", ").html_safe}. #{@book.content}", keywords: "#{@book.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@book.title}, #{@book.authors.map { |author| author.name}.join(", ").html_safe}"
+  end
+
+  def similar_tags
+    Book.joins(:tags).where(tags: { id: 3})
+    #book.tags.joins(book).where(book: { id: 3})
   end
 
   def edit

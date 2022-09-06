@@ -1,13 +1,18 @@
-  <%= render "shared/btn_random", title: "Book" %>
+<%= render "shared/btn_random", title: "Book" %>
 
 <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
 
   <div class="flex flex-col lg:flex-row gap-5 lg:gap-8">
     <% unless @book.cover.nil? || @book.cover.empty? %>
-      <%= link_to @book, class: "shrink-0 rounded-sm overflow-hidden hover:-translate-y-4 duration-300 transition-all self-start relative shadow-md hover:shadow-xl shadow-slate-800/20 " do %>
+      <div class="shrink-0 rounded-sm overflow-hidden self-start relative shadow-md  shadow-slate-800/20 ">
         <%= image_tag("books/overlay.png", class: "absolute mix-blend-multiply inset-0") %>
         <%= image_tag("books/#{@book.cover}", alt: "#{@book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
-      <% end %>
+      </div>
+    <% else %>
+      <div class="bg-red-700 shadow-md font-custom shadow-slate-800/20 rounded-md text-center relative overflow-hidden mb-2 pt-10 p-4 text-white h-80 w-64">
+        <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+        <%= @book.title %>
+      </div>
     <% end %>
 
     <div>
@@ -49,14 +54,35 @@
   </div>
 </div>
 
-<%= render "shared/suggestions_books" %>
+<% unless @similar.empty? %>
+<h2 class="px-5 sm:px-0 font-custom mb-8 font-bold">More great books on this topic</h2>
 
-<div class="px-5 sm:px-0">
-  <h2 class="font-custom mb-8 font-bold">More books</h2>
-  <div class="flex flex-col mb-20 gap-16 sm:gap-28">
-    <%= render partial: "shared/book_card", collection: @more_books, as: :book %>
+<div>
+  <div class="pl-5 sm:px-0 overflow-x-auto font-bold font-custom mb-8 disable-scrollbars flex gap-4">
+    <% @similar.each do |book| %>
+      <%= link_to book, class: "shrink-0 group w-64" do %>
+
+        <% unless book.cover.nil? || book.cover.empty? %>
+          <div class="shrink-0 mb-2 overflow-hidden rounded-sm inline-block self-start relative shadow-md hover:shadow-xl shadow-slate-800/20" do>
+            <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+            <%= image_tag("books/#{book.cover}", alt: "#{book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-48") %>
+          </div>
+        <% else %>
+          <div class="bg-red-700 shadow-md hover:shadow-xl shadow-slate-800/20 rounded-md text-center relative overflow-hidden mb-2 pt-6 p-4 text-white h-64 w-3/4">
+            <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+            <%= book.title %>
+          </div> 
+        <% end %>
+        <p class="text-base text-wrap group-hover:text-red-500">
+        <%= book.title %>
+        </p>
+      <% end %>
+    <% end %>
   </div>
 </div>
+<% end %>
+
+<%= render "shared/suggestions_books" %>
 
 
 <%= render "shared/btns_add", item: @book, path: edit_book_path(@book) %>

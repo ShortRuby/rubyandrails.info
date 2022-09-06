@@ -30,7 +30,8 @@ class BooksController < ApplicationController
     @random = Book.where(id: Book.pluck(:id).sample) 
 
     tag_ids = @book.tags.pluck(:id)
-    @similar = Book.all.joins(:tags).where.not(books: {id: @book.id}).where(tags: { id: tag_ids})
+    all_tags = Book.joins(:tags).where.not(books: {id: @book.id}).where(tags: { id: tag_ids})
+    @similar = all_tags.uniq
 
     set_meta_tags title: "Book #{@book.title}", description: "#{@book.title} by #{@book.authors.map { |author| author.name}.join(", ").html_safe}. #{@book.content}", keywords: "#{@book.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@book.title}, #{@book.authors.map { |author| author.name}.join(", ").html_safe}"
   end

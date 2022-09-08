@@ -1,0 +1,24 @@
+<div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
+
+  <div class="flex flex-col justify-between rounded-xl gap-4 md:gap-2">
+    <div class="">
+      <%= link_to "All Events", events_path, class: "hover:text-red-600 text-red-500 inline-block mb-4" %>
+      <p class="mb-4 font-bold"><%= @event.date %></p>
+      <h3 class="font-custom mb-4 hover:opacity-90 font-bold text-3xl xl:text-4xl xl:leading-tight">
+        <%= @event.title %>
+      </h3>
+      <div class="mb-4"><%= @event.description %></div>
+    </div>
+
+    <div>
+      <%= link_to "Open Event",  @event.url, target:"_blank", data: {:"splitbee-event" => "go to event"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+    </div>
+  </div>
+
+</div>
+
+<%= render "shared/suggestions_books" %>
+
+
+
+<%= render "shared/btns_add", item: @event, path: edit_event_path(@event) %>

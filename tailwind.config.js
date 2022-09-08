@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
 	  fontFamily: {
-		'custom': ['Libre Baskerville', 'serif']
+		'custom': ['DM Sans', 'sans-serif']
 	  }
 	},
   },

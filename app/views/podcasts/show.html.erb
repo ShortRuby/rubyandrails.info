@@ -4,17 +4,21 @@
 
 <div class="grid md:grid-cols-2 gap-5 lg:gap-8">
   <% unless @podcast.cover.empty? %>
-    <%= link_to @podcast, class: "shrink-0 rounded-sm relative " do %>
+    <div class="shrink-0 rounded-sm relative ">
       <%= image_tag("podcasts/#{@podcast.cover}", alt: "#{@podcast.title}", class: "shadow-lg shadow-slate-800/10 block") %>
-    <% end %>
+    </div>
   <% end %>
 
   <div>
-    <%= link_to @podcast do %>
-      <h3 class="hover:text-red-500 flex gap-2 items-center mb-4 text-xl font-bold lg:text-3xl font-custom leading-tight">
+      <%= link_to "All Podcasts", podcasts_path, class: "hover:text-red-600 text-red-500 inline-block mb-4" %>
+      <h3 class="flex gap-2 items-center mb-2 text-xl font-bold md:text-4xl font-custom leading-tight">
         <%= @podcast.title %>
       </h3>
-    <% end %>
+      <% unless @podcast.authors.count.zero? %>
+        <div class="opacity-60 mb-4">
+          by <%= @podcast.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80") }.join(", ").html_safe %>
+        </div>
+      <% end %>
 
     <div class="mb-4 text-slate-600 text-base"><%= @podcast.content %></div>
 

@@ -57,7 +57,7 @@ class PodcastsController < ApplicationController
   end
 
   def podcast_params
-    params.require(:podcast).permit(:title, :content, :cover, :url, :featured)
+    params.require(:podcast).permit(:title, :content, :cover, :url, :featured, author_ids: [])
   end
 
   def authenticate_admin!

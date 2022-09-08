@@ -20,6 +20,18 @@
     <%= f.text_field :url %>
   </div>
 
+  <div class="text-base mb-5">
+    <%= f.label :author, class: "mr-10" %>
+    <div class="grid grid-cols-3 mb-5 gap-1">
+      <%= f.collection_check_boxes :author_ids, Author.all, :id, :name do |c| %>
+        <div class="flex items-center gap-2">
+          <%= c.check_box %>
+          <%= c.label %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="flex items-center mb-5 gap-2 mb-4">
     <%= f.check_box :featured %>
     <%= f.label "Featured", class: "text-base"  %>

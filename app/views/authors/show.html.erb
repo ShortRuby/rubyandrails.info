@@ -47,7 +47,7 @@
 <% unless @screencasts.count.zero? %>
   <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-12 border border-slate-200">
     <div class="px-5 sm:px-0">
-      <h2 class="font-custom mb-8 font-bold">Courses by <%= @author.name %></h2>
+      <h2 class="font-custom mb-8 font-bold">Sreencasts by <%= @author.name %></h2>
       <div class="flex flex-col gap-8 sm:gap-10">
         <%= render partial: "shared/screencast_card", collection: @screencasts, as: :screencast %>
       </div>
@@ -61,6 +61,17 @@
       <h2 class="font-custom mb-8 font-bold">Newsletters by <%= @author.name %></h2>
       <div class="flex flex-col gap-8 sm:gap-12">
         <%= render partial: "shared/newsletter_card", collection: @newsletters, as: :newsletter %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @podcasts.count.zero? %>
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-12  border border-slate-200">
+    <div class="px-5 sm:px-0">
+      <h2 class="font-custom mb-8 font-bold">Podcasts by <%= @author.name %></h2>
+      <div class="flex flex-col gap-8 sm:gap-12">
+        <%= render partial: "shared/newsletter_card", collection: @podcasts, as: :podcast %>
       </div>
     </div>
   </div>

@@ -1,0 +1,99 @@
+<div class="p-10">
+
+  <aside class="bg-white p-8">author</aside>
+
+  <div class="flex my-8 sticky top-8 gap-2 font-medium justify-center text-violet-500 text-base [&>*]:rounded-full [&>*]:px-4 [&>*]:shadow-md [&>*]:shadow-slate-400/20 [&>*]:py-1">
+    <a href="#" class="bg-violet-600 text-white">All</a>
+    <a href="#" class="bg-white hover:bg-violet-100">Books</a>
+    <a href="#" class="bg-white hover:bg-violet-100">Newsletters</a>
+    <a href="#" class="bg-white hover:bg-violet-100">Podcast</a>
+  </div>
+
+  <div class="space-y-20">
+
+    <section class="bg-gradient-to-b from-purple-200 to-slate-100 space-y-8 px-12 xl:px-40 py-16 text-center rounded-3xl">
+
+        <div class="bg-red-600 text-base lg:text-xl hover:-translate-y-4 duration-300 transition-all shadow-md hover:shadow-xl font-custom shadow-slate-800/20 rounded-md text-center relative overflow-hidden mb-10 pt-10 p-4 text-white self-start aspect-[3/4] shrink-0 w-44 lg:w-64 mx-auto">
+          <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+        </div>
+
+        <h2 class="text-3xl max-w-lg mx-auto font-bold">Hotwired ATS: Modern, full-stack Rails 7 development</h2>
+
+        <div class="flex gap-2 text-sm justify-center [&>*]:bg-white/60 [&>*]:rounded-lg [&>*]:px-3 [&>*]:py-1">
+          <a href="#" class="hover:bg-white/90">Ruby on Rails 7</a>
+          <a href="#" class="hover:bg-white/90">Turbo</a>
+          <a href="#" class="hover:bg-white/90">Stimulus</a>
+        </div>
+
+        <p class="max-w-xl mx-auto ">Hotwired ATS is a step-by-step tutorial for Ruby on Rails developers interested in learning more about the modern Rails 7 stack: Turbo, Stimulus, CableReady, and StimulusReflex.</p>
+
+        <div class="flex flex-col lg:flex-row gap-4 justify-center [&>*]:rounded-lg [&>*]:shadow-md [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
+          <a href=max-w-3xl mx-auto "#" class="bg-amber-100 hover:shadow-lg transition-all duration-300">Get Lifetime Access for $70</a>
+          <a href="#" class="bg-white hover:bg-slate-50 hover:shadow-lg transition-all duration-300">Details</a>
+        </div>
+
+    </section>
+
+    <section class="bg-violet-700 isolate relative px-12 border border-violet-700/20 overflow-hidden xl:px-20 py-16 rounded-3xl">
+
+      <%= image_tag("newsletter.png", class: "absolute -top-1/2 -rotate-12 -right-1/3") %>
+
+      <span class="absolute bottom-0 -z-40 left-0 text-violet-800/70 text-8xl font-black">Newsletter</span>
+
+      <span class="bg-white mb-2 text-violet-700 font-bold rounded-full mx-auto text-sm px-4 py-1 inline-block">Newsletter</span>
+      <h2 class="text-3xl mb-4 text-white font-bold">Hotwiring Rails</h2>
+
+      <div class="flex gap-2 items-center text-white">
+        <img src="https://ghinda.com/assets/images/lucian-ghinda.jpg" alt="" class="w-12 h-12 rounded-full">
+        <div>
+          <span class="inline-block opacity-80">Author</span>
+          <a href="#" class="hover:opacity-80 font-custom font-medium">Lucian Ghinda</a>
+        </div>
+      </div>
+
+      <p class="mb-8 text-white lg:max-w-md">Hotwiring Rails is a once-monthly newsletter curating the latest content on Rails, Hotwire, and other things you might find interesting.</p>
+
+        <div class="flex flex-col lg:flex-row gap-4 [&>*]:rounded-lg [&>*]:shadow-md [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
+          <a href=max-w-3xl mx-auto "#" class="bg-amber-100 hover:shadow-lg transition-all duration-300">Subscribe</a>
+          <a href="#" class="bg-white hover:bg-slate-50 hover:shadow-lg transition-all duration-300">Details</a>
+        </div>
+
+    </section>
+
+    <section class="hidden bg-violet-700 isolate relative px-12 xl:px-40 py-16 rounded-3xl text-center">
+      <span class="absolute bottom-0 -z-40 left-1/2 text-violet-800 -translate-x-1/2 text-8xl font-black">Newsletter</span>
+
+      <span class="bg-white mb-2 text-violet-700 font-bold rounded-full mx-auto text-sm px-4 py-1 inline-block">Newsletter</span>
+      <h2 class="text-3xl max-w-lg mb-4 mx-auto text-white font-bold">Hotwiring Rails</h2>
+      <p class="mb-8 text-white">Hotwiring Rails is a once-monthly newsletter curating the latest content on Rails, Hotwire, and other things you might find interesting.</p>
+
+        <div class="flex flex-col lg:flex-row gap-4 justify-center [&>*]:rounded-lg [&>*]:shadow-md [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
+          <a href=max-w-3xl mx-auto "#" class="bg-amber-100 hover:shadow-lg transition-all duration-300">Subscribe</a>
+          <a href="#" class="bg-white hover:bg-slate-50 hover:shadow-lg transition-all duration-300">Details</a>
+        </div>
+
+    </section>
+
+    <section class="bg-purple-600 isolate relative px-12 xl:px-20 py-16 rounded-3xl">
+      <span class="absolute bottom-0 -z-40 left-1/2 text-purple-700/60 -translate-x-1/2 text-8xl font-black">Podcast</span>
+
+      <div class="flex gap-10">
+        <div class="shrink-0 w-1/2 ">
+          <%= image_tag("podcasts/iteration.jpg", class: "shadow-lg rounded-lg bg-white aspect-square shadow-slate-800/10 block") %>
+        </div>
+        <div>
+          <span class="bg-white mb-2 text-violet-700 font-bold rounded-full mx-auto text-sm px-4 py-1 inline-block">Podcast</span>
+          <h2 class="text-3xl mb-4 text-white font-bold">Hotwiring Rails</h2>
+          <p class="mb-8 text-white">Hotwiring Rails is a once-monthly newsletter curating the latest content on Rails, Hotwire, and other things you might find interesting.</p>
+
+          <div class="flex flex-col lg:flex-row gap-4 [&>*]:rounded-lg [&>*]:shadow-md [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
+            <a href=max-w-3xl mx-auto "#" class="bg-amber-100 hover:shadow-lg transition-all duration-300">Listen</a>
+            <a href="#" class="bg-white hover:bg-slate-50 hover:shadow-lg transition-all duration-300">Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>podcast</section>
+
+  </div>
+</div>

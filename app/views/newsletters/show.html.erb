@@ -5,10 +5,12 @@
   <div class="flex flex-col justify-between lg:aspect-video rounded-xl gap-4 md:gap-2">
     <div class="">
       <%= link_to "All Newsletters", newsletters_path, class: "hover:text-red-600 text-red-500 inline-block mb-4" %>
-      <h3 class="font-custom hover:opacity-90 font-bold text-3xl xl:text-4xl xl:leading-tight">
+      <h3 class="font-custom font-bold text-3xl xl:text-4xl xl:leading-tight">
         <%= @newsletter.title %>
       </h3>
-      <div class="opacity-60 mb-8">by <%= @newsletter.author %></div>
+      <div class="mb-8">
+        by <%= @newsletter.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
+      </div>
       <div class="mb-4"><%= @newsletter.content %></div>
     </div>
 

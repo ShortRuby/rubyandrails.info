@@ -37,8 +37,30 @@
   <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-12  border border-slate-200">
     <div class="px-5 sm:px-0">
       <h2 class="font-custom mb-8 font-bold">Courses by <%= @author.name %></h2>
-      <div class="flex flex-col gap-16 sm:gap-28">
+      <div class="flex flex-col gap-16 sm:gap-20">
         <%= render partial: "shared/course_card", collection: @courses, as: :course %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @screencasts.count.zero? %>
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-12 border border-slate-200">
+    <div class="px-5 sm:px-0">
+      <h2 class="font-custom mb-8 font-bold">Courses by <%= @author.name %></h2>
+      <div class="flex flex-col gap-8 sm:gap-10">
+        <%= render partial: "shared/screencast_card", collection: @screencasts, as: :screencast %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @newsletters.count.zero? %>
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-12  border border-slate-200">
+    <div class="px-5 sm:px-0">
+      <h2 class="font-custom mb-8 font-bold">Newsletters by <%= @author.name %></h2>
+      <div class="flex flex-col gap-8 sm:gap-12">
+        <%= render partial: "shared/newsletter_card", collection: @newsletters, as: :newsletter %>
       </div>
     </div>
   </div>

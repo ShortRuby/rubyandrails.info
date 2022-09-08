@@ -5,9 +5,11 @@
         <%= newsletter.title %>
       </h3>
     <% end %>
+<% unless newsletter.authors.count.zero? %>
     <div class="opacity-60 mb-4">
         by <%= newsletter.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80") }.join(", ").html_safe %>
 </div>
+<% end %>
     <div class="mb-4"><%= newsletter.content %></div>
   </div>
 

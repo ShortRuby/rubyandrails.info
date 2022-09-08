@@ -8,9 +8,11 @@
       <h3 class="font-custom font-bold text-3xl xl:text-4xl xl:leading-tight">
         <%= @newsletter.title %>
       </h3>
+<% unless @newsletter.authors.count.zero? %>
       <div class="mb-8">
         by <%= @newsletter.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
       </div>
+    <% end %>
       <div class="mb-4"><%= @newsletter.content %></div>
     </div>
 

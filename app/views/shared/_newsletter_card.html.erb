@@ -28,19 +28,21 @@
 
       <% unless newsletter.authors.count.zero? %>
 
-        <div class="flex items-center text-white mb-8">
+        <div class="flex flex-col lg:flex-row gap-2 lg:items-center text-white mb-8">
 
           <div class="flex -space-x-3 mr-4 items-center">
             <% newsletter.authors.each do |author| %>
               <% unless author.photo.nil? || author.photo.empty? %>
+                <%= link_to author, class: "hover:opacity-95" do %>
                 <%= image_tag("authors/#{author.photo}", alt: "#{author.name}", class: "w-10 h-10 shadow-md shadow-violet-900/50 rounded-full") %>
+              <% end %>
               <% else %>
               <% end %>
             <% end %>
           </div>
           <div>
             <span class="text-sm block opacity-80 leading-none"><%= "Author".pluralize(newsletter.authors.count) %></span>
-            <div class="space-x-4">
+            <div class="flex gap-2 lg:gap-4 flex-wrap">
               <% newsletter.authors.each do |author| %>
                 <%= link_to author.name, author, class: "hover:opacity-80 font-custom font-medium" %>
               <% end %>
@@ -57,7 +59,7 @@
       <div class="mb-8 text-white w-3/4 lg:w-1/2"><%= newsletter.content %></div>
 
       <div class="flex flex-col text-center font-custom md:flex-row gap-4 [&>*]:rounded-lg [&>*]:shadow-md [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
-        <%= link_to newsletter.url, target: "_blank", class: "bg-amber-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center" do %>
+        <%= link_to newsletter.url, target: "_blank", data: {:"splitbee-event" => "go to newsletter"}, class: "bg-amber-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center" do %>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M22 6L12 13L2 6" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
           Subscribe</a>
       <% end %>

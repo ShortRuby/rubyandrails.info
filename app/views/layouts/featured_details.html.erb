@@ -32,12 +32,12 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<div class="sm:flex lg:gap-20 overflow-hidden sm:flex-row">  
-  <aside class="px-5">  
+<div class="sm:flex lg:gap-20 sm:flex-row">  
+  <aside class="px-5 mb-4">  
     <%= render "shared/navbar" %>
   </aside>  
 
-  <main class="max-w-5xl mx-auto">  
+  <main class="max-w-3xl xl:max-w-5xl overflow-hidden mx-auto">  
     <%= yield %>
   </main>  
 </div>

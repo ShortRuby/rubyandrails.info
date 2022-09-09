@@ -1,7 +1,7 @@
 <% unless @newsletter.featured %>
   <%= render "shared/btn_random", title: "Newsletter" %>
 
-  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20 border border-slate-200">
 
     <div class="flex flex-col justify-between lg:aspect-video rounded-xl gap-4 md:gap-2">
       <div class="">
@@ -32,7 +32,7 @@
   <section class="bg-gradient-to-bl from-violet-700 via-violet-700 to-violet-500 isolate relative px-8 border border-violet-700/20 mb-20 overflow-hidden xl:px-20 py-16 xl:pb-40 rounded-tb-3xl sm:rounded-b-3xl">
 
     <% unless @newsletter.featured_cover.nil? || @newsletter.featured_cover.empty? %>
-      <%= image_tag("newsletter/promo/#{@newsletter.featured_cover}", class: "absolute -z-30 -top-10 -rotate-12 left-3/4 scale-75 lg:left-2/4 lg:-top-40") %>
+      <%= image_tag("newsletter/promo/#{@newsletter.featured_cover}", class: "absolute -z-30 -top-10 -rotate-12 left-3/4 scale-75 md:scale-95 lg:left-2/4 lg:-top-20") %>
     <% end %>
 
     <span class="absolute -z-40 bottom-0 left-4 text-violet-800/30 leading-none text-[6.5em] font-black">Newsletter</span>
@@ -48,20 +48,20 @@
     <div class="mb-8 text-white w-3/4 lg:w-1/2"><%= @newsletter.content %></div>
 
     <div class="flex flex-col text-center font-custom md:flex-row gap-4 [&>*]:rounded-lg [&>*]:shadow-md [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
-      <a href=max-w-3xl mx-auto "#" class="bg-amber-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M22 6L12 13L2 6" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
-        Subscribe</a>
-      <a href="#" class="bg-white hidden hover:-translate-y-2 hover:bg-slate-50 hover:shadow-lg transition-all duration-300">Read archive</a>
+        <%= link_to @newsletter.url, target: "_blank", data: {:"splitbee-event" => "go to newsletter"}, class: "bg-amber-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center" do %>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M22 6L12 13L2 6" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+          Subscribe</a>
+      <% end %>
     </div>
 
   </section>
 
   <%= render "shared/btns_add", item: @newsletter, path: edit_newsletter_path(@newsletter) %>
 
-  <blockquote cite="https://twitter.com/sebwilgosz/status/1564496478483189760" class="mb-36 max-w-2xl relative mx-auto text-center">
+  <blockquote cite="https://twitter.com/sebwilgosz/status/1564496478483189760" class="mb-36 px-10 max-w-2xl relative mx-auto text-center">
 
-    <span class="absolute text-slate-300/60 text-[8em] font-custom leading-none -z-10 -top-8 -left-6 font-bold">"</span>
-    <span class="absolute text-slate-300/60 text-[8em] font-custom leading-none -z-10 -bottom-8 -right-6 font-bold">"</span>
+    <span class="absolute text-slate-300/60 text-[8em] font-custom leading-none -z-10 -top-8 -left-2 font-bold">"</span>
+    <span class="absolute text-slate-300/60 text-[8em] font-custom leading-none -z-10 -bottom-8 -right-2 font-bold">"</span>
 
     <p class="mb-4 font-custom text-2xl">
     <%= @newsletter.testimonial_text %>
@@ -77,16 +77,16 @@
 
     <% @newsletter.authors.each do |author| %>
 
-      <section class="bg-white border-2 mb-20 relative border-slate-200/60 px-12 xl:px-10 py-10 rounded-3xl">
+      <section class="bg-white border-2 mb-28 relative border-slate-200/60 px-12 xl:px-10 py-10 rounded-3xl">
 
 
         <% unless author.photo.nil? || author.photo.empty? %>
           <%= image_tag("authors/#{author.photo}", alt: "#{author.name}", class: "w-36 h-36 border-4 border-white -mt-28 mx-auto mb-4 shadow-md shadow-slate-900/10 border border-white rounded-full") %>
         <% end %>
         <h1 class="font-custom text-5xl mb-8 text-center font-bold">
-<%= link_to author, class: "hover:text-violet-500" do %>
-  <%= author.name %>
-<% end %>
+          <%= link_to author, class: "hover:text-violet-500" do %>
+            <%= author.name %>
+          <% end %>
         </h1>
 
         <div class="flex flex-col lg:flex-row items-start gap-10 xl:gap-16">
@@ -134,12 +134,14 @@
   <% end %>
 
   <div class="my-10 text-center">
-    <a href="#" class="text-slate-300 font-custom font-bold  hover:text-yellow-400 transition">Ruby and Rails 
+    <%= link_to "/pages/pro", class: "text-slate-300 font-custom font-bold  hover:text-yellow-400 transition" do %>
+Ruby and Rails 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block w-5 h-5">
         <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
       </svg>
 
-      PRO</a>
+      PRO
+  <% end %>
   </div>
 
 <% end %>

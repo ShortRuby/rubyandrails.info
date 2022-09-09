@@ -3,6 +3,7 @@ class NewslettersController < ApplicationController
   before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_newsletter, only: %i[show edit update destroy]
 
+
   def index
     set_meta_tags title: "#{Newsletter.count} newsletters about Ruby & Ruby on Rails", description: "#{Newsletter.count} newsletters about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Newsletter, Ruby, Ruby on Rails, best newsletters about programming"
  
@@ -31,6 +32,8 @@ class NewslettersController < ApplicationController
     @more_newsletters = Newsletter.where(id: Newsletter.pluck(:id).sample(3)) 
     @random = Newsletter.where(id: Newsletter.pluck(:id).sample) 
 
+    render layout: 'featured_details' if @newsletter.featured
+
     set_meta_tags title: "Newsletter #{@newsletter.title}", description: "#{@newsletter.title}. #{@newsletter.content}", keywords: "#{@newsletter.title}, newsletter, Ruby, Ruby on Rails"
   end
 
@@ -57,7 +60,7 @@ class NewslettersController < ApplicationController
   end
 
   def newsletter_params
-    params.require(:newsletter).permit(:title, :content, :cover, :url, :featured, author_ids: [])
+    params.require(:newsletter).permit(:title, :content, author_ids: [], :cover, :url, :featured, :testimonial_text, :testimonial_author, :testimonial_link, :featured_cover)
   end
 
   def authenticate_admin!

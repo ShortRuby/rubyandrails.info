@@ -36,11 +36,6 @@ class BooksController < ApplicationController
     set_meta_tags title: "Book #{@book.title}", description: "#{@book.title} by #{@book.authors.map { |author| author.name}.join(", ").html_safe}. #{@book.content}", keywords: "#{@book.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@book.title}, #{@book.authors.map { |author| author.name}.join(", ").html_safe}"
   end
 
-  def similar_tags
-    Book.joins(:tags).where(tags: { id: 3})
-    #book.tags.joins(book).where(book: { id: 3})
-  end
-
   def edit
 
   end
@@ -58,12 +53,6 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def by_year
-    #@books = Book.joins(:tags).where(tags: { title: "ha" })
-    #@book = Book.friendly.where(year: params[:year])
-    @books = Book.friendly.find_by(year: params[:year])
-  end
-  
   private
 
   def set_book

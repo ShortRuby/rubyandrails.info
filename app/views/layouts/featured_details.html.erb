@@ -32,15 +32,12 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<div class="sm:flex lg:gap-20 sm:flex-row">  
+<div class="sm:flex lg:gap-20 overflow-hidden sm:flex-row">  
   <aside class="px-5">  
     <%= render "shared/navbar" %>
   </aside>  
 
-  <main class="max-w-3xl xl:max-w-5xl mx-auto">  
-    <%= link_to "/pages/heroku-alternatives", class:"my-6 py-2 px-5 lg:px-0 text-red-500 text-base font-custom hidden inline-block" do %>
-      🔥 Heroku alternatives for Ruby on Rails apps in 2022 →
-    <% end %>
+  <main class="max-w-5xl mx-auto">  
     <%= yield %>
   </main>  
 </div>

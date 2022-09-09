@@ -26,6 +26,24 @@
         </div>
       <% end %>
     </div>
+  <div class="flex flex-col gap-1 mb-r">
+    <%= f.label :featured_cover, class: "text-base" %>
+    <%= f.text_field :featured_cover %>
+  </div>
+
+  <div class="flex flex-col gap-1 mb-r">
+    <%= f.label :testimonial_text, class: "text-base" %>
+    <%= f.text_field :testimonial_text %>
+  </div>
+
+  <div class="flex flex-col gap-1 mb-r">
+    <%= f.label :testimonial_author, class: "text-base" %>
+    <%= f.text_field :testimonial_author %>
+  </div>
+
+  <div class="flex flex-col gap-1 mb-r">
+    <%= f.label :testimonial_link, class: "text-base" %>
+    <%= f.text_field :testimonial_link %>
   </div>
 
   <div class="flex items-center mb-5 gap-2 mb-4">

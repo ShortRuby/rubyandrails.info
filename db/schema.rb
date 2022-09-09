@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_03_191320) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_09_104322) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_191320) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.string "photo"
     t.index ["slug"], name: "index_authors_on_slug", unique: true
   end
 
@@ -106,6 +107,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_191320) do
     t.index ["slug"], name: "index_courses_on_slug", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "date"
+    t.string "url"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_events_on_slug", unique: true
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -126,6 +139,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_191320) do
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "featured_cover"
+    t.string "testimonial_text"
+    t.string "testimonial_author"
+    t.string "testimonial_link"
     t.index ["slug"], name: "index_newsletters_on_slug", unique: true
   end
 

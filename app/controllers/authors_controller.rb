@@ -29,8 +29,6 @@ class AuthorsController < ApplicationController
     @podcasts = Podcast.joins(:authors).where(authors: { id: @author })
 
     set_meta_tags title: "Author: #{@author.name}", description: "#{@author.name} author of #{@books.map { |book| book.title }.join(", ").html_safe}.", keywords: "#{@author.name}, #{@books.map { |book| book.title }.join(", ").html_safe}"
-    # show all tags from books current author
-    #@writes = Book.includes(:authors).all 
   end
 
   def edit
@@ -56,6 +54,6 @@ class AuthorsController < ApplicationController
   end
 
   def author_params
-    params.require(:author).permit(:name, :content, :twitterUrl, :siteUrl, :githubUrl, )
+    params.require(:author).permit(:name, :content, :twitterUrl, :siteUrl, :githubUrl, :photo)
   end
 end

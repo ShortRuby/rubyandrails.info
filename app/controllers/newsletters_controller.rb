@@ -60,7 +60,7 @@ class NewslettersController < ApplicationController
   end
 
   def newsletter_params
-    params.require(:newsletter).permit(:title, :content, author_ids: [], :cover, :url, :featured, :testimonial_text, :testimonial_author, :testimonial_link, :featured_cover)
+    params.require(:newsletter).permit(:title, :content, :cover, :url, :featured, :testimonial_text, :testimonial_author, :testimonial_link, :featured_cover, author_ids: [])
   end
 
   def authenticate_admin!

@@ -1,4 +1,5 @@
-<div class="flex flex-col justify-between bg-teal-600 text-white rounded-xl p-10 gap-4 md:gap-2">
+<% unless newsletter.featured %>
+<div class="flex flex-col justify-between bg-slate-100 rounded-xl p-10 gap-4 md:gap-2">
   <div class="">
     <%= link_to newsletter do %>
       <h3 class="font-custom hover:opacity-90 font-bold text-3xl xl:text-4xl xl:leading-tight">
@@ -17,3 +18,54 @@
       <%= link_to "Subscribe", newsletter.url, target:"_blank", data: {:"splitbee-event" => "go to newsletter"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
   </div>
 </div>
+<% else %>
+
+    <section class="bg-gradient-to-bl from-violet-700 via-violet-700 to-violet-500 isolate relative px-8 border border-violet-700/20 overflow-hidden xl:px-20 py-16 rounded-3xl">
+
+      <%= image_tag("newsletter/promo/short-ruby.png", class: "absolute -z-30 -top-10 -rotate-12 left-3/4 scale-75 lg:left-2/4 lg:-top-40") %>
+
+      <span class="absolute bottom-0 -z-40 left-4 text-violet-800/30 leading-none text-[5.5em] font-black"><%= newsletter.title %></span>
+
+      <% unless newsletter.authors.count.zero? %>
+
+        <div class="flex items-center text-white mb-8">
+
+          <div class="flex -space-x-3 mr-4 items-center">
+            <% newsletter.authors.each do |author| %>
+              <% unless author.photo.nil? || author.photo.empty? %>
+                <%= image_tag("authors/#{author.photo}", alt: "#{author.name}", class: "w-10 h-10 shadow-md shadow-violet-900/50 rounded-full") %>
+              <% else %>
+              <% end %>
+            <% end %>
+          </div>
+          <div>
+            <span class="text-sm block opacity-80 leading-none"><%= "Author".pluralize(newsletter.authors.count) %></span>
+            <div class="space-x-4">
+              <% newsletter.authors.each do |author| %>
+                <%= link_to author.name, author, class: "hover:opacity-80 font-custom font-medium" %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+
+      <% end %>
+
+      <span class="bg-white mb-2 text-violet-700 font-bold rounded-full mx-auto text-sm px-4 py-1 hidden inline-block">Newsletter</span>
+      <h2 class="text-4xl mb-2 font-custom text-white font-bold"><%= newsletter.title %></h2>
+
+      <div class="mb-8 text-white w-3/4 lg:w-1/2"><%= newsletter.content %></div>
+
+      <div class="flex flex-col text-center font-custom md:flex-row gap-4 [&>*]:rounded-lg [&>*]:shadow-md [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
+        <%= link_to newsletter.url, target: "_blank", class: "bg-amber-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center" do %>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M22 6L12 13L2 6" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+          Subscribe</a>
+      <% end %>
+      <%= link_to newsletter, class: "bg-white hover:-translate-y-2 hover:bg-slate-50 hover:shadow-lg transition-all duration-300" do %>
+        Details
+      <% end %>
+      </div>
+
+    </section>
+
+  <% end %>

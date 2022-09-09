@@ -35,7 +35,7 @@
       <%= image_tag("newsletter/promo/#{@newsletter.featured_cover}", class: "absolute -z-30 -top-10 -rotate-12 left-3/4 scale-75 md:scale-95 lg:left-2/4 lg:-top-20") %>
     <% end %>
 
-    <span class="absolute -z-40 bottom-0 left-4 text-violet-800/30 leading-none text-[6.5em] font-black">Newsletter</span>
+    <span class="absolute -z-40 bottom-0 left-4 text-violet-800/20 leading-none text-[6.5em] font-black"><%= @newsletter.title %></span>
 
     <div class="flex flex-col gap-6 lg:gap-12 mb-4">
       <%= link_to newsletters_path, class: "border bg-white border-slate-200 flex h-10 w-10 shadow-sm shadow-slate-500/20 transition hover:text-violet-500 hover:-translate-x-2 duration-300 rounded-full justify-center items-center relative" do %>
@@ -77,7 +77,7 @@
 
     <% @newsletter.authors.each do |author| %>
 
-      <section class="bg-white border-2 mb-28 relative border-slate-200/60 px-12 xl:px-10 py-10 rounded-3xl">
+      <section class="bg-white border-2 mb-20 xl:mb-16 relative border-slate-200/60 px-12 xl:px-10 py-10 rounded-3xl">
 
 
         <% unless author.photo.nil? || author.photo.empty? %>
@@ -133,7 +133,7 @@
 
   <% end %>
 
-  <div class="my-10 text-center">
+  <div class="my-10 hidden text-center">
     <%= link_to "/pages/pro", class: "text-slate-300 font-custom font-bold  hover:text-yellow-400 transition" do %>
 Ruby and Rails 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block w-5 h-5">

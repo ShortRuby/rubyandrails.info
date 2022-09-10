@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
 
   get "/pages/*page", to: "pages#show"
+  get "/guides/*page", to: "guides#show"
 
   resources :authors, path: 'people' 
 
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
   end
   resources :books 
 
-  get 'books/:year', to: 'books#by_year', as: 'by_years'
   resources :tags, path: 'learn'
   resources :users
 

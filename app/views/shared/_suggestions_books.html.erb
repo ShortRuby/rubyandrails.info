@@ -1,30 +1,23 @@
-<div class="sticky top-4">
+<div class="px-5 mb-8 sm:px-0">
 
-    <div class="flex justify-between gap-4 px-5 sm:px-0 md:pr-5 flex-wrap items-baseline">
-      <h2 class="font-custom font-bold">Suggestions</h2>
-      <%= link_to "All topics", tags_path, class: "hover:text-red-500" %>
-    </div>
-
-    <div class="pl-5 sm:px-0 overflow-x-auto font-bold font-custom mb-8 rounded-xl py-6 disable-scrollbars flex gap-4">
-      <%= link_to "/learn/hotwire", data: {:"splitbee-event" => "suggestion hotwire"}, class:"bg-slate-800 shrink-0 hover:bg-slate-900 shadow-lg shadow-slate-500/20 w-48 block p-6 flex justify-between flex-col rounded-xl text-white" do %> 
-        <span class="text-3xl block">⚡️</span>
-        <span class="text-xl">Hotwire</span>
+  <div class="font-custom flex gap-2 flex-wrap [&>*]:flex [&>*]:items-center [&>*]:px-6 [&>*]:py-2 tracking-tight [&>*]:shadow-md [&>*]:rounded-full text-base text-white">
+      <%= link_to "/learn/hotwire", data: {:"splitbee-event" => "suggestion hotwire"}, class:"bg-slate-800 hover:opacity-90" do %> 
+⚡️ Hotwire
       <% end %>
-      <%= link_to books_free_index_path, data: {:"splitbee-event" => "suggestion free books"}, class:"bg-lime-600 shrink-0 hover:bg-lime-700 shadow-lg shadow-slate-500/20 w-48 block p-6  flex justify-between flex-col rounded-xl text-white" do %> 
-        <span class="text-3xl mb-4 block">🤑</span>
-        <span class="text-xl">Free Books</span>
+      <%= link_to books_free_index_path, data: {:"splitbee-event" => "suggestion free books"}, class:"bg-lime-600 hover:opacity-90" do %> 
+🤑 Free Books
       <% end %>
-      <%= link_to "/learn/testing", data: {:"splitbee-event" => "suggestion testing"}, class:"bg-sky-500 shrink-0 hover:bg-sky-600 shadow-lg shadow-slate-500/20 w-48 block p-6  flex justify-between flex-col rounded-xl text-white" do %> 
-        <span class="text-3xl mb-4 block">🚦</span>
-        <span class="text-xl">Testing</span>
+      <%= link_to "/learn/testing", data: {:"splitbee-event" => "suggestion testing"}, class:"bg-sky-500 hover:opacity-90" do %> 
+🚦 Testing
       <% end %>
-      <%= link_to "/learn/ruby", data: {:"splitbee-event" => "suggestion ruby"}, class:"bg-red-600 shrink-0 hover:bg-red-700 shadow-lg shadow-slate-500/20 w-48 block p-6  flex justify-between flex-col  rounded-xl text-white" do %> 
-        <span class="text-3xl mb-4 block">♦️</span>
-        <span class="text-xl">Ruby</span>
+      <%= link_to "/learn/ruby", data: {:"splitbee-event" => "suggestion ruby"}, class:"bg-red-600 hover:opacity-90" do %> 
+♦️ Ruby
       <% end %>
-      <%= link_to "/learn/perfomance", data: {:"splitbee-event" => "suggestion perfomance"}, class:"bg-amber-500 shrink-0 hover:bg-amber-600 shadow-lg shadow-slate-500/20 w-48 block p-6  flex justify-between flex-col  rounded-xl text-white" do %> 
-        <span class="text-3xl mb-4 block">🚀</span>
-        <span class="text-xl">Perfomance</span>
+      <%= link_to "/learn/perfomance", data: {:"splitbee-event" => "suggestion perfomance"}, class:"bg-amber-500 hover:opacity-90" do %> 
+🚀 Perfomance
+      <% end %>
+      <%= link_to tags_path, data: {:"splitbee-event" => "suggestion all topics"}, class: "bg-slate-400 hover:opacity-90" do %>
+        All Topics
       <% end %>
     </div>
 

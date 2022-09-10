@@ -1,22 +1,20 @@
-<div class="mb-20">
+<div class="mb-20 max-w-4xl mx-auto">
 
-  <%= render "shared/btn_random", title: "Topic" %>
+  <%#= render "shared/btn_random", title: "Topic" %>
+
+  <%= render "shared/page_title", title: "What would you like to learn more about? ", description: "There are many great resources available to help you expand your knowledge. Find a book or course that can help you improve your skills." %>
 
   <%= render "shared/suggestions_books" %>
 
-  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
-    <%= render "shared/page_title", title: "#{ Tag.count } Topics for learning", description: "Choose a topic, and we'll suggest books where you can learn more about it" %>
+  <div class="grid lg:grid-cols-2 gap-6 sm:gap-6">
 
-    <div class="grid lg:grid-cols-2 gap-6 sm:gap-6">
-
-      <% @tags.each do |tag| %>
-        <%= link_to tag, class: "" do %>
-          <h2 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
-            <%= tag.title %>
-          </h2>
-        <% end %>
+    <% @tags.each do |tag| %>
+      <%= link_to tag, class: "" do %>
+        <h2 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
+          <%= tag.title %>
+        </h2>
       <% end %>
-    </div>
+    <% end %>
   </div>
 
 </div>

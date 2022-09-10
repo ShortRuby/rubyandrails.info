@@ -1,0 +1,181 @@
+<% title 'Heroku alternatives in 2022 for Ruby and Rails application' %>
+<% description 'Choose the best service to migrate your app from Heroku. In addition to the links, you will find a list of official migration guides. ' %>
+<% keywords 'heroku alternative, how to deploy ruby on rails app, migrate from heroku, heroku ruby on rails' %>
+
+<div class="mb-20">
+  <%= render "shared/suggestions_books" %>
+
+  <div class="bg-white rounded-2xl sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+  <div class="">
+    <h1 class="font-bold text-4xl mb-8">Heroku alternatives in 2022 for Ruby and Rails application</h1>
+
+    <h2 class="font-bold mb-4">What happened?</h2>
+    <p class="mb-8">Starting October 26, 2022, we will begin deleting inactive accounts and associated storage for accounts that have been inactive for over a year. Starting November 28, 2022, we plan to stop offering free product plans and plan to start shutting down free dynos and data services. <a href="https://blog.heroku.com/next-chapter" target="_blank">Source</a></p>
+
+    <h2 class="font-bold mb-8">Alternatives to Heroku for Ruby and Rails application</h2>
+
+    <div class="space-y-10">
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://fly.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Fly.io</a></h3>
+        <div class="space-y-4">
+          <p>Fly is a platform for running full stack apps and databases close to your users. We’ve been hammering on this thing since 2017, and we think it’s pretty great.</p>
+          <p>Free with limits, <a href="https://fly.io/docs/about/pricing/" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
+        </div>
+        <div class="lg:col-start-2">
+          <ul class="space-y-2">
+            <li class="font-bold"> How to's</li>
+            <li> 
+              <a href="https://fly.io/docs/rails/" target="_blank" class="text-red-500 hover:text-red-600">How to run a Rails app on Fly.io</a>
+            </li>
+            <li>
+              <a href="https://fly.io/docs/rails/getting-started/migrate-from-heroku/" target="_blank" class="text-red-500 hover:text-red-600">How to migrate from Heroku [article]</a>
+            </li>
+            <li>
+              <a href="https://gorails.com/episodes/deploy-rails-to-fly-io?autoplay=1" target="_blank" class="text-red-500 hover:text-red-600">How to deploy Rails to Fly.io from GoRails [video]</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://railway.app" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Railway</a></h3>
+        <div class="space-y-4">
+          <p>Railway is the cloud that takes the complexity out of shipping software.</p>
+          <p>Paid with trial, <a href="https://railway.app/pricing" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
+        </div>
+        <div class="lg:col-start-2">
+          <ul class="space-y-2">
+            <li class="font-bold"> How to's</li>
+            <li> 
+              <a href="https://railway.app/pricing" target="_blank" class="text-red-500 hover:text-red-600">How to run a Rails app on Railway</a>
+            </li>
+            <li>didmdmdmdi
+              <a href="https://railway.app/changelog/2022-08-26" target="_blank" class="text-red-500 hover:text-red-600">Everything you need to migrate from Heroku to Railway</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://render.com/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Render</a></h3>
+        <div class="space-y-4">
+          <p>Render is a unified cloud to build and run all your apps and websites with free TLS certificates, a global CDN, DDoS protection, private networks, and auto deploys from Git.</p>
+          <p>Free with limits <a href="https://render.com/pricing" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
+        </div>
+        <div class="lg:col-start-2">
+          <ul class="space-y-2">
+            <li class="font-bold"> How to's</li>
+            <li> 
+              <a href="https://render.com/docs/deploy-rails" target="_blank" class="text-red-500 hover:text-red-600">How to run a Rails app on Render</a>
+            </li>
+            <li>
+              <a href="https://render.com/blog/migrate-rails-from-heroku" target="_blank" class="text-red-500 hover:text-red-600">Everything you need to migrate from Heroku to Render</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://m.do.co/c/da57cf7c40a7" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Digital Ocean App Platform</a></h3>
+        <div class="space-y-4">
+          <p>Build, deploy, and scale apps quickly using a simple, fully-managed solution. We’ll handle the infrastructure, app runtimes, and dependencies so you can focus on your code and launch your app efficiently.</p>
+          <p>Start from $5. With $100 from this link to new users &rarr; <a href="https://m.do.co/c/da57cf7c40a7" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
+        </div>
+        <div class="lg:col-start-2">
+          <ul class="space-y-2">
+            <li class="font-bold"> How to's</li>
+            <li> 
+              <a href="https://docs.digitalocean.com/products/app-platform/reference/buildpacks/ruby/" target="_blank" class="text-red-500 hover:text-red-600">How to run a Rails app on DO</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://hatchbox.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Hatchbox</a></h3>
+        <div class="space-y-4">
+          <p>Deploy apps to servers that you own and control. We'll take care of the configuration while you focus on building great apps.</p>
+          <p>You need a hosting provider. Trial, <a href="https://hatchbox.io/pricing" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
+        </div>
+        <div class="lg:col-start-2">
+          <ul class="space-y-2">
+            <li class="font-bold">How to's</li>
+            <li> 
+              <a href="https://gorails.com/episodes/how-to-migrate-from-heroku-to-hatchbox" target="_blank" class="text-red-500 hover:text-red-600">How to migrate from Heroku to Hatchbox [video]</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://dokku.com/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Dokku</a></h3>
+        <div class="space-y-4">
+          <p>Dokku is an extensible, open source Platform as a Service that runs on a single server of your choice. Dokku supports building apps on the fly from a git push via either Dockerfile or by auto-detecting the language with Buildpacks, and then starts containers based on your built image.</p>
+          <p>Free to use on your own server. Paid option <a href="https://pro.dokku.com/" target="_blank" class="text-red-500 hover:text-red-600">Pricing</a></p>
+        </div>
+        <div class="lg:col-start-2">
+          <ul class="space-y-2">
+            <li class="font-bold"> How to's</li>
+            <li> 
+              <a href="https://dokku.com/docs~v0.5.4/application-deployment/" target="_blank" class="text-red-500 hover:text-red-600">How to run a Rails app on Dokku</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://getkuby.io/" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Kuby</a></h3>
+        <div class="space-y-4">
+          <p>Kuby is a convention-over-configuration approach to deploying Rails apps. It makes the power of Docker and Kubernetes accessible to the average Rails developer without requiring a devops black belt.</p>
+          <p>Free, but you need a hosting provider: <a href="https://github.com/getkuby/kuby-digitalocean" target="_blank" class="text-red-500 hover:text-red-600">Digital Ocean</a>, <a href="https://github.com/getkuby/kuby-linode" target="_blank" class="text-red-500 hover:text-red-600">Linode</a>, <a href="https://github.com/getkuby/kuby-azure" target="_blank" class="text-red-500 hover:text-red-600">Azure</a>, <a href="https://github.com/getkuby/kuby-eks" target="_blank" class="text-red-500 hover:text-red-600">Amazon's EKS</a></p>
+        </div>
+        <div class="lg:col-start-2">
+          <ul class="space-y-2">
+            <li class="font-bold"> How to's</li>
+            <li> 
+              <a href="https://getkuby.io/docs/" target="_blank" class="text-red-500 hover:text-red-600">How to deploy Rails app on Kuby</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="lg:col-span-2"><a href="https://blog.cloud66.com/how-to-move-from-heroku-to-cloud-66" target="_blank" class="text-red-500 hover:text-red-600 text-3xl">Cloud66</a></h3>
+        <div class="space-y-4">
+          <p>Cloud 66 offers Heroku-like functionality with the flexibility of running on any cloud provider or your own servers.</p>
+          <p>You need a hosting provider</p>
+        </div>
+        <div class="lg:col-start-2">
+          <ul class="space-y-2">
+            <li class="font-bold"> How to's</li>
+            <li> 
+              <a href="https://blog.cloud66.com/how-to-move-from-heroku-to-cloud-66" target="_blank" class="text-red-500 hover:text-red-600">How to move from Heroku to Cloud 66</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="font-bold lg:col-span-2">More</h3>
+        <p>You may find these articles helpful</p>
+        <div class="space-y-4 flex flex-col">
+          <a href="https://nixsanctuary.com/best-paas-backend-hosting-heroku-vs-render-vs-flyio-vs-railwayapp/" target="_blank" class="text-red-500 hover:text-red-600">Best PaaS backend hosting: Heroku vs Render.com vs Fly.io vs Railway.app</a>
+          <a href="https://evilmartians.com/chronicles/taking-off-the-heroku-training-wheels-the-rails-preflight-checklist" target="_blank" class="text-red-500 hover:text-red-600">Taking off the Heroku training wheels: the Rails preflight checklist from Evilmartians</a>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-10 gap-y-4 bg-white ">
+        <h3 class="font-bold lg:col-span-2">Did I miss something?</h3>
+        <p>Feel free to suggest a new article or service by contacting me</p>
+        <div class="flex gap-8">
+          <a href="mailto:work.leonid@gmail.com" target="_blank" class="flex-1 bg-orange-50 flex items-center justify-center rounded-md text-orange-500 py-3 hover:text-orange-600">Email</a>
+          <a href="https://twitter.com/nleonid" target="_blank" class="flex-1 bg-sky-50 flex items-center justify-center rounded-md text-sky-500 hover:text-sky-600">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>

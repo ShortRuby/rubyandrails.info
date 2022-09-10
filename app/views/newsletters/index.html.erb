@@ -1,16 +1,13 @@
-<div class="mb-20">
+<div class="mb-20 max-w-4xl mx-auto">
 
-  <%= render "shared/btn_random", title: "Newsletter" %>
+  <%#= render "shared/btn_random", title: "newsletter" %>
+
+  <%= render "shared/page_title", title: "Collection of newsletters about Ruby, Ruby on Rails and development", description: "Get the latest news, tips, and tricks delivered right to your inbox. Read about interesting articles and blog posts about life and programming." %>
 
   <%= render "shared/suggestions_books" %>
 
-  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
-
-    <%= render "shared/page_title", title: "#{ Newsletter.count } Newsletters about Ruby and Ruby on Rails", description: "You'll love our collection of newsletters. Get the latest news, tips, and tricks delivered right to your inbox. Read about interesting articles and blog posts about life and programming." %>
-
-    <div class="flex flex-col gap-8">
-      <%= render partial: "shared/newsletter_card", collection: @newsletters, as: :newsletter %>
-    </div>
+  <div class="flex flex-col gap-8">
+    <%= render partial: "shared/newsletter_card", collection: @newsletters, as: :newsletter %>
   </div>
 
 </div>

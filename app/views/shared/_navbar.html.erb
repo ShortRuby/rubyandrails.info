@@ -1,4 +1,4 @@
-<nav class="top-0 flex-shrink-0 sm:p-5 pt-8 sm:pb-8 disable-scrollbars sm:h-screen sm:sticky sm:w-56">
+<nav class="flex-shrink-0 top-0 sm:p-5 sm:pb-8 disable-scrollbars sm:h-screen sm:sticky sm:w-56">
 
   <%= link_to 'Ruby & Rails', root_path, class: "mb-4 inline-block sm:mb-8 text-base text-red-500 uppercase font-black" %>
 
@@ -18,7 +18,14 @@
 </defs>
 </svg>
           Topics for learning
+      <% end %>
+      
+      <%= link_to "/guides/guides", class: "hidden hover:text-red-500 flex gap-2 items-center" do %>
+        Guides
+      <% end %>
 
+      <%= link_to "/guides/guides", class: "hidden hover:text-red-500 flex gap-2 items-center" do %>
+       Communities 
       <% end %>
 
       <%= link_to books_path, class: "hover:text-red-500 flex gap-2 items-center" do %>

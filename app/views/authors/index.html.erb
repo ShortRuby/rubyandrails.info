@@ -1,22 +1,19 @@
-<div class="mb-20">
+<div class="mb-20 max-w-4xl mx-auto">
+
+  <%= render "shared/page_title", title: "Authors writing about Ruby & Ruby on Rails", description: "There are many people writing about Ruby, Ruby on Rails. Some of them are very experienced developers who have been using Ruby for years, and some are new developers who are just starting to learn the language. We've compiled a list of some of the best and brightest minds in the industry." %>
 
   <%= render "shared/suggestions_books" %>
 
-  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+  <div class="grid lg:grid-cols-2 gap-6 sm:gap-6">
 
-    <%= render "shared/page_title", title: "Authors writing about Ruby & Ruby on Rails", description: "There are many people writing about Ruby, Ruby on Rails. Some of them are very experienced developers who have been using Ruby for years, and some are new developers who are just starting to learn the language. We've compiled a list of some of the best and brightest minds in the industry." %>
-
-    <div class="grid lg:grid-cols-2 gap-6 sm:gap-6">
-
-      <% @authors.each do |author| %>
-        <%= link_to author, class: "" do %>
-          <h2 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
+    <% @authors.each do |author| %>
+      <%= link_to author, class: "" do %>
+        <h2 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
           <%= author.name %>
-          </h2>
-        <% end %>
+        </h2>
       <% end %>
+    <% end %>
 
-    </div>
   </div>
 
 </div>

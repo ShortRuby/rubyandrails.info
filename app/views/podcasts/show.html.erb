@@ -1,34 +1,36 @@
-<%= render "shared/btn_random", title: "Podcast" %>
+<%#= render "shared/btn_random", title: "Podcast" %>
 
-<div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
+<div class="mb-20 max-w-4xl mx-auto">
+  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
 
-<div class="grid md:grid-cols-2 gap-5 lg:gap-8">
-  <% unless @podcast.cover.empty? %>
-    <div class="shrink-0 rounded-sm relative ">
-      <%= image_tag("podcasts/#{@podcast.cover}", alt: "#{@podcast.title}", class: "shadow-lg shadow-slate-800/10 block") %>
-    </div>
-  <% end %>
-
-  <div>
-      <%= link_to "All Podcasts", podcasts_path, class: "hover:text-red-600 text-red-500 inline-block mb-4" %>
-      <h3 class="flex gap-2 items-center mb-2 text-xl font-bold md:text-4xl font-custom leading-tight">
-        <%= @podcast.title %>
-      </h3>
-      <% unless @podcast.authors.count.zero? %>
-        <div class="opacity-60 mb-4">
-          by <%= @podcast.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80") }.join(", ").html_safe %>
+    <div class="grid md:grid-cols-2 gap-5 lg:gap-8">
+      <% unless @podcast.cover.empty? %>
+        <div class="shrink-0 rounded-sm relative ">
+          <%= image_tag("podcasts/#{@podcast.cover}", alt: "#{@podcast.title}", class: "shadow-lg shadow-slate-800/10 block") %>
         </div>
       <% end %>
 
-    <div class="mb-4 text-slate-600 text-base"><%= @podcast.content %></div>
+      <div>
+        <%= link_to "All Podcasts", podcasts_path, class: "hover:text-red-600 text-red-500 inline-block mb-4" %>
+        <h3 class="flex gap-2 items-center mb-2 text-xl font-bold md:text-4xl font-custom leading-tight">
+          <%= @podcast.title %>
+        </h3>
+        <% unless @podcast.authors.count.zero? %>
+          <div class="opacity-60 mb-4">
+            by <%= @podcast.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80") }.join(", ").html_safe %>
+          </div>
+        <% end %>
 
-    <%= link_to "Listen Podcast", @podcast.url, target:"_blank", data: {:"splitbee-event" => "go to podcast"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+        <div class="mb-4 text-slate-600 text-base"><%= @podcast.content %></div>
+
+        <%= link_to "Listen Podcast", @podcast.url, target:"_blank", data: {:"splitbee-event" => "go to podcast"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+      </div>
+
+    </div>
+
   </div>
 
+  <%= render "shared/suggestions_books" %>
 </div>
-
-</div>
-
-<%= render "shared/suggestions_books" %>
 
 <%= render "shared/btns_add", item: @podcast, path: edit_podcast_path(@podcast) %>

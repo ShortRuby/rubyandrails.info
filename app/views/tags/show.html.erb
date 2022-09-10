@@ -1,20 +1,21 @@
-<%= render "shared/btn_random", title: "Topic" %>
+<%#= render "shared/btn_random", title: "Topic" %>
 
-<div class="px-5 sm:px-0">
-  <%= link_to "All topics for learning", tags_path, class: "inline-block text-red-500 mb-4" %>
-  <h1 class="text-3xl lg:text-4xl mb-10 md:leading-tight font-custom">
-    Learn <%= @tag.title.capitalize() %> with books and courses
-  </h1>
-</div>
+<div class="mb-20 max-w-4xl mx-auto">
+  <div class="px-5 sm:px-0">
+    <%= link_to "All topics for learning", tags_path, class: "inline-block text-red-500 mb-4" %>
+    <h1 class="text-3xl lg:text-4xl mb-10 md:leading-tight font-custom">
+      Learn <%= @tag.title.capitalize() %> with books and courses
+    </h1>
+  </div>
 
   <% unless @books.count.zero? %>
-  <div class="bg-white rounded-2xl  mb-20 sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
-    <h2 class="font-custom mb-8 font-bold">Books about <%= @tag.title.capitalize() %></h2>
-    <div class="flex flex-col gap-16 sm:gap-20">
-      <%= render partial: "shared/book_card", collection: @books, as: :book %>
+    <div class="bg-white rounded-2xl  mb-20 sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
+      <h2 class="font-custom mb-8 font-bold">Books about <%= @tag.title.capitalize() %></h2>
+      <div class="flex flex-col gap-16 sm:gap-20">
+        <%= render partial: "shared/book_card", collection: @books, as: :book %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
   <% unless @courses.count.zero? %>
     <div class="bg-white rounded-2xl  mb-20 sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
@@ -24,5 +25,6 @@
       </div>
     </div>
   <% end %>
+</div>
 
 <%= render "shared/btns_add", item: @tag, path: edit_tag_path(@tag) %>

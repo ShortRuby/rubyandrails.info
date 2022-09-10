@@ -4,19 +4,24 @@
 
   <%= render "shared/page_title", title: "What would you like to learn more about? ", description: "There are many great resources available to help you expand your knowledge. Find a book or course that can help you improve your skills." %>
 
-  <%= render "shared/suggestions_books" %>
-
-  <div class="grid lg:grid-cols-2 gap-6 sm:gap-6">
-
-    <% @tags.each do |tag| %>
-      <%= link_to tag, class: "" do %>
-        <h2 class="font-bold font-custom text-red-500 hover:text-red-600 text-xl leading-tight">
-          <%= tag.title %>
-        </h2>
-      <% end %>
-    <% end %>
+  <div class="mb-20 lg:text-center">
+    <h2 class="text-3xl px-5 sm:px-0 font-bold font-custom mb-6">Most popular topics</h2>
+    <%= render "shared/suggestions_books" %>
   </div>
+  
+  <div class="mb-20 px-5 sm:px-0 lg:text-center">
+    <h2 class="text-3xl font-bold font-custom mb-6">All topics</h2>
+    <div class="flex flex-wrap gap-4 text-3xl">
 
+      <% @tags.each do |tag| %>
+        <%= link_to tag, class: "" do %>
+          <h2 class="font-custom px-4 py-2 bg-slate-200/60 rounded-xl hover:bg-slate-200 transition hover:text-slate-800 leading-tight">
+            <%= tag.title %>
+          </h2>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <%= render "shared/btns_add" %>

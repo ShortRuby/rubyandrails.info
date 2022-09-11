@@ -16,24 +16,24 @@ SitemapGenerator::Sitemap.create do
     add tag_path(tag), :lastmod => tag.updated_at
   end
 
-  Podcast.find_each do |tag|
-    add tag_path(tag), :lastmod => tag.updated_at
+  Podcast.find_each do |podcast|
+    add podcast_path(podcast), :lastmod => podcast.updated_at
   end
 
-  Newsletter.find_each do |tag|
-    add tag_path(tag), :lastmod => tag.updated_at
+  Newsletter.find_each do |newsletter|
+    add newsletter_path(newsletter), :lastmod => newsletter.updated_at
   end
 
-  Course.find_each do |tag|
-    add tag_path(tag), :lastmod => tag.updated_at
+  Course.find_each do |course|
+    add course_path(course), :lastmod => course.updated_at
   end
 
-  Book.free_books.find_each do |tag|
-    add tag_path(tag), :lastmod => tag.updated_at
+  Book.free_books.find_each do |book|
+    add book_path(book), :lastmod => book.updated_at
   end
 
-  Screencast.find_each do |tag|
-    add tag_path(tag), :lastmod => tag.updated_at
+  Screencast.find_each do |screencast|
+    add screencast_path(screencast), :lastmod => screencast.updated_at
   end
 
   # Put links creation logic here.

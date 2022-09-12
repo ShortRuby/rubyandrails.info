@@ -1,15 +1,14 @@
 <div class="self-center space-y-4 text-center">
 
   <% unless community.cover.empty? %>
-
-      <div class="relative shrink-0 rounded-sm relative ">
+      <div class="relative w-36 mx-auto">
 
         <% if community.source == "reddit" %>
           <%= image_tag("communities/icons/reddit.png", srcset: { "communities/icons/reddit@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
         <% end %>
 
         <% if community.source == "discord" %>
-          <%= image_tag("communities/icons/discord.png", srcset: { "communities/icons/discord@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
+          <%= image_tag("communities/icons/discord.png", srcset: { "communities/icons/discord@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 -right-2") %>
         <% end %>
 
         <% if community.source == "forum" %>
@@ -24,15 +23,13 @@
           <%= image_tag("communities/icons/twitter.png", srcset: { "communities/icons/twitter@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
         <% end %>
 
-        <%= image_tag("communities/#{community.cover}", alt: "#{community.title}", class: "drop-shadow-xl mx-auto mb-4") %>
+        <%= image_tag("communities/#{community.cover}", alt: "#{community.title}", class: "drop-shadow-lg mx-auto mb-4") %>
       </div>
     <% end %>
 
     <div>
       <h2 class="font-custom hover:opacity-90 font-bold text-2xl">
-        <%= link_to community do %>
           <%= community.title %>
-        <% end %>
       </h2>
       <p class="text-slate-500 text-base">In <%= community.source %></p>
     </div>

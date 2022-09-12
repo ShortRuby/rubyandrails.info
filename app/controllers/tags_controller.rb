@@ -5,7 +5,6 @@ class TagsController < ApplicationController
     @tags = Tag.all.order(:title)
     @random = Tag.where(id: Tag.pluck(:id).sample) 
 
-    @books = Book.all
 
     set_meta_tags title: "#{@tags.count} topics about Ruby & Ruby on Rails", description: "Choose one of the #{@tags.count} topics about Ruby, Ruby on Rails, OOP and more and find out in which books you can learn more about it.", keywords: "books, Ruby, Ruby on Rails, how to learn ruby, how to learn Ruby on Rails"
   end

@@ -1,59 +1,68 @@
-<div class="mb-20 max-w-4xl overflow-hidden mx-auto">
+<div class="mb-20 max-w-4xl mt-20 mx-auto">
   <%#= render "shared/btn_random", title: "Book" %>
 
-  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
+    <section class="bg-white border-2 mb-20 border-slate-200/60 px-12 xl:px-10 py-10 text-center rounded-3xl">
+      <%= render "shared/btn_back", path: books_path %>
 
-    <div class="flex flex-col lg:flex-row gap-5 lg:gap-8">
-      <% unless @book.cover.nil? || @book.cover.empty? %>
-        <div class="shrink-0 rounded-sm overflow-hidden self-start relative shadow-md  shadow-slate-800/20 ">
-          <%= image_tag("books/overlay.png", class: "absolute mix-blend-multiply inset-0") %>
-          <%= image_tag("books/#{@book.cover}", alt: "#{@book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
-        </div>
-      <% else %>
-        <div class="bg-red-700 shadow-md font-custom shadow-slate-800/20 rounded-md text-center relative overflow-hidden shrink-0 mb-2 pt-10 p-4 text-white w-44 lg:w-64 aspect-[3/4] self-start">
-          <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
-          <%= @book.title %>
-        </div>
-      <% end %> 
-
-      <div>
-
-        <%= link_to "All Books", books_path, class: "mb-4 md:inline-block text-red-500" %>
-
-        <h1 class="flex gap-2 items-center mb-2 text-xl font-bold lg:text-3xl font-custom leading-tight">
-          <%= @book.title %>
-          <% if @book.free %>
-            <span class="text-sm bg-green-500 rounded-full font-bold text-white px-4 py-2">Free </span>
-          <% end %>
-        </h1>
-
-        <span class="font-normal mb-2 inline-block text-lg text-slate-700">
-          by <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
-        </span>
-
-        <%= render "shared/tag_in_card", tags: @book %>
-
-        <p class="font-custom mb-2 font-base">Get book</p>
-        <div class="flex flex-wrap gap-2 mb-8 justify-center md:justify-start">
-          <% if @book.getBookOnSiteUrl.present? %>
-            <%= link_to @book.getBookOnSiteUrl, target: "_blank", data: {:"splitbee-event" => "get book on publisher site"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" do %>
-              <%= @book.getBookOnSiteTitle %>
-            <% end %>
-          <% end %>
-          <% if @book.getBookOnAmazonUrl.present? %>
-            <%= link_to @book.getBookOnAmazonUrl, target: "_blank", data: {:"splitbee-event" => "get book on amazon"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" do %>
-              Amazon
-            <% end %>
-          <% end %>
-        </div>
-
-        <div class="text-lg">
-          <%= @book.content %>
-        </div>
+      <div class="-mt-36 mb-8">
+        <% unless @book.cover.nil? || @book.cover.empty? %>
+          <div class="shrink-0 rounded-sm overflow-hidden inline-block self-start relative shadow-md shadow-slate-800/20 ">
+            <%= image_tag("books/overlay.png", class: "absolute mix-blend-multiply inset-0") %>
+            <%= image_tag("books/#{@book.cover}", alt: "#{@book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
+          </div>
+        <% else %>
+          <div class="bg-red-600 inline-block text-left shadow-md shadow-slate-800/20 rounded-md relative overflow-hidden pt-4 xl:pt-10 p-4 text-white self-start aspect-[3/4] shrink-0 w-44 lg:w-64 mx-auto">
+            <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+            <p class="text-base lg:pl-4"><%= @book.authors.map { |author| author.name }.join(", ").html_safe %> </p>
+            <p class="font-bold mt-10 leading-tight text-lg lg:text-2xl lg:pl-4 font-custom">
+            <%= @book.title %> </p>
+          </div>
+        <% end %> 
       </div>
 
-    </div>
-  </div>
+      <% unless @book.authors.nil? || @book.authors.empty? %>
+      <span class="mb-4 inline-block">
+        <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80 font-custom font-medium") }.join(", ").html_safe %>
+      </span>
+    <% end %>
+
+      <h2 class="text-3xl mb-4 max-w-lg mx-auto font-custom font-bold">
+        <%= @book.title %>
+      </h2>
+
+      <% unless @book.tags.nil? || @book.tags.empty? %>
+      <div class="flex gap-2 mb-8 text-sm justify-center [&>*]:border [&>*]:border-amber-400/20 [&>*]:bg-amber-300/10 text-amber-600 [&>*]:rounded-lg [&>*]:px-3 [&>*]:py-1">
+        <% @book.tags.each do |tag| %>
+          <%= link_to tag, class: "hover:bg-amber-300/20" do %>
+            <%= tag.title %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+      <p class="max-w-xl mx-auto mb-8 hidden">Hotwired ATS is a step-by-step tutorial for Ruby on Rails developers interested in learning more about the modern Rails 7 stack: Turbo, Stimulus, CableReady, and StimulusReflex.</p>
+
+
+      <div class="flex mb-16 flex-col lg:flex-row gap-4 justify-center [&>*]:rounded-lg [&>*]:shadow-sm [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
+          <% if @book.getBookOnSiteUrl.present? %>
+            <%= link_to @book.getBookOnSiteUrl, target: "_blank", data: {:"splitbee-event" => "get book on publisher site"}, class: "bg-slate-800 border text-white border-slate-600/60 hover:-translate-y-2 hover:shadow-slate-200/40 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center" do %>
+              <%= @book.getBookOnSiteTitle %>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+          <% end %>
+          <% end %>
+
+          <% if @book.getBookOnAmazonUrl.present? %>
+            <%= link_to @book.getBookOnAmazonUrl, target: "_blank", data: {:"splitbee-event" => "get book on amazon"}, class: "bg-slate-800 border text-white border-slate-600/60 hover:-translate-y-2 hover:shadow-slate-200/40 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center" do %>
+              Amazon
+          <% end %>
+            <% end %>
+      </div>
+
+        <div class="text-lg max-w-2xl mx-auto text-left">
+          <%= @book.content %>
+        </div>
+    </section>
+
 
 
 

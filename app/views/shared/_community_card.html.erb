@@ -1,4 +1,4 @@
-<div class="self-center space-y-4 text-center">
+<div class="flex flex-col justify-between border-2 border-slate-200/60 p-6 rounded-2xl text-center">
 
   <% unless community.cover.empty? %>
       <div class="relative w-36 mx-auto">
@@ -27,11 +27,11 @@
       </div>
     <% end %>
 
-    <div>
+    <div class="mb-4">
       <h2 class="font-custom hover:opacity-90 font-bold text-2xl">
           <%= community.title %>
       </h2>
-      <p class="text-slate-500 text-base">In <%= community.source %></p>
+      <p class="text-slate-500 text-base"><%= community.source.capitalize() %></p>
     </div>
 
 

@@ -31,3 +31,11 @@
   @apply w-full h-full fixed inset-0;
   @apply bg-gray-700 bg-opacity-25;
 }
+
+.trix-content a {
+  @apply text-red-500
+}
+.trix-content ul {
+  list-style-type: disc;
+  padding-left: 2.5rem;
+}

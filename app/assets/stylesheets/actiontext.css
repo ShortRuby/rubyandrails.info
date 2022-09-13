@@ -29,3 +29,8 @@
   padding: 0 !important;
   max-width: 100% !important;
 }
+.trix-content ul {
+  color: red;
+  list-style-type: disc;
+  padding-left: 2.5rem;
+}

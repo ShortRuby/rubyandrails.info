@@ -1,0 +1,27 @@
+<div class="mb-20 max-w-5xl mx-auto">
+  <%= render "shared/page_title", title: "Collection of YouTube Courses about Ruby and Ruby on Rails", description: "If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free and paid books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you." %>
+
+
+  <div class="grid gap-12 md:grid-cols-2">
+    <% @youtubes.each do |youtube| %>
+      <%= link_to youtube,  class: "transition hover:-translate-y-2 hover:shadow-slate-600/10 duration-300 hover:shadow-2xl shadow-xl shadow-slate-600/20 inline-block bg-white rounded-2xl" do %>
+
+        <% unless youtube.cover.nil? || youtube.cover.empty? %>
+          <%= image_tag("youtube-courses/covers/#{youtube.cover}", alt: "", class: "mx-auto rounded-t-2xl") %>
+        <% end %>
+
+        <div class="px-8 py-4">
+          <h2 class="font-custom font-bold mb-2 text-2xl"><%= youtube.title %></h2>
+          <p class="text-base text-slate-600"><%= youtube.description %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+      <% if current_user.try(:admin?) %>
+  <div class="flex flex-col fixed bottom-10 gap-4">
+    <%= link_to "Add youtube", new_youtube_path, class: "my-20 block" %>
+  </div>
+<% end %>

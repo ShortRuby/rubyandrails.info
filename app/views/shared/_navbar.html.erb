@@ -24,6 +24,12 @@
         Guides
       <% end %>
 
+      <% if current_user.try(:admin?) %>
+      <%= link_to youtubes_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
+       Youtube Courses 
+      <% end %>
+      <% end %>
+
 
       <%= link_to books_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
         <div class="relative">

@@ -26,9 +26,9 @@
       </span>
     <% end %>
 
-      <h2 class="text-3xl mb-4 max-w-lg mx-auto font-custom font-bold">
-        <%= @book.title %>
-      </h2>
+    <h1 class="text-3xl mb-4 max-w-lg mx-auto font-custom font-bold">
+      <%= @book.title %>
+    </h1>
 
       <% unless @book.tags.nil? || @book.tags.empty? %>
       <div class="flex gap-2 mb-8 text-sm justify-center [&>*]:border [&>*]:border-amber-400/20 [&>*]:bg-amber-300/10 text-amber-600 [&>*]:rounded-lg [&>*]:px-3 [&>*]:py-1">
@@ -39,9 +39,6 @@
         <% end %>
       </div>
     <% end %>
-
-      <p class="max-w-xl mx-auto mb-8 hidden">Hotwired ATS is a step-by-step tutorial for Ruby on Rails developers interested in learning more about the modern Rails 7 stack: Turbo, Stimulus, CableReady, and StimulusReflex.</p>
-
 
       <div class="flex mb-16 flex-col lg:flex-row gap-4 justify-center [&>*]:rounded-lg [&>*]:shadow-sm [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
           <% if @book.getBookOnSiteUrl.present? %>

@@ -1,0 +1,26 @@
+<div class="mb-20 max-w-5xl mt-10 mx-auto">
+
+  <section class="p-8 mb-8 bg-white rounded-3xl border-2 border-slate-200/60">
+
+    <section class="flex flex-col md:flex-row gap-10">
+      <%= render "shared/btn_back", path: youtube_path(@youtube) %>
+
+      <div>
+        <h1 class="text-4xl mb-1 lg:text-5xl font-bold font-custom">CreatorPlatform.xyz</h1>
+        <p class="opacity-80 max-w-lg">Build a platform for creators to sell their digital downloads</p>
+      </div>
+    </section>
+  </section>
+
+  <section class="p-8 mb-8 bg-white rounded-3xl border-2 border-slate-200/60">
+    <h2 class="text-4xl mb-8 font-bold font-custom">Lessons</h2>
+
+    <div class="space-y-4">
+      <% @lessons.order(created_at: :asc).each do |lesson| %>
+        <div>
+          <%= link_to lesson.title, [@youtube, lesson], class: "hover:text-red-500" %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

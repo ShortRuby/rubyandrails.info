@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :youtubes do
+    resources :lessons, module: :youtubes
+  end
+
   resources :communities
   resources :events
   resources :screencasts

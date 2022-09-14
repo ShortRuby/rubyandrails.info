@@ -58,7 +58,7 @@
 
 
     <% unless @youtube.tags.nil? || @youtube.tags.empty? %>
-      <div class="flex gap-2 mb-8 font-custom font-bold justify-center [&>*]:border [&>*]:border-slate-300/30 [&>*]:rounded-xl [&>*]:bg-slate-200/60 [&>*]:px-6 [&>*]:py-2">
+      <div class="flex flex-wrap gap-2 mb-8 font-custom font-bold justify-center [&>*]:border [&>*]:border-slate-300/30 [&>*]:rounded-xl [&>*]:bg-slate-200/60 [&>*]:px-6 [&>*]:py-2">
         <% @youtube.tags.each do |tag| %>
           <%= link_to tag, class: "hover:bg-slate-200 hover:text-slate-800 transition" do %>
             <%= tag.title %>

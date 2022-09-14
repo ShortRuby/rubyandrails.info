@@ -6,8 +6,8 @@
       <%= render "shared/btn_back", path: youtube_path(@youtube) %>
 
       <div>
-        <h1 class="text-4xl mb-1 lg:text-5xl font-bold font-custom">CreatorPlatform.xyz</h1>
-        <p class="opacity-80 max-w-lg">Build a platform for creators to sell their digital downloads</p>
+        <h1 class="text-4xl mb-1 lg:text-5xl font-bold font-custom"><%= @youtube.title %></h1>
+        <p class="opacity-80 max-w-lg"><%= @youtube.description %></p>
       </div>
     </section>
   </section>

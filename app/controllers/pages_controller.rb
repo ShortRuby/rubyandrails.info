@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-    layout 'featured_details'
+
   def show
     @books = Book.order(created_at: :desc)
     @podcasts = Podcast.all

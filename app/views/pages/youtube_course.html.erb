@@ -1,0 +1,59 @@
+<div class="mb-20 max-w-5xl mx-auto">
+
+  <section class="bg-gradient-to-b from-blue-700 to-blue-500 rounded-b-3xl mb-10 p-8 lg:px-10">
+
+    <div class="text-white flex flex-col md:flex-row gap-4">
+      <%= link_to "/pages/youtube_landing", class: "border-2 shrink-0 border-white/40 flex h-10 w-10 shadow-sm shadow-slate-500/20 transition hover:bg-white/20 rounded-full justify-center items-center relative" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-1"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /> </svg>
+      <% end %>
+      <div>
+        <div class="flex flex-col md:flex-row gap-2 justify-between items-center mb-4">
+          <div class="flex gap-2 items-center grow text-white">
+            <%= image_tag("authors/cj_avilla.jpg", alt: "", class: "w-8 hidden h-8 shadow-md shadow-blue-900/80 rounded-full") %>
+              <span class="opacity-60">By</span> <a href="#" class="hover:opacity-80 font-custom font-medium">CJ Avilla</a>
+            </div>
+        </div>
+
+        <h1 class="text-4xl mb-1 lg:text-5xl font-bold font-custom">CreatorPlatform.xyz</h1>
+        <p class="opacity-80 max-w-lg">Build a platform for creators to sell their digital downloads</p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <div class="flex gap-10">
+
+    <div class="bg-slate-200/70 h-[60vh] disable-scrollbars sticky overflow-y-scroll text-base w-64 flex flex-col gap-4 [&>*]:block p-6 rounded-xl">
+      <h2 class="font-bold uppercase font-custom">All Lessons</h2>
+      <% ["Introduction to the CreatorPlatform.xyz tutorial - What we'll build", "New Ruby on Rails application and Static pages", "Devise authentication styled with Tailwind UI", "Landing page for Ruby on Rails with Tailwind UI", "Postgres enums in Ruby on Rails", "Handle webhooks and process async with Rails", "Dashboard view with Tailwind UI", "Stripe Connect onboarding with Ruby on Rails", "Create Stripe Financial Accounts to store money", "Financial Account balances and Payments balances", "Stripe Payouts", "Annotate gem", "Faker gem", "Enable creators to create Stripe Products with localized prices", "Upload Product images with ActiveStorage", "AWS S3 Uploads with Ruby on Rails", "Stores Subdomain Routing with Ruby on Rails", "Product listing pages with Tailwind UI", "Customer Payment Flow with Stripe Checkout", "Order Confirmation Page with Tailwind UI", "Order Fulfillment with Webhooks", "dModeling Attachments and using Counter Caches", "dDeploy Rails 7 to Heroku", "dSSL for Custom Subdomains with Cloudflare, Heroku, and Rails", "dGravatars", "dCustom layout for devise views", "dCustom attributes for devise onboarding", "dBranding with DALL-E generated logo", "dStripe Treasury flows explained", "dCreate cardholders and issue cards to creators", "dDisplay virtual card details with Issuing Elements", "dSending email with Ruby on Rails", "dAttachment downloads for end customers"].each do |item| %>
+        <a href="#" class="hover:opacity-70"><%= item %></a>
+      <% end %>
+    </div>
+
+    <div class="flex-1">
+      <section class="mb-10 rounded-xl overflow-hidden bg-blue-700">
+        <iframe class="aspect-video rounded-xl w-full" src="https://www.youtube.com/embed/uuHtuR2FFS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+
+      <section class="mb-10 flex justify-between">
+        <a href="#">Previous</a>
+        <a href="#">Next</a>
+      </section>
+
+      <section class="mb-20">
+
+        <div class="flex gap-10">
+          <div class="mb-4">
+            <h1 class="text-4xl mb-2 font-bold font-custom">Table of content</h1>
+            <p class="max-w-xl mx-auto text-slate-500">You will learn about these topics and more by watching this course.</p>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+
+</div>
+

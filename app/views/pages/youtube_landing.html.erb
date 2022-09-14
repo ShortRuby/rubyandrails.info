@@ -1,0 +1,70 @@
+<div class="mb-20 max-w-5xl mx-auto">
+
+    <section class="bg-gradient-to-b from-blue-700 to-blue-300 rounded-b-3xl mb-24 p-8 lg:px-12">
+
+      <div class="flex flex-col md:flex-row gap-2 justify-between items-center mb-8">
+        <div class="flex gap-2 items-center grow text-white">
+          <img src="https://cjav.dev/images/cjavilla2.jpg" alt="" class="w-10 object-cover h-10 shadow-md shadow-blue-900/80 rounded-full">
+          <div>
+            <span class="text-sm block opacity-80 leading-none">Author</span>
+            <a href="#" class="hover:opacity-80 font-custom font-medium">CJ Avilla</a>
+          </div>
+        </div>
+        <a href="#" class="inline-block text-white font-bold text-base rounded-lg px-6 py-2 border-2 transition hover:bg-white/20 border-white/40">Subscribe</a>
+      </div>
+
+      <div class="text-white text-center flex group flex-col gap-4 justify-between">
+        <div>
+          <div class="relative mb-8 isolate ">
+            <%= image_tag("youtube-courses/covers/creatorplatform.jpg", alt: "", class: "mx-auto group-hover:-translate-y-4 group-hover:rotate-12 duration-300 transition rounded-xl border border-blue-900/70 scale-50 -z-50 -top-32 opacity-30 inset-x-0 absolute") %>
+            <%= image_tag("youtube-courses/covers/creatorplatform.jpg", alt: "", class: "mx-auto group-hover:-translate-y-2 group-hover:rotate-6 duration-300 transition rounded-xl border border-blue-900/70 scale-75 -z-40 -top-16 opacity-60 inset-x-0 absolute") %>
+            <%= image_tag("youtube-courses/covers/creatorplatform.jpg", alt: "", class: "mx-auto group-hover:rotate-2 duration-300 transition rounded-xl mt-16 border border-blue-900/70") %>
+          </div>
+          <h1 class="text-4xl mb-2 lg:text-5xl font-bold font-custom">CreatorPlatform.xyz</h1>
+          <p class="opacity-80 mb-4 mx-auto max-w-lg">Build a platform for creators to sell their digital downloads</p>
+        </div>
+        <a href="youtube_course" class="inline-block self-center text-white mr-2 font-bold text-2xl rounded-lg px-8 py-3 text-slate-900 transition hover:-translate-y-2 duration-300 bg-amber-200 shadow-xl shadow-slate-800/20 hover:bg-amber-300">Start Learning</a>
+        <span class="inline-block text-base">It's free. No need to registrate</span>
+      </div>
+
+    </section>
+
+    <section class="mb-20">
+      <div class="text-center mb-4">
+        <h1 class="text-4xl mb-2 font-bold font-custom">What you'll learn</h1>
+        <p class="max-w-xl mx-auto text-slate-500">You will learn about these topics and more by watching this course.</p>
+      </div>
+
+      <div class="flex flex-wrap gap-2 justify-center [&>*]:px-6 [&>*]:rounded-lg font-bold [&>*]:py-2 text-white [&>*]:bg-blue-600">
+        <a href="#">Ruby on Rails</a>
+        <a href="#">Stripe API</a>
+        <a href="#">Devise</a>
+        <a href="#">Payments</a>
+        <a href="#">Tailwind UI</a>
+        <a href="#">Stimulus</a>
+        <a href="#">Postgres</a>
+        <a href="#">Webhooks</a>
+        <a href="#">Faker Gem</a>
+        <a href="#">Working with images</a>
+        <a href="#">Subdomains</a>
+        <a href="#">AWS for images & files</a>
+      </div>
+
+    </section>
+
+    <section class="mb-20">
+      <div class="text-center mb-4">
+        <h1 class="text-4xl mb-2 font-bold font-custom">Table of content</h1>
+        <p class="max-w-xl mx-auto text-slate-500">You will learn about these topics and more by watching this course.</p>
+      </div>
+
+      <div class="bg-slate-200/70 flex flex-col gap-8 [&>*]:block p-10 rounded-xl">
+        <% ["Introduction to the CreatorPlatform.xyz tutorial - What we'll build", "New Ruby on Rails application and Static pages", "Devise authentication styled with Tailwind UI", "Landing page for Ruby on Rails with Tailwind UI", "Postgres enums in Ruby on Rails", "Handle webhooks and process async with Rails", "Dashboard view with Tailwind UI", "Stripe Connect onboarding with Ruby on Rails", "Create Stripe Financial Accounts to store money", "Financial Account balances and Payments balances", "Stripe Payouts", "Annotate gem", "Faker gem", "Enable creators to create Stripe Products with localized prices", "Upload Product images with ActiveStorage", "AWS S3 Uploads with Ruby on Rails", "Stores Subdomain Routing with Ruby on Rails", "Product listing pages with Tailwind UI", "Customer Payment Flow with Stripe Checkout", "Order Confirmation Page with Tailwind UI", "Order Fulfillment with Webhooks", "dModeling Attachments and using Counter Caches", "dDeploy Rails 7 to Heroku", "dSSL for Custom Subdomains with Cloudflare, Heroku, and Rails", "dGravatars", "dCustom layout for devise views", "dCustom attributes for devise onboarding", "dBranding with DALL-E generated logo", "dStripe Treasury flows explained", "dCreate cardholders and issue cards to creators", "dDisplay virtual card details with Issuing Elements", "dSending email with Ruby on Rails", "dAttachment downloads for end customers"].each do |item| %>
+          <a href="#"><%= item %></a>
+        <% end %>
+      </div>
+
+    </section>
+
+</div>
+

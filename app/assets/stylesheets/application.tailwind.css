@@ -1,4 +1,5 @@
 @import "trix/dist/trix";
+@import 'tom-select/dist/css/tom-select.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

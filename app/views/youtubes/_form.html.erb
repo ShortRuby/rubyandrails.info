@@ -20,17 +20,8 @@
     <%= f.text_field :url %>
   </div>
 
-
-  <div class="text-base ">
-    <%= f.label :tag, class: "mr-10" %>
-    <div class="grid grid-cols-3 mb-5 gap-1">
-      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :title do |c| %>
-        <div class="flex items-center gap-2">
-          <%= c.check_box %>
-          <%= c.label %>
-        </div>
-      <% end %>
-    </div>
+  <div data-controller="tom-select">
+    <%= f.select :tag_ids, Tag.all.pluck(:title, :id), {}, { multiple: true, id: "select-tags" } %>
   </div>
 
   <div class="text-base mb-5">

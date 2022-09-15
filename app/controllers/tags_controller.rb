@@ -17,6 +17,7 @@ class TagsController < ApplicationController
     @tag = Tag.new tag_params
     if @tag.save
       redirect_to tags_path
+      render json: tag
     else
       render :new
     end

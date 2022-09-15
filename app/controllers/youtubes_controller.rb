@@ -2,6 +2,8 @@ class YoutubesController < ApplicationController
 
   before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_youtube, only: %i[show edit update destroy]
+
+  layout "admin", only: %i[new edit]
   
   def index
     set_meta_tags title: "#{Youtube.count} Youtube courses about Ruby & Ruby on Rails", description: "", keywords: 'Youtube courses, free course, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'

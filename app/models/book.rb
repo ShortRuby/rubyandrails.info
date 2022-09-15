@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id                 :bigint           not null, primary key
+#  title              :string
+#  content            :text
+#  free               :boolean
+#  page               :integer
+#  isbn               :string
+#  getBookOnAmazonUrl :string
+#  getBookOnSiteTitle :string
+#  getBookOnSiteUrl   :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  subtitle           :string
+#  year               :integer
+#  slug               :string
+#  cover              :string
+#  featured           :boolean
+#
 class Book < ApplicationRecord
 
   extend FriendlyId 

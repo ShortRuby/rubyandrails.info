@@ -55,8 +55,6 @@
       <p class="max-w-xl mx-auto text-slate-500">You will learn about these topics and more by watching this course.</p>
     </div>
 
-
-
     <% unless @youtube.tags.nil? || @youtube.tags.empty? %>
       <div class="flex flex-wrap gap-2 mb-8 font-custom font-bold justify-center [&>*]:border [&>*]:border-slate-300/30 [&>*]:rounded-xl [&>*]:bg-slate-200/60 [&>*]:px-6 [&>*]:py-2">
         <% @youtube.tags.each do |tag| %>

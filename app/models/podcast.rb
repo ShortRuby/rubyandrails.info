@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: podcasts
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  cover      :string
+#  url        :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  slug       :string
+#  featured   :boolean
+#
 class Podcast < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged

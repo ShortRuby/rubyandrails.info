@@ -1,4 +1,18 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: authors
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  content    :text
+#  twitterUrl :string
+#  githubUrl  :string
+#  siteUrl    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  slug       :string
+#  photo      :string
+#
 
 one:
   name: MyString

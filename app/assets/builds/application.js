@@ -5,6 +5,7 @@
   var __getOwnPropNames = Object.getOwnPropertyNames;
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
   var __esm = (fn, res) => function __init() {
     return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
   };
@@ -24,6 +25,10 @@
     return to;
   };
   var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+  var __publicField = (obj, key, value) => {
+    __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+    return value;
+  };
 
   // node_modules/@rails/actioncable/src/adapters.js
   var adapters_default;
@@ -14187,8 +14192,7 @@
   var import_tom_select = __toESM(require_tom_select_complete());
   var tom_select_controller_default = class extends Controller {
     connect() {
-      console.log("tom select");
-      const selectInput = document.getElementById("select-tags");
+      const selectInput = this.filterTarget;
       let settings = {};
       if (selectInput) {
         new import_tom_select.default(selectInput, {
@@ -14205,7 +14209,7 @@
           create: function(input, callback) {
             const data = { name: input };
             const token = document.querySelector('meta[name="csrf-token"]').content;
-            fetch("/tags", {
+            fetch(this.urlValue, {
               method: "POST",
               headers: {
                 "X-CSRF-Token": token,
@@ -14223,6 +14227,8 @@
       }
     }
   };
+  __publicField(tom_select_controller_default, "targets", ["filter"]);
+  __publicField(tom_select_controller_default, "values", { url: String });
 
   // app/javascript/controllers/index.js
   application.register("hello", hello_controller_default);

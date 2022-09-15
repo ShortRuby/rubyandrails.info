@@ -20,20 +20,12 @@
     <%= f.text_field :url, class: "w-2/3"  %>
   </div>
 
-  <div data-controller="tom-select">
-    <%= f.select :tag_ids, Tag.all.pluck(:title, :id), {}, { multiple: true, id: "select-tags", class: "ml-auto w-2/3" } %>
+  <div data-controller="tom-select" data-tom-select-url-value = "/tags">
+    <%= f.select :tag_ids, Tag.all.pluck(:title, :id), {}, { multiple: true, placeholder: "tags", id: "select-tags", class: "ml-auto w-2/3", data: { tom_select_target: "filter" }} %>
   </div>
 
-  <div class="text-base mb-5">
-    <%= f.label :author, class: "mr-10" %>
-    <div class="grid grid-cols-3 mb-5 gap-1">
-      <%= f.collection_check_boxes :author_ids, Author.all, :id, :name do |c| %>
-        <div class="flex items-center gap-2">
-          <%= c.check_box %>
-          <%= c.label %>
-        </div>
-      <% end %>
-    </div>
+  <div data-controller="tom-select" data-tom-select-url-value = "/authors">
+    <%= f.select :author_ids, Author.all.pluck(:name, :id), {}, { multiple: true, id: "select-tags", class: "ml-auto w-2/3", placeholder: "authors", data: { tom_select_target: "filter" }} %>
   </div>
 
   <div>

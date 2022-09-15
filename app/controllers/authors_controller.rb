@@ -16,6 +16,7 @@ class AuthorsController < ApplicationController
     @author = Author.new author_params
     if @author.save
       redirect_to authors_path
+      render json: tag
     else
       render :new
     end

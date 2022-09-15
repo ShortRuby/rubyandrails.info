@@ -14193,7 +14193,6 @@
   var tom_select_controller_default = class extends Controller {
     connect() {
       const selectInput = this.filterTarget;
-      let settings = {};
       if (selectInput) {
         new import_tom_select.default(selectInput, {
           plugins: {

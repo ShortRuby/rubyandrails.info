@@ -1,66 +1,60 @@
 <%= form_with(model: @course, class: "text-stone-800") do |f| %>
 
-  <div class="flex flex-col gap-1 mb-4">
-    <%= f.label :title, class: "text-base" %>
-    <%= f.text_field :title %>
+  <div class="grid grid-cols-2 gap-10">
+    <div>
+      <div class="flex flex-col gap-1 mb-4">
+        <%= f.label :title, class: "text-base" %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="flex flex-col gap-1 mb-4">
+        <%= f.label :subtitle, class: "text-base" %>
+        <%= f.text_field :subtitle%>
+      </div>
+
+
+      <div class="flex flex-col gap-1 mb-4">
+        <%= f.label 'Cover', class: "text-base"  %>
+        <%= f.text_field :cover %>
+      </div>
+
+      <div class="flex flex-col gap-1 mb-4">
+        <%= f.label 'Get course on', class: "text-base"  %>
+        <%= f.text_field :courseSiteTitle, placeholder: 'title', class: "hidden" %>
+        <%= f.text_field :courseSiteUrl, placeholder: 'url' %>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <div data-controller="tom-select" data-tom-select-url-value = "/tags" class="mb-4">
+        <%= f.select :tag_ids, Tag.all.pluck(:title, :id), {}, { multiple: true, placeholder: "tags", id: "select-tags", data: { tom_select_target: "filter" }} %>
+      </div>
+
+      <div data-controller="tom-select" data-tom-select-url-value = "/authors" class="mb-4">
+        <%= f.select :author_ids, Author.all.pluck(:name, :id), {}, { multiple: true, id: "select-tags", placeholder: "authors", data: { tom_select_target: "filter" }} %>
+      </div>
+
+      <div class="flex gap-10">
+        <div class="flex items-center mb-5 gap-2 mb-4">
+          <%= f.check_box :free %>
+          <%= f.label "Free book", class: "text-base"  %>
+        </div>
+
+        <div class="flex items-center mb-5 gap-2 mb-4">
+          <%= f.check_box :featured %>
+          <%= f.label "Featured", class: "text-base"  %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="flex flex-col gap-1 mb-4">
-    <%= f.label :subtitle, class: "text-base" %>
-    <%= f.text_field :subtitle%>
-  </div>
-  
   <div class="flex text-base flex-col gap-1">
     <%= f.label :content, class: "text-base"  %>
     <%= f.rich_text_area :content %>
   </div>
 
-  <div class="flex flex-col gap-1 mb-4">
-    <%= f.label 'Cover', class: "text-base"  %>
-    <%= f.text_field :cover %>
-  </div>
-
-  <div class="flex flex-col gap-1 mb-4">
-    <%= f.label 'Get course on', class: "text-base"  %>
-    <%= f.text_field :courseSiteTitle, placeholder: 'title', class: "hidden" %>
-    <%= f.text_field :courseSiteUrl, placeholder: 'url' %>
-  </div>
-
-  <div class="text-base ">
-    <%= f.label :tag, class: "mr-10" %>
-    <div class="grid grid-cols-3 mb-5 gap-1">
-      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :title do |c| %>
-        <div class="flex items-center gap-2">
-          <%= c.check_box %>
-          <%= c.label %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="text-base mb-5">
-    <%= f.label :author, class: "mr-10" %>
-    <div class="grid grid-cols-3 mb-5 gap-1">
-      <%= f.collection_check_boxes :author_ids, Author.all, :id, :name do |c| %>
-        <div class="flex items-center gap-2">
-          <%= c.check_box %>
-          <%= c.label %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="flex items-center mb-5 gap-2 mb-4">
-    <%= f.check_box :free %>
-    <%= f.label "Free book", class: "text-base"  %>
-  </div>
-
-  <div class="flex items-center mb-5 gap-2 mb-4">
-    <%= f.check_box :featured %>
-    <%= f.label "Featured", class: "text-base"  %>
-  </div>
-  <div>
-    <%= f.submit class: "bg-red-600 text-white px-5 py-3" %>
+  <div class="fixed bottom-20 right-20">
+    <%= f.submit class: "bg-red-500 cursor-pointer hover:bg-red-600 text-white px-5 py-3" %>
   </div>
 
 <% end %>

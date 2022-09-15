@@ -3,6 +3,8 @@ class CoursesController < ApplicationController
   before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_course, only: %i[show edit update destroy]
 
+  layout "admin", only: %i[new edit]
+
   def index
     set_meta_tags title: "#{Course.count} courses about Ruby & Ruby on Rails", description: "The largest collection of courses about Ruby & Ruby on Rails. Find course that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Course, free cours,  Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Tailwind with Rails, learn ruby, learn ruby on rails'
     @tags = Tag.all.order(:title)

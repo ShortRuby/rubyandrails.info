@@ -1,5 +1,9 @@
 class TagsController < ApplicationController
+
+  before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_tag, only: %i[show edit update destroy]
+
+  layout "admin", only: %i[new edit]
 
   def index
     @tags = Tag.all.order(:title)
@@ -57,5 +61,9 @@ class TagsController < ApplicationController
 
   def tag_params
     params.require(:tag).permit(:title)
+  end
+
+  def authenticate_admin!
+    redirect_to root_path unless current_user.try(:admin?)
   end
 end

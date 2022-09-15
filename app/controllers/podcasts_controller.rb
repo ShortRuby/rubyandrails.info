@@ -3,6 +3,8 @@ class PodcastsController < ApplicationController
   before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_podcast, only: %i[show edit update destroy]
 
+  layout "admin", only: %i[new edit]
+
   def index
     set_meta_tags title: "#{Podcast.count} podcasts about Ruby & Ruby on Rails", description: "#{Podcast.count} podcasts about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Podcast, Ruby, Ruby on Rails, best podcasts about programming"
 

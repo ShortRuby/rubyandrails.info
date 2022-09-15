@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_event, only: %i[show edit update destroy]
 
+  layout "admin", only: %i[new edit]
+
   def index
     set_meta_tags title: "Events, hackathons and meetups", description: "Events, hackathons and meetups are all excellent opportunities to network and learn new skills.", keywords: "Event, Ruby, Ruby on Rails, best events about programming, hackaton, conference, meetup"
  

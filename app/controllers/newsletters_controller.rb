@@ -3,6 +3,7 @@ class NewslettersController < ApplicationController
   before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_newsletter, only: %i[show edit update destroy]
 
+  layout "admin", only: %i[new edit]
 
   def index
     set_meta_tags title: "#{Newsletter.count} newsletters about Ruby & Ruby on Rails", description: "#{Newsletter.count} newsletters about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Newsletter, Ruby, Ruby on Rails, best newsletters about programming"

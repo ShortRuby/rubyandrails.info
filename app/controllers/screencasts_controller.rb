@@ -2,6 +2,8 @@ class ScreencastsController < ApplicationController
 
   before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_screencast, only: %i[show edit update destroy]
+
+  layout "admin", only: %i[new edit]
   
   def index
     set_meta_tags title: "#{Screencast.count} screencasts about Ruby & Ruby on Rails", description: "The largest collection of screencasts about Ruby & Ruby on Rails. Find screencast that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Screencast, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'

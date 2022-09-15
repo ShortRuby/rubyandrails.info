@@ -1,35 +1,41 @@
-<%= form_with(model: @youtube, class: "text-stone-800") do |f| %>
+<%= form_with(model: @youtube) do |f| %>
 
-  <div class="flex  gap-1 mb-4">
-    <%= f.label :title, class: "w-1/3 text-base" %>
-    <%= f.text_field :title, class: "w-2/3" %>
+  <div class="grid grid-cols-2 gap-10">
+    <div>
+      <div class="flex flex-col gap-1 mb-4">
+        <%= f.label :title, class: "text-base" %>
+        <%= f.text_field :title, placeholder: "Title" %>
+      </div>
+
+      <div class="flex flex-col gap-1 mb-4">
+        <%= f.label :description, class: "text-base" %>
+        <%= f.text_area :description, rows: "5", placeholder: "Description"  %>
+      </div>
+
+      <div class="flex flex-col gap-1 mb-4">
+        <%= f.label :cover, class: "text-base" %>
+        <%= f.text_field :cover, placeholder: "Cover" %>
+      </div>
+
+      <div class="flex flex-col gap-1 mb-4">
+        <%= f.label "Link to playlist", class: "text-base" %>
+        <%= f.text_field :url, placeholder: "Link to playlist" %>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <div data-controller="tom-select" data-tom-select-url-value = "/tags" class="mb-4">
+        <%= f.select :tag_ids, Tag.all.pluck(:title, :id), {}, { multiple: true, placeholder: "tags", id: "select-tags", data: { tom_select_target: "filter" }} %>
+      </div>
+
+      <div data-controller="tom-select" data-tom-select-url-value = "/authors">
+        <%= f.select :author_ids, Author.all.pluck(:name, :id), {}, { multiple: true, id: "select-tags", placeholder: "authors", data: { tom_select_target: "filter" }} %>
+      </div>
+    </div>
   </div>
 
-  <div class="flex  gap-1 mb-4">
-    <%= f.label :cover, class: "w-1/3 text-base" %>
-    <%= f.text_field :cover, class: "w-2/3"  %>
-  </div>
-
-  <div class="flex  gap-1 mb-4">
-    <%= f.label :description, class: "w-1/3 text-base" %>
-    <%= f.text_field :description, class: "w-2/3"  %>
-  </div>
-
-  <div class="flex  gap-1 mb-4">
-    <%= f.label :url, class: "w-1/3 text-base" %>
-    <%= f.text_field :url, class: "w-2/3"  %>
-  </div>
-
-  <div data-controller="tom-select" data-tom-select-url-value = "/tags">
-    <%= f.select :tag_ids, Tag.all.pluck(:title, :id), {}, { multiple: true, placeholder: "tags", id: "select-tags", class: "ml-auto w-2/3", data: { tom_select_target: "filter" }} %>
-  </div>
-
-  <div data-controller="tom-select" data-tom-select-url-value = "/authors">
-    <%= f.select :author_ids, Author.all.pluck(:name, :id), {}, { multiple: true, id: "select-tags", class: "ml-auto w-2/3", placeholder: "authors", data: { tom_select_target: "filter" }} %>
-  </div>
-
-  <div>
-    <%= f.submit class: "bg-red-600 text-white px-5 py-3" %>
+  <div class="fixed bottom-20 right-20">
+    <%= f.submit class: "bg-red-500 cursor-pointer hover:bg-red-600 text-white px-5 py-3" %>
   </div>
 
 <% end %>

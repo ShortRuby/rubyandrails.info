@@ -1,5 +1,9 @@
 class AuthorsController < ApplicationController
+
+  before_action :authenticate_admin!, only: %i[new edit create update destroy]
   before_action :set_author, only: %i[show edit update destroy]
+
+  layout "admin", only: %i[new edit]
 
   def index
     @authors = Author.all.order("name ASC") 
@@ -56,5 +60,9 @@ class AuthorsController < ApplicationController
 
   def author_params
     params.require(:author).permit(:name, :content, :twitterUrl, :siteUrl, :githubUrl, :photo)
+  end
+
+  def authenticate_admin!
+    redirect_to root_path unless current_user.try(:admin?)
   end
 end

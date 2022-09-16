@@ -1,53 +1,44 @@
-<%#= render "shared/btn_random", title: "Course" %>
+<% content_for :hero do %>
+  <%= render "shared/btn_back", path: courses_path %>
 
-<div class="mb-20 max-w-4xl mx-auto">
-  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
+  <div class="flex-1 flex flex-col gap-10 items-center">
+    <% if @course.free %>
+      <div class="text-green-300 text-base uppercase font-bold font-custom">Free Course</div>
+    <% end %>
 
-    <%= link_to "All Courses", courses_path, class: "mb-4 md:inline-block text-red-500" %>
+    <%= render partial: "courses/cover", locals: { course: @course } %>
 
-    <div class="flex flex-col lg:flex-row gap-5 lg:gap-8">
-      <% unless @course.cover.nil? || @course.cover.empty? %>
-        <div class="mb-4 w-full">
-          <div class="md:hover:-translate-y-4 duration-300 transition-all relative isolate overflow-hidden rounded-lg shadow-md hover:shadow-xl shadow-slate-800/20">
-            <%= image_tag("courses/#{@course.cover}", alt: "#{@course.title}", class: "shrink-0 lg:mr-auto block") %>
-          </div>
-        </div>
-      <% end %>
-
-      <div>
-
-        <h1 class="flex gap-2 items-center mb-2 text-xl font-bold lg:text-3xl font-custom leading-tight">
-          <%= @course.title %>
-          <% if @course.free %>
-            <span class="text-sm bg-green-500 rounded-full font-bold text-white px-4 py-2">Free </span>
-          <% end %>
-        </h1>
-        <% unless @course.authors.empty? %>
-          <span class="mb-2 inline-block text-lg text-slate-700">
-            by <%= @course.authors.map { |author| link_to(author.name, author, class: "ml-1 hover:opacity-80") }.join(", ").html_safe %>
-          </span>
-        <% end %>
-
-        <%= render "shared/tag_in_card", tags: @course %>
-
-        <div class="flex flex-wrap gap-2 mb-8 justify-center md:justify-start">
-          <% if @course.courseSiteUrl.present? %>
-            <%= link_to @course.courseSiteUrl, target: "_blank", data: {:"splitbee-event" => "get course"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" do %>
-              Get Course
-            <% end %>
-          <% end %>
-        </div>
-
-        <div class="text-lg">
-          <%= @course.content %>
-        </div>
-      </div>
-
+    <div>
+      <h1 class="h1 mb-6">
+        <%= @course.title %>
+      </h1>
+      <%= render "shared/btn_cta", btn: @course.courseSiteUrl, event: "get course", title: "Get Course" %>
     </div>
   </div>
+<% end %>
 
-  <%= render "shared/suggestions_books" %>
-</div>
+<% content_for :tags do %>
+  <%= render "shared/tags_big", tag: @course.tags %>
+<% end %>
+
+<% content_for :content do %>
+  <%= @course.content %>
+
+  <% if @course.courseSiteUrl.present? %>
+      <%= link_to @course.courseSiteUrl, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center inline-block mt-8 text-white hover:bg-slate-700 transition duration-300 rounded-xl px-6 py-3 text-2xl font-bold font-custom" do %>
+        Get Course
+      <% end %>
+  <% end %>
+<% end %>
+
+<% content_for :authors do %>
+  <%= render partial: "shared/author_second",  collection: @course.authors, as: :author %>
+<% end %>
+
+<% content_for :related do %>
+    <%= render partial: "shared/course_card", collection: @related, as: :course %>
+<% end %>
+
 
 <%= render "shared/btns_add", item: @course, path: edit_course_path(@course) %>
 

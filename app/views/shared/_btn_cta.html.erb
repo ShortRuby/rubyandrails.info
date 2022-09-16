@@ -1,0 +1,5 @@
+<% if btn.present? %>
+  <%= link_to btn, target: "_blank", data: {:"splitbee-event" => "#{event}"}, class: "inline-block bg-red-500 text-white hover:-translate-y-2 hover:shadow-blue-900/80 hover:bg-red-600 hover:shadow-xl transition duration-300 rounded-lg shadow-sm shadow-blue-900/70 px-12 py-5 text-2xl font-bold font-custom" do %>
+    <%= title %>
+  <% end %>
+<% end %>

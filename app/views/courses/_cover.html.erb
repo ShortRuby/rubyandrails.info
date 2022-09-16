@@ -1,0 +1,24 @@
+<% unless course.cover.nil? || course.cover.empty? %>
+
+  <div class="mb-4">
+    <%= link_to course do %>
+      <%= image_tag("courses/#{course.cover}", alt: "#{course.title}", class: "shrink-0 rounded-xl lg:mr-auto block") %>
+    <% end %>
+  </div>
+
+<% else %>
+
+  <div>
+    <%= link_to course, class: "p-12 mb-4 h-64 w-full lg:h-56 aspect-[10/8] flex-col flex mx-auto justify-center items-center gap-2 rounded-2xl bg-red-500 text-white" do %>
+      <h3 class="text-3xl font-light md:text-5xl font-custom leading-tight">
+        <%= course.title %>
+      </h3>
+      <% unless course.authors.empty? %>
+        <div class="text-lg">
+          <%= course.authors.map { |author| author.name }.join(", ").html_safe %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+<% end %>

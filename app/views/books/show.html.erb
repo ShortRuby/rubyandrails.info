@@ -1,101 +1,42 @@
-<div class="mb-20 max-w-4xl mt-20 mx-auto">
-  <%#= render "shared/btn_random", title: "Book" %>
+<section class="light-wrapper-bg mt-20 mb-12 text-center">
+  <%= render "shared/btn_back", path: books_path %>
 
-    <section class="bg-white border-2 mb-20 border-slate-200/60 px-12 xl:px-10 py-10 text-center rounded-3xl">
-      <%= render "shared/btn_back", path: books_path %>
+  <div class="-mt-36 mb-8">
+    <%= render partial: "book_cover", locals: { book: @book } %>
+  </div>
 
-      <div class="-mt-36 mb-8">
-        <% unless @book.cover.nil? || @book.cover.empty? %>
-          <div class="shrink-0 rounded-sm overflow-hidden inline-block self-start relative shadow-md shadow-slate-800/20 ">
-            <%= image_tag("books/overlay.png", class: "absolute mix-blend-multiply inset-0") %>
-            <%= image_tag("books/#{@book.cover}", alt: "#{@book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
-          </div>
-        <% else %>
-          <div class="bg-red-600 inline-block text-left shadow-md shadow-slate-800/20 rounded-md relative overflow-hidden pt-4 xl:pt-10 p-4 text-white self-start aspect-[3/4] shrink-0 w-44 lg:w-64 mx-auto">
-            <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
-            <p class="text-base lg:pl-4"><%= @book.authors.map { |author| author.name }.join(", ").html_safe %> </p>
-            <p class="font-bold mt-10 leading-tight text-lg lg:text-2xl lg:pl-4 font-custom">
-            <%= @book.title %> </p>
-          </div>
-        <% end %> 
-      </div>
+  <%= render "shared/authors",  authors: @book %>
 
-      <% unless @book.authors.nil? || @book.authors.empty? %>
-      <span class="mb-4 inline-block">
-        <%= @book.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80 font-custom font-medium") }.join(", ").html_safe %>
-      </span>
-    <% end %>
+  <h1 class="h1 text-center">
+    <%= @book.title %>
+  </h1>
 
-    <h1 class="text-3xl mb-4 max-w-lg mx-auto font-custom font-bold">
-      <%= @book.title %>
-    </h1>
+  <div class="mb-8 flex justify-center">
+    <%= render "shared/tags", tags: @book %>
+  </div>
 
-      <% unless @book.tags.nil? || @book.tags.empty? %>
-      <div class="flex gap-2 mb-8 text-sm justify-center [&>*]:border [&>*]:border-amber-400/20 [&>*]:bg-amber-300/10 text-amber-600 [&>*]:rounded-lg [&>*]:px-3 [&>*]:py-1">
-        <% @book.tags.each do |tag| %>
-          <%= link_to tag, class: "hover:bg-amber-300/20" do %>
-            <%= tag.title %>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
+  <div class="flex mb-16 flex-col lg:flex-row gap-4 justify-center">
+    <%= render "shared/btn_cta", btn: @book.getBookOnSiteUrl, event: "get book on publusher site", title: "#{@book.getBookOnSiteTitle}" %>
 
-      <div class="flex mb-16 flex-col lg:flex-row gap-4 justify-center [&>*]:rounded-lg [&>*]:shadow-sm [&>*]:px-6 [&>*]:py-3 [&>*]:font-medium">
-          <% if @book.getBookOnSiteUrl.present? %>
-            <%= link_to @book.getBookOnSiteUrl, target: "_blank", data: {:"splitbee-event" => "get book on publisher site"}, class: "bg-slate-800 border text-white border-slate-600/60 hover:-translate-y-2 hover:shadow-slate-200/40 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center" do %>
-              <%= @book.getBookOnSiteTitle %>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>
-          <% end %>
-          <% end %>
+    <%= render "shared/btn_cta", btn: @book.getBookOnAmazonUrl, event: "get book on amazon", title: "Amazon" %>
+  </div>
 
-          <% if @book.getBookOnAmazonUrl.present? %>
-            <%= link_to @book.getBookOnAmazonUrl, target: "_blank", data: {:"splitbee-event" => "get book on amazon"}, class: "bg-slate-800 border text-white border-slate-600/60 hover:-translate-y-2 hover:shadow-slate-200/40 hover:shadow-lg transition-all duration-300 flex gap-2 justify-center items-center" do %>
-              Amazon
-          <% end %>
-            <% end %>
-      </div>
+  <div class="text-lg max-w-2xl mx-auto text-left">
+    <%= @book.content %>
+  </div>
+</section>
 
-        <div class="text-lg max-w-2xl mx-auto text-left">
-          <%= @book.content %>
-        </div>
-    </section>
+<% unless @similar.empty? %>
+  <%= render "shared/suggestions_books" %>
 
+  <div class="mb-8">
+    <h2 class="h2">More great books on this topic</h2>
+  </div>
 
+  <%= render partial: "books/books_list", locals: { list: @similar} %>
 
+<% end %>
 
-
-
-  <% unless @similar.empty? %>
-    <div class="mb-8">
-      <h2 class="px-5 sm:px-0 font-custom mb-4 font-bold">More great books on this topic</h2>
-      <%= render "shared/suggestions_books" %>
-    </div>
-
-    <div class="pl-5 sm:px-0 flex-wrap font-bold font-custom flex gap-10">
-      <% @similar.each do |book| %>
-          <%= link_to book, class: "shrink-0 w-64 group" do %>
-            <% unless book.cover.nil? || book.cover.empty? %>
-              <div class="shrink-0 mb-2 overflow-hidden rounded-sm inline-block self-start relative shadow-md hover:shadow-xl shadow-slate-800/20" do>
-                <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
-                <%= image_tag("books/#{book.cover}", alt: "#{book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-48") %>
-              </div>
-            <% else %>
-              <div class="bg-red-700 shadow-md hover:shadow-xl shadow-slate-800/20 rounded-md text-center relative overflow-hidden mb-2 pt-6 p-4 text-white h-64 aspect-[3/4]">
-                <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
-                <%= book.title %>
-              </div> 
-            <% end %>
-            <p class="text-base text-wrap group-hover:text-red-500">
-            <%= book.title %>
-            </p>
-      <% end %>
-    <% end %>
-
-    </div>
-
-  <% end %>
-
-</div>
 
 
 <%= render "shared/btns_add", item: @book, path: edit_book_path(@book) %>

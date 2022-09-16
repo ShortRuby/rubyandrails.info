@@ -1,0 +1,16 @@
+<% unless tag.nil? || tag.empty? %>
+  <div class="flex gap-2 flex-wrap sm:grid sm:grid-cols-2 xl:grid-cols-3 sm:gap-1">
+    <% tag.each do |tag| %>
+      <%= link_to tag, class: "break-normal inline-block lg:aspect-square text-xl xl:text-3xl font-custom text-red-900 bg-white transition hover:bg-red-100 rounded-md p-4 sm:p-6" do %>
+        <%= tag.title %>
+      <% end %>
+    <% end %>
+  <div class="text-center">
+    <% if @course.courseSiteUrl.present? %>
+      <%= link_to @course.courseSiteUrl, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center flex justify-center items-center inline-block lg:aspect-square p-4 sm:p-6 text-white hover:bg-slate-700 transition duration-300 text-xl rounded-md w-full xl:text-3xl font-custom" do %>
+        Get Course
+      <% end %>
+    <% end %>
+  </div>
+  </div>
+<% end %>

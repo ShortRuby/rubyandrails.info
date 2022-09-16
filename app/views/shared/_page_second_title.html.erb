@@ -1,11 +1,9 @@
 <div class="bg-white rounded-3xl flex flex-col md:flex-row gap-8 md:gap-20 shadow-md shadow-slate-300/30 my-10 p-5 sm:p-8 md:p-12">
 
-  <%= link_to tags_path, class: "shrink-0 border border-slate-200 flex h-10 w-10 shadow-sm shadow-slate-500/20 transition hover:text-violet-500 rounded-full justify-center items-center relative" do %>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-1"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /> </svg>
-  <% end %>
+  <%= render "shared/btn_back", path: tags_path %>
 
   <div class="relative">
-    <h1 class="font-custom mb-4 text-4xl tracking-tight sm:text-5xl font-bold"><%= title %></h1>
+    <h1 class="h1"><%= title %></h1>
 
     <p class="text-slate-600 mb-4 text-lg"><%= description %></p>
 

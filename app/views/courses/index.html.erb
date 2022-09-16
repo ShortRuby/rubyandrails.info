@@ -1,20 +1,13 @@
-<div class="mb-20 max-w-4xl mx-auto">
+<%= render "shared/page_title", title: "Collection of courses about Ruby and Ruby on Rails", description: "Whether you want to learn Ruby for fun, to build your own web apps, or to get a job, we have the perfect course for you. Our collection of Ruby and Ruby on Rails courses cover everything from the basics to advanced topics like metaprogramming and web scraping. Courses will show you how to build powerful, production-ready web applications with this popular framework. Best of all, you can find courses for free. Ready to get started?" %>
 
-  <%#= render "shared/btn_random", title: "Course" %>
+<%= render "shared/suggestions_books" %>
 
-  <%= render "shared/page_title", title: "Collection of courses about Ruby and Ruby on Rails", description: "Whether you want to learn Ruby for fun, to build your own web apps, or to get a job, we have the perfect course for you. Our collection of Ruby and Ruby on Rails courses cover everything from the basics to advanced topics like metaprogramming and web scraping. Courses will show you how to build powerful, production-ready web applications with this popular framework. Best of all, you can find courses for free. Ready to get started?" %>
-
-  <%= render "shared/suggestions_books" %>
-
-  <div class="flex mb-8 flex-col gap-16 sm:gap-16">
-    <%= render partial: "shared/course_card", collection: @courses, as: :course %>
-  </div>
-
-  <div class="mt-10">
-    <%== pagy_nav(@pagy) %>
-  </div>
-
+<div class="grid lg:grid-cols-2 gap-12">
+  <%= render partial: "shared/course_card", collection: @courses, as: :course %>
 </div>
+
+<%== pagy_nav(@pagy) %>
+
 
 
 <%= render "shared/btns_add" %>

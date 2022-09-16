@@ -1,0 +1,5 @@
+<% unless authors.authors.nil? || authors.authors.empty? %>
+  <span class="mb-4 inline-block">
+    <%= authors.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80 font-custom font-medium") }.join(", ").html_safe %>
+  </span>
+<% end %>

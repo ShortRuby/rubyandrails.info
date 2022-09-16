@@ -1,49 +1,19 @@
-<div class="flex flex-col justify-between">
-  <%= link_to course_path(course) do %>
-    <% unless course.cover.nil? || course.cover.empty? %>
-      <div class="mb-4 w-full">
-        <div class="relative isolate overflow-hidden rounded-lg lg:w-2/3">
-          <%= image_tag("courses/#{course.cover}", alt: "#{course.title}", class: "shrink-0 lg:mr-auto block") %>
-        </div>
-      </div>
-    <% else %>
-      <div class="relative p-6 mb-4 h-64 isolate overflow-hidden rounded-lg lg:w-2/3  bg-gradient-to-tr from-red-200 to-yellow-50">
-        <div>
-          <h3 class="hover:text-red-500  text-3xl font-bold justify-between h-full flex gap-2 items-end mb-1 text-xl font-bold md:text-3xl font-custom leading-tight">
-            <%= course.title %>
-            <% if course.free %>
-              <span class="text-sm bg-green-500 rounded-full font-bold text-white px-4 py-2">Free </span>
-            <% end %>
-          </h3>
-        </div>
-        <% unless course.authors.empty? %>
-          <span class="mb-2 inline-block text-lg text-slate-700">
-            by <%= course.authors.map { |author| link_to(author.name, author, class: "ml-2 hover:opacity-80") }.join(", ").html_safe %>
-          </span>
-        <% end %>
-      </div>
-    <% end %>
+<div class="w-full">
+    <%= render partial: "courses/cover", locals: { course: course } %>
 
-    <div class="grow mb-1 ">
-      <% unless course.cover.nil? || course.cover.empty? %>
-        <h3 class="hover:text-red-500 mb-1 flex gap-2 items-center text-xl font-bold lg:text-3xl font-custom leading-tight">
-          <%= course.title %>
-          <% if course.free %>
-            <span class="text-sm bg-green-500 rounded-full font-bold text-white px-4 py-2">Free </span>
-          <% end %>
-        </h3>
-        <% unless course.authors.empty? %>
-          <span class="mb-2 inline-block text-lg text-slate-700">
-            by <%= course.authors.map { |author| link_to(author.name, author, class: "ml-2 hover:opacity-80") }.join(", ").html_safe %>
-          </span>
-        <% end %>
-
+    <div>
+      <% if course.free %>
+        <div class="bg-green-500 rounded-full inline-block text-white px-4 py-0 text-sm font-bold mb-1 font-custom">Free Course</div>
       <% end %>
-      <%= render "shared/tag_in_card", tags: course %>
-      <div class="mb-2"><%= course.content %></div>
-    </div>
-  <% end %>
+      <%= link_to course, class: "hover:text-red-500" do %>
+      <h3 class="h2 mb-4"><%= course.title %></h3>
+    <% end %>
+      <div class="mb-4">
+        <%= render "shared/tags", tags: course %>
+      </div>
+      <div class="text-base mb-2"><%= course.content %></div>
 
-  <%= link_to "Details", course, class: "rounded-md self-start shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+      <%= link_to "Details", course, class: "rounded-md self-start shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+    </div>
 </div>
 

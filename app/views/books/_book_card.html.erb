@@ -1,0 +1,31 @@
+<div class="flex flex-col md:flex-row gap-5 lg:gap-8">
+
+  <%= render partial: "books/book_cover", locals: { book: book } %>
+
+  <div>
+    <%= link_to book do %>
+      <h3 class="h2 hover:text-red-500">
+        <%= book.title %>
+        <% if book.free %>
+          <span class="text-sm bg-green-500 rounded-full font-bold text-white px-4 py-2">Free </span>
+        <% end %>
+      </h3>
+    <% end %>
+
+    <% unless book.authors.nil? || book.authors.empty? %>
+      <span class="font-normal mb-2 inline-block text-lg text-slate-700">
+        by <%= book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
+      </span>
+    <% end %>
+
+    <div class="mb-4">
+      <%= render "shared/tags", tags: book %>
+    </div>
+
+    <div class="mb-4 text-slate-600 text-base"><%= truncate(book.content.to_plain_text, length: 232, omisson: '...', separator: ' ') %></div>
+
+    <%= link_to "Details", book, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+
+  </div>
+
+</div>

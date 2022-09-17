@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="ahrefs-site-verification" content="5daf808c786318b77a57cc0d6dd369cbeea4658286e7e5bf0ac9ba3cf412a74a">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <script async src="https://cdn.splitbee.io/sb.js"></script>
+    <script defer type="text/javascript" src="https://api.pirsch.io/pirsch.js" id="pirschjs" data-code="FxX6f1sD5QacdiYXeuIB4wBNuOZkh10O"></script>
+
+    <%= display_meta_tags(default_meta_tags) %>
+    <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" %>
+    <%= favicon_link_tag "favicon-32x32.png", rel: "icon", sizes: "32x32", type: "image/png" %>
+    <%= favicon_link_tag "favicon-16x16.png", rel: "icon", color:"#EF4444" %>
+    <%= favicon_link_tag "safari-pinned-tab.svg", rel: "mask-icon", sizes: "16x16", type: "image/png" %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="text-slate-800 bg-slate-50 text-xl">
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <div class="flex flex-col gap-4 md:gap-20 lg:flex-row">  
+      <aside>  
+        <%= render "shared/navbar" %>
+      </aside>  
+
+      <main class="grow bg-indigo-50 ">  
+
+        <section class="relative overflow-hidden group isolate p-8 lg:p-12 xl:px-20 xl:py-12 2xl:py-28">
+          <%= image_tag("decoration/glow.svg", alt: "", class: "opacity-20 absolute -top-40 -z-20 left-40") %>
+          <div class="z-50 flex flex-col 2xl:flex-row group gap-4 2xl:gap-20">
+            <%= yield :hero %>
+          </div>
+        </section>
+
+        <div class="px-5 sm:px-10 xl:px-20 bg-white rounded-t-[2em]  py-20 md:py-16">
+          <%= yield :content %>
+        </div>
+    </div>
+
+      </main>  
+
+      <%= yield %>
+
+      </div>
+
+  </body>
+</html>

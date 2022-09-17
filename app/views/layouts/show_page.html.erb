@@ -41,12 +41,7 @@
   <main class="grow bg-white">  
 
     <section class="relative overflow-hidden group isolate bg-gradient-to-b from-slate-900 to-blue-700 p-8">
-      <%#= image_tag("grid-pattern.svg", alt: "", class: "absolute -z-10 opacity-10 group-hover:opacity-20 transition duration-300 left-1/2 -translate-x-1/2") %>
       <%= image_tag("decoration/glow.svg", alt: "", class: "absolute -z-20 left-40") %>
-
-      <%#= image_tag("decoration/one.png", alt: "", class: "absolute -z-20 left-40 scale-150 duration-700 animate-pulse") %>
-      <%#= image_tag("decoration/two.png", alt: "", class: "absolute delay-100 -right-4 top-20 -z-20 scale-150 duration-1000 animate-pulse") %>
-
       <div class="text-white z-50 text-center pb-12 md:pb-16 flex flex-col md:flex-row group gap-4">
         <%= yield :hero %>
       </div>

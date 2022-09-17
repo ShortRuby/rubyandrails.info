@@ -1,0 +1,16 @@
+<div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
+  <div>
+    <span class="h2">
+      <%= link_to_unless_current "All Books", books_path, class: "text-red-500 hover:text-red-600" %>
+    </span>
+    <span class="h2">
+      <%= link_to_unless_current "Free Books", books_free_index_path, class: "text-red-500 hover:text-red-600" %>
+    </span>
+  </div>
+
+  <span class="h2">
+    <% @random.each do |item| %>
+      <%= link_to "🍀 Random Book", item, class: "text-red-500 hover:text-red-600" %>
+    <% end %>
+  </span>
+</div>

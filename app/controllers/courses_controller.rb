@@ -4,13 +4,14 @@ class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
 
   layout "admin", only: %i[new edit]
-  layout "show_page", only: %i[show]
 
   def index
     set_meta_tags title: "#{Course.count} courses about Ruby & Ruby on Rails", description: "The largest collection of courses about Ruby & Ruby on Rails. Find course that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Course, free cours,  Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Tailwind with Rails, learn ruby, learn ruby on rails'
     @tags = Tag.all.order(:title)
     @pagy, @courses = pagy(Course.all.order(created_at: :desc))
     @random = Course.where(id: Course.pluck(:id).sample) 
+
+    render layout:"index_page"
   end
 
   def new
@@ -37,6 +38,8 @@ class CoursesController < ApplicationController
     @with_tags = @course.tags.empty?
     @with_authors = @course.authors.empty?
     @with_related = @related.empty?
+
+    render layout:"show_page"
 
     set_meta_tags title: "Course #{@course.title}", description: "#{@course.title} by #{@course.authors.map { |author| author.name}.join(", ").html_safe}. #{@course.content}", keywords: "#{@course.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@course.title}"
   end

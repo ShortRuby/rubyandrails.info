@@ -1,24 +1,18 @@
-<div class="mb-20">
+<% content_for :hero do %>
+  <%= render "shared/page_title", title: "Free books about Ruby and Ruby on Rails", description: "If you're just getting started with Ruby or Ruby on Rails, I've collected some great free books that can help you out. There are plenty of free books available on these topics, so you can learn at your own pace and get up to speed quickly. Happy learning!" %>
+<% end %>
 
-  <%= render "shared/random_book" %>
-  
+<% content_for :content do %>
+  <%= render "books/index_nav" %>
+  <section class="grid 2xl:grid-cols-2 gap-8 md:gap-20 mx-auto">
+    <%= render partial: "books/books_list", locals: { list: @books} %>
+  </section>
+
+<% end %>
+
+  <%= render "shared/btns_add" %>
+
+<div class="hidden">
   <%= render "shared/suggestions_books" %>
-
-  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12  border border-slate-200">
-    <div class="mb-16">
-      <h2 class="font-custom mb-2 sm:text-3xl font-bold"><%= Book.free_books.count %> Books about Ruby and Ruby on Rails</h2>
-      <p class="mb-6 sm:mb-12 text-slate-600 text-base">If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you.</p>
-    </div>
-
-    <div class="flex flex-col gap-16 sm:gap-28">
-      <%= render partial: "books/book_card", collection: @books, as: :book %>
-    </div>
-  </div>
-
 </div>
 
-<% if current_user.try(:admin?) %>
-  <%= link_to new_book_path, class: "fixed bottom-10 right-10" do %>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-red-500" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /> </svg>
-  <% end %>
-<% end %>

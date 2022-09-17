@@ -48,6 +48,7 @@
 .h2 {
   @apply text-3xl max-w-lg font-custom font-bold
 }
+
 .light-wrapper-bg {
   @apply bg-white rounded-3xl shadow-lg shadow-slate-200/40 px-12 xl:px-10 py-10 
 }

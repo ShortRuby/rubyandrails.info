@@ -1,14 +1,15 @@
-<%= render "shared/page_title", title: "Collection of courses about Ruby and Ruby on Rails", description: "Whether you want to learn Ruby for fun, to build your own web apps, or to get a job, we have the perfect course for you. Our collection of Ruby and Ruby on Rails courses cover everything from the basics to advanced topics like metaprogramming and web scraping. Courses will show you how to build powerful, production-ready web applications with this popular framework. Best of all, you can find courses for free. Ready to get started?" %>
+<% content_for :hero do %>
+  <%= render "shared/page_title", title: "Courses about Ruby and Ruby on Rails", description: "Whether you want to learn Ruby for fun, to build your own web apps, or to get a job, we have the perfect course for you. Our collection of Ruby and Ruby on Rails courses cover everything from the basics to advanced topics like metaprogramming and web scraping. Courses will show you how to build powerful, production-ready web applications with this popular framework. Best of all, you can find courses for free. Ready to get started?" %>
+<% end %>
 
-<%= render "shared/suggestions_books" %>
-
-<div class="grid lg:grid-cols-2 gap-12">
+<% content_for :content do %>
+  <h2 class="h2 mb-16">All Courses</h2>
+  <section class="grid mb-8 md:mb-16 sm:grid-cols-2 2xl:grid-cols-3 gap-8 md:gap-20 mx-auto">
   <%= render partial: "shared/course_card", collection: @courses, as: :course %>
-</div>
+  </section>
+    <%== pagy_nav(@pagy) %>
 
-<%== pagy_nav(@pagy) %>
+<% end %>
 
 
-
-<%= render "shared/btns_add" %>
 

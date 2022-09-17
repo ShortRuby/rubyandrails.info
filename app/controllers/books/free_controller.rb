@@ -4,8 +4,10 @@ class Books::FreeController < ApplicationController
 
     @books = Book.free_books
     @featured = Book.where(featured: true).where(free: true)
-    @random_book = Book.where(id: Book.free_books.pluck(:id).sample) 
+    @random = Book.where(id: Book.free_books.pluck(:id).sample) 
     @tags = Tag.all.order(:title)
+
+    render layout:"index_page"
   end
 
   def show

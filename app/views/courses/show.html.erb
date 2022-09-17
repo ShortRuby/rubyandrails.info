@@ -2,9 +2,7 @@
   <%= render "shared/btn_back", path: courses_path %>
 
   <div class="flex-1 flex flex-col gap-10 items-center">
-    <% if @course.free %>
-      <div class="text-green-300 text-base uppercase font-bold font-custom">Free Course</div>
-    <% end %>
+    <%= render "shared/free_label", source: @course %>
 
     <%= render partial: "courses/cover", locals: { course: @course } %>
 
@@ -18,7 +16,7 @@
 <% end %>
 
 <% content_for :tags do %>
-  <%= render "shared/tags_big", tag: @course.tags %>
+  <%= render "shared/tags_big", tag: @course.tags, btn: @course.courseSiteUrl, event: "Get Course" %>
 <% end %>
 
 <% content_for :content do %>
@@ -36,7 +34,9 @@
 <% end %>
 
 <% content_for :related do %>
-    <%= render partial: "shared/course_card", collection: @related, as: :course %>
+          <div class="grid md:grid-cols-2 md:gap-10">
+  <%= render partial: "shared/course_card", collection: @related, as: :course %>
+          </div>
 <% end %>
 
 

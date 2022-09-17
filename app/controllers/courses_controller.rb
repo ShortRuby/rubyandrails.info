@@ -34,6 +34,10 @@ class CoursesController < ApplicationController
     all_tags = Course.joins(:tags).where.not(courses: {id: @course.id}).where(tags: { id: tag_ids}).limit(4)
     @related = all_tags.uniq
 
+    @with_tags = @course.tags.empty?
+    @with_authors = @course.authors.empty?
+    @with_related = @related.empty?
+
     set_meta_tags title: "Course #{@course.title}", description: "#{@course.title} by #{@course.authors.map { |author| author.name}.join(", ").html_safe}. #{@course.content}", keywords: "#{@course.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@course.title}"
   end
 

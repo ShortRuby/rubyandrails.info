@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   layout "admin", only: %i[new edit]
+  layout "show_page", only: %i[show]
   
   def index
     set_meta_tags title: "#{Book.count} books about Ruby & Ruby on Rails", description: "The largest collection of books about Ruby & Ruby on Rails. Find books that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Book, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'
@@ -34,6 +35,8 @@ class BooksController < ApplicationController
     tag_ids = @book.tags.pluck(:id)
     all_tags = Book.joins(:tags).where.not(books: {id: @book.id}).where(tags: { id: tag_ids}).limit(5)
     @similar = all_tags.uniq
+
+    @with_tags = @book.tags.empty?
 
     set_meta_tags title: "Book #{@book.title}", description: "#{@book.title} by #{@book.authors.map { |author| author.name}.join(", ").html_safe}. #{@book.content}", keywords: "#{@book.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@book.title}, #{@book.authors.map { |author| author.name}.join(", ").html_safe}"
   end

@@ -2,9 +2,7 @@
     <%= render partial: "courses/cover", locals: { course: course } %>
 
     <div>
-      <% if course.free %>
-        <div class="bg-green-500 rounded-full inline-block text-white px-4 py-0 text-sm font-bold mb-1 font-custom">Free Course</div>
-      <% end %>
+      <%= render "shared/free_label", source: course %>
       <%= link_to course, class: "hover:text-red-500" do %>
       <h3 class="h2 mb-4"><%= course.title %></h3>
     <% end %>

@@ -41,17 +41,18 @@
   <main class="grow bg-white">  
 
     <section class="relative overflow-hidden group isolate bg-gradient-to-b from-slate-900 to-blue-700 p-8">
-      <%= image_tag("grid-pattern.svg", alt: "", class: "absolute -z-10 opacity-10 group-hover:opacity-20 transition duration-300 left-1/2 -translate-x-1/2") %>
+      <%#= image_tag("grid-pattern.svg", alt: "", class: "absolute -z-10 opacity-10 group-hover:opacity-20 transition duration-300 left-1/2 -translate-x-1/2") %>
+      <%= image_tag("decoration/glow.svg", alt: "", class: "absolute -z-20 left-40") %>
 
-      <%= image_tag("decoration/one.png", alt: "", class: "absolute -z-20 left-40 scale-150 duration-700 animate-pulse") %>
-      <%= image_tag("decoration/two.png", alt: "", class: "absolute delay-100 -right-4 top-20 -z-20 scale-150 duration-1000 animate-pulse") %>
+      <%#= image_tag("decoration/one.png", alt: "", class: "absolute -z-20 left-40 scale-150 duration-700 animate-pulse") %>
+      <%#= image_tag("decoration/two.png", alt: "", class: "absolute delay-100 -right-4 top-20 -z-20 scale-150 duration-1000 animate-pulse") %>
 
       <div class="text-white z-50 text-center pb-12 md:pb-16 flex flex-col md:flex-row group gap-4">
         <%= yield :hero %>
       </div>
     </section>
 
-      <div class="bg-gradient-to-b from-amber-50 to-white px-5 sm:px-10 xl:px-0 py-20 md:py-32">
+      <div class="px-5 sm:px-10 xl:px-0 py-20 md:py-32">
         <section class="max-w-5xl grid md:grid-cols-3 gap-8 md:gap-20 mx-auto">
           <div class="md:col-span-1">
             <h2 class="h1 mb-4">What this  about?</h2>
@@ -62,12 +63,10 @@
         </section>
       </div>
 
+  <% unless @with_tags %>
     <div class="space-y-20 md:space-y-36">
-
-
-      <div class="bg-red-600 relative isolate overflow-hidden text-white px-5 sm:px-10 xl:px-0 py-20 md:py-32">
-        <div class="h-[80em] bottom-20 aspect-square block absolute -z-10 -right-80 rounded-full bg-red-200/10"></div>
-
+      <div class="bg-indigo-50 relative isolate overflow-hidden px-5 sm:px-10 xl:px-0 py-20 md:py-32">
+      <%= image_tag("decoration/glow.svg", alt: "", class: "absolute opacity-30 -z-20 -top-20 left-40") %>
         <section class="max-w-5xl grid md:grid-cols-3 gap-8 md:gap-20 mx-auto">
           <div class="md:col-span-1">
           <h2 class="h1 mb-8">You'll Learn</h2>
@@ -77,7 +76,9 @@
           </div>
         </section>
       </div>
+    <% end %>
 
+  <% unless @with_authors %>
       <section class="max-w-5xl grid md:grid-cols-3 gap-8 md:gap-20 px-5 sm:px-10 xl:px-0 mx-auto">
           <div class="md:col-span-1">
             <h2 class="h1">Author</h2>
@@ -86,19 +87,21 @@
             <%= yield :authors %>
           </div>
       </section>
+    <% end %>
 
-      <div class="bg-blue-700 text-white overflow-hidden isolate relative px-5 sm:px-10 xl:px-0 py-20 md:py-32">
+  <% unless @with_related %>
+      <div class="bg-blue-700 text-white overflow-hidden isolate relative  py-20 md:py-32">
+      <%= image_tag("decoration/glow.svg", alt: "", class: "absolute -z-20 -top-20 left-20") %>
         <section class="max-w-5xl mx-auto">
-          <h2 class="h1 mb-16">More like this</h2>
-
-          <div class="grid md:grid-cols-2 md:gap-10">
+          <h2 class="h1 mb-16 px-5 sm:px-10 xl:px-0">More like this</h2>
             <%= yield :related %>
-          </div>
         </section>
       </div>
+    <% end %>
 
     </div>
   </main>  
+  <%= yield %>
 
 </div>
 

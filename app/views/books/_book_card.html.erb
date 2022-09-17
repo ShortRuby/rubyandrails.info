@@ -4,11 +4,9 @@
 
   <div>
     <%= link_to book do %>
+      <%= render "shared/free_label", source: book %>
       <h3 class="h2 hover:text-red-500">
         <%= book.title %>
-        <% if book.free %>
-          <span class="text-sm bg-green-500 rounded-full font-bold text-white px-4 py-2">Free </span>
-        <% end %>
       </h3>
     <% end %>
 

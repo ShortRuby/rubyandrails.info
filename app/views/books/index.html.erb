@@ -1,13 +1,10 @@
 <% content_for :hero do %>
-  <%= render "shared/page_title", title: "Books about Ruby and Ruby on Rails", description: "If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free and paid books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you." %>
+  <%= render "shared/page_title", title: "Books about Ruby and Ruby on Rails", description: "If you're interested in learning Ruby or Ruby on Rails, or if you want to brush up on your testing skills or learn more about other themes, you're in luck. There are plenty of free and paid books available on these topics. Whether you're a beginner or an expert, you're sure to find something that interests you.", count: "#{Book.count} books" %>
 <% end %>
 
 <% content_for :content do %>
   <%= render "books/index_nav" %>
-  <section class="grid mb-8 md:mb-16 2xl:grid-cols-2 gap-8 md:gap-20 mx-auto">
-    <%= render partial: "books/books_list", locals: { list: @books} %>
-  </section>
-    <%== pagy_nav(@pagy) %>
-
+  <%= render partial: "books/books_list", locals: { list: @books} %>
+  <%== pagy_nav(@pagy) %>
 <% end %>
 

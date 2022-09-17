@@ -1,0 +1,19 @@
+<div class="shadow-md group shadow-purple-500/10 overflow-hidden isolate inline-block bg-white rounded-2xl">
+
+  <% unless youtube.cover.nil? || youtube.cover.empty? %>
+    <div class="relative overflow-hidden isolate">
+    <%= link_to youtube,  class: "" do %>
+      <%= image_tag("youtube-courses/covers/#{youtube.cover}", alt: "", class: "-z-10 object-cover w-full rounded-t-2xl transition duration-300 group-hover:scale-[1.04]") %>
+    <% end %>
+    </div>
+  <% end %>
+
+  <div class="p-5 pt-3">
+    <%= render "shared/authors", authors: youtube %>
+    <%= link_to youtube,  class: "transition hover:text-red-500" do %>
+      <h3 class="h2"><%= youtube.title %></h3>
+    <% end %>
+    <div class="text-base text-slate-600"><%= youtube.description %></div>
+  </div>
+
+</div>

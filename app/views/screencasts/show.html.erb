@@ -1,6 +1,25 @@
-<%= render "shared/btn_random", title: "screencast" %>
+<% content_for :hero do %>
+  <%= render "shared/btn_back", path: screencasts_path %>
 
-<div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
+    <div class="flex-1 self-stretch flex items-center grow justify-center flex-col h-full">
+      <h1 class="h1 max-w-4xl mx-auto my-6">
+        <%= @screencast.title %>
+      </h1>
+
+      <%= render "shared/btn_cta", btn: @screencast.url, event: "go to screencast", title: "Screencast" %>
+    </div>
+
+<% end %>
+
+<% content_for :content do %>
+      <div class="mb-4"><%= @screencast.content %></div>
+<% end %>
+
+<% content_for :authors do %>
+  <%= render partial: "shared/author_second",  collection: @screencast.authors, as: :author %>
+<% end %>
+
+<div class="hidden bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
 
   <div class="flex flex-col justify-between rounded-xl gap-4 md:gap-2">
     <div class="">
@@ -21,6 +40,3 @@
 
 </div>
 
-<%= render "shared/suggestions_books" %>
-
-<%= render "shared/btns_add", item: @screencast, path: edit_screencast_path(@screencast) %>

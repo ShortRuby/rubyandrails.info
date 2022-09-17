@@ -1,20 +1,20 @@
-<%#= render "shared/btn_random", title: "Topic" %>
+<% content_for :hero do %>
 
-<div class="mb-20 max-w-4xl mx-auto">
+  <%= render "shared/btn_back", path: tags_path %>
+  <%= render "shared/page_title", title: "Learn #{ @tag.title.capitalize() } with books and courses", description: "There are some great books and courses available on the #{ @tag.title.capitalize() }", count: "#{Tag.count} topics"  %>
+<% end %>
 
-  <%= render "shared/page_second_title", title: "Learn #{ @tag.title.capitalize() } with books and courses", description: "There are many great resources available to help you expand your knowledge. Find a books or courses about #{ @tag.title.capitalize() } that can help you improve your skills." %>
+<% content_for :content do %>
 
   <% unless @books.count.zero? %>
-    <h2 class="h2">Books about <%= @tag.title.capitalize() %></h2>
+    <h2 class="h2 mb-8">Books about <%= @tag.title.capitalize() %> </h2>
     <%= render partial: "books/books_list", locals: { list: @books} %>
   <% end %>
 
   <% unless @courses.count.zero? %>
-    <h2 class="font-custom mb-8 font-bold">Courses about <%= @tag.title.capitalize() %></h2>
-    <div class="flex flex-col gap-16 sm:gap-12">
-      <%= render partial: "shared/course_card", collection: @courses, as: :course %>
-    </div>
+  <h2 class="h2 mb-8">Courses about <%= @tag.title.capitalize() %> </h2>
+  <%= render partial: "courses/list", locals: { list: @courses } %>
   <% end %>
-</div>
 
-<%= render "shared/btns_add", item: @tag, path: edit_tag_path(@tag) %>
+<% end %>
+

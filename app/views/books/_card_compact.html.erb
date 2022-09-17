@@ -1,0 +1,21 @@
+<div class="flex flex-col gap-2">
+
+  <%= render partial: "books/book_cover", locals: { book: book } %>
+
+  <div>
+
+    <%= render "shared/free_label", source: book %>
+
+    <%= render "shared/authors", authors: book %>
+
+    <%= link_to book do %>
+      <h3 class="h3 transition mb-2 hover:text-red-500">
+        <%= book.title %>
+      </h3>
+    <% end %>
+
+    <%= render "shared/tags", tags: book %>
+
+  </div>
+
+</div>

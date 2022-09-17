@@ -1,15 +1,9 @@
-<div class="mb-20 max-w-4xl mx-auto">
+<% content_for :hero do %>
+  <%= render "shared/page_title", title: "Screencasts about Ruby and Ruby on Rails", description: "If you're looking for some helpful resources on learning Ruby and Ruby on Rails development, I recommend checking out some screencast tutorials. There's a lot of great information out there that can help you get started and become a better developer. Happy learning!", count: "#{Screencast.count} courses"  %>
+<% end %>
 
-  <%#= render "shared/btn_random", title: "Screencast" %>
+<% content_for :content do %>
+  <h2 class="h2 mb-8">All Screencasts</h2>
+  <%= render partial: "screencasts/list", locals: { list: @screencasts } %>
+<% end %>
 
-  <%= render "shared/page_title", title: "Collection of screencasts about Ruby and Ruby on Rails", description: "If you're looking for some helpful resources on learning Ruby and Ruby on Rails development, I recommend checking out some screencast tutorials. There's a lot of great information out there that can help you get started and become a better developer. Happy learning!" %>
-
-  <%= render "shared/suggestions_books" %>
-
-  <div class="flex flex-col gap-8">
-    <%= render partial: "shared/screencast_card", collection: @screencasts, as: :screencast %>
-  </div>
-
-</div>
-
-<%= render "shared/btns_add" %>

@@ -12,7 +12,7 @@
 
     <% unless book.authors.nil? || book.authors.empty? %>
       <span class="font-normal mb-2 inline-block text-lg text-slate-700">
-        by <%= book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
+        <%= book.authors.map { |author| link_to(author.name, author, class: "hover:text-red-500") }.join(", ").html_safe %>
       </span>
     <% end %>
 

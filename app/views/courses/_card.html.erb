@@ -1,0 +1,15 @@
+<div class="shadow-md group shadow-purple-500/10 overflow-hidden isolate inline-block bg-white rounded-2xl">
+    <div class="relative overflow-hidden isolate">
+  <%= render partial: "courses/cover", locals: { course: course } %>
+    </div>
+
+  <div class="px-5 pb-5">
+    <%= render "shared/free_label", source: course %>
+    <%= render "shared/authors", authors: course %>
+    <%= link_to course, class: "transition hover:text-red-500" do %>
+      <h3 class="h2 mb-2"><%= course.title %></h3>
+    <% end %>
+    <%= render "shared/tags", tags: course %>
+  </div>
+</div>
+

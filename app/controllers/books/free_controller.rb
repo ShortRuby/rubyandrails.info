@@ -14,7 +14,7 @@ class Books::FreeController < ApplicationController
     @book = Book.free_books.friendly.find(params[:id])
 
     @random_book = Book.where(id: Book.free_books.pluck(:id).sample) 
-    @more_books = Book.free_books.where(id: Book.free_books.pluck(:id).sample(3)) 
+    @similar = Book.free_books.where(id: Book.free_books.pluck(:id).sample(3)) 
 
     set_meta_tags title: "Free book #{@book.title}", description: "Free book #{@book.title} by #{@book.authors.map { |author| author.name}.join(", ").html_safe}. #{@book.content}", keywords: "#{@book.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@book.title}, free, #{@book.authors.map { |author| author.name}.join(", ").html_safe}"
 

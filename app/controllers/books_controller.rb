@@ -39,6 +39,7 @@ class BooksController < ApplicationController
 
     @with_tags = @book.tags.empty?
     @with_authors = @book.authors.empty?
+    @with_related = @similar.empty?
 
     render layout:"show_page"
 

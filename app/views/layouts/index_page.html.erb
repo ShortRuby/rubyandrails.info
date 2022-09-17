@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
 
-  <body class="text-slate-800 bg-slate-50 text-xl">
+  <body class="text-slate-800 bg-indigo-50 text-xl">
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -33,30 +33,29 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <div class="flex flex-col gap-4 md:gap-20 lg:flex-row">  
+    <div class="flex flex-col overflow-clip relative gap-4 lg:gap-10 lg:flex-row">  
+        <%= image_tag("decoration/glow.svg", alt: "", class: "opacity-[0.16] absolute -top-40 -z-20 left-40") %>
       <aside>  
         <%= render "shared/navbar" %>
       </aside>  
 
-      <main class="grow bg-indigo-50 ">  
+      <main class="grow">  
 
-        <section class="relative overflow-hidden group isolate p-8 lg:p-12 xl:px-20 xl:py-12 2xl:py-28">
-          <%= image_tag("decoration/glow.svg", alt: "", class: "opacity-20 absolute -top-40 -z-20 left-40") %>
+        <section class="relative group isolate p-8 lg:p-10 xl:px-20 xl:py-12 2xl:pt-12 2xl:pb-20">
           <div class="z-50 flex flex-col 2xl:flex-row group gap-4 2xl:gap-20">
             <%= yield :hero %>
           </div>
         </section>
 
-        <div class="px-5 sm:px-10 xl:px-20 bg-white rounded-t-[2em]  py-20 md:py-16">
+        <div class="px-5 xl:mr-20 sm:px-10 xl:px-16 bg-white/80 rounded-[2em]  py-10 xl:py-16">
           <%= yield :content %>
         </div>
-    </div>
 
       </main>  
 
       <%= yield %>
 
-      </div>
+    </div>
 
   </body>
 </html>

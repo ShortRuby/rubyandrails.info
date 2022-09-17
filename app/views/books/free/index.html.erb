@@ -1,16 +1,13 @@
 <% content_for :hero do %>
-  <%= render "shared/page_title", title: "Free books about Ruby and Ruby on Rails", description: "If you're just getting started with Ruby or Ruby on Rails, I've collected some great free books that can help you out. There are plenty of free books available on these topics, so you can learn at your own pace and get up to speed quickly. Happy learning!" %>
+  <%= render "shared/page_title", title: "Free books about Ruby and Ruby on Rails", description: "If you're just getting started with Ruby or Ruby on Rails, I've collected some great free books that can help you out. There are plenty of free books available on these topics, so you can learn at your own pace and get up to speed quickly. Happy learning!", count: "#{Book.free_books.count} free books" %>
 <% end %>
 
 <% content_for :content do %>
   <%= render "books/index_nav" %>
-  <section class="grid 2xl:grid-cols-2 gap-8 md:gap-20 mx-auto">
-    <%= render partial: "books/books_list", locals: { list: @books} %>
-  </section>
-
+  <%= render partial: "books/books_list", locals: { list: @books} %>
 <% end %>
 
-  <%= render "shared/btns_add" %>
+  <%#= render "shared/btns_add" %>
 
 <div class="hidden">
   <%= render "shared/suggestions_books" %>

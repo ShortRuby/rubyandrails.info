@@ -10,6 +10,8 @@ class ScreencastsController < ApplicationController
 
     @screencasts = Screencast.all.order(created_at: :asc)
     @random = Screencast.where(id: Screencast.pluck(:id).sample) 
+
+    render layout:"index_page"
   end
 
   def new
@@ -27,8 +29,14 @@ class ScreencastsController < ApplicationController
 
   def show
     @screencast = Screencast.friendly.find(params[:id])
-    @more_screencasts = Screencast.where(id: Screencast.pluck(:id).sample(3)) 
+    @similar = Screencast.where(id: Screencast.pluck(:id).sample(3)) 
     @random = Screencast.where(id: Screencast.pluck(:id).sample) 
+
+    @with_tags = "" 
+    @with_authors = @screencast.authors.empty?
+    @with_related = ""
+
+    render layout:"show_page"
 
     set_meta_tags title: "screencast #{@screencast.title}", description: "#{@screencast.title} by #{@screencast.authors.map { |author| author.name}.join(", ").html_safe}. #{@screencast.content}", keywords: " #{@screencast.title}, #{@screencast.authors.map { |author| author.name}.join(", ").html_safe}"
   end

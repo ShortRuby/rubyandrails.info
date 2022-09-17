@@ -14188,6 +14188,12 @@
     }
   };
 
+  // app/javascript/controllers/navbar_controller.js
+  var navbar_controller_default = class extends Controller {
+    connect() {
+    }
+  };
+
   // app/javascript/controllers/tom_select_controller.js
   var import_tom_select = __toESM(require_tom_select_complete());
   var tom_select_controller_default = class extends Controller {
@@ -14231,6 +14237,7 @@
 
   // app/javascript/controllers/index.js
   application.register("hello", hello_controller_default);
+  application.register("navbar", navbar_controller_default);
   application.register("tom-select", tom_select_controller_default);
 
   // app/javascript/application.js

@@ -23,9 +23,9 @@
   <%= @course.content %>
 
   <% if @course.courseSiteUrl.present? %>
-      <%= link_to @course.courseSiteUrl, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center inline-block mt-8 text-white hover:bg-slate-700 transition duration-300 rounded-xl px-6 py-3 text-2xl font-bold font-custom" do %>
-        Get Course
-      <% end %>
+    <%= link_to @course.courseSiteUrl, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center inline-block mt-8 text-white hover:bg-slate-700 transition duration-300 rounded-xl px-6 py-3 text-2xl font-bold font-custom" do %>
+      Get Course
+    <% end %>
   <% end %>
 <% end %>
 
@@ -34,11 +34,11 @@
 <% end %>
 
 <% content_for :related do %>
-          <div class="grid md:grid-cols-2 md:gap-10">
-  <%= render partial: "shared/course_card", collection: @related, as: :course %>
-          </div>
+  <div class="px-5 md:px-10 xl:px-0 grid sm:grid-cols-2 gap-8 text-slate-700  ">
+  <%= render partial: "courses/card", collection: @related, as: :course %>
+  </div>
 <% end %>
 
 
-<%= render "shared/btns_add", item: @course, path: edit_course_path(@course) %>
+<%#= render "shared/btns_add", item: @course, path: edit_course_path(@course) %>
 

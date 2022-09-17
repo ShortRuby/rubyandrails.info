@@ -1,7 +1,7 @@
 <% unless tags.tags.nil? || tags.tags.empty? %>
     <div class="flex flex-wrap gap-2">
-      <% tags.tags.each do |tag| %>
-        <%= link_to tag, class: "text-sm text-slate-700 hover:bg-white trainsition bg-white/80 rounded-lg px-3 py-1 border border-slate-300/30" do %>
+      <% tags.tags.take(3).each do |tag| %>
+        <%= link_to tag, class: "text-sm text-slate-700 hover:bg-slate-100/30 trainsition bg-white/80 rounded-lg px-3 py-1 border hover:text-red-500 border-slate-300/30" do %>
           <%= tag.title %>
         <% end %>
       <% end %>

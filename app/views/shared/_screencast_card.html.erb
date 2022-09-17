@@ -1,17 +1,22 @@
-<div class="flex flex-col justify-between bg-white rounded-3xl p-10 gap-4 md:gap-2">
+<div class="transition shadow-md shadow-purple-500/10 flex flex-col justify-between bg-white rounded-2xl p-5">
   <div class="">
+
+    <%= render "shared/authors", authors: screencast %>
     <%= link_to screencast do %>
-      <h3 class="font-custom hover:opacity-90 font-bold text-3xl xl:text-4xl xl:leading-tight">
+      <h3 class="h2 mb-4">
         <%= screencast.title %>
       </h3>
     <% end %>
-    <div class="opacity-60 mb-4">
-      by <%= screencast.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80") }.join(", ").html_safe %>
-</div>
-    <div class="mb-4"><%= screencast.content %></div>
+    <div class="mb-4 text-base text-slate-600"><%= screencast.content %></div>
   </div>
 
-  <div>
-    <%= link_to "Go To Screencast",  screencast.url, target:"_blank", data: {:"splitbee-event" => "go to screencast"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+  <div class="flex gap-4 items-center">
+    <%= link_to   screencast.url, target:"_blank", data: {:"splitbee-event" => "go to screencast"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl flex gap-2 items-center font-custom" do %>
+Open
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-60">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+</svg>
+
+  <% end %>
   </div>
 </div>

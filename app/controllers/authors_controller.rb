@@ -38,6 +38,7 @@ class AuthorsController < ApplicationController
     @with_content = ""
     @with_tags = ""
     @with_lessons = ""
+    @with_related = @books.empty? || @courses.empty? || @newsletters.empty? || @podcasts.empty? 
 
     render layout:"show_page"
 

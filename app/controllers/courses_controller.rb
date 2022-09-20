@@ -40,9 +40,10 @@ class CoursesController < ApplicationController
     @with_related = @related.empty?
     @with_lessons = ""
 
-    render layout:"show_page"
 
     set_meta_tags title: "Course #{@course.title}", description: "#{@course.title} by #{@course.authors.map { |author| author.name}.join(", ").html_safe}. #{@course.content}", keywords: "#{@course.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@course.title}"
+
+    render layout:"show_page"
   end
 
   def edit; end

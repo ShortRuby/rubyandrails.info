@@ -39,10 +39,9 @@ class NewslettersController < ApplicationController
     @with_related = @related.empty?
     @with_lessons = ""
 
-    render layout:"show_page"
-    #render layout: 'featured_details' if @newsletter.featured
-
     set_meta_tags title: "Newsletter #{@newsletter.title}", description: "#{@newsletter.title}. #{@newsletter.content}", keywords: "#{@newsletter.title}, newsletter, Ruby, Ruby on Rails"
+
+    render layout:"show_page"
   end
 
   def edit

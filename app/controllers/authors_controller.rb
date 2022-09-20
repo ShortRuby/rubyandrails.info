@@ -6,12 +6,12 @@ class AuthorsController < ApplicationController
   layout "admin", only: %i[new edit]
 
   def index
+    set_meta_tags title: "#{Author.count} authors creating materials about Ruby & Ruby on Rails", description: "People who write create books, podcasts, courses about Ruby and Ruby on Rails. For each author you can see all the books they have written about the topic and their contacts: twitter, website, or github.", keywords: "Ruby book authors, Ruby on Rails book authors"
+
     @authors = Author.all.order("name ASC") 
     @tags = Tag.all.order(:title)
 
     render layout:"index_page"
-
-    set_meta_tags title: "#{Author.count} authors writing about Ruby & Ruby on Rails", description: "People who write books about Ruby and Ruby on Rails. For each author you can see all the books they have written about the topic and their contacts: twitter, website, or github.", keywords: "Ruby book authors, Ruby on Rails book authors"
   end
 
   def new
@@ -29,6 +29,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
+
     @books = Book.joins(:authors).where(authors: { id: @author })
     @courses = Course.joins(:authors).where(authors: { id: @author })
     @newsletters = Newsletter.joins(:authors).where(authors: { id: @author })
@@ -40,9 +41,9 @@ class AuthorsController < ApplicationController
     @with_lessons = ""
     @with_related = @screencasts.empty? && @books.empty? && @courses.empty? && @newsletters.empty? && @podcasts.empty?
 
-    render layout:"show_page"
+    set_meta_tags title: "#{@author.name}", description: "#{@author.name} author of #{@books.map { |book| book.title }.join(", ").html_safe}.", keywords: "#{@author.name}, #{@books.map { |book| book.title }.join(", ").html_safe}"
 
-    set_meta_tags title: "Author: #{@author.name}", description: "#{@author.name} author of #{@books.map { |book| book.title }.join(", ").html_safe}.", keywords: "#{@author.name}, #{@books.map { |book| book.title }.join(", ").html_safe}"
+    render layout:"show_page"
   end
 
   def edit

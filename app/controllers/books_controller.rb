@@ -42,9 +42,9 @@ class BooksController < ApplicationController
     @with_related = @similar.empty?
     @with_lessons = ""
 
-    render layout:"show_page"
-
     set_meta_tags title: "Book #{@book.title}", description: "#{@book.title} by #{@book.authors.map { |author| author.name}.join(", ").html_safe}. #{@book.content}", keywords: "#{@book.tags.map {|tag| tag.title}.join(", ").html_safe}, #{@book.title}, #{@book.authors.map { |author| author.name}.join(", ").html_safe}"
+
+    render layout:"show_page"
   end
 
   def edit

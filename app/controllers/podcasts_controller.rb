@@ -30,6 +30,8 @@ class PodcastsController < ApplicationController
   end
 
   def show
+    set_meta_tags title: "Podcast #{@podcast.title}", description: "#{@podcast.title}. #{@podcast.content}", keywords: "#{@podcast.title}, podcast, Ruby, Ruby on Rails"
+
     @podcast = Podcast.friendly.find(params[:id])
     @related = Podcast.where(id: Podcast.pluck(:id).sample(3)) 
     @random = Podcast.where(id: Podcast.pluck(:id).sample) 
@@ -41,7 +43,6 @@ class PodcastsController < ApplicationController
 
     render layout:"show_page"
 
-    set_meta_tags title: "Podcast #{@podcast.title}", description: "#{@podcast.title}. #{@podcast.content}", keywords: "#{@podcast.title}, podcast, Ruby, Ruby on Rails"
   end
 
   def edit

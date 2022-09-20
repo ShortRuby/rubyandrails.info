@@ -34,9 +34,10 @@ class CommunitiesController < ApplicationController
     @with_related = ""
     @with_lessons = ""
 
-    render layout:"show_page"
 
     set_meta_tags title: "Communities #{@community.title}", description: "#{@community.title}. #{@community.description}", keywords: " #{@community.title}"
+
+    render layout:"show_page"
   end
 
   def edit

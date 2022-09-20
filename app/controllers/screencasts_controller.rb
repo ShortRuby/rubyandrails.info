@@ -37,9 +37,9 @@ class ScreencastsController < ApplicationController
     @with_related = ""
     @with_lessons = ""
 
-    render layout:"show_page"
+    set_meta_tags title: "Screencast #{@screencast.title}", description: "#{@screencast.title} by #{@screencast.authors.map { |author| author.name}.join(", ").html_safe}. #{@screencast.content}", keywords: " #{@screencast.title}, #{@screencast.authors.map { |author| author.name}.join(", ").html_safe}"
 
-    set_meta_tags title: "screencast #{@screencast.title}", description: "#{@screencast.title} by #{@screencast.authors.map { |author| author.name}.join(", ").html_safe}. #{@screencast.content}", keywords: " #{@screencast.title}, #{@screencast.authors.map { |author| author.name}.join(", ").html_safe}"
+    render layout:"show_page"
   end
 
   def edit

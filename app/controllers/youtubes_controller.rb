@@ -26,7 +26,10 @@ class YoutubesController < ApplicationController
   def show
     @youtube = Youtube.friendly.find(params[:id])
     @first_lesson = first_lesson(params[:id]) 
-    render layout:"admin"
+
+    @related = Youtube.where(id: Youtube.pluck(:id).sample).limit(3)
+
+    render layout:"show_page"
   end
 
 

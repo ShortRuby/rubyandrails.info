@@ -9,21 +9,17 @@
       <h1 class="h1 max-w-4xl mx-auto my-6">
         <%= @book.title %>
       </h1>
-      <%= render "shared/btn_cta", btn: @book.getBookOnSiteUrl, event: "get book on publisher site", title: "#{@book.getBookOnSiteTitle}" %>
+      <div class="flex flex-col gap-4 justify-center max-w-lg mx-auto">
+        <%= render "shared/btn_cta", btn: @book.getBookOnSiteUrl, event: "get book on publisher site", title: "#{@book.getBookOnSiteTitle}" %>
 
-      <%= render "shared/btn_cta", btn: @book.getBookOnAmazonUrl, event: "get book on amazon", title: "Amazon" %>
+        <%= render "shared/btn_cta", btn: @book.getBookOnAmazonUrl, event: "get book on amazon", title: "Amazon" %>
+      </div>
     </div>
   </div>
 <% end %>
 
 <% content_for :content do %>
   <%= @book.content %>
-
-  <% if @book.getBookOnSiteUrl.present? %>
-    <%= link_to @book.getBookOnSiteUrl, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center inline-block mt-8 text-white hover:bg-slate-700 transition duration-300 rounded-xl px-6 py-3 text-2xl font-bold font-custom" do %>
-      Get Course
-    <% end %>
-  <% end %>
 <% end %>
 
 <% content_for :tags do %>
@@ -35,7 +31,7 @@
 <% end %>
 
 <% content_for :related do %>
-  <div class="p-5 md:p-10 xl:p-16 grid sm:grid-cols-2 gap-8 text-slate-700 bg-white rounded-3xl ">
+  <div class="p-5 md:p-10 xl:p-16 grid sm:grid-cols-2 gap-8 text-slate-700 bg-white/70 rounded-3xl ">
   <%= render partial: "books/card_compact", collection: @similar, as: :book %>
   </div>
 <% end %>

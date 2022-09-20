@@ -1,15 +1,8 @@
-<div class="mb-20 max-w-4xl mx-auto">
+<% content_for :hero do %>
+  <%= render "shared/page_title", title: "Podcasts about Ruby and Ruby on Rails", description: "If you're looking for some interesting podcasts to listen to on your commute or while you're working out, check out our list of the best Ruby, Ruby on Rails, and programming podcasts. From fun discussions about life as a programmer to in-depth interviews with Ruby on Rails experts, these podcasts have something for everyone.", count: "#{Podcast.count} podcasts"  %>
+<% end %>
 
-  <%#= render "shared/btn_random", title: "Podcast" %>
-
-  <%= render "shared/page_title", title: "#{ Podcast.count } Podcast about Ruby and Ruby on Rails", description: "If you're looking for some interesting podcasts to listen to on your commute or while you're working out, check out our list of the best Ruby, Ruby on Rails, and programming podcasts. From fun discussions about life as a programmer to in-depth interviews with Ruby on Rails experts, these podcasts have something for everyone." %>
-
-  <%= render "shared/suggestions_books" %>
-
-  <div class="flex flex-col gap-16 xl:gap-24">
-    <%= render partial: "shared/podcast_card", collection: @podcasts, as: :podcast %>
-  </div>
-
-</div>
-
-<%= render "shared/btns_add" %>
+<% content_for :content do %>
+  <h2 class="h2 mb-8">All Podcasts</h2>
+  <%= render partial: "podcasts/list", locals: { list: @podcasts } %>
+<% end %>

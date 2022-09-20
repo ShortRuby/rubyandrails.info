@@ -1,0 +1,14 @@
+<div class="shadow-md text-center group shadow-purple-500/10 overflow-hidden isolate inline-block bg-white rounded-2xl">
+  <div class="p-5">
+    <% unless podcast.cover.empty? %>
+      <%= link_to podcast, class: "shrink-0 relative " do %>
+        <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shadow-lg shadow-slate-800/10 w-2/3 hover:opacity-80 mx-auto transition mb-4 rounded-md block") %>
+      <% end %>
+    <% end %>
+
+    <%= render "shared/authors", authors: podcast %>
+    <%= link_to podcast, class: "transition hover:text-red-500" do %>
+      <h3 class="h2"><%= podcast.title %></h3>
+    <% end %>
+  </div>
+</div>

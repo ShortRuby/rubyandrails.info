@@ -12,6 +12,8 @@ class PodcastsController < ApplicationController
     @featured = Podcast.where(featured: true)
     @tags = Tag.all.order(:title)
     @random = Podcast.where(id: Podcast.pluck(:id).sample) 
+
+    render layout:"index_page"
   end
 
   def new
@@ -29,9 +31,15 @@ class PodcastsController < ApplicationController
 
   def show
     @podcast = Podcast.friendly.find(params[:id])
-    @more_podcasts = Podcast.where(id: Podcast.pluck(:id).sample(3)) 
+    @related = Podcast.where(id: Podcast.pluck(:id).sample(3)) 
     @random = Podcast.where(id: Podcast.pluck(:id).sample) 
-    @tags = Tag.all.order(:title)
+
+    @with_related = @related.empty?
+    @with_tags = "" 
+    @with_authors = @podcast.authors.empty? 
+    @with_lessons = ""
+
+    render layout:"show_page"
 
     set_meta_tags title: "Podcast #{@podcast.title}", description: "#{@podcast.title}. #{@podcast.content}", keywords: "#{@podcast.title}, podcast, Ruby, Ruby on Rails"
   end

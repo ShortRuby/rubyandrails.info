@@ -1,6 +1,9 @@
 <% content_for :hero do %>
 
-  <%= render "shared/btn_back", path: tags_path %>
+<%= link_to tags_path, class: "shrink-0 flex h-12 w-12 backdrop-blur-sm bg-white/70 transition rounded-full justify-center hover:bg-white border border-indigo-100 items-center relative" do %>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-1"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /> </svg>
+<% end %>
+
   <%= render "shared/page_title", title: "Learn #{ @tag.title.capitalize() } with books and courses", description: "There are some great books and courses available on the #{ @tag.title.capitalize() }", count: "#{Tag.count} topics"  %>
 <% end %>
 

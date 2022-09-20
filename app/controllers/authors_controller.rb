@@ -9,6 +9,8 @@ class AuthorsController < ApplicationController
     @authors = Author.all.order("name ASC") 
     @tags = Tag.all.order(:title)
 
+    render layout:"index_page"
+
     set_meta_tags title: "#{Author.count} authors writing about Ruby & Ruby on Rails", description: "People who write books about Ruby and Ruby on Rails. For each author you can see all the books they have written about the topic and their contacts: twitter, website, or github.", keywords: "Ruby book authors, Ruby on Rails book authors"
   end
 
@@ -32,6 +34,12 @@ class AuthorsController < ApplicationController
     @newsletters = Newsletter.joins(:authors).where(authors: { id: @author })
     @screencasts = Screencast.joins(:authors).where(authors: { id: @author })
     @podcasts = Podcast.joins(:authors).where(authors: { id: @author })
+
+    @with_content = ""
+    @with_tags = ""
+    @with_lessons = ""
+
+    render layout:"show_page"
 
     set_meta_tags title: "Author: #{@author.name}", description: "#{@author.name} author of #{@books.map { |book| book.title }.join(", ").html_safe}.", keywords: "#{@author.name}, #{@books.map { |book| book.title }.join(", ").html_safe}"
   end

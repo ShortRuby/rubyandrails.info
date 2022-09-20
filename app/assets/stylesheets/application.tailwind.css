@@ -46,7 +46,7 @@
  }
 
 .h2 {
-  @apply text-3xl max-w-lg font-custom font-bold
+  @apply text-3xl font-custom font-bold
 }
 .h3 {
   @apply sm:text-2xl max-w-lg font-custom font-bold

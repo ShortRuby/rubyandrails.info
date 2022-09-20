@@ -25,7 +25,7 @@ class Lesson < ApplicationRecord
   end
 
   def prev
-    Lesson.where("id < ?", id).limit(1).first
+    Lesson.where("id < ?", id).limit(1).last
   end
 
 end

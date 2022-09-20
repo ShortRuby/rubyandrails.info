@@ -1,45 +1,27 @@
-<div class="mb-20 mt-10 max-w-4xl mx-auto">
-  <section class="border-2 relative border-slate-200/60 px-12 xl:px-10 py-10 rounded-3xl">
+<% content_for :hero do %>
+  <%= render "shared/btn_back", path: communities_path %>
 
-    <div class="flex gap-10">
-      <%= render "shared/btn_back", path: communities_path %>
-      <div>
-
-        <div class="relative">
-          <% unless @community.cover.nil? || @community.cover.empty? %>
-          <% if @community.source == "reddit" %>
-            <%= image_tag("communities/icons/reddit.png", srcset: { "communities/icons/reddit@2x.png" => "2x"}, alt: "#{@community.title}", class: "absolute -top-2 z-40 right-0") %>
-          <% end %>
-
-          <% if @community.source == "discord" %>
-            <%= image_tag("communities/icons/discord.png", srcset: { "communities/icons/discord@2x.png" => "2x"}, alt: "#{@community.title}", class: "absolute -top-2 z-40 right-0") %>
-          <% end %>
-
-          <% if @community.source == "forum" %>
-            <%= image_tag("communities/icons/forum.png", srcset: { "communities/icons/forum@2x.png" => "2x"}, alt: "#{@community.title}", class: "absolute -top-2 z-40 right-0") %>
-          <% end %>
-
-          <% if @community.source == "slack" %>
-            <%= image_tag("communities/icons/slack.png", srcset: { "communities/icons/slack@2x.png" => "2x"}, alt: "#{@community.title}", class: "absolute -top-2 z-40 right-0") %>
-          <% end %>
-
-          <% if @community.source == "twitter" %>
-            <%= image_tag("communities/icons/twitter.png", srcset: { "communities/icons/twitter@2x.png" => "2x"}, alt: "#{@community.title}", class: "absolute -top-2 z-40 right-0") %>
-          <% end %>
-
-
-            <%= image_tag("communities/#{@community.cover}", alt: "#{@community.title}", class: "drop-shadow-xl mb-8") %>
-          <% end %>
-        </div>
-        <h1 class="font-custom hover:opacity-90 font-bold text-3xl xl:text-4xl xl:leading-tight">
-          <%= @community.title %>
-        </h1>
-        <p class="text-slate-500 mb-4 text-base">In <%= @community.source %></p>
-        <%= link_to "Join",  @community.url, target:"_blank", data: {:"splitbee-community" => "go to community"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
+  <div class="flex-1 self-stretch flex items-center grow justify-center flex-col h-full">
+    <% unless @community.cover.nil? || @community.cover.empty? %>
+      <div class="shrink-0 rounded-sm relative ">
+        <%= image_tag("communities/#{@community.cover}", alt: "#{@community.title}", class: "drop-shadow-xl mb-8") %>
       </div>
-    </div>
-  </section>
-  <%= render "shared/btns_add", item: @community, path: edit_community_path(@community) %>
-</div
+    <% end %>
+    <h1 class="h1 max-w-4xl mx-auto mt-6 mb-4">
+      <%= @community.title %>
+    </h1>
+    <p class="mb-6"><%= @community.source.capitalize() %></p>
 
+    <%= render "shared/btn_cta", btn: @community.url, event: "go to community", title: "Join" %>
+
+  </div>
+
+<% end %>
+
+
+<% content_for :content do %>
+  <div class="text-2xl">
+    It's always great to study with others! The community <%= @community.title %> can help you with answers to your questions and it's also a great way to learn about new and interesting things about Ruby & Ruby on Rails. Plus, it's always nice to have a good conversation.
+  </div>
+<% end %>
 

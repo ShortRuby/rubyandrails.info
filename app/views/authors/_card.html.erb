@@ -1,0 +1,15 @@
+<div class="shadow-md group shadow-purple-500/10 overflow-hidden isolate inline-block bg-white rounded-2xl p-5">
+
+  <div class="flex flex-col mb-4 items-start flex-wrap gap-5">
+    <%= link_to author do %>
+      <%= render "photo", author: author %>
+    <% end %>
+  </div>
+
+  <%= link_to author do %>
+    <h3 class="h2 hover:text-red-500">
+      <%= author.name %>
+    </h3>
+  <% end %>
+
+</div>

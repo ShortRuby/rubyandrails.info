@@ -1,36 +1,31 @@
-<%#= render "shared/btn_random", title: "Podcast" %>
+<% content_for :hero do %>
+  <%= render "shared/btn_back", path: podcasts_path %>
 
-<div class="mb-20 max-w-4xl mx-auto">
-  <div class="bg-white rounded-2xl  sm:mr-5 lg:mr-0 p-5 sm:p-8 md:p-12 mb-20  border border-slate-200">
-
-    <div class="grid md:grid-cols-2 gap-5 lg:gap-8">
+    <div class="flex-1 self-stretch flex items-center grow justify-center flex-col h-full">
       <% unless @podcast.cover.empty? %>
         <div class="shrink-0 rounded-sm relative ">
-          <%= image_tag("podcasts/#{@podcast.cover}", alt: "#{@podcast.title}", class: "shadow-lg shadow-slate-800/10 block") %>
+          <%= image_tag("podcasts/#{@podcast.cover}", alt: "#{@podcast.title}", class: "shadow-lg shadow-slate-800/10 block mx-auto w-2/3") %>
         </div>
       <% end %>
+      <h1 class="h1 max-w-4xl mx-auto my-6">
+        <%= @podcast.title %>
+      </h1>
 
-      <div>
-        <%= link_to "All Podcasts", podcasts_path, class: "hover:text-red-600 text-red-500 inline-block mb-4" %>
-        <h3 class="flex gap-2 items-center mb-2 text-xl font-bold md:text-4xl font-custom leading-tight">
-          <%= @podcast.title %>
-        </h3>
-        <% unless @podcast.authors.count.zero? %>
-          <div class="opacity-60 mb-4">
-            by <%= @podcast.authors.map { |author| link_to(author.name, author, class: "hover:opacity-80") }.join(", ").html_safe %>
-          </div>
-        <% end %>
-
-        <div class="mb-4 text-slate-600 text-base"><%= @podcast.content %></div>
-
-        <%= link_to "Listen Podcast", @podcast.url, target:"_blank", data: {:"splitbee-event" => "go to podcast"}, class: "rounded-md shadow-lg shadow-slate-600/10 px-6 hover:bg-slate-700 py-2 inline-block bg-slate-800 text-white text-base lg:text-xl font-custom" %>
-      </div>
-
+      <%= render "shared/btn_cta", btn: @podcast.url, event: "go to podcast", title: "Listen Podcast" %>
     </div>
 
+<% end %>
+
+<% content_for :content do %>
+      <div class="mb-4"><%= @podcast.content %></div>
+<% end %>
+
+<% content_for :authors do %>
+  <%= render partial: "shared/author_second",  collection: @podcast.authors, as: :author %>
+<% end %>
+
+<% content_for :related do %>
+  <div class="p-5 md:p-10 xl:p-16 grid sm:grid-cols-2 gap-8 text-slate-700 bg-white rounded-3xl ">
+  <%= render partial: "podcasts/card", collection: @related, as: :podcast %>
   </div>
-
-  <%= render "shared/suggestions_books" %>
-</div>
-
-<%= render "shared/btns_add", item: @podcast, path: edit_podcast_path(@podcast) %>
+<% end %>

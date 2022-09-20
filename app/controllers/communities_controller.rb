@@ -9,6 +9,7 @@ class CommunitiesController < ApplicationController
     set_meta_tags title: "#{Community.count} communities about Ruby & Ruby on Rails", description: "The largest collection of communitys about Ruby & Ruby on Rails. Find community that will help you learn Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Community, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'
 
     @communities = Community.all.order(created_at: :asc)
+    render layout:"index_page"
   end
 
   def new
@@ -26,7 +27,14 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.friendly.find(params[:id])
-    @more_communities = Community.where(id: Community.pluck(:id).sample(3)) 
+    @related = Community.where(id: Community.pluck(:id).sample(3)) 
+
+    @with_tags = "" 
+    @with_authors = ""
+    @with_related = ""
+    @with_lessons = ""
+
+    render layout:"show_page"
 
     set_meta_tags title: "Communities #{@community.title}", description: "#{@community.title}. #{@community.description}", keywords: " #{@community.title}"
   end

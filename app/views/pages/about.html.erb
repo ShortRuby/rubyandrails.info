@@ -1,23 +1,24 @@
 <% title 'About' %>
 <% description 'About this project' %>
 
-<div class="flex 2xl:gap-20">
+<% content_for :hero do %>
+  <h1 class="h1">About</h1>
+<% end %>
 
-  <div class="space-y-20 px-5">
-  <div class="grow">
-    <h1 class="font-bold mb-5 font-custom text-5xl">About</h1>
+<% content_for :content do %>
+  <div class="flex 2xl:gap-20">
+    <div class="space-y-20 px-5">
+      <div class="max-w-2xl  mt-auto space-y-8">
+        <p>My name is Leonid and I'm doing this project to learn Ruby on Rails and to help others.  I want it to be a place where everyone who learns and is interested in Ruby and Ruby on Rails can find something new and interesting for themselves. </p>
+
+        <p>
+        I write about development and design on Twitter. Follow me at <a href="https://twitter.com/nleonid" target="_blank" class="text-sky-500 hover:text-sky-600">@nleonid</a>
+        </p>
+
+        <p>
+        <a href="mailto:work.leonid@gmail.com" class="text-red-500 hover:text-red-600">Let me know</a> if I missed anything.
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="max-w-xl  mt-auto space-y-8">
-    <p>My name is Leonid and I'm doing this project to learn Ruby on Rails and to help others.  I want it to be a place where everyone who learns and is interested in Ruby and Ruby on Rails can find something new and interesting for themselves. </p>
-
-    <p>
-    I write about development and design on Twitter. Follow me at <a href="https://twitter.com/nleonid" target="_blank" class="text-sky-500 hover:text-sky-600">@nleonid</a>
-    </p>
-
-    <p>
-    <a href="mailto:work.leonid@gmail.com" class="text-red-500 hover:text-red-600">Let me know</a> if I missed anything.
-    </p>
-
-  </div>
-</div>
-</div>
+<% end %>

@@ -10,8 +10,8 @@
 
   <span class="h2">
     <% @random.each do |item| %>
-      <%= link_to item, class: "text-red-500 hover:text-red-600" do %>
-🍀 <span class="hidden md:inline-block">Random Book</span>
+      <%= link_to item, title: "Random Book", class: "text-red-500 hover:scale-110 transition" do %>
+        🍀
     <% end %>
     <% end %>
   </span>

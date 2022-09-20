@@ -1,15 +1,8 @@
-<div class="mb-20 max-w-4xl mx-auto">
+<% content_for :hero do %>
+  <%= render "shared/page_title", title: "Newsletters about Ruby and Ruby on Rails", description: "Get the latest news, tips, and tricks delivered right to your inbox. Read about interesting articles and blog posts about life and programming.", count: "#{Newsletter.count} newsletters"  %>
+<% end %>
 
-  <%#= render "shared/btn_random", title: "newsletter" %>
-
-  <%= render "shared/page_title", title: "Collection of newsletters about Ruby, Ruby on Rails and development", description: "Get the latest news, tips, and tricks delivered right to your inbox. Read about interesting articles and blog posts about life and programming." %>
-
-  <%= render "shared/suggestions_books" %>
-
-  <div class="flex flex-col gap-8">
-    <%= render partial: "shared/newsletter_card", collection: @newsletters, as: :newsletter %>
-  </div>
-
-</div>
-
-<%= render "shared/btns_add" %>
+<% content_for :content do %>
+  <h2 class="h2 mb-8">All Newsletters</h2>
+  <%= render partial: "newsletters/list", locals: { list: @newsletters } %>
+<% end %>

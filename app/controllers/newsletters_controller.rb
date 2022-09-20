@@ -12,6 +12,8 @@ class NewslettersController < ApplicationController
     @featured = Newsletter.where(featured: true)
     @tags = Tag.all.order(:title)
     @random = Newsletter.where(id: Newsletter.pluck(:id).sample) 
+
+    render layout:"index_page"
   end
 
   def new
@@ -30,10 +32,15 @@ class NewslettersController < ApplicationController
   def show
     @newsletter = Newsletter.friendly.find(params[:id])
     @tags = Tag.all.order(:title)
-    @more_newsletters = Newsletter.where(id: Newsletter.pluck(:id).sample(3)) 
-    @random = Newsletter.where(id: Newsletter.pluck(:id).sample) 
+    @related = Newsletter.where(id: Newsletter.pluck(:id).sample(3)) 
 
-    render layout: 'featured_details' if @newsletter.featured
+    @with_tags = "" 
+    @with_authors = @newsletter.authors.empty?
+    @with_related = @related.empty?
+    @with_lessons = ""
+
+    render layout:"show_page"
+    #render layout: 'featured_details' if @newsletter.featured
 
     set_meta_tags title: "Newsletter #{@newsletter.title}", description: "#{@newsletter.title}. #{@newsletter.content}", keywords: "#{@newsletter.title}, newsletter, Ruby, Ruby on Rails"
   end

@@ -1,15 +1,9 @@
-<div class="mb-20 max-w-4xl mx-auto">
+<% content_for :hero do %>
+  <%= render "shared/page_title", title: "Communities", description: "Find a community on the platform you are interested in and on the topics you are interested in. This way, you can engage with like-minded individuals and learn more about the things you're passionate about.", count: "#{Community.count} communities" %>
+<% end %>
 
-  <%#= render "shared/btn_random", title: "newsletter" %>
-
-  <%= render "shared/page_title", title: "Collection of communities about Ruby, Ruby on Rails and development", description: "Find a community on the platform you are interested in and on the topics you are interested in. This way, you can engage with like-minded individuals and learn more about the things you're passionate about." %>
-
-  <%#= render "shared/suggestions_books" %>
-
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 px-5 sm:px-0 gap-12 place-items-stretch">
+<% content_for :content do %>
+  <div class="grid sm:grid-cols-2 xl:grid-cols-4 px-5 sm:px-0 gap-8 place-items-stretch">
     <%= render partial: "shared/community_card", collection: @communities, as: :community %>
   </div>
-
-</div>
-
-<%= render "shared/btns_add" %>
+<% end %>

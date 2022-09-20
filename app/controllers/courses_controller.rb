@@ -38,6 +38,7 @@ class CoursesController < ApplicationController
     @with_tags = @course.tags.empty?
     @with_authors = @course.authors.empty?
     @with_related = @related.empty?
+    @with_lessons = ""
 
     render layout:"show_page"
 

@@ -35,6 +35,7 @@ class ScreencastsController < ApplicationController
     @with_tags = "" 
     @with_authors = @screencast.authors.empty?
     @with_related = ""
+    @with_lessons = ""
 
     render layout:"show_page"
 

@@ -24,4 +24,13 @@ module ApplicationHelper
     }
   end
 
+  def related_title(related_title = "More like this")
+    base_title = "More like this"
+    if related_title.present?
+      "#{related_title}"
+    else
+      base_title
+    end
+  end
+
 end

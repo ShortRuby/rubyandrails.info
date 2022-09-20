@@ -1,10 +1,20 @@
 <nav class="disable-scrollbars lg:h-screen flex top-0 sticky flex-col lg:w-60">
 
   <div class="rounded-xl px-3 lg:p-5">
-    <%= link_to "Ruby & Rails", root_path, class: "text-base inline-block mb-6 lg:mb-12 font-custom font-bold uppercase text-red-500 px-4 pt-4" %>
+
+    <%= link_to "Ruby & Rails", root_path, class: "hidden text-base inline-block mb-6 lg:mb-12 font-custom font-bold uppercase text-red-500 px-4 pt-4" %>
 
     <div class="flex flex-wrap lg:flex-col [&>*]:rounded-lg [&>*]:bg-white/10 lg:gap-1 [&>*]:px-4 [&>*]:py-2 flex-row gap-x-1 gap-y-1 font-custom text-lg">
-      <%= link_to books_path, class: " hover:opacity-60 transition" do %>
+
+    <%= link_to root_path, class: "hover:opacity-60 transition font-custom font-bold" do %>
+Ruby <span class="text-red-500 ">&</span> Rails
+    <% end %>
+
+      <%= link_to tags_path, class: "hover:opacity-60 transition" do %>
+        Topics 
+      <% end %>
+
+      <%= link_to books_path, class: "hover:opacity-60 transition" do %>
         Books
       <% end %>
 
@@ -12,12 +22,10 @@
         Courses
       <% end %>
 
+      <% if current_user.try(:admin?) %>
       <%= link_to youtubes_path, class: "hover:opacity-60 transition" do %>
         Youtube Courses 
       <% end %>
-
-      <%= link_to tags_path, class: "hover:opacity-60 transition" do %>
-        Topics 
       <% end %>
 
       <%= link_to screencasts_path, class: "hover:opacity-60 transition" do %>
@@ -40,7 +48,7 @@
         Communities 
       <% end %>
 
-      <%= link_to events_path, class: "hover:opacity-60 transition" do %>
+      <%= link_to events_path, class: "hidden hover:opacity-60 transition" do %>
         Events 
       <% end %>
 
@@ -51,221 +59,8 @@
     </div>
 
   </div>
-</nav>
 
-
-
-
-<nav class="hidden disable-scrollbars lg:h-screen flex top-0 sticky flex-col justify-between lg:w-56">
-
-  <%= link_to 'Ruby & Rails', root_path, class: "px-5 my-4 sm:my-8 font-custom inline-block tracking-tight text-red-500 uppercase font-bold" %>
-
-  <div class="flex px-2 sm:justify-between lg:flex-col flex-wrap text-lg">
-    
-    <div class="flex font-custom [&>*]:py-3 [&>*]:px-4 text-slate-600 [&>*]:rounded-xl flex-wrap lg:flex-col gap-x-2">
-
-      <%= link_to tags_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 21.5L1 8.5L7 2H17L23 8.5L12 21.5Z" fill="url(#paint0_linear_267_5)"/>
-<path d="M1 8.5L12 21.5M1 8.5L7 2M1 8.5H6.5M12 21.5L23 8.5M12 21.5V8.5M12 21.5L17.5 8.5M12 21.5L6.5 8.5M23 8.5L17 2M23 8.5H17.5M17 2H7M17 2L12 8.5M7 2L12 8.5M12 8.5H17.5M12 8.5H6.5" stroke="#334155"/>
-<defs>
-<linearGradient id="paint0_linear_267_5" x1="12" y1="3" x2="12" y2="22.5" gradientUnits="userSpaceOnUse">
-<stop stop-color="#334155" stop-opacity="0.4"/>
-<stop offset="0.614583" stop-color="#334155" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
-          Topics
-      <% end %>
-      
-      <%= link_to "/guides/guides", class: "hidden hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        Guides
-      <% end %>
-
-      <% if current_user.try(:admin?) %>
-      <%= link_to youtubes_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-       Youtube Courses 
-      <% end %>
-      <% end %>
-
-
-      <%= link_to books_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <div class="relative">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3.5" y="5.5" width="5" height="16" fill="url(#paint0_linear_267_6)" stroke="#334155"/>
-            <rect x="8.5" y="2.5" width="6" height="19" fill="url(#paint1_linear_267_6)" stroke="#334155"/>
-            <rect x="15.4757" y="3.96398" width="2" height="18" transform="rotate(-13.1593 15.4757 3.96398)" fill="url(#paint2_linear_267_6)" stroke="#334155"/>
-            <rect opacity="0.5" x="10" y="5" width="3" height="4" fill="#334155"/>
-            <rect opacity="0.5" x="10" y="11" width="3" height="8" fill="#334155"/>
-            <rect opacity="0.4" x="5" y="7" width="2" height="13" fill="#334155"/>
-            <defs>
-            <linearGradient id="paint0_linear_267_6" x1="6.5625" y1="5.87179" x2="6.5625" y2="22.8718" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#334155" stop-opacity="0.2"/>
-            <stop offset="1" stop-color="#334155" stop-opacity="0"/>
-            </linearGradient>hovelllllllllllllllllllhover:text-slate-800 transition hover:bg-slate-200/70
-            <linearGradient id="paint1_linear_267_6" x1="12.1563" y1="3.02564" x2="12.1563" y2="23.0256" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#334155" stop-opacity="0.2"/>
-            <stop offset="1" stop-color="#334155" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="paint2_linear_267_6" x1="16.6562" y1="4.5653" x2="16.6562" y2="23.5653" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#334155" stop-opacity="0.2"/>
-            <stop offset="1" stop-color="#334155" stop-opacity="0"/>
-            </linearGradient>
-            </defs>
-          </svg>
-          <div class="w-2 h-2 border absolute top-0 -right-1 border-slate-100 block rounded-full bg-red-500 "></div>
-        </div>
-
-        Books 
-      <% end %>
-
-      <%= link_to courses_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="2.5" y="2.5" width="19" height="19" rx="4.5" fill="url(#paint0_linear_267_7)" stroke="#334155"/>
-<path d="M15.5 11.134C16.1667 11.5189 16.1667 12.4811 15.5 12.866L11 15.4641C10.3333 15.849 9.5 15.3679 9.5 14.5981L9.5 9.40192C9.5 8.63212 10.3333 8.151 11 8.5359L15.5 11.134Z" fill="#334155"/>
-<defs>
-<linearGradient id="paint0_linear_267_7" x1="13.875" y1="3.02564" x2="13.875" y2="23.0256" gradientUnits="userSpaceOnUse">
-<stop stop-color="#334155" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#334155" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
-
-        Courses 
-      <% end %>
-
-      <%= link_to books_free_index_path, class: "hidden hover:text-red-500" do %>
-
-        Free books
-      <% end %>
-
-      <%= link_to screencasts_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="2.5" y="5.5" width="19" height="16" rx="1.5" fill="url(#paint0_linear_267_11)" stroke="#334155"/>
-<path d="M15.5 12.134C16.1667 12.5189 16.1667 13.4811 15.5 13.866L11 16.4641C10.3333 16.849 9.5 16.3679 9.5 15.5981L9.5 10.4019C9.5 9.63212 10.3333 9.151 11 9.5359L15.5 12.134Z" fill="#334155"/>
-<rect x="4" y="3" width="16" height="1" rx="0.5" fill="#334155"/>
-<rect x="6" y="1" width="12" height="1" rx="0.5" fill="#334155"/>
-<defs>
-<linearGradient id="paint0_linear_267_11" x1="13.875" y1="5.87179" x2="13.875" y2="22.8718" gradientUnits="userSpaceOnUse">
-<stop stop-color="#334155" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#334155" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
-
-       Screencasts 
-      <% end %>
-
-      <%= link_to newsletters_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2.5 7C2.5 6.17157 3.17157 5.5 4 5.5H20C20.8284 5.5 21.5 6.17157 21.5 7V19C21.5 19.8284 20.8284 20.5 20 20.5H4C3.17157 20.5 2.5 19.8284 2.5 19V7Z" fill="url(#paint0_linear_267_8)" stroke="#334155"/>
-<path d="M2.5 9L11.044 13.9465C11.639 14.291 12.3692 14.3057 12.9775 13.9855L21.5 9.5" stroke="#334155"/>
-<defs>
-<linearGradient id="paint0_linear_267_8" x1="13.875" y1="5.82051" x2="13.875" y2="21.8205" gradientUnits="userSpaceOnUse">
-<stop stop-color="#334155" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#334155" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
-        Newsletters
-      <% end %>
-
-      <%= link_to podcasts_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <div class="relative">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 13.5H22.5V20C22.5 20.8284 21.8284 21.5 21 21.5H20C18.067 21.5 16.5 19.933 16.5 18V15C16.5 14.1716 17.1716 13.5 18 13.5Z" fill="url(#paint0_linear_267_9)" stroke="#334155"/>
-            <path d="M6 13.5H1.5V20C1.5 20.8284 2.17157 21.5 3 21.5H4C5.933 21.5 7.5 19.933 7.5 18V15C7.5 14.1716 6.82843 13.5 6 13.5Z" fill="url(#paint1_linear_267_9)" stroke="#334155"/>
-            <path d="M1.5 14V13C1.5 7.20101 6.20101 2.5 12 2.5V2.5C17.799 2.5 22.5 7.20101 22.5 13V14" stroke="#334155"/>
-            <defs>
-            <linearGradient id="paint0_linear_267_9" x1="20.1563" y1="13.4615" x2="20.1563" y2="22.4615" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#334155" stop-opacity="0.2"/>
-            <stop offset="1" stop-color="#334155" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="paint1_linear_267_9" x1="3.84375" y1="13.4615" x2="3.84375" y2="22.4615" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#334155" stop-opacity="0.2"/>
-            <stop offset="1" stop-color="#334155" stop-opacity="0"/>
-            </linearGradient>
-            </defs>
-          </svg>
-          <div class="w-2 h-2 border absolute top-0 -right-1 border-slate-100 block rounded-full bg-red-500 "></div>
-        </div>
-
-        Podcasts
-      <% end %>
-
-      <%= link_to events_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="2.5" y="2.5" width="19" height="19" rx="2.5" fill="url(#paint0_linear_316_20)" stroke="#334155"/>
-<line x1="3" y1="7.5" x2="21" y2="7.5" stroke="#334155"/>
-<path d="M8 13.4L11 16L16 11" stroke="#334155"/>
-<rect x="6" y="1" width="2" height="3" rx="1" fill="#334155"/>
-<rect x="16" y="1" width="2" height="3" rx="1" fill="#334155"/>
-<defs>
-<linearGradient id="paint0_linear_316_20" x1="13.875" y1="3.02564" x2="13.875" y2="23.0256" gradientUnits="userSpaceOnUse">
-<stop stop-color="#334155" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#334155" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
-
-Events
-      <% end %>
-
-      <%= link_to authors_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <div class="relative">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12.5" cy="12.5" r="10" fill="url(#paint0_linear_267_10)" stroke="#334155"/>
-            <path d="M19 20V20C19 17.2386 16.7614 15 14 15H11.5C8.73858 15 6.5 17.2386 6.5 20V20" stroke="#334155"/>
-            <circle cx="12.5" cy="10.5" r="4" fill="url(#paint1_linear_267_10)" stroke="#334155"/>
-            <defs>
-            <linearGradient id="paint0_linear_267_10" x1="14.4688" y1="3.07692" x2="14.4688" y2="24.0769" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#334155" stop-opacity="0.2"/>
-            <stop offset="1" stop-color="#334155" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="paint1_linear_267_10" x1="13.3438" y1="6.46154" x2="13.3438" y2="15.4615" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#334155" stop-opacity="0.2"/>
-            <stop offset="1" stop-color="#334155" stop-opacity="0"/>
-            </linearGradient>
-            </defs>
-          </svg>
-          <div class="w-2 h-2 border absolute top-0 -right-1 border-slate-100 block rounded-full bg-red-500 "></div>
-        </div>
-
-        People 
-      <% end %>
-
-      <%= link_to communities_path, class: "hover:text-slate-800 transition hover:bg-slate-200/70 flex gap-2 items-center" do %>
-        <div class="relative">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17 20H21C21.5523 20 22 19.5523 22 19V18C22 17.3765 21.8057 16.7686 21.4441 16.2606C21.0826 15.7527 20.5718 15.37 19.9827 15.1658C19.3937 14.9615 18.7556 14.9459 18.1573 15.121C17.5589 15.2962 17.03 15.6534 16.644 16.143M17 20H7ZM17 20V18C17 17.344 16.874 16.717 16.644 16.143M7 20H3C2.44772 20 2 19.5523 2 19V18C2.00005 17.3765 2.19434 16.7686 2.55586 16.2606C2.91739 15.7527 3.42819 15.37 4.01725 15.1658C4.60632 14.9615 5.24438 14.9459 5.84274 15.121C6.4411 15.2962 6.97003 15.6534 7.356 16.143M7 20V18C7 17.344 7.126 16.717 7.356 16.143M7.356 16.143C7.72736 15.215 8.36825 14.4195 9.196 13.8591C10.0238 13.2988 11.0004 12.9993 12 12.9993C12.9996 12.9993 13.9762 13.2988 14.804 13.8591C15.6318 14.4195 16.2726 15.215 16.644 16.143M15 7C15 7.79565 14.6839 8.55871 14.1213 9.12132C13.5587 9.68393 12.7956 10 12 10C11.2044 10 10.4413 9.68393 9.87868 9.12132C9.31607 8.55871 9 7.79565 9 7C9 6.20435 9.31607 5.44129 9.87868 4.87868C10.4413 4.31607 11.2044 4 12 4C12.7956 4 13.5587 4.31607 14.1213 4.87868C14.6839 5.44129 15 6.20435 15 7ZM21 10C21 10.5304 20.7893 11.0391 20.4142 11.4142C20.0391 11.7893 19.5304 12 19 12C18.4696 12 17.9609 11.7893 17.5858 11.4142C17.2107 11.0391 17 10.5304 17 10C17 9.46957 17.2107 8.96086 17.5858 8.58579C17.9609 8.21071 18.4696 8 19 8C19.5304 8 20.0391 8.21071 20.4142 8.58579C20.7893 8.96086 21 9.46957 21 10ZM7 10C7 10.5304 6.78929 11.0391 6.41421 11.4142C6.03914 11.7893 5.53043 12 5 12C4.46957 12 3.96086 11.7893 3.58579 11.4142C3.21071 11.0391 3 10.5304 3 10C3 9.46957 3.21071 8.96086 3.58579 8.58579C3.96086 8.21071 4.46957 8 5 8C5.53043 8 6.03914 8.21071 6.41421 8.58579C6.78929 8.96086 7 9.46957 7 10Z" fill="url(#paint0_linear_340_14)"/>
-<path d="M17 20H21C21.5523 20 22 19.5523 22 19V18C22 17.3765 21.8057 16.7686 21.4441 16.2606C21.0826 15.7527 20.5718 15.37 19.9827 15.1658C19.3937 14.9615 18.7556 14.9459 18.1573 15.121C17.5589 15.2962 17.03 15.6534 16.644 16.143M17 20H7M17 20V18C17 17.344 16.874 16.717 16.644 16.143M16.644 16.143C16.2726 15.215 15.6318 14.4195 14.804 13.8591C13.9762 13.2988 12.9996 12.9993 12 12.9993C11.0004 12.9993 10.0238 13.2988 9.196 13.8591C8.36825 14.4195 7.72736 15.215 7.356 16.143M7 20H3C2.44772 20 2 19.5523 2 19V18C2.00005 17.3765 2.19434 16.7686 2.55586 16.2606C2.91739 15.7527 3.42819 15.37 4.01725 15.1658C4.60632 14.9615 5.24438 14.9459 5.84274 15.121C6.4411 15.2962 6.97003 15.6534 7.356 16.143M7 20V18C7 17.344 7.126 16.717 7.356 16.143M15 7C15 7.79565 14.6839 8.55871 14.1213 9.12132C13.5587 9.68393 12.7956 10 12 10C11.2044 10 10.4413 9.68393 9.87868 9.12132C9.31607 8.55871 9 7.79565 9 7C9 6.20435 9.31607 5.44129 9.87868 4.87868C10.4413 4.31607 11.2044 4 12 4C12.7956 4 13.5587 4.31607 14.1213 4.87868C14.6839 5.44129 15 6.20435 15 7ZM21 10C21 10.5304 20.7893 11.0391 20.4142 11.4142C20.0391 11.7893 19.5304 12 19 12C18.4696 12 17.9609 11.7893 17.5858 11.4142C17.2107 11.0391 17 10.5304 17 10C17 9.46957 17.2107 8.96086 17.5858 8.58579C17.9609 8.21071 18.4696 8 19 8C19.5304 8 20.0391 8.21071 20.4142 8.58579C20.7893 8.96086 21 9.46957 21 10ZM7 10C7 10.5304 6.78929 11.0391 6.41421 11.4142C6.03914 11.7893 5.53043 12 5 12C4.46957 12 3.96086 11.7893 3.58579 11.4142C3.21071 11.0391 3 10.5304 3 10C3 9.46957 3.21071 8.96086 3.58579 8.58579C3.96086 8.21071 4.46957 8 5 8C5.53043 8 6.03914 8.21071 6.41421 8.58579C6.78929 8.96086 7 9.46957 7 10Z" stroke="#334155" stroke-linecap="round" stroke-linejoin="round"/>
-<defs>
-<linearGradient id="paint0_linear_340_14" x1="13.875" y1="4.82051" x2="13.875" y2="20.8205" gradientUnits="userSpaceOnUse">
-<stop stop-color="#334155" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#334155" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
-          <div class="w-2 h-2 border absolute top-0 -right-1 border-slate-100 block rounded-full bg-red-500 "></div>
-        </div>
-       Communities 
-      <% end %>
-
-      <%= link_to 'About', '/pages/about', class: "hover:text-red-500" %>
-
-      <% if current_user.try(:admin?) %>
-        <%= link_to 'Users', users_path %>
-      <% end %>
-    </div>
-
-
-  </div>
-
-    <div class="hidden sm:block">
-      <%= render "shared/adv" %>
-    </div>
-
-  <div class="flex hidden items-center md:gap-5">
+  <div class="flex items-center md:gap-5">
     <% if user_signed_in? %>
 
       <div>
@@ -278,9 +73,10 @@ Events
       <%= button_to destroy_user_session_path, method: :delete do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /> </svg>
       <% end %>
-    <% else %>
-      <%= link_to 'Log In', new_user_session_path %>
-      <%= link_to 'Sign Up', new_user_registration_path %>
-    <% end %>
+      <% end %>
   </div>
 </nav>
+
+
+
+

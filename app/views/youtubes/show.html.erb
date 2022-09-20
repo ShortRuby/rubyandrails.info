@@ -1,7 +1,7 @@
 <% content_for :hero do %>
   <%= render "shared/btn_back", path: youtubes_path %>
 
-  <div class="flex-1 flex flex-col gap-10 items-center">
+ <div class="flex-1 flex flex-col gap-10 items-center">
     <div>
 
       <% unless @youtube.cover.nil? || @youtube.cover.empty? %>
@@ -52,7 +52,7 @@
 <% end %>
 
 <% content_for :related do %>
-  <div class="p-5 md:p-10 xl:p-16 grid sm:grid-cols-2 gap-8 text-slate-700 bg-white rounded-3xl ">
+  <div class="p-5 md:p-10 xl:p-12 grid sm:grid-cols-2 gap-8 text-slate-700 bg-white/70 rounded-3xl ">
     <%= render partial: "youtubes/card", collection: @related, as: :youtube %>
   </div>
 <% end %>

@@ -20,7 +20,7 @@
 <% end %>
 
 <% content_for :related do %>
-  <div class="p-5 md:p-10 xl:p-16 grid grid-cols-1 gap-8 text-slate-700 bg-white rounded-3xl ">
+  <div class="p-5 md:p-10 xl:p-12 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 text-slate-700 bg-white/70 rounded-3xl ">
   <%= render partial: "newsletters/card", collection: @related, as: :newsletter %>
   </div>
 <% end %>

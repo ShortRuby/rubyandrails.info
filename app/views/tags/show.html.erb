@@ -10,8 +10,10 @@
 <% content_for :content do %>
 
   <% unless @books.count.zero? %>
-    <h2 class="h2 mb-8">Books about <%= @tag.title.capitalize() %> </h2>
-    <%= render partial: "books/books_list", locals: { list: @books} %>
+    <div class="mb-8">
+      <h2 class="h2 mb-8">Books about <%= @tag.title.capitalize() %> </h2>
+      <%= render partial: "books/books_list", locals: { list: @books} %>
+    </div>
   <% end %>
 
   <% unless @courses.count.zero? %>

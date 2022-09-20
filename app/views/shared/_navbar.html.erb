@@ -2,13 +2,11 @@
 
   <div class="rounded-xl px-3 mt-4 lg:mt-0 lg:p-5">
 
-    <%= link_to "Ruby & Rails", root_path, class: "hidden text-base inline-block mb-6 lg:mb-12 font-custom font-bold uppercase text-red-500 px-4 pt-4" %>
+    <div class="flex flex-wrap lg:flex-col [&>*]:rounded-lg [&>*]:bg-white/5 lg:gap-1 [&>*]:px-4 [&>*]:py-2 flex-row sm:gap-x-1 sm:gap-y-1 font-custom text-lg">
 
-    <div class="flex flex-wrap lg:flex-col [&>*]:rounded-lg [&>*]:bg-white/5 lg:gap-1 [&>*]:px-4 [&>*]:py-2 flex-row gap-x-1 gap-y-1 font-custom text-lg">
-
-    <%= link_to root_path, class: "hover:opacity-60 transition font-custom font-bold" do %>
-Ruby <span class="text-red-500 ">&</span> Rails
-    <% end %>
+      <%= link_to root_path, class: "hover:opacity-60 transition font-custom font-bold" do %>
+        Ruby <span class="text-red-500 ">&</span> Rails
+      <% end %>
 
       <%= link_to tags_path, class: "hover:opacity-60 transition" do %>
         Topics 
@@ -57,8 +55,8 @@ Ruby <span class="text-red-500 ">&</span> Rails
       <% end %>
 
       <% if current_user.try(:admin?) %>
-      <%= render "shared/btns_add" %>
-    <% end %>
+        <%= render "shared/btns_add" %>
+      <% end %>
     </div>
 
   </div>
@@ -76,7 +74,7 @@ Ruby <span class="text-red-500 ">&</span> Rails
       <%= button_to destroy_user_session_path, method: :delete do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /> </svg>
       <% end %>
-      <% end %>
+    <% end %>
   </div>
 </nav>
 

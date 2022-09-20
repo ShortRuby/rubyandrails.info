@@ -3,9 +3,9 @@
   <section class="p-8 mb-8 bg-white rounded-3xl border-2 border-slate-200/60">
 
     <section class="flex flex-col md:flex-row gap-10">
-<%= link_to youtube_path(@youtube), class: "shrink-0 flex h-12 w-12 backdrop-blur-sm bg-white/70 transition rounded-full justify-center hover:bg-white border border-indigo-100 items-center relative" do %>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-1"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /> </svg>
-<% end %>
+      <%= link_to youtube_path(@youtube), class: "shrink-0 flex h-12 w-12 backdrop-blur-sm bg-white/70 transition rounded-full justify-center hover:bg-white border border-indigo-100 items-center relative" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-1"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /> </svg>
+      <% end %>
 
       <div>
         <h1 class="text-4xl mb-1 lg:text-5xl font-bold font-custom"><%= @youtube.title %></h1>

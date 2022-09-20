@@ -23,9 +23,9 @@ Ruby <span class="text-red-500 ">&</span> Rails
       <% end %>
 
       <% if current_user.try(:admin?) %>
-      <%= link_to youtubes_path, class: "hover:opacity-60 transition" do %>
-        Youtube Courses 
-      <% end %>
+        <%= link_to youtubes_path, class: "hover:opacity-60 transition" do %>
+          Youtube Courses 
+        <% end %>
       <% end %>
 
       <%= link_to screencasts_path, class: "hover:opacity-60 transition" do %>
@@ -56,6 +56,9 @@ Ruby <span class="text-red-500 ">&</span> Rails
         About 
       <% end %>
 
+      <% if current_user.try(:admin?) %>
+      <%= render "shared/btns_add" %>
+    <% end %>
     </div>
 
   </div>

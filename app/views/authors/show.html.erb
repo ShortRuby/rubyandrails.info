@@ -51,33 +51,41 @@
 
 <% content_for :related do %>
   <div class="space-y-20">
+      <% unless @books.empty? %>
     <div>
       <h3 class="px-5 sm:px-10 xl:px-0 h2 mb-4">Books</h3>
       <div class="p-5 md:p-10 xl:p-12 grid sm:grid-cols-2 gap-8 text-slate-700 bg-white/80 rounded-3xl ">
         <%= render partial: "books/card_compact", collection: @books, as: :book %>
       </div>
     </div>
+  <% end %>
 
+      <% unless @courses.empty? %>
     <div>
       <h3 class="px-5 sm:px-10 xl:px-0 h2 mb-4">Courses</h3>
       <div class="p-5 md:p-10 xl:p-12 grid sm:grid-cols-2 gap-8 bg-white/80 rounded-3xl text-slate-700  ">
         <%= render partial: "courses/card", collection: @courses, as: :course %>
       </div>
     </div>
+  <% end %>
 
+      <% unless @newsletters.empty? %>
     <div>
       <h3 class="px-5 sm:px-10 xl:px-0 h2 mb-4">Newsletters</h3>
       <div class="p-5 md:p-10 xl:p-12 grid sm:grid-cols-2 gap-8 bg-white/80 rounded-3xl text-slate-700  ">
         <%= render partial: "newsletters/card", collection: @newsletters, as: :newsletter %>
       </div>
     </div>
+    <% end %>
 
+    <% unless @podcasts.empty? %>
     <div>
       <h3 class="px-5 sm:px-10 xl:px-0 h2 mb-4">Podcasts</h3>
       <div class="p-5 md:p-10 xl:p-12 grid sm:grid-cols-2 gap-8 bg-white/80 rounded-3xl text-slate-700  ">
         <%= render partial: "podcasts/card", collection: @podcasts, as: :podcast %>
       </div>
     </div>
+  <% end %>
 
   </div>
 <% end %>

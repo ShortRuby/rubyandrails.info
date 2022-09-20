@@ -4,7 +4,10 @@
 
 <% content_for :content do %>
   <h2 class="h2 mb-8">All Courses</h2>
-  <%= render partial: "courses/list", locals: { list: @courses } %>
+  <div class="mb-8">
+    <%= render partial: "courses/list", locals: { list: @courses } %>
+  </div>
+  <%== pagy_nav(@pagy) %>
 <% end %>
 
 

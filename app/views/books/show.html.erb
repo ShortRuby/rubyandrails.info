@@ -11,11 +11,14 @@
       </h1>
       <div class="flex flex-col gap-4 justify-center max-w-lg mx-auto">
         <%= render "shared/btn_cta", btn: @book.getBookOnSiteUrl, event: "get book on publisher site", title: "Get This Book" %>
-        <div>
-          <span class="opacity-70 mr-2">or buy it on</span>
-          <%= link_to "Amazon", @book.getBookOnAmazonUrl, class: "text-amber-100 hover:opacity-80 transition font-bold text-2xl font-custom" %>
-        </div>
-        <%#= render "shared/btn_cta", btn: @book.getBookOnAmazonUrl, event: "get book on amazon", title: "Amazon" %>
+
+        <% if @book.getBookOnAmazonUrl.present? %>
+          <div>
+            <span class="opacity-70 mr-2">or buy it on</span>
+            <%= link_to "Amazon", @book.getBookOnAmazonUrl, class: "text-amber-100 hover:opacity-80 transition font-bold text-2xl font-custom" %>
+          </div>
+        <% end %>
+          <%#= render "shared/btn_cta", btn: @book.getBookOnAmazonUrl, event: "get book on amazon", title: "Amazon" %>
       </div>
     </div>
   </div>

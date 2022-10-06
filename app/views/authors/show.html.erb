@@ -100,4 +100,10 @@
   </div>
 <% end %>
 
+<% if current_user.try(:admin?) %>
+    <div class="flex self-end">
+      <%= link_to 'Edit', edit_author_path(@author), class: "p-3 bg-sky-500" %>
+      <%= button_to '×', author_path(@author), method: :delete, class: "px-5 py-3", style: 'background: tomato' %>
+    </div>
+<% end %>
 

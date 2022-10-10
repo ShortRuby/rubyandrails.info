@@ -18,11 +18,13 @@
     <h2 class="text-4xl mb-8 font-bold font-custom">Lessons</h2>
 
     <div class="space-y-4">
-      <% @lessons.order(created_at: :asc).each do |lesson| %>
-        <div>
-          <%= link_to lesson.title, [@youtube, lesson], class: "hover:text-red-500" %>
-        </div>
-      <% end %>
+      <ul class="">
+        <% @lessons.order(created_at: :asc).each do |lesson| %>
+          <li>
+            <%= link_to lesson.title, [@youtube, lesson], class: "hover:text-red-500" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </section>
 </div>

@@ -22,8 +22,10 @@ class Youtubes::LessonsController < ApplicationController
   end
 
   def show
+    @all_lessons = @youtube.lessons.count
+
     @with_tags = "" 
-    @with_authors = ""
+    @with_authors = @youtube.authors.empty?
     @with_related = ""
     @with_lessons = ""
     render layout:"show_page"

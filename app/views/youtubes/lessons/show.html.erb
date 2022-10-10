@@ -2,36 +2,33 @@
   <%#= render "shared/btn_back", path: youtubes_path %>
 
   <div class="flex-1">
-    <div class="bg-blue-700 shadow-xl shadow-blue-800/40 rounded-xl">
+    <div class="bg-blue-700 shadow-xl mb-8 shadow-blue-800/40 rounded-xl">
       <iframe class="aspect-video rounded-xl w-full" src="https://www.youtube.com/embed/<%= @lesson.url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <div>
-      <h1 class="text-left h2 mt-8"><%= @lesson.title %></h1>
-    </div>
-
-    <div class="flex fixed bottom-10 w-3/4 rigth-0 justify-between mt-4">
+    <div class="flex justify-between mb-12">
       <div class="flex gap-4">
 
         <%= render "shared/btn_back", path: [@youtube] %>
 
-        <%= link_to youtube_lessons_path, class: "flex gap-2 items-center uppercase hover:bg-slate-800/60 transition px-4 py-3  text-base font-custom font-bold rounded-lg backdrop-blur-md bg-slate-800/70" do %>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
-          </svg>
-          Lessons
-        <% end %>
       </div>
 
-      <div class="flex gap-4">
-        <%= link_to [@youtube, @lesson.prev], class: "flex gap-2 items-center uppercase hover:bg-blue-800/60 transition px-4 py-3 text-base font-custom font-bold rounded-lg backdrop-blur-md bg-blue-800/70" do %>
+      <div class="flex gap-2">
+        <%= link_to [@youtube, @lesson.prev], class: "flex gap-2 items-center uppercase hover:bg-slate-800/60 transition px-4 py-3  text-base font-custom font-bold rounded-lg backdrop-blur-md bg-slate-800/30 hover:text-white/70" do %>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
           </svg>
           Previous
         <% end %>
 
-        <%= link_to [@youtube, @lesson.next], class: "flex gap-2 items-center uppercase hover:bg-blue-800/60 transition px-4 py-3  text-base font-custom font-bold rounded-lg backdrop-blur-md bg-blue-800/70" do %>
+        <%= link_to youtube_lessons_path, class: "flex gap-2 items-center uppercase hover:bg-slate-800/60 transition px-4 py-3  text-base font-custom font-bold rounded-lg backdrop-blur-md bg-slate-800/30 hover:text-white/70" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
+          </svg>
+          All Lessons
+        <% end %>
+
+        <%= link_to [@youtube, @lesson.next], class: "flex gap-2 items-center uppercase hover:bg-slate-800/60 transition px-4 py-3  text-base font-custom font-bold rounded-lg backdrop-blur-md bg-slate-800/30 hover:text-white/70" do %>
           Next
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
@@ -40,6 +37,13 @@
       </div>
     </div>
 
+    <div class="text-left space-y-2 mb-8">
+
+      <p>
+      <%= link_to "#{@all_lessons} Lessons", youtube_lessons_path %>
+      </p>
+      <h1 class="h2"><%= @lesson.title %></h1>
+    </div>
   </div>
 
   <% end %>
@@ -48,3 +52,6 @@
     <%= @lesson.description %>
   <% end %>
 
+  <% content_for :authors do %>
+  <%= render partial: "shared/author_second",  collection: @youtube.authors, as: :author %>
+  <% end %>

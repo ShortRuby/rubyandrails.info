@@ -1,8 +1,8 @@
 <nav class="disable-scrollbars lg:h-screen flex top-0 sticky flex-col lg:w-60">
 
-  <div class="rounded-xl px-3 mt-4 lg:mt-0 lg:p-5">
+  <div class="rounded-xl px-2 mt-4 lg:mt-0 lg:p-5">
 
-    <div class="flex flex-wrap lg:flex-col [&>*]:rounded-lg [&>*]:bg-white/5 lg:gap-1 [&>*]:px-4 [&>*]:py-2 flex-row sm:gap-x-1 sm:gap-y-1 font-custom text-lg">
+    <div class="flex flex-wrap lg:flex-col [&>*]:rounded-lg [&>*]:bg-white/5 lg:gap-1 [&>*]:px-2 [&>*]:py-2 flex-row sm:gap-x-1 sm:gap-y-1 font-custom text-lg">
 
       <%= link_to root_path, class: "hover:opacity-60 transition font-custom font-bold" do %>
         Ruby <span class="text-red-500 ">&</span> Rails
@@ -20,8 +20,9 @@
         Courses
       <% end %>
 
-        <%= link_to youtubes_path, class: "hover:opacity-60 transition" do %>
+        <%= link_to youtubes_path, class: "relative hover:opacity-60 transition flex gap-1" do %>
           Youtube Courses 
+          <span class="inline-block text-xs px-2 absolute right-0 top-0 self-start text-white bg-red-500 rounded-full">New</span>
         <% end %>
 
       <%= link_to screencasts_path, class: "hover:opacity-60 transition" do %>

@@ -17,8 +17,8 @@
   <section class="p-8 mb-8 bg-white rounded-3xl border-2 border-slate-200/60">
     <h2 class="text-4xl mb-8 font-bold font-custom">Lessons</h2>
 
-    <div class="space-y-4">
-      <ul class="">
+    <div>
+      <ul class="space-y-6">
         <% @lessons.order(created_at: :asc).each do |lesson| %>
           <li>
             <%= link_to lesson.title, [@youtube, lesson], class: "hover:text-red-500" %>

@@ -2,8 +2,13 @@
 
   <div class="shrink-0 ">
     <%= link_to book, class: "rounded-sm hover:opacity-90 overflow-hidden relative inline-block mx-auto shadow-lg hover:shadow-xl shadow-slate-800/20 transition duration-300 hover:shadow-800/30" do %>
-      <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
-      <%= image_tag("books/#{book.cover}", alt: "#{book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
+      <img src=<%= image_url("/books/overlay.png") %> alt="" class="absolute mix-blend-multiply inset-0" />
+
+      <picture alt=<%= "Book #{book.title}" %> class="block w-44 sm:w-40 md:w-44 lg:w-64">
+        <source srcset=<%= image_url("/books/#{book.cover}.webp") %>  type="image/webp" />
+        <source srcset=<%= image_url("/books/#{book.cover}.jpg") %> type="image/jpg" />
+        <img src=<%= image_url("/books/#{book.cover}.jpg") %> />
+      </picture>
     <% end %>
   </div>
 
@@ -11,7 +16,7 @@
 
   <div>
     <%= link_to book, class:"bg-red-600 hover:opacity-90 inline-block text-left shadow-md shadow-slate-800/20 rounded-md relative overflow-hidden pt-4 lg:pt-10 p-4 text-white self-start aspect-[3/4] shrink-0 w-44 lg:w-64 mx-auto" do %>
-      <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+      <%#= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
       <p class="text-base lg:pl-4"><%= book.authors.map { |author| author.name }.join(", ").html_safe %> </p>
       <p class="font-bold mt-10 leading-tight text-lg lg:text-2xl lg:pl-4 font-custom">
       <%= book.title %> </p>

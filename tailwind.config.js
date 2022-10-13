@@ -9,9 +9,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-	  fontFamily: {
-		'custom': ['DM Sans', 'sans-serif']
-	  }
 	},
   },
   plugins: [

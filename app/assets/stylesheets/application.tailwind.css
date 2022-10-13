@@ -42,14 +42,14 @@
 }
 
 .h1 {
- @apply font-custom text-3xl tracking-tight sm:text-4xl xl:text-6xl font-bold 
+ @apply text-3xl tracking-tight sm:text-4xl xl:text-6xl font-bold 
  }
 
 .h2 {
-  @apply text-3xl font-custom font-bold
+  @apply text-3xl font-bold
 }
 .h3 {
-  @apply sm:text-2xl max-w-lg font-custom font-bold
+  @apply sm:text-2xl max-w-lg font-bold
 }
 
 

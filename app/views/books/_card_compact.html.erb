@@ -9,9 +9,9 @@
     <%= render "shared/authors", authors: book %>
 
     <%= link_to book do %>
-      <h3 class="h3 transition mb-2 hover:text-red-500">
+      <h2 class="h3 transition mb-2 hover:text-red-500">
         <%= book.title %>
-      </h3>
+      </h2>
     <% end %>
 
     <%= render "shared/tags", tags: book %>

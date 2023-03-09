@@ -102,6 +102,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.12.0)
     faker (2.23.0)
       i18n (>= 1.8.11, < 2)
@@ -281,6 +285,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  dotenv-rails (~> 2.7)
   faker
   friendly_id (~> 5.4.0)
   image_processing (~> 1.2)

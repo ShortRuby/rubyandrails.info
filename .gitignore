@@ -71,7 +71,4 @@ yarn-debug.log*
 
 **/.DS_Store
 
-
-
-# heroku backups
-latest.dump.1
+TAGS

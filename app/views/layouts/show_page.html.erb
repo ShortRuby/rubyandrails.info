@@ -1,120 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="ahrefs-site-verification" content="5daf808c786318b77a57cc0d6dd369cbeea4658286e7e5bf0ac9ba3cf412a74a">
-
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
-  <script async src="https://cdn.splitbee.io/sb.js"></script>
-  <script defer type="text/javascript" src="https://api.pirsch.io/pirsch.js" id="pirschjs" data-code="FxX6f1sD5QacdiYXeuIB4wBNuOZkh10O"></script>
-
-  <%= display_meta_tags(default_meta_tags) %>
-  <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" %>
-  <%= favicon_link_tag "favicon-32x32.png", rel: "icon", sizes: "32x32", type: "image/png" %>
-  <%= favicon_link_tag "favicon-16x16.png", rel: "icon", color:"#EF4444" %>
-  <%= favicon_link_tag "safari-pinned-tab.svg", rel: "mask-icon", sizes: "16x16", type: "image/png" %>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-
-  <body class="text-slate-800 bg-gradient-to-b from-slate-900 via-purple-500 to-blue-700 text-xl">
-
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
-    <div class="flex flex-col overflow-clip relative gap-4 lg:flex-row">  
-  <aside class="text-white">  
-    <%= render "shared/navbar" %>
-  </aside>  
-
-  <main class="grow bg-white">  
-
-    <section class="relative overflow-hidden  group isolate bg-gradient-to-b from-slate-900 to-blue-700 p-8">
-      <%= image_tag("decoration/glow.png", alt: "", class: "absolute scale-[4.7] -z-20 opacity-60 right-40") %>
-      <%#= image_tag("decoration/glow.svg", alt: "", class: "absolute scale-[1.7] -z-20 opacity-70 left-40") %>
-      <div class="text-white h-full z-50 text-center pb-12 md:pb-16 flex flex-col justify-items-stretch md:flex-row group gap-4">
-        <%= yield :hero %>
-      </div>
-    </section>
-
-    <% unless @with_content %>
-    <div class="px-5 sm:px-10 xl:px-0 py-20 md:py-24">
-      <section class="max-w-5xl grid md:grid-cols-3 gap-8 md:gap-20 mx-auto">
-        <div class="md:col-span-1">
-          <h2 class="h1 mb-4">What's this  about?</h2>
-        </div>
-        <div class="leading-relaxed md:col-span-2 lg:text-3xl">
-          <%= yield :content %>
-        </div>
-      </section>
-    </div>
-  <% end %>
-
-    <% unless @with_tags %>
-        <div class="bg-indigo-50 relative isolate overflow-hidden px-5 sm:px-10 xl:px-0 py-20 md:py-32">
-          <%= image_tag("decoration/glow.svg", alt: "", class: "absolute opacity-30 -z-20 -top-20 left-40") %>
-          <section class="max-w-5xl grid md:grid-cols-3 gap-8 md:gap-20 mx-auto">
-            <div class="md:col-span-1">
-              <h2 class="h1 mb-8">You'll Learn</h2>
-            </div>
-            <div class="md:col-span-2 lg:text-2xl xl:text-3xl">
-              <%= yield :tags %>
-            </div>
-          </section>
-        </div>
-      <% end %>
-
-    <% unless @with_lessons %>
-    <div class="px-5 bg-gradient-to-b from-indigo-50 sm:px-10 xl:px-0 py-20 md:py-24">
-      <section class="max-w-5xl grid md:grid-cols-3 gap-8 md:gap-20 mx-auto">
-        <div class="md:col-span-1">
-          <h2 class="h1 mb-4">Lessons</h2>
-        </div>
-        <div class="leading-relaxed md:col-span-2 lg:text-3xl">
-          <%= yield :lesson %>
-        </div>
-      </section>
-    </div>
-  <% end %>
-
-      <% unless @with_authors %>
-        <section class="max-w-5xl grid md:grid-cols-3 gap-8 md:gap-20 px-5 sm:px-10 xl:px-0  py-20 md:py-24 mx-auto">
-          <div class="md:col-span-1">
-            <h2 class="h1">Author</h2>
-          </div>
-          <div class="space-y-10 md:col-span-2">
-            <%= yield :authors %>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="ahrefs-site-verification" content="5daf808c786318b77a57cc0d6dd369cbeea4658286e7e5bf0ac9ba3cf412a74a">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= display_meta_tags(default_meta_tags) %>
+    <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" %>
+    <%= favicon_link_tag "favicon-32x32.png", rel: "icon", sizes: "32x32", type: "image/png" %>
+    <%= favicon_link_tag "favicon-16x16.png", rel: "icon", color:"#EF4444" %>
+    <%= favicon_link_tag "safari-pinned-tab.svg", rel: "mask-icon", sizes: "16x16", type: "image/png" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <%= render partial: "layouts/analytics" %>
+  </head>
+  <body class="text-xl text-slate-800 bg-gradient-to-b from-slate-900 via-purple-500 to-blue-700">
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <div class="relative flex flex-col gap-4 overflow-clip lg:flex-row">
+      <aside class="text-white">
+        <%= render "shared/navbar" %>
+      </aside>
+      <main class="bg-white grow">
+        <section class="relative p-8 overflow-hidden group isolate bg-gradient-to-b from-slate-900 to-blue-700">
+          <%= image_tag("decoration/glow.png", alt: "", class: "absolute scale-[4.7] -z-20 opacity-60 right-40") %>
+          <%#= image_tag("decoration/glow.svg", alt: "", class: "absolute scale-[1.7] -z-20 opacity-70 left-40") %>
+          <div class="z-50 flex flex-col h-full gap-4 pb-12 text-center text-white md:pb-16 justify-items-stretch md:flex-row group">
+            <%= yield :hero %>
           </div>
         </section>
-      <% end %>
-
-      <% unless @with_related %>
-        <div class="bg-blue-700 text-white overflow-hidden isolate relative  py-20 md:py-32">
-          <%= image_tag("decoration/glow.png", alt: "", class: "absolute scale-[8.8] -z-20 -top-20 opacity-80 left-40") %>
-          <section class="max-w-5xl mx-auto">
-            <h2 class="h1 mb-16 px-5 sm:px-10 xl:px-0"><%= related_title(yield(:related_title)) %></h2>
-            <%= yield :related %>
+        <% unless @with_content %>
+          <div class="px-5 py-20 sm:px-10 xl:px-0 md:py-24">
+            <section class="grid max-w-5xl gap-8 mx-auto md:grid-cols-3 md:gap-20">
+              <div class="md:col-span-1">
+                <h2 class="mb-4 h1">What's this  about?</h2>
+              </div>
+              <div class="leading-relaxed md:col-span-2 lg:text-3xl">
+                <%= yield :content %>
+              </div>
+            </section>
+          </div>
+        <% end %>
+        <% unless @with_tags %>
+          <div class="relative px-5 py-20 overflow-hidden bg-indigo-50 isolate sm:px-10 xl:px-0 md:py-32">
+            <%= image_tag("decoration/glow.svg", alt: "", class: "absolute opacity-30 -z-20 -top-20 left-40") %>
+            <section class="grid max-w-5xl gap-8 mx-auto md:grid-cols-3 md:gap-20">
+              <div class="md:col-span-1">
+                <h2 class="mb-8 h1">You'll Learn</h2>
+              </div>
+              <div class="md:col-span-2 lg:text-2xl xl:text-3xl">
+                <%= yield :tags %>
+              </div>
+            </section>
+          </div>
+        <% end %>
+        <% unless @with_lessons %>
+          <div class="px-5 py-20 bg-gradient-to-b from-indigo-50 sm:px-10 xl:px-0 md:py-24">
+            <section class="grid max-w-5xl gap-8 mx-auto md:grid-cols-3 md:gap-20">
+              <div class="md:col-span-1">
+                <h2 class="mb-4 h1">Lessons</h2>
+              </div>
+              <div class="leading-relaxed md:col-span-2 lg:text-3xl">
+                <%= yield :lesson %>
+              </div>
+            </section>
+          </div>
+        <% end %>
+        <% unless @with_authors %>
+          <section class="grid max-w-5xl gap-8 px-5 py-20 mx-auto md:grid-cols-3 md:gap-20 sm:px-10 xl:px-0 md:py-24">
+            <div class="md:col-span-1">
+              <h2 class="h1">Author</h2>
+            </div>
+            <div class="space-y-10 md:col-span-2">
+              <%= yield :authors %>
+            </div>
           </section>
-        </div>
-      <% end %>
-
+        <% end %>
+        <% unless @with_related %>
+          <div class="relative py-20 overflow-hidden text-white bg-blue-700 isolate md:py-32">
+            <%= image_tag("decoration/glow.png", alt: "", class: "absolute scale-[8.8] -z-20 -top-20 opacity-80 left-40") %>
+            <section class="max-w-5xl mx-auto">
+              <h2 class="px-5 mb-16 h1 sm:px-10 xl:px-0"><%= related_title(yield(:related_title)) %></h2>
+              <%= yield :related %>
+            </section>
+          </div>
+        <% end %>
       </div>
-  </main>  
-  <%= yield %>
-
-    </div>
-
-
-  </body>
+    </main>
+    <%= yield %>
+  </div>
+</body>
 </html>

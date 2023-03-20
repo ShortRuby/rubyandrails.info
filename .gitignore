@@ -73,3 +73,5 @@ yarn-debug.log*
 
 TAGS
 .env*
+
+app/assets/builds

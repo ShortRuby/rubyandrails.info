@@ -28,7 +28,7 @@ gem 'sitemap_generator'
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'faker'
-  gem "rails_live_reload"
+  # gem "rails_live_reload"
   gem "dotenv-rails", "~> 2.7"
 end
 
@@ -42,3 +42,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Admin
+gem "avo"
+
+# Search
+gem "ransack"

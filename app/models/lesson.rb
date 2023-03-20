@@ -11,8 +11,8 @@
 #  slug       :string
 #
 class Lesson < ApplicationRecord
+  extend FriendlyId
 
-  extend FriendlyId 
   friendly_id :title, use: :slugged
 
   belongs_to :youtube
@@ -28,4 +28,7 @@ class Lesson < ApplicationRecord
     Lesson.where("id < ?", id).last
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "title"]
+  end
 end

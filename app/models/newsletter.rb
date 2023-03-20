@@ -24,6 +24,10 @@ class Newsletter < ApplicationRecord
 
   has_many :authorings, as: :authorabble, dependent: :destroy
   has_many :authors, through: :authorings
-  
+
   validates :title, :content, :url, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "title"]
+  end
 end

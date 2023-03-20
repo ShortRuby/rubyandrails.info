@@ -18,20 +18,24 @@ Rails.application.routes.draw do
   get "/pages/*page", to: "pages#show"
   get "/guides/*page", to: "guides#show"
 
-  resources :authors, path: 'people' 
+  resources :authors, path: 'people'
 
   resources :courses
 
   namespace :books do
     resources :free, only: [:index, :show]
   end
-  resources :books 
+  resources :books
 
   resources :tags, path: 'learn'
   resources :users
 
- # root "pages#show", page: "index"
-   root "books#index" 
+  # root "pages#show", page: "index"
+  root "books#index"
 
-   resources :sitemap, only: %i[index], constraints: ->(req) { req.format == :xml }
+  resources :sitemap, only: %i[index], constraints: ->(req) { req.format == :xml }
+
+   authenticate :user, ->(user) { user.admin? } do
+     mount Avo::Engine, at: Avo.configuration.root_path
+   end
 end

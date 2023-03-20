@@ -53,6 +53,11 @@
         About 
       <% end %>
 
+      <%= link_to "https://friendlyrb.com?rel=rubyandrails.info&utm_source=rubyandrails.info", target: "_blank", class: "hidden lg:block" do %>
+        <%= image_tag("communities/friendlyrb.png", alt: "Friendly.rb - Your friendly European Ruby Conference.") %>
+        <p class="mt-4 text-sm"><strong>Friendly.rb</strong> - Your friendly European Ruby Conference</p>
+      <% end %>
+
       <% if current_user.try(:admin?) %>
         <%= render "shared/btns_add" %>
       <% end %>

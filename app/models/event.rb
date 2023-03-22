@@ -17,4 +17,8 @@ class Event < ApplicationRecord
   friendly_id :title, use: :slugged
 
   validates :title, :description, :url, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "title"]
+  end
 end

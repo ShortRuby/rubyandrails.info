@@ -4,7 +4,7 @@
   <div class="flex-1 self-stretch flex items-center grow justify-center flex-col h-full">
     <% unless @community.cover.nil? || @community.cover.empty? %>
       <div class="shrink-0 rounded-sm relative ">
-        <%= image_tag("communities/#{@community.cover}", alt: "#{@community.title}", class: "drop-shadow-xl mb-8") %>
+        <%= image_tag(@community.cover_path, alt: @community.title, class: "drop-shadow-xl mb-8") %>
       </div>
     <% end %>
     <h1 class="h1 max-w-4xl mx-auto mt-6 mb-4">

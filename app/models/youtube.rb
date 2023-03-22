@@ -12,7 +12,7 @@
 #  slug        :string
 #
 class Youtube < ApplicationRecord
-  extend FriendlyId 
+  extend FriendlyId
   friendly_id :title, use: :slugged
 
   has_many :authorings, as: :authorabble, dependent: :destroy
@@ -25,4 +25,7 @@ class Youtube < ApplicationRecord
 
   validates :title, :url, presence: true
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "title"]
+  end
 end

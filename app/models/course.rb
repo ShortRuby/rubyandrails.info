@@ -14,7 +14,7 @@
 #  cover           :string
 #
 class Course < ApplicationRecord
-  extend FriendlyId 
+  extend FriendlyId
   friendly_id :title, use: :slugged
 
   has_rich_text :content
@@ -26,4 +26,12 @@ class Course < ApplicationRecord
   has_many :authors, through: :authorings
 
   validates :title, :content, presence: true
+
+  def cover_path
+    "/courses/#{cover}"
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "title"]
+  end
 end

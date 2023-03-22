@@ -2,7 +2,7 @@
 
   <div class="mb-4">
     <%= link_to course do %>
-      <%= image_tag("courses/#{course.cover}", alt: "#{course.title}", class: "-z-10 object-cover w-full rounded-2xl transition duration-300 group-hover:scale-[1.04]") %>
+      <%= image_tag(course.cover_path, alt: "#{course.title}", class: "-z-10 object-cover w-full rounded-2xl transition duration-300 group-hover:scale-[1.04]") %>
     <% end %>
   </div>
 

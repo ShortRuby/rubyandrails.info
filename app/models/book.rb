@@ -20,8 +20,8 @@
 #  featured           :boolean
 #
 class Book < ApplicationRecord
+  extend FriendlyId
 
-  extend FriendlyId 
   friendly_id :title, use: :slugged
 
   has_rich_text :content
@@ -45,8 +45,12 @@ class Book < ApplicationRecord
   def next
     self.class.where("id > ?", id).order("id ASC").first || Book.first
   end
-  
-  def previous 
+
+  def previous
     self.class.where("id < ?", id).order("id DESC").first || Book.last
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "title"]
   end
 end

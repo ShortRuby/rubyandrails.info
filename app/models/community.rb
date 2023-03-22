@@ -22,7 +22,7 @@ class Community < ApplicationRecord
   enum :source, {reddit: 0, discord: 1, forum: 2, slack: 3, twitter: 4}
 
   def cover_path
-    "/communities/#{cover}"
+    "communities/#{cover}"
   end
 
   def self.ransackable_attributes(auth_object = nil)

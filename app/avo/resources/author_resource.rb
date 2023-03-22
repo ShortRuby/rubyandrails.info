@@ -11,10 +11,10 @@ class AuthorResource < Avo::BaseResource
   field :id, as: :id
   field :name, as: :text
   field :content, as: :trix
-  field :twitterUrl, name: "Titter Handle", as: :text, format_using: ->(handle) { handle.present? ? link_to("@#{handle}", "https://twitter.com/#{handle}", target: "_blank") : nil }
-  field :githubUrl, name: "GitHub Handle", as: :text, format_using: ->(handle) { handle.present? ? link_to("@#{handle}", "https://github.com/#{handle}", target: "_blank") : nil }
-  field :siteUrl, name: "Site URL", as: :text
-  field :slug, as: :text
+  field :twitterUrl, name: "Titter link", as: :text, format_using: ->(handle) { handle.present? ? link_to(handle, handle, target: "_blank") : nil }
+  field :githubUrl, name: "GitHub link", as: :text, format_using: ->(handle) { handle.present? ? link_to(handle, handle, target: "_blank") : nil }
+  field :siteUrl, name: "Site URL", as: :text, format_using: ->(handle) { handle.present? ? link_to(handle, handle, target: "_blank") : nil }
+  field :slug, as: :text, format_using: ->(handle) { handle.present? ? link_to(handle, "https://rubyandrails.info/people/#{handle}", target: "_blank") : nil }
   field :photo, as: :text
 
   field :books, as: :has_many, through: :taggings

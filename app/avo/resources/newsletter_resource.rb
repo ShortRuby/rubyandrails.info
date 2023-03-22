@@ -10,14 +10,14 @@ class NewsletterResource < Avo::BaseResource
 
   field :id, as: :id
   field :title, as: :text
-  field :url, as: :text
+  field :url, as: :text, format_using: ->(value) { value.present? ? link_to(value, value, target: "_blank") : nil }
   field :content, as: :trix
-  field :slug, as: :text
+  field :slug, as: :text, format_using: ->(value) { value.present? ? link_to(value, "https://rubyandrails.info/newsletters/#{value}", target: "_blank") : nil }
   field :featured, as: :boolean
   field :author, as: :text
   field :featured_cover, as: :text
   field :testimonial_text, as: :text
   field :testimonial_author, as: :text
-  field :testimonial_link, as: :text
+  field :testimonial_link, as: :text, format_using: ->(value) { value.present? ? link_to(value, value, target: "_blank") : nil }
   field :authors, as: :has_many, through: :authorings
 end

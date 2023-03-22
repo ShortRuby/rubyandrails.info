@@ -16,7 +16,7 @@ class BookResource < Avo::BaseResource
     field :subtitle, as: :text
     field :getBookOnAmazonUrl, name: "Amazon URL", as: :text, format_using: ->(url) { url.present? ? link_to(url, url, target: "_blank") : nil }
     field :getBookOnSiteTitle, name: "Site Title", as: :text
-    field :getBookOnSiteUrl, name: "Site URL", as: :text
+    field :getBookOnSiteUrl, name: "Site URL", as: :text, format_using: ->(handle) { handle.present? ? link_to(handle, handle, target: "_blank") : nil }
     field :isbn, as: :text
     field :year, as: :number
   end

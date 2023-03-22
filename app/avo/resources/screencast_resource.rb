@@ -11,7 +11,7 @@ class ScreencastResource < Avo::BaseResource
   field :id, as: :id
   field :title, as: :text
   field :content, as: :trix
-  field :url, as: :text
-  field :slug, as: :text
+  field :url, as: :text, format_using: ->(value) { value.present? ? link_to(value, value, target: "_blank") : nil }
+  field :slug, as: :text, format_using: ->(value) { value.present? ? link_to(value, "https://rubyandrails.info/screencasts/#{value}", target: "_blank") : nil }
   field :authors, as: :has_many, through: :authorings
 end

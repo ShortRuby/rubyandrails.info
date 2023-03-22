@@ -11,8 +11,8 @@ class CommunityResource < Avo::BaseResource
   field :id, as: :id
   field :title, as: :text
   field :description, as: :textarea
-  field :url, as: :text
-  field :slug, as: :text
+  field :url, as: :text, format_using: ->(handle) { handle.present? ? link_to(handle, handle, target: "_blank") : nil }
+  field :slug, as: :text, format_using: ->(handle) { handle.present? ? link_to(handle, "https://rubyandrails.info/communities/#{handle}", target: "_blank") : nil }
   field :source, as: :select, enum: ::Community.sources
 
   sidebar do

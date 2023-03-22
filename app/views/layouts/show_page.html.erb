@@ -30,8 +30,8 @@
       </aside>
       <main class="bg-white grow">
         <section class="relative p-8 overflow-hidden group isolate bg-gradient-to-b from-slate-900 to-blue-700">
-          <%= image_tag("decoration/glow.png", alt: "", class: "absolute scale-[4.7] -z-20 opacity-60 right-40") %>
-          <%#= image_tag("decoration/glow.svg", alt: "", class: "absolute scale-[1.7] -z-20 opacity-70 left-40") %>
+          <%= image_tag("/decoration/glow.png", alt: "", class: "absolute scale-[4.7] -z-20 opacity-60 right-40") %>
+          <%#= image_tag("/decoration/glow.svg", alt: "", class: "absolute scale-[1.7] -z-20 opacity-70 left-40") %>
           <div class="z-50 flex flex-col h-full gap-4 pb-12 text-center text-white md:pb-16 justify-items-stretch md:flex-row group">
             <%= yield :hero %>
           </div>
@@ -50,7 +50,7 @@
         <% end %>
         <% unless @with_tags %>
           <div class="relative px-5 py-20 overflow-hidden bg-indigo-50 isolate sm:px-10 xl:px-0 md:py-32">
-            <%= image_tag("decoration/glow.svg", alt: "", class: "absolute opacity-30 -z-20 -top-20 left-40") %>
+            <%= image_tag("/decoration/glow.svg", alt: "", class: "absolute opacity-30 -z-20 -top-20 left-40") %>
             <section class="grid max-w-5xl gap-8 mx-auto md:grid-cols-3 md:gap-20">
               <div class="md:col-span-1">
                 <h2 class="mb-8 h1">You'll Learn</h2>
@@ -85,7 +85,7 @@
         <% end %>
         <% unless @with_related %>
           <div class="relative py-20 overflow-hidden text-white bg-blue-700 isolate md:py-32">
-            <%= image_tag("decoration/glow.png", alt: "", class: "absolute scale-[8.8] -z-20 -top-20 opacity-80 left-40") %>
+            <%= image_tag("/decoration/glow.png", alt: "", class: "absolute scale-[8.8] -z-20 -top-20 opacity-80 left-40") %>
             <section class="max-w-5xl mx-auto">
               <h2 class="px-5 mb-16 h1 sm:px-10 xl:px-0"><%= related_title(yield(:related_title)) %></h2>
               <%= yield :related %>

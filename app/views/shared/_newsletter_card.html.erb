@@ -22,7 +22,7 @@
 
     <section class="bg-gradient-to-bl from-violet-700 via-violet-700 to-violet-500 isolate relative px-8 border border-violet-700/20 overflow-hidden xl:px-20 py-16 rounded-3xl">
 
-      <%= image_tag("newsletter/promo/short-ruby.png", class: "absolute -z-30 -top-10 -rotate-12 left-3/4 scale-75 lg:left-2/4 lg:-top-40") %>
+      <%= image_tag("/newsletter/promo/short-ruby.png", class: "absolute -z-30 -top-10 -rotate-12 left-3/4 scale-75 lg:left-2/4 lg:-top-40") %>
 
       <span class="absolute bottom-0 -z-40 left-4 text-violet-800/30 leading-none text-[5.5em] font-black"><%= newsletter.title %></span>
 
@@ -34,7 +34,7 @@
             <% newsletter.authors.each do |author| %>
               <% unless author.photo.nil? || author.photo.empty? %>
                 <%= link_to author, class: "hover:opacity-95" do %>
-                <%= image_tag("authors/#{author.photo}", alt: "#{author.name}", class: "w-10 h-10 shadow-md shadow-violet-900/50 rounded-full") %>
+                <%= image_tag("/authors/#{author.photo}", alt: "#{author.name}", class: "w-10 h-10 shadow-md shadow-violet-900/50 rounded-full") %>
               <% end %>
               <% end %>
             <% end %>

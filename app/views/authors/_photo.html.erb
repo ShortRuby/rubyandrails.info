@@ -1,6 +1,6 @@
 <% unless author.photo.nil? || author.photo.empty? %>
   <div class="relative overflow-hidden isolate">
-    <%= image_tag("authors/#{author.photo}", alt: "#{author.name}", class: "-z-10 object-cover h-40 aspect-[3/4] rounded-full") %>
+    <%= image_tag("/authors/#{author.photo}", alt: "#{author.name}", class: "-z-10 object-cover h-40 aspect-[3/4] rounded-full") %>
   </div>
 <% else %>
 

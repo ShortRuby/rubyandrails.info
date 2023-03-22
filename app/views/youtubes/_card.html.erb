@@ -3,7 +3,7 @@
   <% unless youtube.cover.nil? || youtube.cover.empty? %>
     <div class="relative overflow-hidden isolate">
     <%= link_to youtube,  class: "" do %>
-      <%= image_tag("youtube-courses/covers/#{youtube.cover}", alt: "", class: "-z-10 object-cover w-full rounded-t-2xl transition duration-300 group-hover:scale-[1.04]") %>
+      <%= image_tag("/youtube-courses/covers/#{youtube.cover}", alt: "", class: "-z-10 object-cover w-full rounded-t-2xl transition duration-300 group-hover:scale-[1.04]") %>
     <% end %>
     </div>
   <% end %>

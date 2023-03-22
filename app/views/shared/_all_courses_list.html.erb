@@ -9,7 +9,7 @@
               <% if course.free %>
                 <span class="text-base bg-green-500/80 absolute font-bold text-white px-2 inline-block py-1">Free </span>
               <% end %>
-              <%= image_tag("courses/#{course.cover}", alt: "#{course.title}", class: "shrink-0 lg:mr-auto block") %>
+              <%= image_tag("/courses/#{course.cover}", alt: "#{course.title}", class: "shrink-0 lg:mr-auto block") %>
             </div>
           <% end %>
         </div>

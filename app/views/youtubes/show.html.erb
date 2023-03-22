@@ -7,7 +7,7 @@
       <% unless @youtube.cover.nil? || @youtube.cover.empty? %>
         <div class="relative">
           <%= link_to @youtube,  class: "" do %>
-            <%= image_tag("youtube-courses/covers/#{@youtube.cover}", alt: "", class: "object-cover w-full rounded-2xl ") %>
+            <%= image_tag("/youtube-courses/covers/#{@youtube.cover}", alt: "", class: "object-cover w-full rounded-2xl ") %>
           <% end %>
         </div>
       <% end %>

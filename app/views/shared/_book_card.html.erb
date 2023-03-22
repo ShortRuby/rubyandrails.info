@@ -1,17 +1,17 @@
 <div class="flex flex-col md:flex-row gap-5 lg:gap-8">
   <% unless book.cover.nil? || book.cover.empty? %>
     <%= link_to book, class: "shrink-0 rounded-sm overflow-hidden hover:-translate-y-4 duration-300 transition-all self-start relative shadow-md hover:shadow-xl shadow-slate-800/20 " do %>
-      <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
-      <%= image_tag("books/#{book.cover}", alt: "#{book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
+      <%= image_tag("/books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+      <%= image_tag("/books/#{book.cover}", alt: "#{book.title}", class: "block w-44 sm:w-40 md:w-44 lg:w-64") %>
     <% end %>
     <% else %>
       <div>
         <%= link_to book, class:"bg-red-600 inline-block text-left shadow-md shadow-slate-800/20 rounded-md relative overflow-hidden mb-10 pt-4 lg:pt-10 p-4 text-white self-start aspect-[3/4] shrink-0 w-44 lg:w-64 mx-auto" do %>
-          <%= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+          <%= image_tag("/books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
           <p class="text-base lg:pl-4"><%= book.authors.map { |author| author.name }.join(", ").html_safe %> </p>
           <p class="font-bold mt-10 leading-tight text-lg lg:text-2xl lg:pl-4 font-custom">
           <%= book.title %> </p>
-        <% end %> 
+        <% end %>
       </div>
   <% end %>
 

@@ -1,7 +1,7 @@
 <div class="grid md:grid-cols-2 rounded-xl gap-5 lg:gap-8">
   <% unless podcast.cover.empty? %>
     <%= link_to podcast, class: "shrink-0 rounded-sm relative " do %>
-      <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shadow-lg shadow-slate-800/10 block") %>
+      <%= image_tag("/podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shadow-lg shadow-slate-800/10 block") %>
     <% end %>
   <% end %>
 

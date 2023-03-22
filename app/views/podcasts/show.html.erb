@@ -4,7 +4,7 @@
     <div class="flex-1 self-stretch flex items-center grow justify-center flex-col h-full">
       <% unless @podcast.cover.empty? %>
         <div class="shrink-0 rounded-sm relative ">
-          <%= image_tag("podcasts/#{@podcast.cover}", alt: "#{@podcast.title}", class: "shadow-lg shadow-slate-800/10 block mx-auto w-2/3") %>
+          <%= image_tag("/podcasts/#{@podcast.cover}", alt: "#{@podcast.title}", class: "shadow-lg shadow-slate-800/10 block mx-auto w-2/3") %>
         </div>
       <% end %>
       <h1 class="h1 max-w-4xl mx-auto my-6">

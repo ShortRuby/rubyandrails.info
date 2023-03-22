@@ -4,23 +4,23 @@
       <div class="relative">
 
         <% if community.source == "reddit" %>
-          <%= image_tag("communities/icons/reddit.png", srcset: { "communities/icons/reddit@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
+          <%= image_tag("/communities/icons/reddit.png", srcset: { "/communities/icons/reddit@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
         <% end %>
 
         <% if community.source == "discord" %>
-          <%= image_tag("communities/icons/discord.png", srcset: { "communities/icons/discord@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
+          <%= image_tag("/communities/icons/discord.png", srcset: { "/communities/icons/discord@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
         <% end %>
 
         <% if community.source == "forum" %>
-          <%= image_tag("communities/icons/forum.png", srcset: { "communities/icons/forum@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
+          <%= image_tag("/communities/icons/forum.png", srcset: { "/communities/icons/forum@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
         <% end %>
 
         <% if community.source == "slack" %>
-          <%= image_tag("communities/icons/slack.png", srcset: { "communities/icons/slack@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
+          <%= image_tag("/communities/icons/slack.png", srcset: { "/communities/icons/slack@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
         <% end %>
 
         <% if community.source == "twitter" %>
-          <%= image_tag("communities/icons/twitter.png", srcset: { "communities/icons/twitter@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
+          <%= image_tag("/communities/icons/twitter.png", srcset: { "/communities/icons/twitter@2x.png" => "2x"}, alt: "#{community.title}", class: "absolute -top-2 z-40 right-0") %>
         <% end %>
 
         <%= image_tag(community.cover_path, alt: "#{community.title}", class: "mx-auto mb-4") %>

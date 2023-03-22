@@ -2,7 +2,7 @@
   <div class="p-5">
     <% unless podcast.cover.empty? %>
       <%= link_to podcast, class: "shrink-0 relative " do %>
-        <%= image_tag("podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shadow-lg shadow-slate-800/10 w-2/3 hover:opacity-80 mx-auto transition mb-4 rounded-md block") %>
+        <%= image_tag("/podcasts/#{podcast.cover}", alt: "#{podcast.title}", class: "shadow-lg shadow-slate-800/10 w-2/3 hover:opacity-80 mx-auto transition mb-4 rounded-md block") %>
       <% end %>
     <% end %>
 

@@ -16,11 +16,11 @@
 
   <div>
     <%= link_to book, class:"bg-red-600 hover:opacity-90 inline-block text-left shadow-md shadow-slate-800/20 rounded-md relative overflow-hidden pt-4 lg:pt-10 p-4 text-white self-start aspect-[3/4] shrink-0 w-44 lg:w-64 mx-auto" do %>
-      <%#= image_tag("books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
+      <%#= image_tag("/books/overlay.png", alt: "", class: "absolute mix-blend-multiply inset-0") %>
       <p class="text-base lg:pl-4"><%= book.authors.map { |author| author.name }.join(", ").html_safe %> </p>
       <p class="font-bold mt-10 leading-tight text-lg lg:text-2xl lg:pl-4 font-custom">
       <%= book.title %> </p>
-    <% end %> 
+    <% end %>
   </div>
 
 <% end %>

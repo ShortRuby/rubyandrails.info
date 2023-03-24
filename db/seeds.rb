@@ -10,15 +10,19 @@
 require 'faker'
 
 
-20.times do |tag|
-  Tag.create(title: Faker::Lorem.word)
+if Tag.count < 20
+  20.times do |tag|
+    Tag.create(title: Faker::Lorem.word)
+  end
 end
 
-100.times do |book|
-  Book.create!(title: Faker::Book.title[0..40], 
-               subtitle: Faker::Book.title[0..20], 
-               content: Faker::Lorem::paragraph, 
-               cover: "rails-novice-to-ninja.jpg", 
-               year: Faker::Number.between(from: 2000, to: 2022),
-               tag_ids: [] )
+if Book.count < 100
+  100.times do |book|
+    Book.create!(title: Faker::Book.title[0..40], 
+                subtitle: Faker::Book.title[0..20], 
+                content: Faker::Lorem::paragraph, 
+                cover: "rails-novice-to-ninja", 
+                year: Faker::Number.between(from: 2000, to: 2022),
+                tag_ids: [] )
+  end
 end

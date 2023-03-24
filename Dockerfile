@@ -32,11 +32,6 @@ RUN yarn install --check-files
 # Precompile assets with esbuild and TailwindCSS
 RUN bundle exec rake assets:precompile
 
-# Run database migrations
-# RUN rails db:create db:migrate
-
-# Run database migrations
-# RUN bundle exec rake db:migrate
 
 # Precompile assets with esbuild and TailwindCSS
 RUN yarn build

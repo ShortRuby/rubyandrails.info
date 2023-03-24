@@ -28,7 +28,7 @@ class Course < ApplicationRecord
   validates :title, :content, presence: true
 
   def cover_path
-    "/courses/#{cover}"
+    "courses/#{cover}"
   end
 
   def self.ransackable_attributes(auth_object = nil)

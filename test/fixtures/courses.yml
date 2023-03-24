@@ -15,15 +15,15 @@
 #
 
 one:
-  title: MyString
-  content: MyText
+  title: Course A
   free: false
-  courseSiteTitle: MyString
-  courseSiteUrl: MyString
+  courseSiteTitle: My Course A
+  courseSiteUrl: https://example.com/course_a
+  slug: course-a
 
 two:
-  title: MyString
-  content: MyText
+  title: Course B
   free: false
-  courseSiteTitle: MyString
-  courseSiteUrl: MyString
+  courseSiteTitle: My Course B
+  courseSiteUrl: https://example.com/course_b
+  slug: course-b

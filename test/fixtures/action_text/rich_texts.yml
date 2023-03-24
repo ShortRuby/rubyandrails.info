@@ -2,3 +2,13 @@
 #   record: name_of_fixture (ClassOfFixture)
 #   name: content
 #   body: <p>In a <i>million</i> stars!</p>
+
+first:
+  record: one (Course)
+  name: content
+  body: Course A Content
+
+second:
+  record: two (Course)
+  name: content
+  body: Course A Content

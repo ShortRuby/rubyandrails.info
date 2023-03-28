@@ -20,15 +20,13 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/rubyandrails_info_development
+      RAILS_ENV: development
+      RECREATE_DB: ${RECREATE_DB}
     volumes:
       - .:/app
       - node_modules:/app/node_modules
       - bundle:/usr/local/bundle
-    command:  bash -c "bundle exec rake db:drop &&
-                        bundle exec rake db:create &&
-                        bundle exec rake db:migrate &&
-                        bundle exec rake db:seed &&
-                        rails server -b 0.0.0.0"
+    command: ["sh", "./bin/docker-entrypoint"]
 
 volumes:
   db_data:

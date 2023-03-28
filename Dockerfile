@@ -32,9 +32,8 @@ RUN yarn install --check-files
 # Precompile assets with esbuild and TailwindCSS
 RUN bundle exec rake assets:precompile
 
-
 # Precompile assets with esbuild and TailwindCSS
 RUN yarn build
 
-# Start the Rails server
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# Change permissions of start.sh script to make it executable
+RUN chmod +x ./bin/docker-entrypoint

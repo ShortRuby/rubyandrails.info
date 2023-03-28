@@ -10,13 +10,13 @@
 require 'faker'
 
 
-if Tag.count < 20
+if Tag.none?
   20.times do |tag|
     Tag.create(title: Faker::Lorem.word)
   end
 end
 
-if Book.count < 100
+if Book.none?
   100.times do |book|
     Book.create!(title: Faker::Book.title[0..40], 
                 subtitle: Faker::Book.title[0..20], 

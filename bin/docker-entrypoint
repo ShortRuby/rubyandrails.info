@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Remove a potentially pre-existing server.pid for Rails.
+rm -f /app/tmp/pids/server.pid
+
+# Check if RECREATE_DB is set to true and RAILS_ENV is development or test
+echo "ENV RECREATE_DB: ${RECREATE_DB}"
+echo "RAILS_ENV ${RAILS_ENV}"
+
+if test "${RECREATE_DB}" = "true" && ( test "${RAILS_ENV}" = "development" || test "${RAILS_ENV}" = "test" ); then
+  echo "Dropping && preparing DB"
+  bundle exec rake db:drop
+  bundle exec rake db:prepare
+else
+    echo "Preparing DB"
+    bundle exec rake db:prepare
+fi
+
+# Start the Rails server
+bundle exec rails server -b 0.0.0.0

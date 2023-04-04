@@ -15,5 +15,5 @@ class PodcastResource < Avo::BaseResource
   field :url, as: :text, format_using: ->(value) { value.present? ? link_to(value, value, target: "_blank") : nil }
   field :slug, as: :text, format_using: ->(value) { value.present? ? link_to(value, "https://rubyandrails.info/podcasts/#{value}", target: "_blank") : nil }
   field :featured, as: :boolean
-  field :authors, as: :has_many, through: :authorings
+  field :authors, as: :has_many, through: :authorings, attach_scope: -> { query.order(name: :asc) }
 end

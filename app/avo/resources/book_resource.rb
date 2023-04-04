@@ -20,7 +20,7 @@ class BookResource < Avo::BaseResource
     field :isbn, as: :text
     field :year, as: :number
   end
-  field :authors, as: :has_many, through: :authorings
+  field :authors, as: :has_many, through: :authorings, attach_scope: -> { query.order(name: :asc) }
   field :tags, as: :has_many, through: :taggings
 
   sidebar do

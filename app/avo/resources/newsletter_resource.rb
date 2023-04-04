@@ -19,5 +19,5 @@ class NewsletterResource < Avo::BaseResource
   field :testimonial_text, as: :text
   field :testimonial_author, as: :text
   field :testimonial_link, as: :text, format_using: ->(value) { value.present? ? link_to(value, value, target: "_blank") : nil }
-  field :authors, as: :has_many, through: :authorings
+  field :authors, as: :has_many, through: :authorings, attach_scope: -> { query.order(name: :asc) }
 end

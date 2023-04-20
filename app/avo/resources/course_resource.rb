@@ -18,6 +18,7 @@ class CourseResource < Avo::BaseResource
   field :slug, as: :text, hide_on: :forms, format_using: ->(url) { url.present? ? link_to(url, "/courses/#{url}", target: "_blank") : nil }
   field :cover, as: :text
   field :authors, as: :has_many, through: :authorings, attach_scope: -> { query.order(name: :asc) }
+  field :tags, as: :has_many, through: :taggings
 
   sidebar do
     field :cover, as: :text, only_on: :forms

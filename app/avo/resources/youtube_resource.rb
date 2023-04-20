@@ -17,4 +17,6 @@ class YoutubeResource < Avo::BaseResource
   field :authorings, as: :has_many
   field :authors, as: :has_many, through: :authorings, attach_scope: -> { query.order(name: :asc) }
   field :lessons, as: :has_many
+  field :tags, as: :has_many, through: :taggings
+
 end

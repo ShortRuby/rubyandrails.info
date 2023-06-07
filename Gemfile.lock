@@ -244,6 +244,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
+    sd_notify (0.1.1)
     selenium-webdriver (4.5.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -320,6 +321,7 @@ DEPENDENCIES
   rack-canonical-host
   rails (~> 7.0, >= 7.0.4.2)
   ransack
+  sd_notify (~> 0.1.1)
   selenium-webdriver
   sitemap_generator
   sprockets-rails

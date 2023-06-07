@@ -23,8 +23,10 @@ gem 'meta-tags'
 gem 'pagy'
 gem 'rack-canonical-host'
 gem 'rails', '~> 7.0', '>= 7.0.4.2'
+gem 'sd_notify', '~> 0.1.1'
 gem 'sitemap_generator'
 gem 'pundit'
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

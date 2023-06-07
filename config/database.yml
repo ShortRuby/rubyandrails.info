@@ -82,6 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: rubyandrails_info_production
-  username: rubyandrails_info
-  password: <%= ENV["RUBYANDRAILS_INFO_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>

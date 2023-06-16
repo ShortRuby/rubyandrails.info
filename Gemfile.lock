@@ -76,7 +76,7 @@ GEM
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
-    avo (2.30.2)
+    avo (2.33.3)
       actionview (>= 6.0)
       active_link_to
       activerecord (>= 6.0)
@@ -88,7 +88,7 @@ GEM
       meta-tags
       pagy
       turbo-rails
-      view_component
+      view_component (>= 2.54.0)
       zeitwerk (>= 2.6.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
@@ -136,7 +136,7 @@ GEM
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
-    i18n (1.12.0)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
@@ -152,9 +152,9 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.0.3)
       railties (>= 6.0.0)
-    loofah (2.20.0)
+    loofah (2.21.3)
       crass (~> 1.0.2)
-      nokogiri (>= 1.5.9)
+      nokogiri (>= 1.12.0)
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -167,7 +167,7 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.1)
+    mini_portile2 (2.8.2)
     minitest (5.18.0)
     msgpack (1.6.0)
     multi_xml (0.6.0)
@@ -181,12 +181,12 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.14.3)
-      mini_portile2 (~> 2.8.0)
+    nokogiri (1.15.2)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.14.3-arm64-darwin)
+    nokogiri (1.15.2-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.14.3-x86_64-linux)
+    nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pagy (6.0.3)
@@ -197,7 +197,7 @@ GEM
     pundit (2.3.0)
       activesupport (>= 3.0.0)
     racc (1.6.2)
-    rack (2.2.6.4)
+    rack (2.2.7)
     rack-canonical-host (1.1.0)
       addressable (> 0, < 3)
       rack (>= 1.0.0, < 3)
@@ -220,8 +220,9 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.5.0)
-      loofah (~> 2.19, >= 2.19.1)
+    rails-html-sanitizer (1.6.0)
+      loofah (~> 2.21)
+      nokogiri (~> 1.14)
     railties (7.0.4.3)
       actionpack (= 7.0.4.3)
       activesupport (= 7.0.4.3)
@@ -261,7 +262,7 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
-    thor (1.2.1)
+    thor (1.2.2)
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -290,7 +291,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.7)
+    zeitwerk (2.6.8)
 
 PLATFORMS
   arm64-darwin-21

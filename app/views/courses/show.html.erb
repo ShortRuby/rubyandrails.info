@@ -10,20 +10,20 @@
       <h1 class="h1 mb-6">
         <%= @course.title %>
       </h1>
-      <%= render "shared/btn_cta", btn: @course.courseSiteUrl, event: "get course", title: "Get Course" %>
+      <%= render "shared/btn_cta", btn: @course.website_url, event: "get course", title: "Get Course" %>
     </div>
   </div>
 <% end %>
 
 <% content_for :tags do %>
-  <%= render "shared/tags_big", tag: @course.tags, btn: @course.courseSiteUrl, event: "Get Course" %>
+  <%= render "shared/tags_big", tag: @course.tags, btn: @course.website_url, event: "Get Course" %>
 <% end %>
 
 <% content_for :content do %>
   <%= @course.content %>
 
-  <% if @course.courseSiteUrl.present? %>
-    <%= link_to @course.courseSiteUrl, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center inline-block mt-8 text-white hover:bg-slate-700 transition duration-300 rounded-xl px-6 py-3 text-2xl font-bold font-custom" do %>
+  <% if @course.website_url.present? %>
+    <%= link_to @course.website_url, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center inline-block mt-8 text-white hover:bg-slate-700 transition duration-300 rounded-xl px-6 py-3 text-2xl font-bold font-custom" do %>
       Get Course
     <% end %>
   <% end %>

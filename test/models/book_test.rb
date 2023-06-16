@@ -8,9 +8,9 @@
 #  free               :boolean
 #  page               :integer
 #  isbn               :string
-#  getBookOnAmazonUrl :string
-#  getBookOnSiteTitle :string
-#  getBookOnSiteUrl   :string
+#  amazon_url         :string
+#  website_title      :string
+#  website_url        :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  subtitle           :string

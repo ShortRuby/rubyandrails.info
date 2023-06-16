@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_22_151355) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_195648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -111,8 +111,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_151355) do
     t.string "title"
     t.text "content"
     t.boolean "free"
-    t.string "courseSiteTitle"
-    t.string "courseSiteUrl"
+    t.string "website_title"
+    t.string "website_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"

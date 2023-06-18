@@ -5,9 +5,9 @@
 #  id           :bigint           not null, primary key
 #  name         :string
 #  content      :text
-#  twitterUrl   :string
-#  githubUrl    :string
-#  siteUrl      :string
+#  twitter_url  :string
+#  github_url   :string
+#  website_url  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  slug         :string

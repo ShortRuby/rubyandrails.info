@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_16_194542) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,9 +66,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_194542) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.text "content"
-    t.string "twitterUrl"
-    t.string "githubUrl"
-    t.string "siteUrl"
+    t.string "twitter_url"
+    t.string "github_url"
+    t.string "website_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"

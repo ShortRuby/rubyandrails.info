@@ -69,7 +69,7 @@ class AuthorsController < ApplicationController
   end
 
   def author_params
-    params.require(:author).permit(:name, :content, :twitterUrl, :siteUrl, :githubUrl, :photo)
+    params.require(:author).permit(:name, :content, :twitter_url, :website_url, :github_url, :photo)
   end
 
   def authenticate_admin!

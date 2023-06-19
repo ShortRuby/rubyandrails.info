@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: authors
+#
+#  id           :bigint           not null, primary key
+#  name         :string
+#  content      :text
+#  twitter_url  :string
+#  github_url   :string
+#  website_url  :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  slug         :string
+#  photo        :string
+#  mastodon_url :string
+#
+
+john_doe:
+  name: John Doe
+  twitter_url: https://twitter.com/john-doe
+  github_url: https://github.com/john-doe
+  website_url: https://john-doe.com
+  slug: john-deo
+  mastodon_url: https://mastodon.com/john-doe
+
+walter_white:
+  name: Walter White
+  twitter_url: https://twitter.com/walter-white
+  github_url: https://github.com/walter-white
+  website_url: https://walter-white.com
+  slug: walter-white
+  mastodon_url: https://mastodon.com/walter-white

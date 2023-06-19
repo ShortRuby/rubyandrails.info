@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: screencasts
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  url        :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  slug       :string
+#
+first:
+  title: Go Rails
+  url: https://rubyandrails.info/screencasts/go-rails
+  slug: go-rails
+
+second:
+  title: Hanami Mastery
+  url: https://rubyandrails.info/screencasts/hanami-mastery
+  slug: hanami-mastery

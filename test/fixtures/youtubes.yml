@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: youtubes
+#
+#  id          :bigint           not null, primary key
+#  title       :string
+#  cover       :string
+#  description :string
+#  url         :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  slug        :string
+#
+
+youtube_zero:
+  title: Ruby in 100 Seconds
+  description: Ruby is a dynamic programming language most well-know for powering the Ruby on Rails fullstack web framework. Learn why developers love the simple object-oriented code produced by the Ruby language.
+  url: https://www.youtube.com/watch?v=UYm0kfnRTJk&t=45s
+  slug: ruby-in-100-seconds
+
+youtube_one:
+  title: Devise Masquerade
+  description: Learn how to use the Devise Masquerade gem to login as or impersonate another user in development or from your admin interface to easily test things out and make doing support much much easier.
+  url: https://www.youtube.com/watch?v=C03adOMm-EA&t=303s
+  slug: devise-masquerade
+
+youtube_two:
+  title: Add Pagination
+  description: Build a Blog with Rails to Add Pagination to our Blog Posts in Rails
+  url: https://www.youtube.com/watch?v=1sNpvTMrxl4
+  slug: add-pagination

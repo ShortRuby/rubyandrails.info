@@ -1,0 +1,51 @@
+# == Schema Information
+#
+# Table name: newsletters
+#
+#  id                 :bigint           not null, primary key
+#  title              :string
+#  url                :string
+#  description        :string
+#  slug               :string
+#  featured           :boolean
+#  author             :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  featured_cover     :string
+#  testimonial_text   :string
+#  testimonial_author :string
+#  testimonial_link   :string
+#
+one:
+  title: Sample Newsletter
+  url: https://example.com/newsletter
+  description: This is a sample newsletter.
+  slug: sample-newsletter
+  featured: true
+  author: John Doe
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+  featured_cover: featured-newsletter.jpg
+  testimonial_text: Great newsletter!
+  testimonial_author: Jane Smith
+  testimonial_link: https://example.com/testimonial
+
+two:
+  title: Another Newsletter
+  url: https://example.com/another-newsletter
+  description: This is another sample newsletter.
+  slug: another-newsletter
+  featured: false
+  author: Jane Doe
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+  featured_cover: nil
+  testimonial_text: Amazing content!
+  testimonial_author: John Smith
+  testimonial_link: https://example.com/testimonial
+
+
+
+
+
+

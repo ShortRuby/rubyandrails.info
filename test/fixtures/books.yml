@@ -1,0 +1,52 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id                 :bigint           not null, primary key
+#  title              :string
+#  content            :text
+#  free               :boolean
+#  page               :integer
+#  isbn               :string
+#  getBookOnAmazonUrl :string
+#  getBookOnSiteTitle :string
+#  getBookOnSiteUrl   :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  subtitle           :string
+#  year               :integer
+#  slug               :string
+#  cover              :string
+#  featured           :boolean
+#
+ror_interview_bible:
+  title: The Ruby on Rails Interview Bible
+  free: true
+  page: 100
+  isbn: ABC123
+  getBookOnAmazonUrl: https://www.amazon.com/book1
+  getBookOnSiteTitle: Get Book on Site
+  getBookOnSiteUrl: https://www.example.com/book1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+  subtitle: A Journey into Writing
+  year: 2023
+  slug: my-first-book
+  cover: book1.jpg
+  featured: true
+
+two:
+  title: My Second Book
+  free: false
+  page: 200
+  isbn: XYZ456
+  getBookOnAmazonUrl: https://www.amazon.com/book2
+  getBookOnSiteTitle: Get Book on Site
+  getBookOnSiteUrl: https://www.example.com/book2
+  created_at: <%= 1.day.ago %>
+  updated_at: <%= 1.day.ago %>
+  subtitle: Exploring New Worlds
+  year: 2022
+  slug: my-second-book
+  cover: book2.jpg
+  featured: false

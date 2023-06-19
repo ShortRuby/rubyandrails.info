@@ -1,0 +1,19 @@
+one:
+  title: Community One
+  cover: community_one_cover.jpg
+  description: Description of Community One
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+  url: https://communityone.com
+  slug: community-one
+  source: reddit
+
+two:
+  title: Community Two
+  cover: community_two_cover.jpg
+  description: Description of Community Two
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+  url: https://communitytwo.com
+  slug: community-two
+  source: discord

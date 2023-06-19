@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id          :bigint           not null, primary key
+#  title       :string
+#  description :string
+#  date        :string
+#  url         :string
+#  active      :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  slug        :string
+#
+one:
+  title: Event 1
+  description: Description for Event 1
+  date: <%= Time.current %>
+  url: https://example.com/event1
+  active: true
+
+two:
+  title: Event 2
+  description: Description for Event 2
+  date: <%= Time.current %>
+  url: https://example.com/event2
+  active: false

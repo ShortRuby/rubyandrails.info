@@ -11,7 +11,14 @@
 require "test_helper"
 
 class TagTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  attr_reader :tag
+
+  def setup
+    @tag = tags(:tag_one)
+  end
+
+  test 'should be valid' do    
+    assert tag.valid?
+    assert_empty tag.errors
+  end
 end

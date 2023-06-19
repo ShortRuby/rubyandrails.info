@@ -22,7 +22,39 @@
 require "test_helper"
 
 class BookTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  attr_reader :book
+
+  def setup
+    @book = books(:ror_interview_bible)
+  end
+
+  test "should be valid" do
+    assert book.valid?
+  end
+
+  test "should have a title" do
+    book.title = ""
+    assert_not book.valid?
+  end
+
+  test "should have content" do
+    book.content = ""
+    assert_not book.valid?
+  end
+
+  test "should have a friendly_id" do
+    assert_respond_to book, :slug
+  end
+
+  test "should return free books" do
+    assert_includes Book.free_books, book
+  end
+
+  test "should have next book" do
+    assert_equal books(:two), book.next
+  end
+
+  test "should have previous book" do
+    assert_equal books(:two), book.previous
+  end
 end

@@ -12,7 +12,13 @@
 require "test_helper"
 
 class ScreencastTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  attr_reader :screencast
+
+  def setup
+    @screencast = screencasts(:first)
+  end
+
+  test 'should be valid' do
+    assert screencast.valid?
+  end
 end

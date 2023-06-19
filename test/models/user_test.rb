@@ -16,7 +16,31 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  attr_reader :user, :admin
+
+  def setup
+    @user = users(:user1)
+    @admin = users(:admin)
+  end
+  test 'should be valid' do
+    assert user.valid?
+  end
+
+  test 'should have an email' do
+    user.email = ''
+    assert_not user.valid?
+  end
+
+  test 'should have a password' do
+    user.password = ''
+    assert_not user.valid?
+  end
+
+  test 'should not be an admin by default' do
+    assert_not user.admin?
+  end
+
+  test 'admin user should be an admin' do
+    assert admin.admin?
+  end
 end

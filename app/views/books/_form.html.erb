@@ -28,13 +28,13 @@
     <div>
       <div class="flex flex-col gap-1 mb-4">
         <%= f.label 'Amazon', class: "text-base"  %>
-        <%= f.text_field :getBookOnAmazonUrl %>
+        <%= f.text_field :amazon_url %>
       </div>
 
       <div class="flex flex-col gap-1 mb-4">
         <%= f.label 'Get book on', class: "text-base"  %>
-        <%= f.text_field :getBookOnSiteTitle, placeholder: 'Site title' %>
-        <%= f.text_field :getBookOnSiteUrl, placeholder: 'Site url' %>
+        <%= f.text_field :website_title, placeholder: 'Site title' %>
+        <%= f.text_field :website_url, placeholder: 'Site url' %>
       </div>
       <div data-controller="tom-select" data-tom-select-url-value = "/tags" class="mb-4">
         <%= f.select :tag_ids, Tag.all.pluck(:title, :id), {}, { multiple: true, placeholder: "tags", id: "select-tags", data: { tom_select_target: "filter" }} %>

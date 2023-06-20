@@ -65,9 +65,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_195648) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.text "content"
-    t.string "twitterUrl"
-    t.string "githubUrl"
-    t.string "siteUrl"
+    t.string "twitter_url"
+    t.string "github_url"
+    t.string "website_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
@@ -82,9 +82,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_195648) do
     t.boolean "free"
     t.integer "page"
     t.string "isbn"
-    t.string "getBookOnAmazonUrl"
-    t.string "getBookOnSiteTitle"
-    t.string "getBookOnSiteUrl"
+    t.string "amazon_url"
+    t.string "website_title"
+    t.string "website_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "subtitle"

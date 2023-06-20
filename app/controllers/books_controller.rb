@@ -71,7 +71,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :subtitle, :cover, :content, :free, :year, :page, :getBookOnAmazonUrl, :getBookOnSiteTitle, :getBookOnSiteUrl, :featured, :isbn, tag_ids: [], author_ids: [])
+    params.require(:book).permit(:title, :subtitle, :cover, :content, :free, :year, :page, :amazon_url, :website_title, :website_url, :featured, :isbn, tag_ids: [], author_ids: [])
   end
 
   def authenticate_admin!

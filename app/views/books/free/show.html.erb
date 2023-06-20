@@ -9,9 +9,9 @@
       <h1 class="h1 max-w-4xl mx-auto my-6">
         <%= @book.title %>
       </h1>
-      <%= render "shared/btn_cta", btn: @book.getBookOnSiteUrl, event: "get book on publisher site", title: "#{@book.getBookOnSiteTitle}" %>
+      <%= render "shared/btn_cta", btn: @book.website_url, event: "get book on publisher site", title: "#{@book.website_title}" %>
 
-      <%= render "shared/btn_cta", btn: @book.getBookOnAmazonUrl, event: "get book on amazon", title: "Amazon" %>
+      <%= render "shared/btn_cta", btn: @book.amazon_url, event: "get book on amazon", title: "Amazon" %>
     </div>
   </div>
 <% end %>
@@ -19,15 +19,15 @@
 <% content_for :content do %>
   <%= @book.content %>
 
-  <% if @book.getBookOnSiteUrl.present? %>
-    <%= link_to @book.getBookOnSiteUrl, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center inline-block mt-8 text-white hover:bg-slate-700 transition duration-300 rounded-xl px-6 py-3 text-2xl font-bold font-custom" do %>
+  <% if @book.website_url.present? %>
+    <%= link_to @book.website_url, target: "_blank", data: {:"splitbee-event" => "Get Course"}, class: "bg-slate-900 text-center inline-block mt-8 text-white hover:bg-slate-700 transition duration-300 rounded-xl px-6 py-3 text-2xl font-bold font-custom" do %>
       Get Course
     <% end %>
   <% end %>
 <% end %>
 
 <% content_for :tags do %>
-  <%= render "shared/tags_big", tag: @book.tags, btn: @book.getBookOnSiteUrl, event: "get book on publisher site" %>
+  <%= render "shared/tags_big", tag: @book.tags, btn: @book.website_url, event: "get book on publisher site" %>
 <% end %>
 
 <% content_for :authors do %>

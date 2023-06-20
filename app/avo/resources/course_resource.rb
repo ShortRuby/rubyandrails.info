@@ -12,8 +12,8 @@ class CourseResource < Avo::BaseResource
   field :title, as: :text
   field :content, as: :textarea
   field :free, as: :boolean
-  field :courseSiteTitle, name: "Site title", as: :text
-  field :courseSiteUrl, name: "Site URL", as: :text, format_using: ->(url) { url.present? ? link_to(url, url, target: "_blank") : nil }
+  field :website_title, name: "Site title", as: :text
+  field :website_url, name: "Site URL", as: :text, format_using: ->(url) { url.present? ? link_to(url, url, target: "_blank") : nil }
   field :slug, as: :text, only_on: :forms
   field :slug, as: :text, hide_on: :forms, format_using: ->(url) { url.present? ? link_to(url, "/courses/#{url}", target: "_blank") : nil }
   field :cover, as: :text

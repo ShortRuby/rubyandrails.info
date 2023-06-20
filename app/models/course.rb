@@ -6,8 +6,8 @@
 #  title           :string
 #  content         :text
 #  free            :boolean
-#  courseSiteTitle :string
-#  courseSiteUrl   :string
+#  website_title   :string
+#  website_url     :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  slug            :string

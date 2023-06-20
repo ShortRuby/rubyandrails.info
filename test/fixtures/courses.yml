@@ -6,8 +6,8 @@
 #  title           :string
 #  content         :text
 #  free            :boolean
-#  courseSiteTitle :string
-#  courseSiteUrl   :string
+#  website_title   :string
+#  website_url     :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  slug            :string
@@ -17,13 +17,13 @@
 one:
   title: Course A
   free: false
-  courseSiteTitle: My Course A
-  courseSiteUrl: https://example.com/course_a
+  website_title: My Course A
+  website_url: https://example.com/course_a
   slug: course-a
 
 two:
   title: Course B
   free: false
-  courseSiteTitle: My Course B
-  courseSiteUrl: https://example.com/course_b
+  website_title: My Course B
+  website_url: https://example.com/course_b
   slug: course-b

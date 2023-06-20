@@ -68,7 +68,7 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:title, :cover, :content, :free, :courseSiteTitle, :courseSiteUrl, tag_ids: [], author_ids: [])
+    params.require(:course).permit(:title, :cover, :content, :free, :website_title, :website_url, tag_ids: [], author_ids: [])
   end
 
   def authenticate_admin!

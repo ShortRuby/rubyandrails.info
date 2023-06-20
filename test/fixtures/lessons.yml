@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: lessons
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  url        :string
+#  youtube_id :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  slug       :string
+#
+
+zeroth:
+  title: Lesson Zero
+  youtube: youtube_zero
+  url: https://example.com/lesson-zero
+  slug: lesson-zero
+
+first:
+  title: Lesson One
+  youtube: youtube_one
+  url: https://example.com/lesson-one
+  slug: lesson-one
+  
+second:
+  title: Lesson Two
+  youtube: youtube_two
+  url: https://example.com/lesson-two
+  slug: lesson-two
+

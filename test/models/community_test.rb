@@ -15,7 +15,23 @@
 require "test_helper"
 
 class CommunityTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  attr_reader :community
+
+  def setup
+    @community = communities(:one)
+  end
+
+  test 'should be valid' do
+    assert community.valid?
+  end
+
+  test 'should have a title' do
+    @community.title = ''
+    assert_not community.valid?
+  end
+
+  test 'should have a URL' do
+    community.url = ''
+    assert_not community.valid?
+  end
 end

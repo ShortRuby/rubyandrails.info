@@ -8,17 +8,11 @@
 #  updated_at :datetime         not null
 #  slug       :string
 #
-require "test_helper"
 
-class TagTest < ActiveSupport::TestCase
-  attr_reader :tag
+tag_one:
+  title: test cases
+  slug: test-cases
 
-  def setup
-    @tag = tags(:tag_one)
-  end
-
-  test 'should be valid' do    
-    assert tag.valid?
-    assert_empty tag.errors
-  end
-end
+tag_two:
+  title: type checking
+  slug: type-checking

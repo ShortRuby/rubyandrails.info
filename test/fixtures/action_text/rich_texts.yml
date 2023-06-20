@@ -1,14 +1,45 @@
-# one:
-#   record: name_of_fixture (ClassOfFixture)
-#   name: content
-#   body: <p>In a <i>million</i> stars!</p>
-
-first:
-  record: one (Course)
+rich_text_one:
+  record: name_of_fixture (ClassOfFixture)
   name: content
-  body: Course A Content
+  body: <p>In a <i>million</i> stars!</p>
 
-second:
-  record: two (Course)
+# Lesson
+first_lesson:
+  record: first (Lesson)
+  name: description
+  body: <p>In a million stars!</p>
+
+# Author
+john_doe_author:
+  record: first (Author)
   name: content
-  body: Course A Content
+  body: <p>I've been developing for the web since 1994, moving from static HTML to Applescript(!) to Perl to PHP and now to Ruby on Rails. 
+        In my blog, Everyday Rails, I show how I leverage tools from the Ruby ecosystem to be a productive developer, even when time and
+        other resources are tight.</p>
+
+# Book
+ror_interview_bible_book:
+  record: ror_interview_bible (Book)
+  name: content
+  body: <p> Are you a Ruby on Rails developer who wants to ace your next job interview? Look no further than The Ruby on Rails Interview Bible,
+        the comprehensive guide that covers everything you need to know to succeed. As a seasoned Ruby on Rails developer with years of
+        experience in the field, I have gathered and compiled a list of 500+ essential questions and answers that are frequently asked in
+        Ruby on Rails interviews. This e-book is designed to help you prepare for even the toughest of interviews and stand out from the competition.</p>
+
+# Screencast
+first_screencast:
+  record: first (Screencast)
+  name: content
+  body: <p>Test</p>
+
+# Newsletter
+one_newsletter:
+  record: one (Newsletter)
+  name: content
+  body: <h1>a test newsletter</h1>
+
+# Podcasts
+one_podcast:
+  record: one (Podcast)
+  name: content
+  body: <h1>a test podcast</h1>

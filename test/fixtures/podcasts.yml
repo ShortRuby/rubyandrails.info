@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: podcasts
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  cover      :string
+#  url        :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  slug       :string
+#  featured   :boolean
+#
+one:
+  title: My Podcast
+  cover: podcast_cover.jpg
+  url: https://example.com/podcast1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+  slug: my-podcast
+  featured: true
+
+two:
+  title: Another Podcast
+  cover: another_cover.jpg
+  url: https://example.com/podcast2
+  created_at: <%= 1.week.ago %>
+  updated_at: <%= 1.week.ago %>
+  slug: another-podcast
+  featured: false

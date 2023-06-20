@@ -19,7 +19,31 @@
 require "test_helper"
 
 class NewsletterTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  attr_reader :newsletter
+
+  def setup
+    @newsletter = newsletters(:one)
+  end
+
+  test 'should be valid' do
+    assert newsletter.valid?
+  end
+
+  test 'title should be present' do
+    newsletter.title = ''
+    assert_not newsletter.valid?
+    assert_includes newsletter.errors[:title], "can't be blank"
+  end
+
+  test 'content should be present' do
+    newsletter.content = ''
+    assert_not newsletter.valid?
+    assert_includes newsletter.errors[:content], "can't be blank"
+  end
+
+  test 'url should be present' do
+    newsletter.url = ''
+    assert_not newsletter.valid?
+    assert_includes newsletter.errors[:url], "can't be blank"
+  end
 end

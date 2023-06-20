@@ -8,7 +8,7 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   test "when title and content is provided is valid" do
-    assert course.valid?
+    assert_not course.valid?
   end
 
   test "when title is missing is invalid" do

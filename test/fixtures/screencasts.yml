@@ -9,16 +9,12 @@
 #  updated_at :datetime         not null
 #  slug       :string
 #
-require "test_helper"
+first:
+  title: Go Rails
+  url: https://rubyandrails.info/screencasts/go-rails
+  slug: go-rails
 
-class ScreencastTest < ActiveSupport::TestCase
-  attr_reader :screencast
-
-  def setup
-    @screencast = screencasts(:first)
-  end
-
-  test 'should be valid' do
-    assert screencast.valid?
-  end
-end
+second:
+  title: Hanami Mastery
+  url: https://rubyandrails.info/screencasts/hanami-mastery
+  slug: hanami-mastery

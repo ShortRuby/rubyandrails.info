@@ -8,9 +8,9 @@
 #  free               :boolean
 #  page               :integer
 #  isbn               :string
-#  getBookOnAmazonUrl :string
-#  getBookOnSiteTitle :string
-#  getBookOnSiteUrl   :string
+#  amazon_url         :string
+#  website_title      :string
+#  website_url        :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  subtitle           :string
@@ -24,9 +24,9 @@ ror_interview_bible:
   free: true
   page: 100
   isbn: ABC123
-  getBookOnAmazonUrl: https://www.amazon.com/book1
-  getBookOnSiteTitle: Get Book on Site
-  getBookOnSiteUrl: https://www.example.com/book1
+  amazon_url: https://www.amazon.com/book1
+  website_title: Get Book on Site
+  website_url: https://www.example.com/book1
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
   subtitle: A Journey into Writing
@@ -40,9 +40,9 @@ two:
   free: false
   page: 200
   isbn: XYZ456
-  getBookOnAmazonUrl: https://www.amazon.com/book2
-  getBookOnSiteTitle: Get Book on Site
-  getBookOnSiteUrl: https://www.example.com/book2
+  amazon_url: https://www.amazon.com/book2
+  website_title: Get Book on Site
+  website_url: https://www.example.com/book2
   created_at: <%= 1.day.ago %>
   updated_at: <%= 1.day.ago %>
   subtitle: Exploring New Worlds

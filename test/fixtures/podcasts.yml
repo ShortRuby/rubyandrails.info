@@ -13,7 +13,7 @@
 #
 one:
   title: My Podcast
-  cover: podcast_cover.jpg
+  cover: ' '
   url: https://example.com/podcast1
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
@@ -22,7 +22,7 @@ one:
 
 two:
   title: Another Podcast
-  cover: another_cover.jpg
+  cover: ' '
   url: https://example.com/podcast2
   created_at: <%= 1.week.ago %>
   updated_at: <%= 1.week.ago %>

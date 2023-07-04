@@ -32,7 +32,7 @@ ror_interview_bible:
   subtitle: A Journey into Writing
   year: 2023
   slug: my-first-book
-  cover: book1.jpg
+  cover: 
   featured: true
 
 two:
@@ -48,5 +48,5 @@ two:
   subtitle: Exploring New Worlds
   year: 2022
   slug: my-second-book
-  cover: book2.jpg
+  cover: 
   featured: false

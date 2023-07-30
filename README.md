@@ -3,8 +3,21 @@
 Ruby and Rails [dot] info.
 [Ruby and Rails Info](https://rubyandrails.info) website.
 
-## Getting started
-OSX Non-Docker Setup (Tested on OSX M1 Ventura 13.4.1)
+## Getting started with Docker
+Tested on Linux Ubuntu 22.04
+
+### Local Deployment with Docker
+#### Start dev environment
+`docker-compose up -d --build`
+
+#### Allow to drop && seed database when initializing the dev environment
+export $RECREATE_DB=true
+
+#### Access the shell in the app container
+`docker-compose run --rm --entrypoint sh app`
+
+## Getting started without Docker
+Tested on OSX M1 Ventura 13.4.1
 
 ### Requirements
 
@@ -70,17 +83,3 @@ bundle exec rails s
 
 * Run `rails test` to run unit/integration tests.
 * Run `rails test:system` to run system tests, using `headless_chrome`.
-======
-
-## Getting started
-Docker Setup (Tested on Linux Ubuntu 22.04)
-
-### Local Deployment with Docker
-#### Start dev environment
-`docker-compose up -d --build`
-
-#### Allow to drop && seed database when initializing the dev environment
-export $RECREATE_DB=true
-
-#### Access the shell in the app container
-`docker-compose run --rm --entrypoint sh app`

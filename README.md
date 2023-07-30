@@ -8,13 +8,21 @@ Tested on Linux Ubuntu 22.04
 
 ### Local Deployment with Docker
 #### Start dev environment
-`docker-compose up -d --build`
+```bash
+  docker-compose up -d --build
+```
 
 #### Allow to drop && seed database when initializing the dev environment
-export $RECREATE_DB=true
+```bash
+  export $RECREATE_DB=true
+```
 
 #### Access the shell in the app container
-`docker-compose run --rm --entrypoint sh app`
+```bash
+  docker-compose run --rm --entrypoint sh app
+```
+
+---
 
 ## Getting started without Docker
 Tested on OSX M1 Ventura 13.4.1

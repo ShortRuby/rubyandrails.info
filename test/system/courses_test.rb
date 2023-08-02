@@ -7,7 +7,7 @@ class CoursesTest < ApplicationSystemTestCase
     @course = courses(:one)
   end
 
-  test "visiting the index" do
+  test "should display the title" do
     visit courses_url
   
     assert_selector "h1", text: "Courses"

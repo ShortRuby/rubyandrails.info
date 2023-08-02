@@ -1,8 +1,8 @@
 require "application_system_test_case"
 
-class SignInTest < ApplicationSystemTestCase
+class RegistrationTest < ApplicationSystemTestCase
 
-  test 'sign up a new user' do
+  test 'should sign up a new user' do
     visit new_user_registration_path
     fill_in 'Name', with: 'New User'
     fill_in 'Email', with: 'new_user@example.com'

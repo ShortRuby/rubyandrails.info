@@ -7,7 +7,7 @@ class AuthorsTest < ApplicationSystemTestCase
     @author = authors(:john_doe)
   end
 
-  test "visiting the index" do
+  test "should display the title" do
     visit authors_url
 
     assert_selector "h1", text: "People"

@@ -7,7 +7,7 @@ class YoutubesTest < ApplicationSystemTestCase
     @youtube_course = youtubes(:youtube_zero)
   end
 
-  test "visiting the index" do
+  test "should display the title" do
     visit youtubes_url
   
     assert_selector "h1", text: "YouTube Courses"

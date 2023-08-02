@@ -7,7 +7,7 @@ class ScreencastsTest < ApplicationSystemTestCase
     @screencast = screencasts(:first)
   end
 
-  test "visiting the index" do
+  test "should display the title" do
     visit screencasts_url
   
     assert_selector "h1", text: "Screencasts about Ruby and Ruby on Rails"

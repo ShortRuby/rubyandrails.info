@@ -7,7 +7,7 @@ class NewslettersTest < ApplicationSystemTestCase
     @newsletter = newsletters(:one)
   end
 
-  test "visiting the index" do
+  test "should display the title" do
     visit newsletters_url
   
     assert_selector "h1", text: "Newsletters about Ruby and Ruby on Rails"

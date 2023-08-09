@@ -6,7 +6,8 @@ class TagsController < ApplicationController
   layout "admin", only: %i[new edit]
 
   def index
-    @tags = Tag.all.order(:title)
+    filtered_tags = Tag.ransack(title_cont: search_term).result
+    @tags = filtered_tags.order(:title)
     @random = Tag.where(id: Tag.pluck(:id).sample) 
 
     set_meta_tags title: "#{@tags.count} topics about Ruby & Ruby on Rails", description: "Choose one of the #{@tags.count} topics about Ruby, Ruby on Rails, OOP and more and find out in which books you can learn more about it.", keywords: "books, Ruby, Ruby on Rails, how to learn ruby, how to learn Ruby on Rails"
@@ -67,5 +68,9 @@ class TagsController < ApplicationController
 
   def authenticate_admin!
     redirect_to root_path unless current_user.try(:admin?)
+  end
+
+  def search_term
+    params[:search_term]&.strip&.downcase
   end
 end

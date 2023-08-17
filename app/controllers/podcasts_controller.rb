@@ -8,7 +8,8 @@ class PodcastsController < ApplicationController
   def index
     set_meta_tags title: "#{Podcast.count} podcasts about Ruby & Ruby on Rails", description: "#{Podcast.count} podcasts about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Podcast, Ruby, Ruby on Rails, best podcasts about programming"
 
-    @podcasts = Podcast.all.order created_at: :desc
+    filtered_podcasts = Podcast.ransack(title_cont: search_term).result
+    @podcasts = filtered_podcasts.order created_at: :desc
     @featured = Podcast.where(featured: true)
     @tags = Tag.all.order(:title)
     @random = Podcast.where(id: Podcast.pluck(:id).sample) 
@@ -75,4 +76,7 @@ class PodcastsController < ApplicationController
     redirect_to root_path unless current_user.try(:admin?)
   end
 
+  def search_term
+    params[:search_term]&.strip&.downcase
+  end
 end

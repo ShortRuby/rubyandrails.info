@@ -8,7 +8,8 @@ class AuthorsController < ApplicationController
   def index
     set_meta_tags title: "#{Author.count} authors creating materials about Ruby & Ruby on Rails", description: "People who write create books, podcasts, courses about Ruby and Ruby on Rails. For each author you can see all the books they have written about the topic and their contacts: twitter, website, or github.", keywords: "Ruby book authors, Ruby on Rails book authors"
 
-    @authors = Author.all.order("name ASC") 
+    filtered_authors = Author.ransack(name_cont: search_term).result
+    @authors = filtered_authors.order("name ASC") 
     @tags = Tag.all.order(:title)
 
     render layout:"index_page"
@@ -74,5 +75,9 @@ class AuthorsController < ApplicationController
 
   def authenticate_admin!
     redirect_to root_path unless current_user.try(:admin?)
+  end
+
+  def search_term
+    params[:search_term]&.strip&.downcase
   end
 end

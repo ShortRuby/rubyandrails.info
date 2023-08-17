@@ -8,7 +8,8 @@ class NewslettersController < ApplicationController
   def index
     set_meta_tags title: "#{Newsletter.count} newsletters about Ruby & Ruby on Rails", description: "#{Newsletter.count} newsletters about development, Ruby, Ruby on Rails. Learn from experienced developers, discover how to learn programming, and just have fun", keywords: "Newsletter, Ruby, Ruby on Rails, best newsletters about programming"
  
-    @newsletters = Newsletter.all.order created_at: :desc
+    filtered_newsletters = Newsletter.ransack(title_cont: search_term).result
+    @newsletters = filtered_newsletters.order created_at: :desc
     @featured = Newsletter.where(featured: true)
     @tags = Tag.all.order(:title)
     @random = Newsletter.where(id: Newsletter.pluck(:id).sample) 
@@ -74,4 +75,7 @@ class NewslettersController < ApplicationController
     redirect_to root_path unless current_user.try(:admin?)
   end
 
+  def search_term
+    params[:search_term]&.strip&.downcase
+  end
 end

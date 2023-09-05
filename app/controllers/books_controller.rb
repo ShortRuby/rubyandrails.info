@@ -4,19 +4,15 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   layout "admin", only: %i[new edit]
-  
+
   def index
     set_meta_tags title: "#{Book.count} books about Ruby & Ruby on Rails", description: "The largest collection of books about Ruby & Ruby on Rails. Find books that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Book, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'
-
     @tags = Tag.all.order(:title)
-    filtered_books = Book.ransack(title_cont: search_term).result
-    filtered_books = filtered_books.order(created_at: :desc)
-
-    @pagy, @books = pagy(filtered_books)
+    @pagy, @books = pagy(filter.filter(search_term))
     @featured = Book.where(featured: true).where(free: false)
-    @random = Book.where(id: Book.pluck(:id).sample) 
+    @random = Book.where(id: Book.pluck(:id).sample)
 
-    render layout:"index_page"
+    render layout: "index_page"
   end
 
   def new
@@ -84,4 +80,6 @@ class BooksController < ApplicationController
   def search_term
     params[:search_term]&.strip&.downcase
   end
+
+  def filter = Filter.new(Book)
 end

@@ -87,3 +87,7 @@ server/*
 
 # Ignore .vscode workspace settings
 /.vscode
+
+# Ignore direnv files
+
+/.envrc

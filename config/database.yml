@@ -25,6 +25,8 @@ default: &default
 development:
   <<: *default
   database: rubyandrails_info_development
+  username: <%= ENV.fetch("DB_USERNAME") { "rubyonrails_info" } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { } %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -59,6 +61,8 @@ development:
 test:
   <<: *default
   database: rubyandrails_info_test
+  username: <%= ENV.fetch("DB_USERNAME") { "rubyonrails_info" } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { } %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

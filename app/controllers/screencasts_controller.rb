@@ -8,7 +8,8 @@ class ScreencastsController < ApplicationController
   def index
     set_meta_tags title: "#{Screencast.count} screencasts about Ruby & Ruby on Rails", description: "The largest collection of screencasts about Ruby & Ruby on Rails. Find screencast that will help you learn new versions of Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Screencast, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'
 
-    @screencasts = Screencast.all.order(created_at: :asc)
+    filtered_screencasts = Screencast.ransack(title_cont: search_term).result
+    @screencasts = filtered_screencasts.order(created_at: :asc)
     @random = Screencast.where(id: Screencast.pluck(:id).sample) 
 
     render layout:"index_page"
@@ -71,5 +72,9 @@ class ScreencastsController < ApplicationController
 
   def authenticate_admin!
     redirect_to root_path unless current_user.try(:admin?)
+  end
+
+  def search_term
+    params[:search_term]&.strip&.downcase
   end
 end

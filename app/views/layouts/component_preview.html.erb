@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" %>
+    <%= favicon_link_tag "favicon-32x32.png", rel: "icon", sizes: "32x32", type: "image/png" %>
+    <%= favicon_link_tag "favicon-16x16.png", rel: "icon", color:"#EF4444" %>
+    <%= favicon_link_tag "safari-pinned-tab.svg", rel: "mask-icon", sizes: "16x16", type: "image/png" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="flex items-center justify-center min-h-screen text-xl text-slate-800 bg-indigo-50">
+    <div class="relative flex flex-col gap-4 mx-auto overflow-clip lg:gap-10 lg:flex-row">
+      <%= yield %>
+    </div>
+  </body>
+</html>

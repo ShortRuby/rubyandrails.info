@@ -10,6 +10,9 @@ Bundler.require(*Rails.groups)
 
 module RubyandrailsInfo
   class Application < Rails::Application
+    config.autoload_paths << "#{root}/app/views"
+    config.autoload_paths << "#{root}/app/views/layouts"
+    config.autoload_paths << "#{root}/app/views/components"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
@@ -20,5 +23,8 @@ module RubyandrailsInfo
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.lookbook.project_name = "Ruby and Rails Info Preview"
+    config.lookbook.component_paths << "app/views/components"
+    config.lookbook.preview_layout = "component_preview"
   end
 end

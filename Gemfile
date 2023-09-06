@@ -26,13 +26,15 @@ gem 'rails', '~> 7.0', '>= 7.0.4.2'
 gem 'sd_notify', '~> 0.1.1'
 gem 'sitemap_generator'
 gem 'pundit'
-
+gem 'phlex-rails'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'faker'
   # gem "rails_live_reload"
   gem "dotenv-rails", "~> 2.7"
+
+  gem "lookbook", ">= 2.0.5"
 end
 
 group :development do

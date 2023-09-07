@@ -1,39 +1,22 @@
 <% content_for :hero do %>
   <%= render "shared/page_title", title: "Courses about Ruby and Ruby on Rails", description: "Our collection of Ruby and Ruby on Rails courses cover everything from the basics to advanced topics like metaprogramming and web scraping. Courses will show you how to build powerful, production-ready web applications with this popular framework. Best of all, you can find courses for free. Ready to get started?", count: "#{Course.count} courses"  %>
 <% end %>
-
 <% content_for :content do %>
   <% if params[:search_term].present? %>
     <div class="pb-12">
       <strong>Search Term: </strong><%= params[:search_term] %>
     </div>
   <% end %>
-
   <div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
     <span>
-      <h2 class="h2 mb-8">All Courses</h2>
+      <h2 class="mb-8 h2">All Courses</h2>
     </span>
-
     <span>
-      <%= form_tag(courses_path, method: "get", id: 'search_form', remote: true) do %>
-        <div class="input-group">
-          <span class="input-group-append">
-            <%= text_field_tag(:search_term, nil, placeholder: 'Search name', class: 'form-control', value: html_escape(params[:search_term])) %>    
-          </span>
-          <span class="input-group-append">
-            <button type="submit" class="btn btn-primary button-rounded", id="submit-search-btn", title="Search Courses">Search</button>
-            <%= link_to courses_path, type: :submit, class: "btn btn-warning", id: "clear-search-btn", title: "Reset", style: "margin-left: 10px; color: black" do  %> X <% end %>
-          </span>
-        </div>
-      <% end %>
+      <%= render(SearchComponent.new(path: courses_path, search_term: params[:search_term])) %>
     </span>
   </div>
-
   <div class="mb-8">
     <%= render partial: "courses/list", locals: { list: @courses } %>
   </div>
   <%== pagy_nav(@pagy) %>
 <% end %>
-
-
-

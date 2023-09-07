@@ -2,11 +2,7 @@
   <%= render "shared/page_title", title: "Courses about Ruby and Ruby on Rails", description: "Our collection of Ruby and Ruby on Rails courses cover everything from the basics to advanced topics like metaprogramming and web scraping. Courses will show you how to build powerful, production-ready web applications with this popular framework. Best of all, you can find courses for free. Ready to get started?", count: "#{Course.count} courses"  %>
 <% end %>
 <% content_for :content do %>
-  <% if params[:search_term].present? %>
-    <div class="pb-12">
-      <strong>Search Term: </strong><%= params[:search_term] %>
-    </div>
-  <% end %>
+  <%= render SearchTermComponent.new(search_term: params[:search_term]) %>
   <div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
     <div>
       <h2 class="mb-8 h2">All Courses</h2>

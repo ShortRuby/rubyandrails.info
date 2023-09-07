@@ -2,11 +2,7 @@
   <%= render "shared/page_title", title: "What would you like to learn more about? ", description: "If you're looking to learn more about programming, we've got a few resources that might interest you. Whatever your interest, we're sure we can find a book or course that's perfect for you.", count: "#{Tag.count} topics"  %>
 <% end %>
 <% content_for :content do %>
-  <% if params[:search_term].present? %>
-    <div class="pb-12">
-      <strong>Search Term: </strong><%= params[:search_term] %>
-    </div>
-  <% end %>
+  <%= render SearchTermComponent.new(search_term: params[:search_term]) %>
   <div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
     <span>
       <h2 class="mb-8 h2">All Topics</h2>

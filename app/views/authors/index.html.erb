@@ -4,22 +4,12 @@
 <% content_for :content do %>
   <%= render SearchTermComponent.new(search_term: params[:search_term]) %>
   <div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
-    <span>
+    <div>
       <h2 class="mb-8 h2">All</h2>
-    </span>
-    <span>
-      <%= form_tag(authors_path, method: "get", id: 'search_form', remote: true) do %>
-        <div class="input-group">
-          <span class="input-group-append">
-            <%= text_field_tag(:search_term, nil, placeholder: 'Search name', class: 'form-control', value: html_escape(params[:search_term])) %>
-          </span>
-          <span class="input-group-append">
-            <button type="submit" class="btn btn-primary button-rounded", id="submit-search-btn", title="Search Authors">Search</button>
-            <%= link_to authors_path, type: :submit, class: "btn btn-warning", id: "clear-search-btn", title: "Reset", style: "margin-left: 10px; color: black" do  %> X <% end %>
-          </span>
-        </div>
-      <% end %>
-    </span>
+    </div>
+    <div>
+      <%= render SearchComponent.new(path: authors_path, search_term: params[:search_term]) %>
+    </div>
   </div>
   <%= render partial: "authors/list", locals: { list: @authors } %>
 <% end %>

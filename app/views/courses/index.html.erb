@@ -8,12 +8,12 @@
     </div>
   <% end %>
   <div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
-    <span>
+    <div>
       <h2 class="mb-8 h2">All Courses</h2>
-    </span>
-    <span>
+    </div>
+    <div>
       <%= render(SearchComponent.new(path: courses_path, search_term: params[:search_term])) %>
-    </span>
+    </div>
   </div>
   <div class="mb-8">
     <%= render partial: "courses/list", locals: { list: @courses } %>

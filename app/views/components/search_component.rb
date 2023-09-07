@@ -10,7 +10,7 @@ class SearchComponent < ApplicationComponent
     form(id: "search_form", action: path, accept_charset: "UTF-8", data_remote: "true") do
       div(class: "flex items-center gap-2") do
         whitespace
-        label(for: "email", class: "sr-only") { "Email" }
+        label(for: "search_term", class: "sr-only") { "Search Term" }
         whitespace
         input(
           name: "search_term",

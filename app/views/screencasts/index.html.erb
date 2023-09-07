@@ -2,11 +2,7 @@
   <%= render "shared/page_title", title: "Screencasts about Ruby and Ruby on Rails", description: "If you're looking for some helpful resources on learning Ruby and Ruby on Rails development, I recommend checking out some screencast tutorials. There's a lot of great information out there that can help you get started and become a better developer. Happy learning!", count: "#{Screencast.count} courses"  %>
 <% end %>
 <% content_for :content do %>
-  <% if params[:search_term].present? %>
-    <div class="pb-12">
-      <strong>Search Term: </strong><%= params[:search_term] %>
-    </div>
-  <% end %>
+  <%= render SearchTermComponent.new(search_term: params[:search_term]) %>
   <div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
     <div>
       <h2 class="mb-8 h2">All Screencasts</h2>

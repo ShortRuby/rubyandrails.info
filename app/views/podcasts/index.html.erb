@@ -1,24 +1,17 @@
 <% content_for :hero do %>
   <%= render "shared/page_title", title: "Podcasts about Ruby and Ruby on Rails", description: "If you're looking for some interesting podcasts to listen to on your commute or while you're working out, check out our list of the best Ruby, Ruby on Rails, and programming podcasts. From fun discussions about life as a programmer to in-depth interviews with Ruby on Rails experts, these podcasts have something for everyone.", count: "#{Podcast.count} podcasts"  %>
 <% end %>
-
 <% content_for :content do %>
-  <% if params[:search_term].present? %>
-    <div class="pb-12">
-      <strong>Search Term: </strong><%= params[:search_term] %>
-    </div>
-  <% end %>
-
+  <%= render SearchTermComponent.new(search_term: params[:search_term]) %>
   <div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
     <span>
-      <h2 class="h2 mb-8">All Podcasts</h2>
+      <h2 class="mb-8 h2">All Podcasts</h2>
     </span>
-
     <span>
       <%= form_tag(podcasts_path, method: "get", id: 'search_form', remote: true) do %>
         <div class="input-group">
           <span class="input-group-append">
-            <%= text_field_tag(:search_term, nil, placeholder: 'Search name', class: 'form-control', value: html_escape(params[:search_term])) %>    
+            <%= text_field_tag(:search_term, nil, placeholder: 'Search name', class: 'form-control', value: html_escape(params[:search_term])) %>
           </span>
           <span class="input-group-append">
             <button type="submit" class="btn btn-primary button-rounded", id="submit-search-btn", title="Search Podcasts">Search</button>
@@ -28,6 +21,5 @@
       <% end %>
     </span>
   </div>
-
   <%= render partial: "podcasts/list", locals: { list: @podcasts } %>
 <% end %>

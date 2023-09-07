@@ -1,24 +1,17 @@
 <% content_for :hero do %>
   <%= render "shared/page_title", title: "People", description: "There are many people writing about Ruby, Ruby on Rails. Some of them are very experienced developers who have been using Ruby for years, and some are new developers who are just starting to learn the language. I've compiled a list of some of the best and brightest minds in the industry.", count: "#{Author.count} authors"  %>
 <% end %>
-
 <% content_for :content do %>
-  <% if params[:search_term].present? %>
-    <div class="pb-12">
-      <strong>Search Term: </strong><%= params[:search_term] %>
-    </div>
-  <% end %>
-
+  <%= render SearchTermComponent.new(search_term: params[:search_term]) %>
   <div class="flex flex-wrap justify-between mb-8 xl:mb-16 gap-x-8 gap-y-2 md:gap-8">
     <span>
-      <h2 class="h2 mb-8">All</h2>
+      <h2 class="mb-8 h2">All</h2>
     </span>
-
     <span>
       <%= form_tag(authors_path, method: "get", id: 'search_form', remote: true) do %>
         <div class="input-group">
           <span class="input-group-append">
-            <%= text_field_tag(:search_term, nil, placeholder: 'Search name', class: 'form-control', value: html_escape(params[:search_term])) %>    
+            <%= text_field_tag(:search_term, nil, placeholder: 'Search name', class: 'form-control', value: html_escape(params[:search_term])) %>
           </span>
           <span class="input-group-append">
             <button type="submit" class="btn btn-primary button-rounded", id="submit-search-btn", title="Search Authors">Search</button>

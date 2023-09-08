@@ -3,6 +3,8 @@
 Ruby and Rails [dot] info.
 [Ruby and Rails Info](https://rubyandrails.info) website.
 
+The first version of this project was implemented by [Leonid](https://github.com/work-leonid) and it is currently maintained by [Lucian Ghinda](https://github.com/lucianghinda) with the help of many contributors.
+
 ## Getting started with Docker
 Tested on Linux Ubuntu 22.04
 

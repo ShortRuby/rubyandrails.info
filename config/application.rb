@@ -23,8 +23,11 @@ module RubyandrailsInfo
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.lookbook.project_name = "Ruby and Rails Info Preview"
-    config.lookbook.component_paths << "app/views/components"
-    config.lookbook.preview_layout = "component_preview"
+
+    if Rails.env.development?
+      config.lookbook.project_name = "Ruby and Rails Info Preview"
+      config.lookbook.component_paths << "app/views/components"
+      config.lookbook.preview_layout = "component_preview"
+    end
   end
 end

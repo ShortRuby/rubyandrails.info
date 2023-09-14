@@ -1,6 +1,6 @@
 one:
   title: Community One
-  cover: community_one_cover.jpg
+  cover: ''
   description: Description of Community One
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
@@ -10,7 +10,7 @@ one:
 
 two:
   title: Community Two
-  cover: community_two_cover.jpg
+  cover: ''
   description: Description of Community Two
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>

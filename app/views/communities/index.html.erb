@@ -3,7 +3,9 @@
 <% end %>
 
 <% content_for :content do %>
+  <%= render SearchTermComponent.new(search_term: params[:search_term]) %>
   <div class="grid sm:grid-cols-2 xl:grid-cols-4 px-5 sm:px-0 gap-8 place-items-stretch">
+    <%= render SearchComponent.new(path: communities_path, search_term: params[:search_term]) %>
     <%= render partial: "shared/community_card", collection: @communities, as: :community %>
   </div>
 <% end %>

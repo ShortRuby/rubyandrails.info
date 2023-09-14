@@ -27,6 +27,7 @@ gem 'sd_notify', '~> 0.1.1'
 gem 'sitemap_generator'
 gem 'pundit'
 gem 'phlex-rails'
+gem 'rorvswild'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -8,7 +8,8 @@ class CommunitiesController < ApplicationController
   def index
     set_meta_tags title: "#{Community.count} communities about Ruby & Ruby on Rails", description: "The largest collection of communitys about Ruby & Ruby on Rails. Find community that will help you learn Ruby 3, Ruby on Rails 7, Hotwire, TurboFrame, and become a better programmer in general", keywords: 'Community, Ruby, Ruby 3, Ruby on Rails 7, Ruby on Rails 6, Hotwire, Turbo Frame, Stimulus, Vue with Rails, React with Rails, Tailwind with Rails, learn ruby, learn ruby on rails'
 
-    @communities = Community.all.order(title: :asc)
+    filtered_communities = Community.ransack(title_cont: search_term).result
+    @communities = filtered_communities.order(title: :asc)
     render layout:"index_page"
   end
 
@@ -69,5 +70,9 @@ class CommunitiesController < ApplicationController
 
   def authenticate_admin!
     redirect_to root_path unless current_user.try(:admin?)
+  end
+
+  def search_term
+    params[:search_term]&.strip&.downcase
   end
 end

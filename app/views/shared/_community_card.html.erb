@@ -28,7 +28,7 @@
     <% end %>
 
     <div class="mb-4">
-      <p class="text-slate-500 text-base"><%= community.source.capitalize() %></p>
+      <p class="text-slate-500 text-base"><%= community&.source&.capitalize() %></p>
       <%= link_to community do %>
       <h2 class="h2 hover:text-red-500">
           <%= community.title %>

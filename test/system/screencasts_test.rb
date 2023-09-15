@@ -25,7 +25,7 @@ class ScreencastsTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: screencast.title
 
-    serach_screencast_title(screencast.title)
+    search_with_term(screencast.title)
     assert_equal true, page.has_content?("Search Term: #{screencast.title}")
 
     assert_selector "h3", text: screencast.title
@@ -37,17 +37,10 @@ class ScreencastsTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: screencast.title
 
-    serach_screencast_title('invalid')
+    search_with_term('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that screencast
     refute_selector "h3", text: screencast.title
-  end
-
-  private
-
-  def serach_screencast_title(title)
-    fill_in 'search_term', with: title
-    click_button 'Search'
   end
 end

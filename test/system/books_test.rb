@@ -24,7 +24,7 @@ class BooksTest < ApplicationSystemTestCase
 
     assert_selector "h2", text: book.title
 
-    search_with_term(book.title)
+    search_with_name(book.title)
     assert_equal true, page.has_content?("Search Term: #{book.title}")
 
     assert_selector "h2", text: book.title
@@ -36,7 +36,7 @@ class BooksTest < ApplicationSystemTestCase
 
     assert_selector "h2", text: book.title
 
-    search_with_term('invalid')
+    search_with_name('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that book

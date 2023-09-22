@@ -25,7 +25,7 @@ class ScreencastsTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: screencast.title
 
-    search_with_term(screencast.title)
+    search_with_name(screencast.title)
     assert_equal true, page.has_content?("Search Term: #{screencast.title}")
 
     assert_selector "h3", text: screencast.title
@@ -37,7 +37,7 @@ class ScreencastsTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: screencast.title
 
-    search_with_term('invalid')
+    search_with_name('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that screencast

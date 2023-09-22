@@ -25,7 +25,7 @@ class YoutubesTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: youtube_course.title
 
-    search_with_term(youtube_course.title)
+    search_with_name(youtube_course.title)
     assert_equal true, page.has_content?("Search Term: #{youtube_course.title}")
 
     assert_selector "h3", text: youtube_course.title
@@ -37,7 +37,7 @@ class YoutubesTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: youtube_course.title
 
-    search_with_term('invalid')
+    search_with_name('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that course

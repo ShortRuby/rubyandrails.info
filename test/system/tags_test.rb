@@ -25,7 +25,7 @@ class TagsTest < ApplicationSystemTestCase
 
     assert_selector 'a', text: tag.title
 
-    search_with_term(tag.title)
+    search_with_name(tag.title)
     assert_equal true, page.has_content?("Search Term: #{tag.title}")
 
     assert_selector 'a', text: tag.title
@@ -37,7 +37,7 @@ class TagsTest < ApplicationSystemTestCase
 
     assert_selector 'a', text: tag.title
 
-    search_with_term('invalid')
+    search_with_name('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that tag

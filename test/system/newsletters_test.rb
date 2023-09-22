@@ -25,7 +25,7 @@ class NewslettersTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: newsletter.title
 
-    search_newsletter_title(newsletter.title)
+    search_with_term(newsletter.title)
     assert_equal true, page.has_content?("Search Term: #{newsletter.title}")
 
     assert_selector "h3", text: newsletter.title
@@ -37,17 +37,10 @@ class NewslettersTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: newsletter.title
 
-    search_newsletter_title('invalid')
+    search_with_term('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that newsletter
     refute_selector "h3", text: newsletter.title
-  end
-
-  private
-
-  def search_newsletter_title(title)
-    fill_in 'search_term', with: title
-    click_button 'Search'
   end
 end

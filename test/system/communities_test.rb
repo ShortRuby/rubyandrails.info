@@ -24,7 +24,7 @@ class CommunitiesTest < ApplicationSystemTestCase
 
     assert_selector "h2", text: community.title
 
-    serach_community_title(community.title)
+    search_with_term(community.title)
     assert_equal true, page.has_content?("Search Term: #{community.title}")
 
     assert_selector "h2", text: community.title
@@ -36,17 +36,10 @@ class CommunitiesTest < ApplicationSystemTestCase
 
     assert_selector "h2", text: community.title
 
-    serach_community_title('invalid')
+    search_with_term('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that community
     refute_selector "h2", text: community.title
-  end
-
-  private
-
-  def serach_community_title(title)
-    fill_in 'search_term', with: title
-    click_button 'Search'
   end
 end

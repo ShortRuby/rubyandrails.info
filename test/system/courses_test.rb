@@ -25,7 +25,7 @@ class CoursesTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: course.title
 
-    serach_course_title(course.title)
+    search_with_term(course.title)
     assert_equal true, page.has_content?("Search Term: #{course.title}")
 
     assert_selector "h3", text: course.title
@@ -37,17 +37,10 @@ class CoursesTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: course.title
 
-    serach_course_title('invalid')
+    search_with_term('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that course
     refute_selector "h3", text: course.title
-  end
-
-  private
-
-  def serach_course_title(title)
-    fill_in 'search_term', with: title
-    click_button 'Search'
   end
 end

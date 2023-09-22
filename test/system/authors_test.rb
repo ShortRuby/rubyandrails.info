@@ -25,7 +25,7 @@ class AuthorsTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: author.name
 
-    search_with_name(author.name)
+    search_with_term(author.name)
     assert_equal true, page.has_content?("Search Term: #{author.name}")
 
     assert_selector "h3", text: author.name
@@ -37,7 +37,7 @@ class AuthorsTest < ApplicationSystemTestCase
 
     assert_selector "h3", text: author.name
 
-    search_with_name('invalid')
+    search_with_term('invalid')
     assert_equal true, page.has_content?("Search Term: invalid")
 
     # Page should not have that author

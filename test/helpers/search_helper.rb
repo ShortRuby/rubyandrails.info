@@ -1,7 +1,7 @@
 module Helpers
   module SearchHelper
-    def search_with_name(name)
-      fill_in 'search_term', with: name
+    def search_with_term(term)
+      fill_in 'search_term', with: term
       click_button 'Search'
     end
   end

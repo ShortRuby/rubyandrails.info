@@ -223,7 +223,7 @@ GEM
     pundit (2.3.0)
       activesupport (>= 3.0.0)
     racc (1.7.1)
-    rack (2.2.8)
+    rack (2.2.8.1)
     rack-canonical-host (1.1.0)
       addressable (> 0, < 3)
       rack (>= 1.0.0, < 3)
